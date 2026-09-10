@@ -1,0 +1,91 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<div class="bottom-compliance-bar" aria-label="Regulatory Compliance & Legal">
+  <div class="container bottom-content">
+    <!-- Compliance Standards -->
+    <div class="compliance-tags">
+      <span class="tag">ISO 9001:2015 (QAIC/IN/1103-A)</span>
+      <span class="sep" aria-hidden="true">•</span>
+      <span class="tag">PED 2014/68/EU Annex I</span>
+      <span class="sep" aria-hidden="true">•</span>
+      <span class="tag">IBR 1950 Certified</span>
+      <span class="sep" aria-hidden="true">•</span>
+      <span class="tag">NACE MR0175 / ISO 15156</span>
+    </div>
+
+    <!-- Copyright & Sitemap -->
+    <div class="legal-links">
+      <span class="copyright">&copy; {currentYear} Bhansali Metals. All Rights Reserved.</span>
+      <a href="/sitemap-index.xml" class="legal-link">XML Sitemap</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .bottom-compliance-bar {
+    /* Same navy family as the footer slab above it. Was a pure-neutral #121212
+       with a #242424 hairline, which read as a seam against the blue-tinted
+       slab rather than a deliberate band. */
+    background-color: var(--color-slab-deep);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 1rem 0;
+    font-size: 0.6875rem; /* 11px */
+    color: var(--on-ink-faint);
+  }
+
+  .bottom-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .compliance-tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    color: var(--on-ink-faint);
+  }
+
+  .sep {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .legal-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .copyright {
+    color: var(--on-ink-faint);
+  }
+
+  .legal-link {
+    color: var(--on-ink-faint);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .legal-link:hover {
+    color: var(--color-primary-bright);
+  }
+
+  @media (max-width: 768px) {
+    .bottom-content {
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+    }
+    .compliance-tags {
+      justify-content: center;
+    }
+  }
+</style>

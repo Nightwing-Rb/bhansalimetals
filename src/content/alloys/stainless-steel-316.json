@@ -1,0 +1,90 @@
+{
+  "title": "Stainless Steel 316 (UNS S31600 / W.Nr. 1.4401)",
+  "grade": "SS 316",
+  "family": "Stainless Steel",
+  "familyDisplayName": "Austenitic Stainless Steel",
+  "metallurgy": "Molybdenum Bearing Austenitic Stainless Steel",
+  "uns": "UNS S31600",
+  "unsNumber": "UNS S31600",
+  "wnr": "1.4401",
+  "werkstoffNumber": "1.4401",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A312",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A403"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-312",
+    "SA-182",
+    "SA-276",
+    "SA-403"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Stainless Steel 316 Flanges, Pipes & Marine Fittings | Bhansali Metals",
+  "metaDescription": "Molybdenum-bearing SS 316 (UNS S31600 / 1.4401) flanges, valves, seamless tubes, and fittings from Bhansali Metals Mumbai with EN 10204 3.1 MTC guarantee.",
+  "summary": "Grade 316 is the second most common austenitic stainless steel. The addition of 2.0 to 3.0% molybdenum provides significantly improved corrosion resistance compared to grade 304, especially pitting and crevice resistance in chloride environments.",
+  "keyFeatures": [
+    "Contains 2.0-3.0% molybdenum for enhanced pitting resistance",
+    "Higher creep, stress-rupture, and tensile strength at high temperatures",
+    "Resistant to sulfuric, acetic, formic, and tartaric acid solutions",
+    "Standard grade for marine equipment and coastal architectural systems"
+  ],
+  "corrosionResistance": "Substantially more resistant to sulfuric acid, sulfurous acids, chlorides, and ocean atmospheres than grade 304.",
+  "applications": [
+    "Chemical and petrochemical processing columns and heat exchangers",
+    "Marine fittings, boat hardware, and offshore platform structures",
+    "Pharmaceutical processing cleanroom piping and surgical tools",
+    "Food preparation equipment exposed to high chloride food processing"
+  ],
+  "chemicalComposition": {
+    "Cr": "16.00 - 18.00",
+    "Ni": "10.00 - 14.00",
+    "Mo": "2.00 - 3.00",
+    "C": "0.08 max",
+    "Mn": "2.00 max",
+    "Si": "0.75 max",
+    "P": "0.045 max",
+    "S": "0.030 max",
+    "N": "0.10 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "515 min",
+      "ksi": "74.7 min"
+    },
+    "yieldStrength": {
+      "mpa": "205 min",
+      "ksi": "29.7 min"
+    },
+    "elongation": "40% min",
+    "hardness": "BHN 217 max / HRB 95 max",
+    "density": {
+      "metric": "8.02 g/cm³",
+      "imperial": "0.290 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1375 - 1400 °C",
+      "fahrenheit": "2500 - 2550 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z7CND17-11-02",
+    "DIN": "W.Nr. 1.4401",
+    "JIS": "SUS 316",
+    "EN": "X5CrNiMo17-12-2"
+  }
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <rect width="600" height="400" fill="#f7f7f7" rx="8"/>
+  <text x="300" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1a1a1a">ASME B16.9 PIPE END CAP SCHEMATIC</text>
+  <text x="300" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#636363">Outer Diameter (OD), Height (E), and Wall Thickness (t)</text>
+
+  <!-- Cap Dome Profile -->
+  <path d="M 220 300 L 220 220 C 220 140 380 140 380 220 L 380 300" fill="#ffffff" stroke="#024ad8" stroke-width="3"/>
+  <path d="M 245 300 L 245 220 C 245 165 355 165 355 220 L 355 300" fill="none" stroke="#1a1a1a" stroke-width="1.8"/>
+
+  <!-- Centerline -->
+  <line x1="300" y1="100" x2="300" y2="340" stroke="#ff5050" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Outer Diameter OD -->
+  <line x1="220" y1="330" x2="380" y2="330" stroke="#1a1a1a" stroke-width="1.5"/>
+  <polygon points="220,327 210,330 220,333" fill="#1a1a1a"/>
+  <polygon points="380,327 390,330 380,333" fill="#1a1a1a"/>
+  <text x="300" y="355" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">OD (Outer Diameter)</text>
+
+  <!-- Overall Height E -->
+  <line x1="420" y1="140" x2="420" y2="300" stroke="#024ad8" stroke-width="1.5"/>
+  <polygon points="417,140 420,130 423,140" fill="#024ad8"/>
+  <polygon points="417,300 420,310 423,300" fill="#024ad8"/>
+  <text x="455" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#024ad8">E (Length)</text>
+
+  <!-- Thickness t -->
+  <text x="210" y="260" text-anchor="end" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#024ad8">t (Wall)</text>
+</svg>

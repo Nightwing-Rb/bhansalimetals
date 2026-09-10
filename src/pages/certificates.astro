@@ -1,0 +1,801 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Badge from '../components/common/Badge.astro';
+import Button from '../components/common/Button.astro';
+import TpiGrid from '../components/trust/TpiGrid.astro';
+import { siteConfig } from '../data/site';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Certifications', url: '/certificates' },
+];
+
+const certificateCards = [
+  {
+    id: 'iso-9001',
+    title: 'ISO 9001:2015 Quality Management System',
+    regNo: siteConfig.certifications.isoRegNo, // QAIC/IN/1103-A
+    registrar: 'QA International Certification Limited (UKAS Accredited)',
+    badge: 'ISO 9001:2015 Certified',
+    badgeVariant: 'status-green' as const,
+    standard: 'BS EN ISO 9001:2015 / ISO 9001:2015',
+    scope: 'Stockholding, procurement, precision processing, and worldwide supply of High Nickel Superalloys (Inconel, Monel, Hastelloy, Nickel), Stainless Steel, and Duplex Alloy Pipes, Tubes, Flanges, Buttweld Fittings, Forged Fittings, Fasteners, and Round Bars.',
+    highlights: [
+      'Strict quality audit protocols across procurement and dispatch',
+      'Full traceability from billet to finished piping component',
+      'Systematic calibration of PMI and dimensional testing tools',
+      'Continuous annual surveillance and UKAS accreditation',
+    ],
+  },
+  {
+    id: 'ped-2014-68-eu',
+    title: 'Pressure Equipment Directive (PED 2014/68/EU)',
+    regNo: 'PED 2014/68/EU Annex I, Para 4.3',
+    registrar: 'European Notified Body Authorized Verification',
+    badge: 'PED 2014/68/EU Compliant',
+    badgeVariant: 'soft-blue' as const,
+    standard: 'Directive 2014/68/EU Annex I Essential Safety Requirements',
+    scope: 'Certified material supplier for pressurized systems, pressure vessels, boilers, and severe service industrial piping. Meets all European Union safety criteria for high-pressure metallurgical integrity.',
+    highlights: [
+      'Annex I Paragraph 4.3 certified material manufacturer / supplier',
+      'Impact test verification at sub-zero temperatures (-46°C to -196°C)',
+      'Specific mechanical test records for elongation and ductile transition',
+      'Mandatory CE compliance documentation for European exports',
+    ],
+  },
+  {
+    id: 'ibr-1950',
+    title: 'Indian Boiler Regulations (IBR 1950)',
+    regNo: 'IBR 1950 Approved Well Known Stockist',
+    registrar: 'Central Boilers Board (Ministry of Heavy Industries)',
+    badge: 'IBR Approved Stockist',
+    badgeVariant: 'status-green' as const,
+    standard: 'Indian Boiler Regulations, 1950 (Statutory Framework)',
+    scope: 'Approved stockist and supplier of certified high-temperature alloy steel and stainless steel boiler tubes, steam pipelines, forged flanges, and fittings for high-pressure steam installations.',
+    highlights: [
+      'Form III-G / Form III-A inspection certificates provided with heat trace',
+      'Approved for critical thermal power plants and boiler installations',
+      'Hydraulic test compliance stamped and endorsed by IBR Directorate',
+      'Comprehensive chemical composition and tensile test compliance',
+    ],
+  },
+  {
+    id: 'nace-mr0175',
+    title: 'NACE MR0175 / ISO 15156 Sour Service Compliance',
+    regNo: 'NACE MR0175 / ISO 15156 Level II / III',
+    registrar: 'Metallurgical Laboratory Sulfide Stress Cracking Verification',
+    badge: 'NACE MR0175 Compliant',
+    badgeVariant: 'outline' as const,
+    standard: 'NACE MR0175 / ISO 15156 Petroleum & Natural Gas Industries',
+    scope: 'Materials for use in H2S-containing environments in oil and gas production. Materials undergo rigorous hardness restrictions (HRC 22 max / 28 max) and microstructural examination to prevent Sulfide Stress Cracking (SSC).',
+    highlights: [
+      'Inconel 625, Hastelloy C-276, and Super Duplex 2507 certified',
+      'HRC / HBW hardness verification on each production batch',
+      'Pitting Resistance Equivalent Number (PREN) >= 42 guaranteed',
+      'Intergranular corrosion (IGC) test per ASTM A262 Practice E/A',
+    ],
+  },
+  {
+    id: 'en-10204-mtc',
+    title: 'EN 10204 Type 3.1 & 3.2 Mill Test Certificates',
+    regNo: '100% Genuine MTC Guarantee',
+    registrar: 'Accredited Testing Laboratory & Mill Metallurgical Department',
+    badge: 'EN 10204 3.1 / 3.2 MTC',
+    badgeVariant: 'status-green' as const,
+    standard: 'EN 10204:2004 Metallic Products — Types of Inspection Documents',
+    scope: 'Every delivery includes an authentic EN 10204 Type 3.1 inspection certificate validated by the manufacturer’s authorized inspection representative. Type 3.2 co-inspection available with client or TPI agency.',
+    highlights: [
+      'Exact ladle chemistry analysis for all specified alloying elements',
+      'Room temperature and high-temperature tensile test results',
+      'Charpy V-Notch impact testing and Charpy energy values',
+      'Complete heat treatment cycle, holding temperatures, and quench medium',
+    ],
+  },
+];
+
+const inspectionSteps = [
+  {
+    step: '01',
+    title: 'Heat Number Inscription & Verification',
+    desc: 'Every pipe, flange, and fitting is hard-stamped or electro-chemically marked with heat number, alloy grade, size, schedule/class, and Bhansali Metals brand mark.',
+  },
+  {
+    step: '02',
+    title: 'Positive Material Identification (PMI)',
+    desc: 'Handheld Thermo Niton XRF Spectro analyzers verify the exact nickel, chromium, molybdenum, and copper percentages against mill test certificate values before release.',
+  },
+  {
+    step: '03',
+    title: 'Dimensional & Visual Calibration',
+    desc: 'Digital verniers, ultrasonic wall thickness gauges, and bore micrometers verify critical tolerances per ASME B16.5, ASME B16.9, and ASTM A312/B444.',
+  },
+  {
+    step: '04',
+    title: 'Independent Third-Party Clearance (TPI)',
+    desc: 'Witness testing and physical inspection conducted by Bureau Veritas, TÜV, Lloyd’s Register, EIL, DNV, or SGS upon client specification with dual-endorsed 3.2 MTC.',
+  },
+];
+---
+
+<BaseLayout
+  title="Quality Certifications | ISO 9001:2015 QAIC/IN/1103-A, PED & IBR | Bhansali Metals"
+  description="View Bhansali Metals certifications: ISO 9001:2015 registration QAIC/IN/1103-A, PED 2014/68/EU Annex I, IBR 1950, NACE MR0175, and EN 10204 3.1/3.2 MTC guarantees."
+  canonicalUrl="https://www.bhansalimetals.com/certificates"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Breadcrumb Bar -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">Certifications</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Section: Certificates Hero -->
+  <section class="band-canvas cert-hero">
+    <div class="container">
+      <div class="cert-hero-layout">
+        <div class="cert-hero-text" data-animate>
+          <div class="badge-strip">
+            <Badge variant="status-green">
+              <span>ISO 9001:2015 Certified</span>
+            </Badge>
+            <Badge variant="soft-blue">
+              <span>Certificate No: {siteConfig.certifications.isoRegNo}</span>
+            </Badge>
+            <Badge variant="outline">
+              <span>UKAS Accredited Registrar</span>
+            </Badge>
+          </div>
+
+          <h1 class="display-xl cert-title">
+            Statutory Certifications &amp; Metallurgical Accreditations
+          </h1>
+
+          <p class="lead cert-subtitle">
+            Bhansali Metals operates a rigorous quality management system certified under <strong>ISO 9001:2015 (Registration No: QAIC/IN/1103-A)</strong> by QA International Certification Limited. We deliver 100% verified materials compliant with European PED 2014/68/EU, Indian Boiler Regulations (IBR 1950), and NACE MR0175 sour service standards.
+          </p>
+
+          <div class="hero-actions">
+            <Button variant="primary" data-open-rfq>
+              Request Certified RFQ
+            </Button>
+            <a
+              href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I would like to request copy of ISO 9001:2015 certificate and MTC samples.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+            >
+              Verify via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-hero-seal-card card card-soft-lift" data-animate>
+          <div class="seal-inner">
+            <div class="seal-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+              </svg>
+            </div>
+            <span class="seal-standard">ISO 9001:2015</span>
+            <span class="seal-reg">QAIC/IN/1103-A</span>
+            <div class="seal-divider"></div>
+            <p class="seal-body">
+              Certified by QA International Certification Limited under UKAS accreditation for stockholding and distribution of high-performance piping and superalloys.
+            </p>
+            <div class="seal-badges">
+              <span class="pill-chip">PED 2014/68/EU</span>
+              <span class="pill-chip">IBR 1950</span>
+              <span class="pill-chip">EN 10204 3.1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Accredited Certification Cards -->
+  <section class="band-cloud cert-grid-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="eyebrow">Accredited Documents</span>
+        <h2 class="display-md">Audited Accreditations &amp; Regulatory Compliance</h2>
+        <p class="section-lead">
+          Our certifications confirm rigorous procedural discipline from material receipt at our Kalamboli logistics hub to final third-party witness release.
+        </p>
+      </div>
+
+      <div class="cert-cards-grid">
+        {certificateCards.map((cert) => (
+          <article class="cert-card card card-soft-lift" id={cert.id} data-animate>
+            <div class="cert-card-header">
+              <div class="cert-badge-row">
+                <Badge variant={cert.badgeVariant}>
+                  <span>{cert.badge}</span>
+                </Badge>
+                <span class="cert-reg-code">{cert.regNo}</span>
+              </div>
+              <h3 class="cert-card-title">{cert.title}</h3>
+              <p class="cert-registrar">
+                <strong>Issuing Authority:</strong> {cert.registrar}
+              </p>
+            </div>
+
+            <div class="cert-card-body">
+              <div class="cert-scope-block">
+                <span class="scope-label">Accredited Scope &amp; Purpose:</span>
+                <p class="scope-text">{cert.scope}</p>
+              </div>
+
+              <div class="cert-highlights-block">
+                <span class="scope-label">Compliance Highlights:</span>
+                <ul class="highlights-list">
+                  {cert.highlights.map((item) => (
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div class="cert-card-footer">
+              <div class="footer-meta">
+                <span class="meta-label">Governing Standard:</span>
+                <span class="meta-value">{cert.standard}</span>
+              </div>
+              <button class="btn btn-sharp btn-outline-sm" data-open-rfq data-product={cert.title}>
+                Request MTC / Certificate
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: 4-Step Material Verification Protocol -->
+  <section class="band-canvas verification-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="eyebrow">Quality Protocol</span>
+        <h2 class="display-md">4-Step Quality Verification &amp; Document Traceability</h2>
+        <p class="section-lead">
+          From incoming raw billet to sea-container export packing, every material follows an uninterrupted chain of custody.
+        </p>
+      </div>
+
+      <div class="verification-grid">
+        {inspectionSteps.map((step) => (
+          <div class="step-card card card-soft-lift" data-animate>
+            <span class="step-num">{step.step}</span>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Third Party Inspection Authorities (TPI) -->
+  <section class="band-fog tpi-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="eyebrow">Independent Verification</span>
+        <h2 class="display-md">Approved Third-Party Inspection Agencies (TPI)</h2>
+        <p class="section-lead">
+          We maintain open testing protocols and routine clearance approvals from the world’s foremost inspection societies. Material can be inspected under your designated agency prior to dispatch.
+        </p>
+      </div>
+
+      <div class="tpi-wrapper" data-animate>
+        <TpiGrid />
+      </div>
+
+      <div class="tpi-cta-card card card-soft-lift" data-animate>
+        <div class="tpi-cta-content">
+          <h3 class="tpi-cta-title">Require 3.2 Co-Inspection by Your Client’s Appointed Surveyor?</h3>
+          <p class="tpi-cta-text">
+            We regularly coordinate with Bureau Veritas, TÜV, Lloyd’s Register, EIL, and DNV for stage-wise witness of hydrostatic pressure tests, ultrasonic examination, and tensile verification.
+          </p>
+        </div>
+        <div class="tpi-cta-action">
+          <Button variant="primary" data-open-rfq data-product="TPI Witness Request">
+            Coordinate TPI Inspection
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Closing Dark Slab -->
+  <section class="band-dark-gradient cert-closing">
+    <div class="container">
+      <div class="closing-layout" data-animate>
+        <div class="closing-text">
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Zero-Defect Commitment</span>
+          <h2 class="display-md" style="color: #fff;">Get Authenticated MTCs &amp; Technical Compliance With Every Order</h2>
+          <p class="lead" style="color: rgba(255,255,255,0.6);">
+            Partner with Mumbai’s trusted high-nickel and stainless steel stockist. Inquire today for certified pricing with complete documentation pack.
+          </p>
+        </div>
+        <div class="closing-actions">
+          <Button variant="primary" data-open-rfq>
+            Submit RFQ Document
+          </Button>
+          <a
+            href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I need an urgent quotation with EN 10204 3.1 MTC.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline-on-dark"
+          >
+            Direct Sales WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+    text-decoration: none;
+  }
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .breadcrumb-separator {
+    color: var(--color-graphite);
+  }
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  /* Cert Hero */
+  .cert-hero {
+    padding: 3.5rem 0;
+  }
+  .cert-hero-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .cert-hero-layout {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3.5rem;
+    }
+  }
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .cert-title {
+    color: var(--color-ink);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .cert-subtitle {
+    color: var(--color-charcoal);
+    margin-bottom: 2rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* Seal Card */
+  .cert-hero-seal-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+  .seal-inner {
+    text-align: center;
+  }
+  .seal-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    color: var(--color-primary);
+  }
+  .seal-standard {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+  .seal-reg {
+    display: inline-block;
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sharp);
+    margin-top: 0.375rem;
+  }
+  .seal-divider {
+    height: 1px;
+    background-color: var(--color-fog);
+    margin: 1.25rem 0;
+  }
+  .seal-body {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-charcoal);
+    margin: 0 0 1.25rem;
+  }
+  .seal-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .pill-chip {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.625rem;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-pill);
+    color: var(--color-ink);
+  }
+
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .eyebrow-bright {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-bright);
+    margin-bottom: 0.5rem;
+  }
+  .section-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-top: 0.75rem;
+  }
+
+  /* Cert Cards Grid */
+  .cert-grid-section {
+    padding: 4rem 0;
+  }
+  .cert-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  @media (min-width: 768px) {
+    .cert-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1200px) {
+    .cert-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .cert-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-soft-lift);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .cert-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 26, 26, 0.1);
+  }
+  .cert-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .cert-reg-code {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-graphite);
+    background-color: var(--color-cloud);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sharp);
+  }
+  .cert-card-title {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+  .cert-registrar {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    margin: 0 0 1rem;
+    line-height: 1.4;
+  }
+  .cert-card-body {
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
+  }
+  .scope-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-graphite);
+    margin-bottom: 0.375rem;
+  }
+  .scope-text {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-ink);
+    margin: 0 0 1rem;
+  }
+  .highlights-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .highlights-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    color: var(--color-charcoal);
+  }
+  .check-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .cert-card-footer {
+    border-top: 1px solid var(--color-fog);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .footer-meta {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+  }
+  .meta-value {
+    display: block;
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  /* Verification Steps */
+  .verification-section {
+    padding: 4.5rem 0;
+  }
+  .verification-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .verification-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .verification-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .step-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-soft-lift);
+    position: relative;
+  }
+  .step-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    opacity: 0.8;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .step-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+  .step-desc {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+
+  /* TPI Section */
+  .tpi-section {
+    padding: 4.5rem 0;
+  }
+  .tpi-wrapper {
+    margin-bottom: 2.5rem;
+  }
+  .tpi-cta-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .tpi-cta-card {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .tpi-cta-content {
+    max-width: 700px;
+  }
+  .tpi-cta-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+  }
+  .tpi-cta-text {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+  .tpi-cta-action {
+    flex-shrink: 0;
+  }
+
+  /* Closing Ink Slab */
+  .cert-closing {
+    background-color: var(--color-ink);
+    padding: 4.5rem 0;
+  }
+  .closing-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .closing-layout {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .closing-text {
+    max-width: 680px;
+  }
+  .text-on-ink {
+    color: var(--color-on-ink);
+    margin: 0 0 1rem;
+  }
+  .text-on-ink-secondary {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .closing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Buttons */
+  .btn-bright {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-bright);
+    color: var(--color-on-primary-bright);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-sharp);
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+  .btn-bright:hover {
+    background-color: var(--color-primary-bright-hover);
+  }
+  .btn-sharp {
+    border-radius: var(--radius-sharp);
+  }
+  .btn-outline-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-outline-sm:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+</style>

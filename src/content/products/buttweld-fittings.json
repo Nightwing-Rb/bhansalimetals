@@ -1,0 +1,102 @@
+{
+  "title": "Buttweld Fittings",
+  "category": "buttweld-fittings",
+  "tagline": "Precision Engineered Elbows, Tees, Reducers & Caps per ASME B16.9",
+  "shortDescription": "Bhansali Metals manufactures precision seamless and welded buttweld pipe fittings in high nickel alloys, stainless steel, and duplex steel with full material traceability.",
+  "metaTitle": "ASME B16.9 Buttweld Fittings Manufacturer Mumbai | Bhansali Metals",
+  "metaDescription": "Precision buttweld elbows (45/90°), equal/reducing tees, concentric/eccentric reducers, and caps in Inconel, Hastelloy, Monel & SS from Bhansali Metals Mumbai.",
+  "sizeRange": "1/2\" NB to 36\" NB (DN15 to DN900; Sch 5S to Sch XXS)",
+  "pressureRatings": [
+    "Sch 5S",
+    "Sch 10S",
+    "Sch 40S",
+    "Sch 80S",
+    "Sch 160",
+    "Sch XXS"
+  ],
+  "applicableStandards": [
+    "ASME B16.9",
+    "ASME B16.28",
+    "MSS SP-43",
+    "DIN 2605",
+    "DIN 2615",
+    "DIN 2616",
+    "EN 10253"
+  ],
+  "forms": [
+    "45° Elbow",
+    "90° Elbow",
+    "180° Return",
+    "Equal Tee",
+    "Reducing Tee",
+    "Concentric Reducer",
+    "Eccentric Reducer",
+    "Cap",
+    "Stub End"
+  ],
+  "subTypes": [
+    {
+      "name": "90° Long & Short Radius Elbow",
+      "abbreviation": "90E",
+      "description": "Directional piping component for 90° line redirection. Long radius (1.5D) minimizes friction losses; short radius (1.0D) optimizes compact skid layouts."
+    },
+    {
+      "name": "45° Long Radius Elbow",
+      "abbreviation": "45E",
+      "description": "Directional fitting changing fluid line path by 45 degrees with smooth low-turbulence flow."
+    },
+    {
+      "name": "Equal & Straight Tee",
+      "abbreviation": "TEE",
+      "description": "T-shaped branch connection providing a 90-degree branch of the identical nominal pipe diameter."
+    },
+    {
+      "name": "Reducing Tee",
+      "abbreviation": "RTEE",
+      "description": "Branch connection providing a stepped-down branch pipe diameter while maintaining full run flow."
+    },
+    {
+      "name": "Concentric Reducer",
+      "abbreviation": "CR",
+      "description": "Cone-shaped transition between pipes of differing nominal sizes aligned along a common center line."
+    },
+    {
+      "name": "Eccentric Reducer",
+      "abbreviation": "ER",
+      "description": "Asymmetric conical fitting maintaining a flat bottom or flat top, preventing air pocket accumulation in horizontal pump suction lines."
+    },
+    {
+      "name": "Pipe End Cap",
+      "abbreviation": "CAP",
+      "description": "Ellipsoidal protective end closure welded directly to the pipe terminus to permanently seal process lines."
+    },
+    {
+      "name": "Lap Joint Stub End",
+      "abbreviation": "STUB",
+      "description": "Flanged sleeve fitting paired with loose backing lap-joint flanges to ease bolt alignment in tight spaces."
+    }
+  ],
+  "compatibleAlloys": [
+    "inconel-625",
+    "inconel-600",
+    "incoloy-800",
+    "incoloy-825",
+    "monel-400",
+    "hastelloy-c276",
+    "hastelloy-c22",
+    "stainless-steel-304l",
+    "stainless-steel-316l",
+    "duplex-2205",
+    "super-duplex-2507"
+  ],
+  "manufacturingProcess": "Hot mandrel pushing for seamless elbows, hydraulic cold press forming for tees and reducers, full solution annealing heat treatment, and precision CNC end beveling per ASME B16.25.",
+  "qualityInspection": [
+    "EN 10204 3.1 Mill Test Certificate (MTC)",
+    "Liquid Penetrant Examination (PT) of weld preps",
+    "Ultrasonic Thickness Measurement across extruded crotch zones",
+    "100% Dimensional Inspection against ASME B16.9 tolerances",
+    "PMI Spectrometry Verification"
+  ],
+  "heroImage": "/images/products/buttweld-fittings.svg",
+  "schematicSvg": "/images/schematics/butt-weld-elbow.svg"
+}

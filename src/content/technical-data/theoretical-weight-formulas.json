@@ -1,0 +1,138 @@
+{
+  "title": "Theoretical Metal Weight Calculation Formulas & Density Engine",
+  "standard": "ASTM / ASME / ISO Density Standards",
+  "category": "weight-formulas",
+  "metaTitle": "Theoretical Metal Weight Calculation Formulas | Bhansali Metals",
+  "metaDescription": "Mathematical formulas and calculator for calculating theoretical weights of stainless steel, carbon steel, and nickel alloy pipes, round bars, sheets, and circles.",
+  "description": "Complete reference of 14 standardized mathematical formulas for calculating theoretical weights of metal pipes, tubes, round bars, plates, sheets, flats, and hollow sections across Stainless Steel, High Nickel Alloys, and Carbon Steel.",
+  "downloadablePdf": "/downloads/theoretical-metal-weight-formulas-bhansali.pdf",
+  "tableHeaders": [
+    "Form / Product",
+    "Material",
+    "Mathematical Formula",
+    "Unit",
+    "Density (g/cm³)",
+    "Variables"
+  ],
+  "rows": [
+    {
+      "Form / Product": "SS Round Bar",
+      "Material": "Stainless Steel (All Grades)",
+      "Mathematical Formula": "OD * OD * 0.00623",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "7.93 - 8.00",
+      "Variables": "OD = Outside Diameter in mm"
+    },
+    {
+      "Form / Product": "CS Round Bar",
+      "Material": "Carbon Steel / Mild Steel",
+      "Mathematical Formula": "OD * OD * 0.006165",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "7.85",
+      "Variables": "OD = Outside Diameter in mm"
+    },
+    {
+      "Form / Product": "Hexagonal Bar",
+      "Material": "Stainless & Alloy Steel",
+      "Mathematical Formula": "AF * AF * 0.00679",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "7.93",
+      "Variables": "AF = Across Flats in mm"
+    },
+    {
+      "Form / Product": "Square Bar",
+      "Material": "Stainless & Carbon Steel",
+      "Mathematical Formula": "Side * Side * 0.00787",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "7.93",
+      "Variables": "Side = Width in mm"
+    },
+    {
+      "Form / Product": "SS 304 Sheet",
+      "Material": "Stainless Steel 304 / 304L",
+      "Mathematical Formula": "Length * Width * Thickness * 8.0",
+      "Unit": "kg/piece",
+      "Density (g/cm³)": "8.00",
+      "Variables": "Length & Width in m, Thickness in mm"
+    },
+    {
+      "Form / Product": "SS 316 Sheet",
+      "Material": "Stainless Steel 316 / 316L",
+      "Mathematical Formula": "Length * Width * Thickness * 8.02",
+      "Unit": "kg/piece",
+      "Density (g/cm³)": "8.02",
+      "Variables": "Length & Width in m, Thickness in mm"
+    },
+    {
+      "Form / Product": "CS Sheet",
+      "Material": "Carbon Steel Plates",
+      "Mathematical Formula": "Length * Width * Thickness * 7.85",
+      "Unit": "kg/piece",
+      "Density (g/cm³)": "7.85",
+      "Variables": "Length & Width in m, Thickness in mm"
+    },
+    {
+      "Form / Product": "SS 304 Pipe",
+      "Material": "Stainless Steel 304 Seamless",
+      "Mathematical Formula": "(OD - WT) * WT * 0.02491",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "8.00",
+      "Variables": "OD & WT in mm"
+    },
+    {
+      "Form / Product": "SS 316 Pipe",
+      "Material": "Stainless Steel 316 Seamless",
+      "Mathematical Formula": "(OD - WT) * WT * 0.02507",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "8.02",
+      "Variables": "OD & WT in mm"
+    },
+    {
+      "Form / Product": "CS Pipe",
+      "Material": "Carbon Steel Seamless / Welded",
+      "Mathematical Formula": "(OD - WT) * WT * 0.02466",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "7.85",
+      "Variables": "OD & WT in mm"
+    },
+    {
+      "Form / Product": "Flat Bar",
+      "Material": "Stainless & Alloy Steel",
+      "Mathematical Formula": "Width * Thickness * 0.00785",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "7.93",
+      "Variables": "Width & Thickness in mm"
+    },
+    {
+      "Form / Product": "Circle / Blank",
+      "Material": "Stainless Steel Circles",
+      "Mathematical Formula": "OD * OD * Thickness * 0.00000623",
+      "Unit": "kg/piece",
+      "Density (g/cm³)": "8.00",
+      "Variables": "OD & Thickness in mm"
+    },
+    {
+      "Form / Product": "Copper Sheet",
+      "Material": "Pure Copper / Cu-Ni Alloys",
+      "Mathematical Formula": "Length * Width * Thickness * 8.9",
+      "Unit": "kg/piece",
+      "Density (g/cm³)": "8.90",
+      "Variables": "Length & Width in m, Thickness in mm"
+    },
+    {
+      "Form / Product": "Nickel Alloy Pipe",
+      "Material": "Inconel 625, Monel 400, Hastelloy",
+      "Mathematical Formula": "(OD - WT) * WT * 0.0276",
+      "Unit": "kg/m",
+      "Density (g/cm³)": "8.44 - 8.90",
+      "Variables": "OD & WT in mm"
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "SS Round Bar formula computes OD * OD * 0.00623 kg/m for stainless steel.",
+    "SS Sheet formula computes Length (m) * Width (m) * Thickness (mm) * 8.0 for SS 304 and 8.02 for SS 316.",
+    "Seamless Pipe formula computes (OD - WT) * WT * 0.02491 kg/m for SS 304.",
+    "Zero dimension inputs guard against division by zero errors."
+  ]
+}

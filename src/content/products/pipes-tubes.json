@@ -1,0 +1,98 @@
+{
+  "title": "Pipes & Tubes (Seamless & Welded)",
+  "category": "pipes-tubes",
+  "tagline": "High-Integrity Piping Solutions in Nickel Superalloys and Stainless Steels",
+  "shortDescription": "Bhansali Metals manufactures and supplies seamless and welded industrial pipes and tubes engineered for high-temperature, cryogenic, and corrosive process applications.",
+  "metaTitle": "Seamless & Welded Pipes & Tubes Manufacturer Mumbai | Bhansali Metals",
+  "metaDescription": "Premium seamless and welded pipes and tubes in Inconel 625, Hastelloy C-276, Monel 400, SS 316L, and Super Duplex 2507 from Bhansali Metals Mumbai.",
+  "sizeRange": "1/8\" NB to 36\" NB (OD: 6.0mm to 914.4mm; WT: 0.5mm to 60mm)",
+  "pressureRatings": [
+    "Sch 5S",
+    "Sch 10S",
+    "Sch 10",
+    "Sch 20",
+    "Sch 30",
+    "Sch 40S",
+    "Sch 40",
+    "STD",
+    "Sch 60",
+    "Sch 80S",
+    "Sch 80",
+    "XS",
+    "Sch 100",
+    "Sch 120",
+    "Sch 140",
+    "Sch 160",
+    "XXS"
+  ],
+  "applicableStandards": [
+    "ASTM B167",
+    "ASTM B444",
+    "ASTM B163",
+    "ASTM B165",
+    "ASTM B622",
+    "ASTM A312",
+    "ASTM A213",
+    "ASTM A269",
+    "ASTM A790",
+    "ASME SB-167",
+    "ASME SB-444",
+    "ASME SA-312"
+  ],
+  "forms": [
+    "Seamless",
+    "Welded",
+    "ERW",
+    "EFW"
+  ],
+  "subTypes": [
+    {
+      "name": "Seamless Pipes & Tubes",
+      "description": "Manufactured through hot extrusion and cold pilgering without any weld seam, offering maximum pressure integrity and fatigue resistance."
+    },
+    {
+      "name": "Welded Pipes (ERW / EFW)",
+      "description": "Formed from rolled strip or plate and automatically welded using continuous TIG or plasma arc welding with 100% radiographic inspection."
+    },
+    {
+      "name": "Heat Exchanger & Condenser Tubes",
+      "description": "High-precision bright-annealed U-tubes and straight tubes calibrated for optimal heat transfer and pressure containment."
+    },
+    {
+      "name": "Instrumentation & Capillary Tubing",
+      "description": "Cold-drawn micro-bore tubes with mirror-like inner diameter finish for high-pressure hydraulic and instrumentation hook-ups."
+    }
+  ],
+  "compatibleAlloys": [
+    "inconel-600",
+    "inconel-625",
+    "inconel-718",
+    "incoloy-800",
+    "incoloy-825",
+    "monel-400",
+    "monel-k500",
+    "hastelloy-c276",
+    "nickel-200",
+    "nickel-201",
+    "stainless-steel-304",
+    "stainless-steel-304l",
+    "stainless-steel-316",
+    "stainless-steel-316l",
+    "stainless-steel-321",
+    "stainless-steel-310s",
+    "stainless-steel-347",
+    "stainless-steel-904l",
+    "duplex-2205",
+    "super-duplex-2507"
+  ],
+  "manufacturingProcess": "Hot piercing, cold drawing on precision benches, cold pilgering, continuous hydrogen bright annealing, straightening, and pickling/passivation.",
+  "qualityInspection": [
+    "EN 10204 3.1 Mill Test Certificate (MTC)",
+    "Hydrostatic Pressure Testing (up to 500 bar)",
+    "100% Non-Destructive Eddy Current Testing",
+    "Radiographic Testing (RT) of longitudinal weld seams",
+    "Intergranular Corrosion Testing per ASTM A262 Practice E"
+  ],
+  "heroImage": "/images/products/pipes-tubes.svg",
+  "schematicSvg": "/images/schematics/pipe-fitting.svg"
+}

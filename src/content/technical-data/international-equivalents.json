@@ -1,0 +1,199 @@
+{
+  "title": "International Standard Equivalence Matrix (ASTM / DIN / UNS / JIS / EN)",
+  "standard": "ASTM / DIN / UNS / JIS / EN / AFNOR",
+  "category": "metallurgical-data",
+  "metaTitle": "International Alloy Grade Equivalence Chart | Bhansali Metals",
+  "metaDescription": "Cross-reference matrix linking US UNS designations to German Werkstoff numbers, European EN standards, Japanese JIS grades, and French AFNOR specs.",
+  "description": "Comprehensive cross-reference table mapping ASTM/UNS grades to Werkstoff (W.Nr.), DIN, European EN, Japanese JIS, and French AFNOR equivalents for seamless engineering procurement.",
+  "downloadablePdf": "/downloads/international-grade-equivalents-bhansali.pdf",
+  "tableHeaders": [
+    "Common Name",
+    "UNS Code",
+    "Werkstoff / DIN",
+    "EN Designation",
+    "JIS Standard",
+    "AFNOR"
+  ],
+  "rows": [
+    {
+      "Common Name": "Inconel 625",
+      "UNS Code": "UNS N06625",
+      "Werkstoff / DIN": "W.Nr. 2.4856",
+      "EN Designation": "NiCr22Mo9Nb",
+      "JIS Standard": "NCF 625",
+      "AFNOR": "NC22FeDNb"
+    },
+    {
+      "Common Name": "Inconel 600",
+      "UNS Code": "UNS N06600",
+      "Werkstoff / DIN": "W.Nr. 2.4816",
+      "EN Designation": "NiCr15Fe",
+      "JIS Standard": "NCF 600",
+      "AFNOR": "NC15Fe"
+    },
+    {
+      "Common Name": "Inconel 718",
+      "UNS Code": "UNS N07718",
+      "Werkstoff / DIN": "W.Nr. 2.4668",
+      "EN Designation": "NiCr19Fe19Nb5Mo3",
+      "JIS Standard": "NCF 718",
+      "AFNOR": "NC19FeNb"
+    },
+    {
+      "Common Name": "Incoloy 800",
+      "UNS Code": "UNS N08800",
+      "Werkstoff / DIN": "W.Nr. 1.4876",
+      "EN Designation": "X10NiCrAlTi32-20",
+      "JIS Standard": "NCF 800",
+      "AFNOR": "Z8NC32-21"
+    },
+    {
+      "Common Name": "Incoloy 825",
+      "UNS Code": "UNS N08825",
+      "Werkstoff / DIN": "W.Nr. 2.4858",
+      "EN Designation": "NiCr21Mo",
+      "JIS Standard": "NCF 825",
+      "AFNOR": "NC21FeDU"
+    },
+    {
+      "Common Name": "Monel 400",
+      "UNS Code": "UNS N04400",
+      "Werkstoff / DIN": "W.Nr. 2.4360",
+      "EN Designation": "NiCu30Fe",
+      "JIS Standard": "NW 4400",
+      "AFNOR": "NU-30M"
+    },
+    {
+      "Common Name": "Monel K-500",
+      "UNS Code": "UNS N05500",
+      "Werkstoff / DIN": "W.Nr. 2.4375",
+      "EN Designation": "NiCu30Al",
+      "JIS Standard": "NW 5500",
+      "AFNOR": "NU-30A"
+    },
+    {
+      "Common Name": "Hastelloy C-276",
+      "UNS Code": "UNS N10276",
+      "Werkstoff / DIN": "W.Nr. 2.4819",
+      "EN Designation": "NiMo16Cr15W",
+      "JIS Standard": "NW 0276",
+      "AFNOR": "Ni-Mo16Cr"
+    },
+    {
+      "Common Name": "Hastelloy C-22",
+      "UNS Code": "UNS N06022",
+      "Werkstoff / DIN": "W.Nr. 2.4602",
+      "EN Designation": "NiCr21Mo14W",
+      "JIS Standard": "NW 6022",
+      "AFNOR": "NC21Mo"
+    },
+    {
+      "Common Name": "Hastelloy B-2",
+      "UNS Code": "UNS N10665",
+      "Werkstoff / DIN": "W.Nr. 2.4617",
+      "EN Designation": "NiMo28",
+      "JIS Standard": "NW 0665",
+      "AFNOR": "N-Mo28"
+    },
+    {
+      "Common Name": "Hastelloy X",
+      "UNS Code": "UNS N06002",
+      "Werkstoff / DIN": "W.Nr. 2.4665",
+      "EN Designation": "NiCr22Fe18Mo",
+      "JIS Standard": "NW 6002",
+      "AFNOR": "NC22FeD"
+    },
+    {
+      "Common Name": "Nickel 200",
+      "UNS Code": "UNS N02200",
+      "Werkstoff / DIN": "W.Nr. 2.4066",
+      "EN Designation": "Ni99.2",
+      "JIS Standard": "NW 2200",
+      "AFNOR": "Ni-99.2"
+    },
+    {
+      "Common Name": "Nickel 201",
+      "UNS Code": "UNS N02201",
+      "Werkstoff / DIN": "W.Nr. 2.4068",
+      "EN Designation": "LC-Ni99",
+      "JIS Standard": "NW 2201",
+      "AFNOR": "LC-Ni99"
+    },
+    {
+      "Common Name": "SS 304",
+      "UNS Code": "UNS S30400",
+      "Werkstoff / DIN": "W.Nr. 1.4301",
+      "EN Designation": "X5CrNi18-10",
+      "JIS Standard": "SUS 304",
+      "AFNOR": "Z7CN18-09"
+    },
+    {
+      "Common Name": "SS 304L",
+      "UNS Code": "UNS S30403",
+      "Werkstoff / DIN": "W.Nr. 1.4306",
+      "EN Designation": "X2CrNi19-11",
+      "JIS Standard": "SUS 304L",
+      "AFNOR": "Z3CN18-10"
+    },
+    {
+      "Common Name": "SS 316",
+      "UNS Code": "UNS S31600",
+      "Werkstoff / DIN": "W.Nr. 1.4401",
+      "EN Designation": "X5CrNiMo17-12-2",
+      "JIS Standard": "SUS 316",
+      "AFNOR": "Z7CND17-11-02"
+    },
+    {
+      "Common Name": "SS 316L",
+      "UNS Code": "UNS S31603",
+      "Werkstoff / DIN": "W.Nr. 1.4404",
+      "EN Designation": "X2CrNiMo17-12-2",
+      "JIS Standard": "SUS 316L",
+      "AFNOR": "Z3CND17-11-02"
+    },
+    {
+      "Common Name": "SS 321",
+      "UNS Code": "UNS S32100",
+      "Werkstoff / DIN": "W.Nr. 1.4541",
+      "EN Designation": "X6CrNiTi18-10",
+      "JIS Standard": "SUS 321",
+      "AFNOR": "Z6CNT18-10"
+    },
+    {
+      "Common Name": "SS 310S",
+      "UNS Code": "UNS S31008",
+      "Werkstoff / DIN": "W.Nr. 1.4845",
+      "EN Designation": "X8CrNi25-21",
+      "JIS Standard": "SUS 310S",
+      "AFNOR": "Z8CN25-20"
+    },
+    {
+      "Common Name": "SS 904L",
+      "UNS Code": "UNS N08904",
+      "Werkstoff / DIN": "W.Nr. 1.4539",
+      "EN Designation": "X1NiCrMoCu25-20-5",
+      "JIS Standard": "SUS 890L",
+      "AFNOR": "Z2NCDU25-20"
+    },
+    {
+      "Common Name": "Duplex 2205",
+      "UNS Code": "UNS S31803 / S32205",
+      "Werkstoff / DIN": "W.Nr. 1.4462",
+      "EN Designation": "X2CrNiMoN22-5-3",
+      "JIS Standard": "SUS 329J3L",
+      "AFNOR": "Z3CND22-05Az"
+    },
+    {
+      "Common Name": "Super Duplex 2507",
+      "UNS Code": "UNS S32750",
+      "Werkstoff / DIN": "W.Nr. 1.4410",
+      "EN Designation": "X2CrNiMoN25-7-4",
+      "JIS Standard": "SUS 329J4L",
+      "AFNOR": "Z3CND25-06Az"
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "Cross-reference standards are approximate equivalents with verified matching chemical & mechanical properties."
+  ]
+}

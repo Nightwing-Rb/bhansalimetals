@@ -1,0 +1,99 @@
+/* ==========================================================================
+   ENGINEERING & METALLURGICAL TABLES — APPLE GLASSMORPHISM STYLE
+   ========================================================================== */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-soft);
+  background-color: var(--color-canvas);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-soft-lift);
+  position: relative;
+}
+
+/* Mobile scroll fade indicators */
+@media (max-width: 768px) {
+  .table-container {
+    /* Subtle gradient fade on edges to indicate scrollability */
+    mask-image: linear-gradient(to right, transparent 0, #000 1rem, #000 calc(100% - 1rem), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 1rem, #000 calc(100% - 1rem), transparent 100%);
+  }
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+/* Sticky Header — Glass effect */
+.data-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-cloud);
+  color: var(--color-ink);
+  font-weight: var(--weight-display);
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  font-size: 0.8125rem;
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: background-color 200ms var(--ease-apple);
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.04);
+}
+
+.data-table td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+/* Monospace numerical data */
+.data-table td.num,
+.data-table .font-mono,
+.data-table td[data-numeric="true"] {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Dual Unit support */
+.data-table-container[data-unit="metric"] .unit-imperial {
+  display: none !important;
+}
+
+.data-table-container[data-unit="imperial"] .unit-metric {
+  display: none !important;
+}
+
+/* Table captions & notes */
+.table-notes {
+  padding: 10px 16px;
+  background-color: var(--color-cloud);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 0.8125rem;
+  color: var(--color-graphite);
+}

@@ -1,0 +1,106 @@
+{
+  "title": "Non-Ferrous Metals Theoretical Weights & Density Conversion Factors",
+  "standard": "ASTM Standards / Metals Handbook Desk Edition",
+  "category": "weight-formulas",
+  "metaTitle": "Non-Ferrous Metals Density & Weight Conversion | Bhansali Metals",
+  "metaDescription": "Density factors and weight multipliers for non-ferrous metals and high nickel alloys relative to stainless steel.",
+  "description": "Comprehensive density reference and weight conversion multipliers for high nickel superalloys, copper, brass, bronze, titanium, and aluminum relative to standard stainless steel (density 7.93 g/cm³).",
+  "downloadablePdf": "/downloads/non-ferrous-weights-bhansali.pdf",
+  "tableHeaders": [
+    "Metal / Alloy Family",
+    "Density (g/cm³)",
+    "Density (lb/in³)",
+    "Weight Factor vs SS 304",
+    "Standard Product Forms"
+  ],
+  "rows": [
+    {
+      "Metal / Alloy Family": "Stainless Steel 304 / 304L",
+      "Density (g/cm³)": 7.93,
+      "Density (lb/in³)": 0.286,
+      "Weight Factor vs SS 304": 1,
+      "Standard Product Forms": "Pipes, Flanges, Sheets, Bars"
+    },
+    {
+      "Metal / Alloy Family": "Stainless Steel 316 / 316L",
+      "Density (g/cm³)": 8,
+      "Density (lb/in³)": 0.289,
+      "Weight Factor vs SS 304": 1.009,
+      "Standard Product Forms": "Pipes, Flanges, Sheets, Bars"
+    },
+    {
+      "Metal / Alloy Family": "Inconel 625 (UNS N06625)",
+      "Density (g/cm³)": 8.44,
+      "Density (lb/in³)": 0.305,
+      "Weight Factor vs SS 304": 1.064,
+      "Standard Product Forms": "Pipes, Flanges, Fittings, Bars"
+    },
+    {
+      "Metal / Alloy Family": "Inconel 600 (UNS N06600)",
+      "Density (g/cm³)": 8.47,
+      "Density (lb/in³)": 0.306,
+      "Weight Factor vs SS 304": 1.068,
+      "Standard Product Forms": "Tubes, Flanges, Sheets, Bars"
+    },
+    {
+      "Metal / Alloy Family": "Monel 400 (UNS N04400)",
+      "Density (g/cm³)": 8.8,
+      "Density (lb/in³)": 0.318,
+      "Weight Factor vs SS 304": 1.11,
+      "Standard Product Forms": "Pipes, Fasteners, Plates, Bars"
+    },
+    {
+      "Metal / Alloy Family": "Hastelloy C-276 (UNS N10276)",
+      "Density (g/cm³)": 8.89,
+      "Density (lb/in³)": 0.321,
+      "Weight Factor vs SS 304": 1.121,
+      "Standard Product Forms": "Pipes, Flanges, Fittings, Plates"
+    },
+    {
+      "Metal / Alloy Family": "Nickel 200 (UNS N02200)",
+      "Density (g/cm³)": 8.89,
+      "Density (lb/in³)": 0.321,
+      "Weight Factor vs SS 304": 1.121,
+      "Standard Product Forms": "Pipes, Sheets, Rods"
+    },
+    {
+      "Metal / Alloy Family": "Pure Copper (C10100/C11000)",
+      "Density (g/cm³)": 8.94,
+      "Density (lb/in³)": 0.323,
+      "Weight Factor vs SS 304": 1.127,
+      "Standard Product Forms": "Pipes, Sheets, Busbars"
+    },
+    {
+      "Metal / Alloy Family": "Cu-Ni 90/10 (UNS C70600)",
+      "Density (g/cm³)": 8.94,
+      "Density (lb/in³)": 0.323,
+      "Weight Factor vs SS 304": 1.127,
+      "Standard Product Forms": "Condenser Tubes, Flanges"
+    },
+    {
+      "Metal / Alloy Family": "Cu-Ni 70/30 (UNS C71500)",
+      "Density (g/cm³)": 8.95,
+      "Density (lb/in³)": 0.323,
+      "Weight Factor vs SS 304": 1.129,
+      "Standard Product Forms": "Heat Exchanger Tubes"
+    },
+    {
+      "Metal / Alloy Family": "Titanium Grade 2 (UNS R50400)",
+      "Density (g/cm³)": 4.51,
+      "Density (lb/in³)": 0.163,
+      "Weight Factor vs SS 304": 0.569,
+      "Standard Product Forms": "Pipes, Plates, Round Bars"
+    },
+    {
+      "Metal / Alloy Family": "Aluminum 6061-T6",
+      "Density (g/cm³)": 2.7,
+      "Density (lb/in³)": 0.098,
+      "Weight Factor vs SS 304": 0.34,
+      "Standard Product Forms": "Extrusions, Plates, Tubes"
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "To calculate weight of any non-ferrous item, multiply theoretical SS 304 weight by the respective weight factor."
+  ]
+}

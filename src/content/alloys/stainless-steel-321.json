@@ -1,0 +1,90 @@
+{
+  "title": "Stainless Steel 321 (UNS S32100 / W.Nr. 1.4541)",
+  "grade": "SS 321",
+  "family": "Stainless Steel",
+  "familyDisplayName": "Austenitic Stainless Steel",
+  "metallurgy": "Titanium Stabilized Austenitic Stainless Steel",
+  "uns": "UNS S32100",
+  "unsNumber": "UNS S32100",
+  "wnr": "1.4541",
+  "werkstoffNumber": "1.4541",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A312",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A403"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-312",
+    "SA-182",
+    "SA-276",
+    "SA-403"
+  ],
+  "naceCompliance": false,
+  "metaTitle": "Stainless Steel 321 Heat Exchanger Pipes & High-Temp Flanges | Bhansali Metals",
+  "metaDescription": "Titanium-stabilized SS 321 (UNS S32100 / 1.4541) high-temperature pipes, flanges, and buttweld fittings from Bhansali Metals Mumbai with EN 10204 3.1 MTC.",
+  "summary": "Grade 321 is a titanium-stabilized austenitic stainless steel formulated to resist intergranular corrosion in the chromium carbide precipitation temperature range of 800°F to 1500°F (427°C to 816°C). It offers higher creep and stress-rupture properties than 304.",
+  "keyFeatures": [
+    "Titanium addition at least 5x(C+N) ties up carbon preventing chromium carbide formation",
+    "Immune to intergranular corrosion after prolonged elevated temperature exposure",
+    "Superior creep and stress-rupture properties compared to 304 and 304L",
+    "Maintains good mechanical toughness down to cryogenic temperatures"
+  ],
+  "corrosionResistance": "Equivalent corrosion resistance to 304 in the annealed condition, but superior in preventing intergranular attack when service involves heating between 427°C and 816°C.",
+  "applications": [
+    "Aircraft piston engine manifolds and jet engine exhaust components",
+    "Chemical expansion joints, thermal oxidizers, and furnace piping",
+    "Refinery catalytic cracking units and high-temperature steam piping",
+    "Boiler casings, superheater tubes, and radiant reheaters"
+  ],
+  "chemicalComposition": {
+    "Cr": "17.00 - 19.00",
+    "Ni": "9.00 - 12.00",
+    "Ti": "5x(C+N) min, 0.70 max",
+    "C": "0.08 max",
+    "Mn": "2.00 max",
+    "Si": "0.75 max",
+    "P": "0.045 max",
+    "S": "0.030 max",
+    "N": "0.10 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "515 min",
+      "ksi": "74.7 min"
+    },
+    "yieldStrength": {
+      "mpa": "205 min",
+      "ksi": "29.7 min"
+    },
+    "elongation": "40% min",
+    "hardness": "BHN 217 max / HRB 95 max",
+    "density": {
+      "metric": "7.92 g/cm³",
+      "imperial": "0.286 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1400 - 1427 °C",
+      "fahrenheit": "2550 - 2600 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z6CNT18-10",
+    "DIN": "W.Nr. 1.4541",
+    "JIS": "SUS 321",
+    "EN": "X6CrNiTi18-10"
+  }
+}

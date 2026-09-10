@@ -1,0 +1,99 @@
+{
+  "title": "ASME B16.9 Pipe End Caps Dimensions & Tolerances",
+  "standard": "ASME B16.9 / ASTM A403 / ASTM B366",
+  "category": "fittings-dimensions",
+  "metaTitle": "ASME B16.9 Pipe Caps Dimensions | Bhansali Metals",
+  "metaDescription": "Dimensional chart for ASME B16.9 ellipsoidal and dished buttweld pipe caps from 1/2 inch to 24 inch.",
+  "description": "Standard dimensional data for wrought buttweld pipe end caps used to permanently close pipe terminations.",
+  "downloadablePdf": "/downloads/asme-b16-9-cap-dimensions-bhansali.pdf",
+  "tableHeaders": [
+    "Nominal Pipe Size (NPS)",
+    "Outside Diameter (mm)",
+    "Length E (mm)",
+    "Thickness t (mm)",
+    "Approx Weight (kg)"
+  ],
+  "rows": [
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Outside Diameter (mm)": 21.3,
+      "Length E (mm)": 25,
+      "Thickness t (mm)": 2.77,
+      "Approx Weight (kg)": 0.05
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Outside Diameter (mm)": 26.7,
+      "Length E (mm)": 25,
+      "Thickness t (mm)": 2.87,
+      "Approx Weight (kg)": 0.08
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Outside Diameter (mm)": 33.4,
+      "Length E (mm)": 38,
+      "Thickness t (mm)": 3.38,
+      "Approx Weight (kg)": 0.14
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Outside Diameter (mm)": 48.3,
+      "Length E (mm)": 38,
+      "Thickness t (mm)": 3.68,
+      "Approx Weight (kg)": 0.28
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Outside Diameter (mm)": 60.3,
+      "Length E (mm)": 38,
+      "Thickness t (mm)": 3.91,
+      "Approx Weight (kg)": 0.45
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Outside Diameter (mm)": 88.9,
+      "Length E (mm)": 51,
+      "Thickness t (mm)": 5.49,
+      "Approx Weight (kg)": 1.1
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Outside Diameter (mm)": 114.3,
+      "Length E (mm)": 64,
+      "Thickness t (mm)": 6.02,
+      "Approx Weight (kg)": 1.85
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Outside Diameter (mm)": 168.3,
+      "Length E (mm)": 89,
+      "Thickness t (mm)": 7.11,
+      "Approx Weight (kg)": 4.6
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Outside Diameter (mm)": 219.1,
+      "Length E (mm)": 102,
+      "Thickness t (mm)": 8.18,
+      "Approx Weight (kg)": 8.2
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Outside Diameter (mm)": 273,
+      "Length E (mm)": 127,
+      "Thickness t (mm)": 9.27,
+      "Approx Weight (kg)": 14.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Outside Diameter (mm)": 323.8,
+      "Length E (mm)": 152,
+      "Thickness t (mm)": 10.31,
+      "Approx Weight (kg)": 21
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "End caps hydrostatically tested and certified with full EN 10204 3.1 MTC."
+  ]
+}

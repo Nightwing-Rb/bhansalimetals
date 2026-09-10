@@ -1,0 +1,123 @@
+{
+  "title": "Industrial Flanges",
+  "category": "flanges",
+  "tagline": "ASME B16.5 & B16.47 Precision Forged Flanges in High Nickel & Stainless Alloys",
+  "shortDescription": "Bhansali Metals manufactures and supplies precision forged industrial flanges in Inconel, Monel, Hastelloy, Stainless Steel, and Duplex grades across Class 150# to 2500#.",
+  "metaTitle": "ASME B16.5 Flanges Manufacturer Mumbai India | Bhansali Metals",
+  "metaDescription": "Leading manufacturer of ASME B16.5 Weld Neck (WNRF), Slip-On (SORF), and Blind (BLRF) flanges in Inconel, Monel, Hastelloy & Stainless Steel in Mumbai, India.",
+  "sizeRange": "1/2\" NB to 48\" NB (DN15 to DN1200)",
+  "pressureRatings": [
+    "Class 150",
+    "Class 300",
+    "Class 600",
+    "Class 900",
+    "Class 1500",
+    "Class 2500",
+    "PN6",
+    "PN10",
+    "PN16",
+    "PN25",
+    "PN40",
+    "PN64",
+    "PN100"
+  ],
+  "applicableStandards": [
+    "ASME B16.5",
+    "ASME B16.47 Series A & B",
+    "MSS SP-44",
+    "DIN EN 1092-1",
+    "BS 4504",
+    "JIS B2220"
+  ],
+  "forms": [
+    "Weld Neck (WNRF)",
+    "Slip-On (SORF)",
+    "Blind (BLRF)",
+    "Socket Weld (SWRF)",
+    "Threaded",
+    "Lap Joint",
+    "Ring Type Joint (RTJ)"
+  ],
+  "subTypes": [
+    {
+      "name": "Weld Neck Flange",
+      "abbreviation": "WNRF",
+      "description": "High-stress flanged joint with a long tapered hub welded to pipe, preferred for severe temperature and pressure cycling.",
+      "facingTypes": [
+        "Raised Face (RF)",
+        "Flat Face (FF)",
+        "Ring Type Joint (RTJ)"
+      ]
+    },
+    {
+      "name": "Slip-On Flange",
+      "abbreviation": "SORF",
+      "description": "Low installation cost flange that slips over the pipe before fillet welding both inside and outside.",
+      "facingTypes": [
+        "Raised Face (RF)",
+        "Flat Face (FF)"
+      ]
+    },
+    {
+      "name": "Blind Flange",
+      "abbreviation": "BLRF",
+      "description": "Solid forged disc used to seal piping system terminations, vessel nozzles, or test ports.",
+      "facingTypes": [
+        "Raised Face (RF)",
+        "Flat Face (FF)",
+        "Ring Type Joint (RTJ)"
+      ]
+    },
+    {
+      "name": "Socket Weld Flange",
+      "abbreviation": "SWRF",
+      "description": "Designed for high-pressure small-diameter piping with an internal socket shoulder and single fillet weld.",
+      "facingTypes": [
+        "Raised Face (RF)",
+        "Ring Type Joint (RTJ)"
+      ]
+    },
+    {
+      "name": "Threaded Flange",
+      "abbreviation": "THRF",
+      "description": "Bored with internal NPT or BSPT taper pipe threads for connection without field welding.",
+      "facingTypes": [
+        "Raised Face (RF)",
+        "Flat Face (FF)"
+      ]
+    },
+    {
+      "name": "Lap Joint Flange",
+      "abbreviation": "LJRF",
+      "description": "Loose backing flange used in conjunction with a stub end to facilitate easy bolt hole alignment.",
+      "facingTypes": [
+        "Flat Face (FF)"
+      ]
+    }
+  ],
+  "compatibleAlloys": [
+    "inconel-625",
+    "inconel-600",
+    "inconel-718",
+    "incoloy-800",
+    "incoloy-825",
+    "monel-400",
+    "hastelloy-c276",
+    "hastelloy-c22",
+    "stainless-steel-316l",
+    "stainless-steel-304l",
+    "duplex-2205",
+    "super-duplex-2507"
+  ],
+  "manufacturingProcess": "Precision closed-die and open-die hot forging from certified billets, heat treatment (solution annealing and water quenching), followed by high-precision CNC machining of gasket facings and bolt holes per ASME B16.5.",
+  "qualityInspection": [
+    "EN 10204 3.1 Mill Test Certificate (MTC)",
+    "Hydrostatic Pressure Testing",
+    "Positive Material Identification (PMI 100%)",
+    "Ultrasonic Examination (UT) per ASTM A388",
+    "Magnetic Particle Inspection (MPI) / Dye Penetrant (DP)",
+    "Third-Party Inspection by BV, TÜV India, Lloyd's Register, EIL, DNV, SGS"
+  ],
+  "heroImage": "/images/products/flanges.svg",
+  "schematicSvg": "/images/schematics/asme-b16-5-flange.svg"
+}

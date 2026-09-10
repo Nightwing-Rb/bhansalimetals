@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <rect width="600" height="400" fill="#f7f7f7" rx="8"/>
+  <text x="300" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1a1a1a">ASME B16.11 FORGED HIGH-PRESSURE 90° ELBOW</text>
+  <text x="300" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#636363">Socket Weld & Threaded (Class 3000# / 6000#)</text>
+
+  <!-- Heavy Forged Body -->
+  <path d="M 180 320 L 180 180 L 320 180 L 320 320 Z" fill="#ffffff" stroke="#024ad8" stroke-width="2.5" transform="translate(60, -30)"/>
+  <rect x="240" y="210" width="140" height="80" fill="#e8e8e8" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Socket Bore -->
+  <rect x="240" y="150" width="60" height="60" fill="#ffffff" stroke="#024ad8" stroke-width="1.5"/>
+  <rect x="320" y="230" width="60" height="60" fill="#ffffff" stroke="#024ad8" stroke-width="1.5"/>
+
+  <!-- Center-to-End A -->
+  <line x1="200" y1="150" x2="200" y2="290" stroke="#024ad8" stroke-width="1.5"/>
+  <polygon points="197,150 200,140 203,150" fill="#024ad8"/>
+  <polygon points="197,290 200,300 203,290" fill="#024ad8"/>
+  <text x="175" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#024ad8">A</text>
+
+  <line x1="240" y1="330" x2="380" y2="330" stroke="#024ad8" stroke-width="1.5"/>
+  <polygon points="240,327 230,330 240,333" fill="#024ad8"/>
+  <polygon points="380,327 390,330 380,333" fill="#024ad8"/>
+  <text x="310" y="355" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#024ad8">A (Center to End)</text>
+
+  <!-- Socket Depth J -->
+  <text x="420" y="265" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">J (Socket Depth)</text>
+  <text x="270" y="125" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">B (Socket Bore)</text>
+</svg>

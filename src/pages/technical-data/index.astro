@@ -1,0 +1,585 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Badge from '../../components/common/Badge.astro';
+import Button from '../../components/common/Button.astro';
+import { siteConfig } from '../../data/site';
+
+const technicalResources = [
+  {
+    title: 'ASME B16.5 Flange Dimensions & Bolt Hole Specifications',
+    slug: 'asme-b16-5-flanges',
+    category: 'Flange Tables',
+    standard: 'ASME B16.5 / ASTM A182 / ASTM B564',
+    desc: 'Complete outside diameter, thickness, bolt circle (BCD), number of holes, and approx weights across Class 150#, 300#, 600#, 900#, 1500#, and 2500# from 1/2" to 24" NB.',
+    icon: 'flange',
+    tag: 'Class 150 - 2500#'
+  },
+  {
+    title: 'ASME B36.10M & B36.19M Pipe Schedule Wall Thickness Chart',
+    slug: 'pipe-schedule-chart',
+    category: 'Pipe Schedules',
+    standard: 'ASME B36.10M / ASME B36.19M',
+    desc: 'Nominal pipe sizes 1/8" to 24"+ with outside diameter (OD), inside diameter (ID), wall thickness (t), and dual-unit theoretical weights (kg/m and lbs/ft) across Sch 10 to XXS.',
+    icon: 'pipe',
+    tag: 'Sch 10 to XXS'
+  },
+  {
+    title: 'Theoretical Metal Weight Calculation Formulas & Density Engine',
+    slug: 'theoretical-weight-formulas',
+    category: 'Weight Formulas',
+    standard: 'ASTM / ISO Densities',
+    desc: 'Mathematical formulas and live calculator for calculating theoretical weights of round bars, pipes, sheets, plates, hexagonals, and circles in stainless steel, high nickel, and carbon steel.',
+    icon: 'calc',
+    tag: '14 Core Formulas'
+  },
+  {
+    title: 'Stainless Steel & Duplex Chemical Composition Specification Limits',
+    slug: 'stainless-chemical-composition',
+    category: 'Metallurgical Data',
+    standard: 'ASTM A240 / ASTM A182 / EN 10088',
+    desc: 'Accredited ladle analysis elemental limits (% wt) for Cr, Ni, C, Mo, Mn, Si, P, and S across SS 304, 304L, 316, 316L, 321, 310S, 347, 904L, Duplex 2205, and Super Duplex 2507.',
+    icon: 'flask',
+    tag: 'ASTM A240 / A182'
+  },
+  {
+    title: 'High Nickel Superalloy Chemical Composition Standard Limits',
+    slug: 'nickel-chemical-composition',
+    category: 'Metallurgical Data',
+    standard: 'ASTM B166 / B444 / B564 / DIN 17744',
+    desc: 'Exact ladle elemental percentage bounds for Inconel 625, Inconel 600, Inconel 718, Incoloy 800/825, Monel 400/K-500, Hastelloy C-276/C-22/B-2/X, and Nickel 200/201.',
+    icon: 'atom',
+    tag: 'Inconel / Monel / Hastelloy'
+  },
+  {
+    title: 'Mechanical Properties & Tensile Data Dual-Unit Comparison',
+    slug: 'mechanical-properties',
+    category: 'Metallurgical Data',
+    standard: 'ASTM A370 / ASTM E8',
+    desc: 'Dual-unit engineering comparison: Tensile Strength (MPa / ksi), Yield Strength at 0.2% offset (MPa / ksi), Elongation %, and Hardness across all stocked superalloys.',
+    icon: 'gauge',
+    tag: 'Dual Unit (MPa / ksi)'
+  },
+  {
+    title: 'Round Bar Dimensional Tolerances (PN-EN 754/755 & ISO 286)',
+    slug: 'bar-tolerances',
+    category: 'Manufacturing Tolerances',
+    standard: 'ISO 286 / PN-EN 754 / ASTM A484',
+    desc: 'Dimensional tolerance limits for centerless ground, peeled, turned, and bright drawn round bars across ISO h9, h11, and k12 classes for diameters 3mm to 450mm.',
+    icon: 'ruler',
+    tag: 'ISO 286 h9 / h11'
+  },
+  {
+    title: 'International Standard Equivalence Matrix (ASTM / DIN / UNS / JIS / EN)',
+    slug: 'international-equivalents',
+    category: 'Standards Cross-Reference',
+    standard: 'ASTM / DIN / UNS / JIS / EN / AFNOR',
+    desc: 'Cross-reference table mapping US UNS numbers to German Werkstoff (W.Nr.) numbers, European EN specs, Japanese JIS designations, and French AFNOR equivalents.',
+    icon: 'globe',
+    tag: 'Global Equivalents'
+  },
+  {
+    title: 'ASME B16.9 Buttweld Elbows Dimensions & Weights',
+    slug: 'elbow-dimensions',
+    category: 'Fittings Dimensions',
+    standard: 'ASME B16.9 / ASTM A403 / ASTM B366',
+    desc: 'Center-to-end dimensions, outside diameters, and weights for 45° and 90° Long Radius (LR) and Short Radius (SR) buttweld elbows from 1/2" to 24" NPS.',
+    icon: 'elbow',
+    tag: '45° / 90° LR & SR'
+  },
+  {
+    title: 'ASME B16.9 Equal & Reducing Tees Dimensions',
+    slug: 'tee-dimensions',
+    category: 'Fittings Dimensions',
+    standard: 'ASME B16.9 / ASTM A403 / ASTM B366',
+    desc: 'Center to end run and outlet dimensions for equal straight tees and reducing branch tees from 1/2" through 24" NPS in seamless and welded executions.',
+    icon: 'tee',
+    tag: 'Straight & Reducing'
+  },
+  {
+    title: 'ASME B16.9 Concentric & Eccentric Reducers Dimensions',
+    slug: 'reducer-dimensions',
+    category: 'Fittings Dimensions',
+    standard: 'ASME B16.9 / ASTM A403 / ASTM B366',
+    desc: 'Length and end-to-end diameters for concentric and eccentric pipe reducers from 1" x 1/2" to 24" x 20" in standard and extra strong schedules.',
+    icon: 'reducer',
+    tag: 'Concentric & Eccentric'
+  },
+  {
+    title: 'ASME B16.11 Forged High-Pressure Fittings (Class 3000# & 6000#)',
+    slug: 'asme-b16-11-forged-fittings',
+    category: 'Fittings Dimensions',
+    standard: 'ASME B16.11 / ASTM A182 / ASTM B564',
+    desc: 'Socket bore, socket depth, wall thickness, and center-to-bottom dimensions for forged 3000# and 6000# elbows, tees, couplings, and unions from 1/8" to 4" NPS.',
+    icon: 'fitting',
+    tag: 'Class 3000# & 6000#'
+  }
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Technical Data', url: '/technical-data' },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Engineering Technical Reference Portal | Bhansali Metals",
+  "description": "Comprehensive engineering tables: ASME B16.5 Flanges, Pipe Schedules Sch 10-XXS, Theoretical Weight Formulas, Chemical Compositions, and Tolerances.",
+  "url": "https://www.bhansalimetals.com/technical-data"
+};
+---
+
+<BaseLayout
+  title="Technical Data Portal | ASME B16.5 Flange Dimensions & Pipe Schedules | Bhansali Metals"
+  description="Engineering portal providing ASME B16.5 flange dimension tables, pipe schedule wall thickness charts, theoretical metal weight calculation formulas, and alloy chemical matrices."
+  canonicalUrl="https://www.bhansalimetals.com/technical-data"
+  breadcrumbs={breadcrumbs}
+  schemaData={schemaData}
+>
+  <!-- Breadcrumb Bar -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">Technical Data</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="band-canvas tech-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <Badge variant="status-green">
+            <span>Verified ASME / ASTM Reference Data</span>
+          </Badge>
+          <Badge variant="soft-blue">
+            <span>Dual Unit Support: Metric &amp; Imperial</span>
+          </Badge>
+          <Badge variant="outline">
+            <span>Downloadable Reference PDF Specs</span>
+          </Badge>
+        </div>
+        <h1 class="display-xl tech-title">Engineering Portal &amp; Technical Reference Standards</h1>
+        <p class="lead tech-subtitle">
+          Authoritative technical resources for piping design engineers, procurement specialists, and fabricators. Browse full dimensional tables, flange bolt specifications, pipe wall thicknesses, theoretical metal weight formulas, and chemical analysis matrices.
+        </p>
+
+        <!-- Quick Jump Links -->
+        <div class="quick-jump-box">
+          <span class="jump-label">Core Tables:</span>
+          <div class="jump-links">
+            <a href="/technical-data/asme-b16-5-flanges" class="jump-btn">ASME B16.5 Flanges</a>
+            <a href="/technical-data/pipe-schedule-chart" class="jump-btn">Pipe Schedule Chart</a>
+            <a href="/technical-data/theoretical-weight-formulas" class="jump-btn">Weight Calculation Engine</a>
+            <a href="/technical-data/stainless-chemical-composition" class="jump-btn">Stainless Chemistry</a>
+            <a href="/technical-data/nickel-chemical-composition" class="jump-btn">Nickel Chemistry</a>
+            <a href="/technical-data/mechanical-properties" class="jump-btn">Mechanical Properties</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Resource Cards Grid (DESIGN.md: 16px rounded cards, Soft Lift shadow) -->
+  <section class="band-cloud tech-grid-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <div>
+          <span class="eyebrow">Engineering Standards Library</span>
+          <h2 class="display-md">Comprehensive Technical Data Tables</h2>
+        </div>
+        <p class="caption-md header-desc">
+          Strictly aligned with ASME, ASTM, DIN, and ISO specifications. All dimensions verified by Bhansali Metals quality engineering division.
+        </p>
+      </div>
+
+      <div class="tech-grid" data-animate-stagger>
+        {technicalResources.map((res) => (
+          <article class="card card-soft-lift tech-card" id={`tech-${res.slug}`}>
+            <div class="tech-card-header">
+              <span class="res-category">{res.category}</span>
+              <span class="badge badge-mono">{res.tag}</span>
+            </div>
+
+            <h3 class="display-xs tech-res-title">
+              <a href={`/technical-data/${res.slug}`} class="res-title-link">
+                {res.title}
+              </a>
+            </h3>
+
+            <div class="standard-spec-tag">
+              <span class="spec-label">Governing Standard:</span>
+              <span class="spec-val font-mono">{res.standard}</span>
+            </div>
+
+            <p class="res-desc">{res.desc}</p>
+
+            <div class="tech-card-footer">
+              <Button href={`/technical-data/${res.slug}`} variant="primary" size="sm" class="view-table-btn">
+                Open Data Table &rarr;
+              </Button>
+              <button
+                type="button"
+                class="btn btn-outline btn-sm rfq-spec-btn"
+                data-open-rfq
+                data-product={res.title}
+              >
+                Inquire Specs
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Weight Calculator Callout Band -->
+  <section class="band-canvas calc-preview-section">
+    <div class="container">
+      <div class="card card-soft-lift calc-cta-card">
+        <div class="calc-cta-content">
+          <span class="eyebrow">Interactive Calculation Tool</span>
+          <h2 class="display-sm calc-cta-heading">Theoretical Metal Weight Calculation Engine</h2>
+          <p class="lead calc-cta-desc">
+            Calculate theoretical shipping and procurement weights for seamless pipes, round bars, sheets, and hexagonal bars instantly. Built-in density constants for stainless steel (8.00 g/cm³), carbon steel (7.85 g/cm³), and high nickel alloys (8.44 - 8.90 g/cm³).
+          </p>
+          <div class="calc-cta-actions">
+            <Button href="/technical-data/theoretical-weight-formulas" variant="primary" size="md">
+              Launch Interactive Weight Calculator
+            </Button>
+            <Button href="/rfq" variant="outline" size="md">
+              Submit BOQ for Commercial Quote
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Dark Ink Band -->
+  <section class="band-dark-gradient tech-rfq-band">
+    <div class="container">
+      <div class="tech-rfq-box" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Engineering Sales Support</span>
+          <h2 class="display-md" style="color: var(--color-on-ink);">Need Custom Engineered Sizes or Mill Test Certificates?</h2>
+          <p class="lead" style="color: var(--color-fog); max-width: 680px; margin-top: 0.5rem;">
+            Bhansali Metals supplies precision non-standard flanges, heavy wall seamless pipes, and bespoke forged fittings tailored to your EPC project specifications.
+          </p>
+        </div>
+        <div class="tech-rfq-actions">
+          <Button href="/rfq" variant="primary-bright" size="md">
+            Request Official RFQ
+          </Button>
+          <Button
+            href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I have a technical inquiry regarding piping dimensions and specifications.')}`}
+            variant="whatsapp"
+            size="md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Direct WhatsApp Technical Desk
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Tech Hero */
+  .tech-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-content {
+    max-width: 920px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-title {
+    margin-bottom: 1rem;
+  }
+
+  .tech-subtitle {
+    color: var(--color-charcoal);
+    margin-bottom: 1.75rem;
+  }
+
+  .quick-jump-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1rem 1.25rem;
+  }
+
+  .jump-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    color: var(--color-graphite);
+  }
+
+  .jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .jump-btn {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    padding: 4px 10px;
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-steel);
+    border-radius: var(--radius-sharp);
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+
+  .jump-btn:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+  }
+
+  /* Grid Section */
+  .tech-grid-section {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .header-desc {
+    max-width: 480px;
+    color: var(--color-graphite);
+    margin: 0;
+  }
+
+  /* Responsive 16px Rounded Cards Grid with Soft Lift Shadow */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tech-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft); /* 16px */
+    box-shadow: var(--shadow-soft-lift);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .tech-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 26, 26, 0.1);
+  }
+
+  .tech-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .res-category {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .tech-res-title {
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+
+  .res-title-link {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .res-title-link:hover {
+    color: var(--color-primary);
+  }
+
+  .standard-spec-tag {
+    font-size: 0.75rem;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 4px 8px;
+    margin-bottom: 0.875rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .spec-label {
+    color: var(--color-graphite);
+  }
+
+  .spec-val {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .res-desc {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+
+  .tech-card-footer {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .tech-card-footer .view-table-btn {
+    flex: 1 1 60%;
+  }
+
+  .tech-card-footer .rfq-spec-btn {
+    flex: 1 1 40%;
+  }
+
+  /* Calculator CTA Card */
+  .calc-preview-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .calc-cta-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+
+  .calc-cta-content {
+    max-width: 820px;
+  }
+
+  .calc-cta-heading {
+    margin-bottom: 0.75rem;
+  }
+
+  .calc-cta-desc {
+    margin-bottom: 1.5rem;
+  }
+
+  .calc-cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Closing Dark Band */
+  .tech-rfq-band {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .tech-rfq-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .tech-rfq-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .tech-rfq-actions {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,81 @@
+{
+  "title": "Monel K-500 (UNS N05500 / W.Nr. 2.4375)",
+  "grade": "Monel K-500",
+  "family": "Monel",
+  "familyDisplayName": "Nickel-Copper Alloys",
+  "metallurgy": "Ni-Cu-Al-Ti alloy",
+  "uns": "UNS N05500",
+  "unsNumber": "UNS N05500",
+  "wnr": "2.4375",
+  "werkstoffNumber": "2.4375",
+  "astmStandards": [
+    "ASTM B865",
+    "QQ-N-286"
+  ],
+  "asmeStandards": [
+    "SB-865"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Monel K-500 High-Strength Fasteners, Shafts & Bars | Bhansali Metals",
+  "metaDescription": "Age-hardened Monel K-500 (UNS N05500 / 2.4375) non-magnetic pump shafts, high-tensile studs, and marine fasteners with EN 10204 3.1 MTC from Bhansali Metals.",
+  "summary": "Monel K-500 is an age-hardenable nickel-copper alloy that combines the excellent corrosion resistance of Monel 400 with substantially greater strength and hardness obtained through the additions of aluminum and titanium.",
+  "keyFeatures": [
+    "Yield strength three times and tensile strength twice that of Monel 400",
+    "Substantially non-magnetic down to -101°C (-150°F)",
+    "Maintains high toughness and strength at cryogenic temperatures",
+    "Outstanding resistance to sour gas environments per NACE MR0175"
+  ],
+  "corrosionResistance": "Corrosion resistance is virtually identical to Monel 400 with high resistance to marine environments, salts, and non-oxidizing mineral acids.",
+  "applications": [
+    "Marine drive shafts, pump shafts, and impeller shafts",
+    "Oil well drill collars, non-magnetic drilling equipment, and downhole instruments",
+    "High-strength marine fasteners, spring wire, and safety valves",
+    "Chemical and paper processing scraper blades and doctor blades"
+  ],
+  "chemicalComposition": {
+    "Ni": "63.0 min",
+    "Cu": "27.0 - 33.0",
+    "Al": "2.30 - 3.15",
+    "Ti": "0.35 - 0.85",
+    "Fe": "2.0 max",
+    "Mn": "1.5 max",
+    "C": "0.18 max",
+    "Si": "0.50 max",
+    "S": "0.010 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "965 min",
+      "ksi": "140 min"
+    },
+    "yieldStrength": {
+      "mpa": "690 min",
+      "ksi": "100 min"
+    },
+    "elongation": "20% min",
+    "hardness": "HRC 27 - 38",
+    "density": {
+      "metric": "8.44 g/cm³",
+      "imperial": "0.305 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1315 - 1350 °C",
+      "fahrenheit": "2400 - 2460 °F"
+    }
+  },
+  "availableForms": [
+    "Round Bars",
+    "Fasteners",
+    "Forged Fittings",
+    "Sheets & Plates",
+    "Flanges",
+    "Pipes & Tubes"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NU-30AT",
+    "DIN": "W.Nr. 2.4375",
+    "JIS": "NCU 500",
+    "EN": "NiCu30Al"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "title": "Nickel 201 (UNS N02201 / W.Nr. 2.4068)",
+  "grade": "Nickel 201",
+  "family": "Nickel",
+  "familyDisplayName": "Low Carbon Pure Nickel",
+  "metallurgy": "Low Carbon Nickel (C max 0.02%)",
+  "uns": "UNS N02201",
+  "unsNumber": "UNS N02201",
+  "wnr": "2.4068",
+  "werkstoffNumber": "2.4068",
+  "astmStandards": [
+    "ASTM B160",
+    "ASTM B161",
+    "ASTM B162",
+    "ASTM B163",
+    "ASTM B366"
+  ],
+  "asmeStandards": [
+    "SB-160",
+    "SB-161",
+    "SB-162",
+    "SB-163",
+    "SB-366"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Nickel 201 Low-Carbon Flanges & High-Temp Tubes | Bhansali Metals",
+  "metaDescription": "Dual-certified Nickel 201 (UNS N02201 / 2.4068, C<=0.02%) seamless pipes, flanges, and fittings for high temperature caustic service above 315°C.",
+  "summary": "Nickel 201 is the low-carbon version of Nickel 200 (carbon strictly capped at 0.02% max), specifically designed for applications above 600°F (315°C) to prevent intergranular embrittlement by graphitic precipitation.",
+  "keyFeatures": [
+    "Strict carbon limit <= 0.02% preventing high-temperature graphitization",
+    "Service capability at temperatures exceeding 600°F (315°C)",
+    "Outstanding resistance to molten caustic salts and anhydrous alkalies",
+    "Excellent ductile-to-brittle transition resistance"
+  ],
+  "corrosionResistance": "Identical corrosion resistance to Nickel 200, with immunity to graphitic embrittlement during prolonged exposure to elevated temperatures.",
+  "applications": [
+    "Caustic evaporators and fusion pots operating above 315°C",
+    "Fluorine generation electrodes and fluorine transfer systems",
+    "Production of vinyl chloride monomer (VCM)",
+    "Alkali metal storage and high-temperature furnace hardware"
+  ],
+  "chemicalComposition": {
+    "Ni": "99.0 min",
+    "C": "0.02 max",
+    "Cu": "0.25 max",
+    "Fe": "0.40 max",
+    "Mn": "0.35 max",
+    "Si": "0.35 max",
+    "S": "0.010 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "350 min",
+      "ksi": "50 min"
+    },
+    "yieldStrength": {
+      "mpa": "80 min",
+      "ksi": "12 min"
+    },
+    "elongation": "40% min",
+    "hardness": "HRB 40 - 65",
+    "density": {
+      "metric": "8.89 g/cm³",
+      "imperial": "0.321 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1435 - 1446 °C",
+      "fahrenheit": "2615 - 2635 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Ni-99.2LC",
+    "DIN": "W.Nr. 2.4068",
+    "JIS": "NNi 201",
+    "EN": "LC-Ni 99"
+  }
+}

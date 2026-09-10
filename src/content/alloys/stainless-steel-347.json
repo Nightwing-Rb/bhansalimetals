@@ -1,0 +1,89 @@
+{
+  "title": "Stainless Steel 347 (UNS S34700 / W.Nr. 1.4550)",
+  "grade": "SS 347",
+  "family": "Stainless Steel",
+  "familyDisplayName": "Austenitic Stainless Steel",
+  "metallurgy": "Niobium Stabilized Austenitic Stainless Steel",
+  "uns": "UNS S34700",
+  "unsNumber": "UNS S34700",
+  "wnr": "1.4550",
+  "werkstoffNumber": "1.4550",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A312",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A403"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-312",
+    "SA-182",
+    "SA-276",
+    "SA-403"
+  ],
+  "naceCompliance": false,
+  "metaTitle": "Stainless Steel 347 High-Temperature Tubes, Flanges & Fittings | Bhansali Metals",
+  "metaDescription": "Niobium-stabilized SS 347 (UNS S34700 / 1.4550) seamless pipes, flanges, and fittings for severe thermal service from Bhansali Metals Mumbai with MTC guarantee.",
+  "summary": "Grade 347 is a columbium (niobium) stabilized austenitic chromium-nickel stainless steel. The addition of columbium suppresses chromium carbide precipitation in the 800-1500°F (427-816°C) temperature range, providing superior intergranular corrosion resistance.",
+  "keyFeatures": [
+    "Niobium stabilization (10x C min, 1.0% max) prevents intergranular attack",
+    "Higher creep and stress rupture properties than 304 and 321",
+    "Excellent resistance to polythionic acid stress corrosion cracking (PASCC)",
+    "Superior performance in severe refinery hydrotreating and cracking units"
+  ],
+  "corrosionResistance": "Excellent resistance to general corrosion and polythionic acid cracking in oil refinery desulfurization units.",
+  "applications": [
+    "Refinery catalytic hydrocracker units and hydrotreating piping",
+    "Boiler tubes, steam headers, and superheater manifolds",
+    "Heavy-wall welded process equipment operating between 450°C and 850°C",
+    "High-temperature chemical synthesis reactors and radiant heater coils"
+  ],
+  "chemicalComposition": {
+    "Cr": "17.00 - 19.00",
+    "Ni": "9.00 - 13.00",
+    "Nb+Ta": "10x(C min), 1.00 max",
+    "C": "0.08 max",
+    "Mn": "2.00 max",
+    "Si": "0.75 max",
+    "P": "0.045 max",
+    "S": "0.030 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "515 min",
+      "ksi": "74.7 min"
+    },
+    "yieldStrength": {
+      "mpa": "205 min",
+      "ksi": "29.7 min"
+    },
+    "elongation": "40% min",
+    "hardness": "BHN 201 max / HRB 92 max",
+    "density": {
+      "metric": "7.96 g/cm³",
+      "imperial": "0.287 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1400 - 1425 °C",
+      "fahrenheit": "2550 - 2600 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z6CNNb18-10",
+    "DIN": "W.Nr. 1.4550",
+    "JIS": "SUS 347",
+    "EN": "X6CrNiNb18-10"
+  }
+}

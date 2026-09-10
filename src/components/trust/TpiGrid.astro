@@ -1,0 +1,206 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const agencies = [
+  {
+    name: "ISO 9001:2015",
+    subtitle: "QAIC/IN/1103-A",
+    tag: "CERTIFIED",
+    tagColor: "tag-blue",
+    icon: "/images/badges/iso-9001-qaic.svg",
+  },
+  {
+    name: "EN 10204 3.1",
+    subtitle: "Mill Test Certificate",
+    tag: "GUARANTEED",
+    tagColor: "tag-green",
+    icon: "/images/badges/en-10204-mtc.svg",
+  },
+  {
+    name: "Bureau Veritas",
+    subtitle: "Marine & Industrial TPI",
+    tag: "CLEARED",
+    tagColor: "tag-red",
+    icon: "/images/badges/bv.svg",
+  },
+  {
+    name: "TÜV India",
+    subtitle: "TÜV Nord Pressure Equip.",
+    tag: "APPROVED",
+    tagColor: "tag-blue",
+    icon: "/images/badges/tuv-india.svg",
+  },
+  {
+    name: "Lloyd's Register",
+    subtitle: "LR Marine & Offshore",
+    tag: "APPROVED",
+    tagColor: "tag-dark",
+    icon: "/images/badges/lloyds.svg",
+  },
+  {
+    name: "Engineers India",
+    subtitle: "EIL PSU Spec Ready",
+    tag: "QUALIFIED",
+    tagColor: "tag-amber",
+    icon: "/images/badges/eil.svg",
+  },
+  {
+    name: "DNV",
+    subtitle: "Det Norske Veritas Energy",
+    tag: "APPROVED",
+    tagColor: "tag-navy",
+    icon: "/images/badges/dnv.svg",
+  },
+  {
+    name: "SGS India",
+    subtitle: "Material Chemical & Mech",
+    tag: "VERIFIED",
+    tagColor: "tag-orange",
+    icon: "/images/badges/sgs.svg",
+  },
+];
+---
+
+<div class={`tpi-grid ${className}`.trim()}>
+  {
+    agencies.map((agency) => (
+      <div class="card tpi-card" data-animate>
+        <div class="tpi-icon-wrap">
+          <img src={agency.icon} alt={agency.name} width="52" height="52" class="tpi-icon" loading="lazy" />
+        </div>
+        <div class="tpi-info">
+          <span class="tpi-name">{agency.name}</span>
+          <span class="tpi-sub">{agency.subtitle}</span>
+          <span class={`tpi-tag ${agency.tagColor}`}>{agency.tag}</span>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .tpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .tpi-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .tpi-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tpi-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(26, 26, 26, 0.04);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+
+  .tpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft-lift);
+    border-color: var(--color-steel);
+  }
+
+  .tpi-icon-wrap {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tpi-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .tpi-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .tpi-name {
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tpi-sub {
+    font-size: 0.6875rem;
+    color: var(--color-graphite);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tpi-tag {
+    font-size: 0.625rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.5px;
+    padding: 1px 6px;
+    border-radius: var(--radius-xs);
+    width: fit-content;
+    margin-top: 3px;
+  }
+
+  .tag-blue {
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary-deep);
+  }
+
+  .tag-green {
+    background-color: var(--color-success-soft);
+    color: var(--color-success-deep);
+  }
+
+  .tag-red {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+
+  .tag-dark {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+
+  .tag-amber {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+
+  .tag-navy {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+
+  .tag-orange {
+    background-color: #ffedd5;
+    color: #c2410c;
+  }
+</style>

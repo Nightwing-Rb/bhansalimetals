@@ -1,0 +1,90 @@
+{
+  "title": "Inconel 625 (UNS N06625 / W.Nr. 2.4856)",
+  "grade": "Inconel 625",
+  "family": "Inconel",
+  "familyDisplayName": "High Nickel Superalloys",
+  "metallurgy": "Ni-Cr-Mo-Nb superalloy",
+  "uns": "UNS N06625",
+  "unsNumber": "UNS N06625",
+  "wnr": "2.4856",
+  "werkstoffNumber": "2.4856",
+  "astmStandards": [
+    "ASTM B443",
+    "ASTM B444",
+    "ASTM B446",
+    "ASTM B564"
+  ],
+  "asmeStandards": [
+    "SB-443",
+    "SB-444",
+    "SB-446",
+    "SB-564"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Inconel 625 Flanges, Pipes & Forged Fittings Supplier Mumbai | Bhansali Metals",
+  "metaDescription": "High-strength Inconel 625 (UNS N06625 / 2.4856) forged flanges, seamless pipes, and buttweld fittings supplied by Bhansali Metals Mumbai with EN 10204 3.1 MTC.",
+  "summary": "Inconel 625 is a nickel-chromium-molybdenum-niobium superalloy formulated for high strength, outstanding fabricability, and superior corrosion resistance. Operating temperatures range from cryogenic up to 1800°F (982°C).",
+  "keyFeatures": [
+    "Exceptional resistance to pitting, crevice, and intercrystalline corrosion",
+    "Virtually free from chloride-induced stress corrosion cracking",
+    "High tensile, creep, and rupture strength without age hardening",
+    "Superb weldability with no post-weld cracking susceptibility"
+  ],
+  "corrosionResistance": "Molybdenum and niobium solid solution hardening provides outstanding resistance to severely oxidizing and non-oxidizing acids, seawater, and pitting.",
+  "applications": [
+    "Offshore oil & gas production flare stacks, piping, and risers",
+    "Marine seawater piping, heat exchangers, and fasteners",
+    "Aerospace ducting systems, exhaust systems, and thrust reversers",
+    "Chemical and petrochemical processing vessels and transfer lines"
+  ],
+  "chemicalComposition": {
+    "Ni": "58.0 min",
+    "Cr": "20.0 - 23.0",
+    "Mo": "8.0 - 10.0",
+    "Nb+Ta": "3.15 - 4.15",
+    "Fe": "5.0 max",
+    "C": "0.10 max",
+    "Mn": "0.50 max",
+    "Si": "0.50 max",
+    "P": "0.015 max",
+    "S": "0.015 max",
+    "Al": "0.40 max",
+    "Ti": "0.40 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "827 min",
+      "ksi": "120 min"
+    },
+    "yieldStrength": {
+      "mpa": "414 min",
+      "ksi": "60 min"
+    },
+    "elongation": "30% min",
+    "hardness": "HRB 85 - 100",
+    "density": {
+      "metric": "8.44 g/cm³",
+      "imperial": "0.305 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1290 - 1350 °C",
+      "fahrenheit": "2350 - 2460 °F"
+    }
+  },
+  "availableForms": [
+    "Flanges",
+    "Pipes & Tubes",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NC22FeDNb",
+    "DIN": "W.Nr. 2.4856",
+    "JIS": "NCF 625",
+    "EN": "NiCr22Mo9Nb"
+  }
+}

@@ -1,0 +1,739 @@
+---
+interface Props {
+  initialShape?: 'pipe' | 'sheet' | 'round' | 'hex';
+  initialAlloy?: string;
+  title?: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const {
+  initialShape = 'pipe',
+  initialAlloy = 'inconel-625',
+  title = 'Theoretical Metal Weight Calculator',
+  subtitle = 'Instant engineering weight estimation across High Nickel Superalloys, Stainless Steel, Copper, and Aluminium forms.',
+  class: className = '',
+} = Astro.props;
+
+const alloyDensities = [
+  { id: 'inconel-625', name: 'Inconel 625 (UNS N06625)', density: 8.44, family: 'Inconel' },
+  { id: 'inconel-600', name: 'Inconel 600 (UNS N06600)', density: 8.47, family: 'Inconel' },
+  { id: 'inconel-718', name: 'Inconel 718 (UNS N07718)', density: 8.19, family: 'Inconel' },
+  { id: 'monel-400', name: 'Monel 400 (UNS N04400)', density: 8.80, family: 'Monel' },
+  { id: 'monel-k500', name: 'Monel K-500 (UNS N05500)', density: 8.44, family: 'Monel' },
+  { id: 'hastelloy-c276', name: 'Hastelloy C-276 (UNS N10276)', density: 8.89, family: 'Hastelloy' },
+  { id: 'hastelloy-c22', name: 'Hastelloy C-22 (UNS N06022)', density: 8.69, family: 'Hastelloy' },
+  { id: 'nickel-200', name: 'Nickel 200 / 201 (UNS N02200)', density: 8.89, family: 'Nickel' },
+  { id: 'ss-316l', name: 'Stainless Steel 316 / 316L (UNS S31603)', density: 8.00, family: 'Stainless Steel' },
+  { id: 'ss-304l', name: 'Stainless Steel 304 / 304L (UNS S30403)', density: 7.93, family: 'Stainless Steel' },
+  { id: 'duplex-2205', name: 'Duplex 2205 (UNS S32205 / S31803)', density: 7.82, family: 'Duplex' },
+  { id: 'super-duplex-2507', name: 'Super Duplex 2507 (UNS S32750)', density: 7.80, family: 'Super Duplex' },
+  { id: 'copper', name: 'Pure Copper (C11000 / ETP)', density: 8.96, family: 'Copper' },
+  { id: 'aluminium', name: 'Aluminium (6061 / 5083)', density: 2.70, family: 'Aluminium' },
+  { id: 'titanium-gr2', name: 'Titanium Grade 2 (UNS R50400)', density: 4.51, family: 'Titanium' },
+  { id: 'carbon-steel', name: 'Carbon Steel (ASTM A106 / A105)', density: 7.85, family: 'Carbon Steel' },
+];
+
+const activeShape = initialShape;
+---
+
+<div
+  class={`card card-soft-lift weight-calculator-widget ${className}`.trim()}
+  id="metal-weight-calculator"
+  data-initial-shape={activeShape}
+>
+  <!-- Header -->
+  <div class="calc-header">
+    <div class="calc-title-group">
+      <span class="eyebrow" style="color: var(--color-primary-bright); margin-bottom: 2px;">Engineering Tools</span>
+      <h2 class="calc-title">{title}</h2>
+      <p class="calc-subtitle">{subtitle}</p>
+    </div>
+    <div class="calc-badge">
+      <span class="badge badge-mono font-mono" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border-color: rgba(255, 255, 255, 0.2);">
+        Exact ASTM Formula
+      </span>
+    </div>
+  </div>
+
+  <!-- Shape Selector Tabs -->
+  <div class="shape-tabs-bar" role="tablist" aria-label="Product Shape Selector">
+    <button
+      type="button"
+      role="tab"
+      class={`shape-tab-btn ${activeShape === 'pipe' ? 'active' : ''}`}
+      data-shape="pipe"
+      aria-selected={activeShape === 'pipe' ? 'true' : 'false'}
+      id="tab-pipe"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"></circle>
+        <circle cx="12" cy="12" r="5"></circle>
+      </svg>
+      <span>Pipe / Tube</span>
+    </button>
+
+    <button
+      type="button"
+      role="tab"
+      class={`shape-tab-btn ${activeShape === 'sheet' ? 'active' : ''}`}
+      data-shape="sheet"
+      aria-selected={activeShape === 'sheet' ? 'true' : 'false'}
+      id="tab-sheet"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="1"></rect>
+      </svg>
+      <span>Sheet / Plate</span>
+    </button>
+
+    <button
+      type="button"
+      role="tab"
+      class={`shape-tab-btn ${activeShape === 'round' ? 'active' : ''}`}
+      data-shape="round"
+      aria-selected={activeShape === 'round' ? 'true' : 'false'}
+      id="tab-round"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="8"></circle>
+      </svg>
+      <span>Round Bar</span>
+    </button>
+
+    <button
+      type="button"
+      role="tab"
+      class={`shape-tab-btn ${activeShape === 'hex' ? 'active' : ''}`}
+      data-shape="hex"
+      aria-selected={activeShape === 'hex' ? 'true' : 'false'}
+      id="tab-hex"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2z"></path>
+      </svg>
+      <span>Hex Bar</span>
+    </button>
+  </div>
+
+  <!-- Calculator Form & Live Results Grid -->
+  <div class="calc-body-grid">
+    <!-- Left: Inputs Form -->
+    <form class="calc-form" id="weight-calc-form">
+      <!-- Alloy Material Select -->
+      <div class="form-group">
+        <label for="calc-alloy-select" class="calc-label">Material Alloy Grade</label>
+        <select id="calc-alloy-select" class="text-input font-mono select-input">
+          {alloyDensities.map((item) => (
+            <option value={item.id} data-density={item.density} selected={item.id === initialAlloy}>
+              {item.name} — {item.density} g/cm³
+            </option>
+          ))}
+          <option value="custom" data-density="8.00">Custom Alloy Density...</option>
+        </select>
+      </div>
+
+      <!-- Custom Density Row (hidden by default) -->
+      <div class="form-group" id="custom-density-group" style="display: none;">
+        <label for="calc-custom-density" class="calc-label">Custom Density (\(\rho\) in g/cm³)</label>
+        <input
+          type="number"
+          step="0.01"
+          min="1"
+          max="25"
+          id="calc-custom-density"
+          class="text-input font-mono"
+          value="8.44"
+        />
+      </div>
+
+      <!-- Shape 1: Pipe / Tube Fields -->
+      <div class="shape-fields-group" id="fields-pipe" style={activeShape === 'pipe' ? '' : 'display: none;'}>
+        <div class="form-row-calc">
+          <div class="form-group">
+            <label for="pipe-od" class="calc-label">Outside Diameter (OD in mm) *</label>
+            <input type="number" step="any" min="0.1" id="pipe-od" class="text-input font-mono" placeholder="e.g. 60.3 (2&quot; NB)" value="60.3" required />
+          </div>
+          <div class="form-group">
+            <label for="pipe-wt" class="calc-label">Wall Thickness (WT in mm) *</label>
+            <input type="number" step="any" min="0.01" id="pipe-wt" class="text-input font-mono" placeholder="e.g. 3.91 (Sch 40)" value="3.91" required />
+          </div>
+        </div>
+        <div class="form-row-calc">
+          <div class="form-group">
+            <label for="pipe-len" class="calc-label">Pipe Length (Meters) *</label>
+            <input type="number" step="any" min="0.01" id="pipe-len" class="text-input font-mono" placeholder="e.g. 6.0" value="6" required />
+          </div>
+          <div class="form-group">
+            <label for="pipe-qty" class="calc-label">Total Quantity (Pieces) *</label>
+            <input type="number" step="1" min="1" id="pipe-qty" class="text-input font-mono" value="1" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- Shape 2: Sheet / Plate Fields -->
+      <div class="shape-fields-group" id="fields-sheet" style={activeShape === 'sheet' ? '' : 'display: none;'}>
+        <div class="form-row-calc">
+          <div class="form-group">
+            <label for="sheet-len" class="calc-label">Plate Length (mm) *</label>
+            <input type="number" step="any" min="1" id="sheet-len" class="text-input font-mono" placeholder="e.g. 2000" value="2000" />
+          </div>
+          <div class="form-group">
+            <label for="sheet-width" class="calc-label">Plate Width (mm) *</label>
+            <input type="number" step="any" min="1" id="sheet-width" class="text-input font-mono" placeholder="e.g. 1000" value="1000" />
+          </div>
+        </div>
+        <div class="form-row-calc">
+          <div class="form-group">
+            <label for="sheet-thk" class="calc-label">Thickness (mm) *</label>
+            <input type="number" step="any" min="0.1" id="sheet-thk" class="text-input font-mono" placeholder="e.g. 6.0" value="6.0" />
+          </div>
+          <div class="form-group">
+            <label for="sheet-qty" class="calc-label">Total Quantity (Pieces) *</label>
+            <input type="number" step="1" min="1" id="sheet-qty" class="text-input font-mono" value="1" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Shape 3: Round Bar Fields -->
+      <div class="shape-fields-group" id="fields-round" style={activeShape === 'round' ? '' : 'display: none;'}>
+        <div class="form-row-calc">
+          <div class="form-group">
+            <label for="round-dia" class="calc-label">Bar Diameter (mm) *</label>
+            <input type="number" step="any" min="0.5" id="round-dia" class="text-input font-mono" placeholder="e.g. 50" value="50" />
+          </div>
+          <div class="form-group">
+            <label for="round-len" class="calc-label">Bar Length (Meters) *</label>
+            <input type="number" step="any" min="0.01" id="round-len" class="text-input font-mono" placeholder="e.g. 3.0" value="3.0" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="round-qty" class="calc-label">Total Quantity (Pieces) *</label>
+          <input type="number" step="1" min="1" id="round-qty" class="text-input font-mono" value="1" />
+        </div>
+      </div>
+
+      <!-- Shape 4: Hex Bar Fields -->
+      <div class="shape-fields-group" id="fields-hex" style={activeShape === 'hex' ? '' : 'display: none;'}>
+        <div class="form-row-calc">
+          <div class="form-group">
+            <label for="hex-size" class="calc-label">Across Flats (Size in mm) *</label>
+            <input type="number" step="any" min="1" id="hex-size" class="text-input font-mono" placeholder="e.g. 32" value="32" />
+          </div>
+          <div class="form-group">
+            <label for="hex-len" class="calc-label">Bar Length (Meters) *</label>
+            <input type="number" step="any" min="0.01" id="hex-len" class="text-input font-mono" placeholder="e.g. 3.0" value="3.0" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hex-qty" class="calc-label">Total Quantity (Pieces) *</label>
+          <input type="number" step="1" min="1" id="hex-qty" class="text-input font-mono" value="1" />
+        </div>
+      </div>
+    </form>
+
+    <!-- Right: Calculation Summary & Live Conversion Box -->
+    <div class="calc-result-box">
+      <span class="result-box-eyebrow">Calculated Theoretical Weight</span>
+
+      <div class="primary-result-val">
+        <span class="res-num font-mono" id="res-total-kg">33.24</span>
+        <span class="res-unit">kg</span>
+      </div>
+
+      <div class="secondary-result-val font-mono">
+        <span id="res-total-lbs">73.28</span> lbs
+      </div>
+
+      <!-- Breakdown Details List -->
+      <div class="calc-breakdown-list">
+        <div class="breakdown-row">
+          <span class="breakdown-lbl">Material Density (\(\rho\)):</span>
+          <span class="breakdown-val font-mono" id="res-density-val">8.44 g/cm³</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-lbl">Single Piece Weight:</span>
+          <span class="breakdown-val font-mono" id="res-unit-kg">33.24 kg (73.28 lbs)</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-lbl">Theoretical Weight / Meter:</span>
+          <span class="breakdown-val font-mono" id="res-per-meter">5.54 kg/m</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-lbl">Tolerance Margin:</span>
+          <span class="breakdown-val font-mono">± 3% to 5% (Mill Tolerance)</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons pre-filled with this exact calculated specification -->
+      <div class="calc-action-buttons">
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+          id="calc-wa-btn"
+          aria-label="Inquire on WhatsApp for calculated metal weight"
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 20.15C10.57 20.15 9.12 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.05 20.15ZM16.57 14.33C16.32 14.2 15.1 13.6 14.88 13.51C14.65 13.43 14.49 13.39 14.32 13.64C14.16 13.88 13.69 14.44 13.55 14.6C13.41 14.77 13.27 14.79 13.02 14.66C12.78 14.54 11.99 14.28 11.06 13.45C10.33 12.8 9.84 12 9.7 11.75C9.56 11.51 9.68 11.37 9.8 11.25C9.92 11.14 10.06 10.96 10.18 10.82C10.3 10.68 10.35 10.57 10.43 10.41C10.51 10.25 10.47 10.1 10.41 9.98C10.35 9.86 9.86 8.65 9.65 8.16C9.46 7.68 9.26 7.74 9.11 7.73C8.97 7.72 8.8 7.72 8.64 7.72C8.47 7.72 8.21 7.78 7.98 8.03C7.75 8.28 7.12 8.87 7.12 10.08C7.12 11.29 8 12.46 8.12 12.62C8.25 12.78 9.86 15.26 12.33 16.33C12.92 16.58 13.37 16.73 13.73 16.85C14.32 17.03 14.86 17.01 15.28 16.94C15.76 16.87 16.75 16.34 16.96 15.77C17.16 15.19 17.16 14.7 17.1 14.6C17.03 14.49 16.82 14.45 16.57 14.33Z"/>
+          </svg>
+          <span>Quote via WhatsApp</span>
+        </a>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="calc-rfq-btn"
+          data-open-rfq
+          data-alloy="Inconel 625"
+          data-product="Pipe / Tube"
+        >
+          <span>Direct Kalamboli RFQ</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function initWeightCalculator() {
+    function setupCalculator() {
+      const widget = document.getElementById('metal-weight-calculator');
+      if (!widget || widget.dataset.calcInitialized === 'true') return;
+      widget.dataset.calcInitialized = 'true';
+
+      const initialShape = widget.getAttribute('data-initial-shape') || 'pipe';
+      let currentShape = initialShape;
+
+      const tabButtons = widget.querySelectorAll('.shape-tab-btn');
+      const alloySelect = widget.querySelector('#calc-alloy-select');
+      const customDensityGroup = widget.querySelector('#custom-density-group');
+      const customDensityInput = widget.querySelector('#calc-custom-density');
+      const form = widget.querySelector('#weight-calc-form');
+
+      if (form) {
+        form.addEventListener('submit', (e) => e.preventDefault());
+      }
+
+      const shapeGroups = {
+        pipe: widget.querySelector('#fields-pipe'),
+        sheet: widget.querySelector('#fields-sheet'),
+        round: widget.querySelector('#fields-round'),
+        hex: widget.querySelector('#fields-hex'),
+      };
+
+      // Result elements
+      const resTotalKg = widget.querySelector('#res-total-kg');
+      const resTotalLbs = widget.querySelector('#res-total-lbs');
+      const resDensityVal = widget.querySelector('#res-density-val');
+      const resUnitKg = widget.querySelector('#res-unit-kg');
+      const resPerMeter = widget.querySelector('#res-per-meter');
+      const waBtn = widget.querySelector('#calc-wa-btn');
+      const rfqBtn = widget.querySelector('#calc-rfq-btn');
+
+      // Helper to retrieve active density
+      function getDensity() {
+        if (alloySelect.value === 'custom') {
+          return parseFloat(customDensityInput.value) || 8.00;
+        }
+        const opt = alloySelect.options[alloySelect.selectedIndex];
+        return parseFloat(opt.getAttribute('data-density')) || 8.44;
+      }
+
+      function getSelectedAlloyName() {
+        if (alloySelect.value === 'custom') return 'Custom Alloy';
+        const opt = alloySelect.options[alloySelect.selectedIndex];
+        return opt.textContent ? opt.textContent.split('—')[0].trim() : 'Alloy';
+      }
+
+      function calculate() {
+        const rho = getDensity();
+        let totalKg = 0;
+        let unitKg = 0;
+        let qty = 1;
+        let perMeterKg = 0;
+        let specString = '';
+
+        if (currentShape === 'pipe') {
+          const od = parseFloat(document.getElementById('pipe-od').value) || 0;
+          const wt = parseFloat(document.getElementById('pipe-wt').value) || 0;
+          const len = parseFloat(document.getElementById('pipe-len').value) || 0;
+          qty = parseInt(document.getElementById('pipe-qty').value, 10) || 1;
+
+          if (od > wt && wt > 0 && len > 0) {
+            // Formula: pi * (OD - WT) * WT * Length * rho / 1000
+            const singleMeter = (Math.PI * (od - wt) * wt * rho) / 1000;
+            unitKg = singleMeter * len;
+            totalKg = unitKg * qty;
+            perMeterKg = singleMeter;
+            specString = `OD ${od}mm x WT ${wt}mm x ${len}m (${qty} pcs)`;
+          }
+        } else if (currentShape === 'sheet') {
+          const l = parseFloat(document.getElementById('sheet-len').value) || 0;
+          const w = parseFloat(document.getElementById('sheet-width').value) || 0;
+          const thk = parseFloat(document.getElementById('sheet-thk').value) || 0;
+          qty = parseInt(document.getElementById('sheet-qty').value, 10) || 1;
+
+          if (l > 0 && w > 0 && thk > 0) {
+            // Formula: L(mm) * W(mm) * T(mm) * rho / 1,000,000
+            unitKg = (l * w * thk * rho) / 1000000;
+            totalKg = unitKg * qty;
+            perMeterKg = unitKg / (l / 1000 || 1);
+            specString = `Thk ${thk}mm x ${w}mm x ${l}mm (${qty} pcs)`;
+          }
+        } else if (currentShape === 'round') {
+          const dia = parseFloat(document.getElementById('round-dia').value) || 0;
+          const len = parseFloat(document.getElementById('round-len').value) || 0;
+          qty = parseInt(document.getElementById('round-qty').value, 10) || 1;
+
+          if (dia > 0 && len > 0) {
+            // Formula: (pi * D^2 * L * rho) / 40,000
+            const singleMeter = (Math.PI * Math.pow(dia, 2) * rho) / 40000;
+            unitKg = singleMeter * len;
+            totalKg = unitKg * qty;
+            perMeterKg = singleMeter;
+            specString = `Dia ${dia}mm x ${len}m (${qty} pcs)`;
+          }
+        } else if (currentShape === 'hex') {
+          const s = parseFloat(document.getElementById('hex-size').value) || 0;
+          const len = parseFloat(document.getElementById('hex-len').value) || 0;
+          qty = parseInt(document.getElementById('hex-qty').value, 10) || 1;
+
+          if (s > 0 && len > 0) {
+            // Formula: 0.8660254 * S^2 * L * rho / 10,000
+            const singleMeter = (0.8660254 * Math.pow(s, 2) * rho) / 10000;
+            unitKg = singleMeter * len;
+            totalKg = unitKg * qty;
+            perMeterKg = singleMeter;
+            specString = `Hex A/F ${s}mm x ${len}m (${qty} pcs)`;
+          }
+        }
+
+        const totalLbs = totalKg * 2.20462;
+        const unitLbs = unitKg * 2.20462;
+
+        if (resTotalKg) resTotalKg.textContent = totalKg.toFixed(2);
+        if (resTotalLbs) resTotalLbs.textContent = totalLbs.toFixed(2);
+        if (resDensityVal) resDensityVal.textContent = `${rho.toFixed(2)} g/cm³`;
+        if (resUnitKg) resUnitKg.textContent = `${unitKg.toFixed(2)} kg (${unitLbs.toFixed(2)} lbs)`;
+        if (resPerMeter) resPerMeter.textContent = `${perMeterKg.toFixed(2)} kg/m`;
+
+        const alloyName = getSelectedAlloyName();
+        const shapeName =
+          currentShape === 'pipe'
+            ? 'Pipes / Tubes'
+            : currentShape === 'sheet'
+              ? 'Sheets / Plates'
+              : currentShape === 'round'
+                ? 'Round Bars'
+                : 'Hexagonal Bars';
+
+        // Update WhatsApp CTA dynamic link
+        if (waBtn) {
+          const message = `⚡ *BHANSALI METALS — WEIGHT INQUIRY*\n• Material: ${alloyName}\n• Product: ${shapeName}\n• Dimensions: ${specString}\n• Calc Weight: ${totalKg.toFixed(2)} kg (${totalLbs.toFixed(2)} lbs)\nPlease verify ready stock availability at Kalamboli Yard and provide quotation.`;
+          waBtn.href = `https://wa.me/919892244451?text=${encodeURIComponent(message)}`;
+        }
+
+        // Update RFQ button attributes
+        if (rfqBtn) {
+          rfqBtn.setAttribute('data-alloy', alloyName);
+          rfqBtn.setAttribute('data-product', `${shapeName} (${specString} ~ ${totalKg.toFixed(2)} kg)`);
+        }
+      }
+
+      // Shape Tab Switcher
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          tabButtons.forEach((b) => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          currentShape = btn.getAttribute('data-shape') || 'pipe';
+
+          Object.entries(shapeGroups).forEach(([key, groupEl]) => {
+            if (groupEl) {
+              groupEl.style.display = key === currentShape ? 'block' : 'none';
+            }
+          });
+
+          calculate();
+        });
+      });
+
+      // Alloy select change
+      alloySelect.addEventListener('change', () => {
+        if (alloySelect.value === 'custom') {
+          customDensityGroup.style.display = 'block';
+        } else {
+          customDensityGroup.style.display = 'none';
+        }
+        calculate();
+      });
+
+      // Custom density input
+      customDensityInput.addEventListener('input', calculate);
+
+      // Listen to all inputs inside the widget
+      widget.querySelectorAll('input').forEach((input) => {
+        input.addEventListener('input', calculate);
+      });
+
+      // Initial run
+      calculate();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupCalculator);
+    } else {
+      setupCalculator();
+    }
+  })();
+</script>
+
+<style>
+  .weight-calculator-widget {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft, 16px);
+    overflow: hidden;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+
+  /* Header */
+  .calc-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: var(--color-ink);
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-title {
+    font-size: 1.35rem;
+    font-weight: var(--weight-display, 500);
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .calc-subtitle {
+    font-size: 0.8125rem;
+    color: var(--color-steel);
+    margin-top: 4px;
+    margin-bottom: 0;
+    max-width: 680px;
+  }
+
+  .calc-badge {
+    flex-shrink: 0;
+  }
+
+  /* Shape Tabs Bar */
+  .shape-tabs-bar {
+    display: flex;
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.5rem 1.5rem 0;
+    gap: 0.5rem;
+    overflow-x: auto;
+  }
+
+  .shape-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    padding: 10px 18px;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: var(--weight-semibold, 600);
+    color: var(--color-charcoal);
+    cursor: pointer;
+    border-radius: var(--radius-sharp, 4px) var(--radius-sharp, 4px) 0 0;
+    transition: all 150ms ease;
+    white-space: nowrap;
+  }
+
+  .shape-tab-btn:hover {
+    color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+  }
+
+  .shape-tab-btn.active {
+    background-color: var(--color-canvas);
+    color: var(--color-primary);
+    border-color: var(--color-fog);
+    border-top: 2px solid var(--color-primary);
+  }
+
+  /* Main Grid */
+  .calc-body-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 0;
+  }
+
+  @media (max-width: 860px) {
+    .calc-body-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .calc-form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-right: 1px solid var(--color-fog);
+  }
+
+  @media (max-width: 860px) {
+    .calc-form {
+      border-right: none;
+      border-bottom: 1px solid var(--color-fog);
+      padding: 1.5rem;
+    }
+  }
+
+  .calc-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold, 600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-charcoal);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row-calc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-row-calc:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 520px) {
+    .form-row-calc {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .select-input {
+    appearance: auto;
+    cursor: pointer;
+  }
+
+  /* Result Box */
+  .calc-result-box {
+    padding: 2rem;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (max-width: 860px) {
+    .calc-result-box {
+      padding: 1.5rem;
+    }
+  }
+
+  .result-box-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold, 600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .primary-result-val {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .res-num {
+    font-size: 3rem;
+    font-weight: var(--weight-bold, 700);
+    line-height: 1.0;
+    color: var(--color-ink);
+  }
+
+  .res-unit {
+    font-size: 1.25rem;
+    font-weight: var(--weight-semibold, 600);
+    color: var(--color-primary);
+  }
+
+  .secondary-result-val {
+    font-size: 1.125rem;
+    color: var(--color-graphite);
+    margin-top: 4px;
+    margin-bottom: 1.5rem;
+  }
+
+  .calc-breakdown-list {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp, 4px);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    border-bottom: 1px dashed var(--color-hairline);
+    padding-bottom: 4px;
+  }
+
+  .breakdown-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .breakdown-lbl {
+    color: var(--color-charcoal);
+  }
+
+  .breakdown-val {
+    font-weight: var(--weight-semibold, 600);
+    color: var(--color-ink);
+  }
+
+  .calc-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .calc-action-buttons .btn {
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect x="6" y="6" width="108" height="108" rx="8" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" />
+  <rect x="12" y="12" width="96" height="24" rx="4" fill="#024ad8" />
+  <text x="60" y="28" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">EN 10204</text>
+  <text x="60" y="62" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#1a1a1a" text-anchor="middle">3.1</text>
+  <text x="60" y="80" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#024ad8" text-anchor="middle">MILL TEST CERT</text>
+  <text x="60" y="98" font-family="'Inter', sans-serif" font-size="8" font-weight="600" fill="#059669" text-anchor="middle">100% TRACEABLE</text>
+</svg>

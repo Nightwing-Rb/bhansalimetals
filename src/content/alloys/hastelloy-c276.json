@@ -1,0 +1,92 @@
+{
+  "title": "Hastelloy C-276 (UNS N10276 / W.Nr. 2.4819)",
+  "grade": "Hastelloy C-276",
+  "family": "Hastelloy",
+  "familyDisplayName": "Nickel-Molybdenum-Chromium Superalloys",
+  "metallurgy": "Ni-Mo-Cr-W superalloy",
+  "uns": "UNS N10276",
+  "unsNumber": "UNS N10276",
+  "wnr": "2.4819",
+  "werkstoffNumber": "2.4819",
+  "astmStandards": [
+    "ASTM B574",
+    "ASTM B575",
+    "ASTM B619",
+    "ASTM B622",
+    "ASTM B564"
+  ],
+  "asmeStandards": [
+    "SB-574",
+    "SB-575",
+    "SB-619",
+    "SB-622",
+    "SB-564"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Hastelloy C-276 Flanges, Buttweld Fittings & Pipes | Bhansali Metals",
+  "metaDescription": "Bhansali Metals manufactures & exports Hastelloy C-276 (UNS N10276 / 2.4819) forged flanges, pipes, and fittings for aggressive chemical environments.",
+  "summary": "Hastelloy C-276 is a premier nickel-molybdenum-chromium-tungsten alloy widely considered the most versatile corrosion resistant alloy available. It resists formation of grain-boundary precipitates in weld heat-affected zones.",
+  "keyFeatures": [
+    "Resistant to wet chlorine gas, hypochlorite, and chlorine dioxide solutions",
+    "Exceptional resistance to pitting, crevice corrosion, and stress-corrosion cracking",
+    "Tungsten addition (3.0-4.5%) bolsters resistance in reducing acid solutions",
+    "One of the few materials resistant to wet chlorine gas and ferric/cupric chlorides"
+  ],
+  "corrosionResistance": "Outstanding resistance to strong solutions of oxidizing salts (such as ferric and cupric chlorides), hot contaminated organic and inorganic media, chlorine, formic and acetic acids, and wet chlorine gas.",
+  "applications": [
+    "Flue gas desulfurization (FGD) scrubber scrubbers, reheaters, and dampers",
+    "Sour gas downhole piping and production components",
+    "Bleach plants and digesters in the pulp and paper industry",
+    "Chemical reactors, distillation columns, and waste incineration evaporators"
+  ],
+  "chemicalComposition": {
+    "Ni": "Bal (approx 57.0)",
+    "Mo": "15.0 - 17.0",
+    "Cr": "14.5 - 16.5",
+    "Fe": "4.0 - 7.0",
+    "W": "3.0 - 4.5",
+    "Co": "2.5 max",
+    "Mn": "1.0 max",
+    "V": "0.35 max",
+    "Si": "0.08 max",
+    "C": "0.010 max",
+    "P": "0.04 max",
+    "S": "0.03 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "690 min",
+      "ksi": "100 min"
+    },
+    "yieldStrength": {
+      "mpa": "283 min",
+      "ksi": "41 min"
+    },
+    "elongation": "40% min",
+    "hardness": "HRB 88 - 98",
+    "density": {
+      "metric": "8.89 g/cm³",
+      "imperial": "0.321 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1325 - 1370 °C",
+      "fahrenheit": "2415 - 2500 °F"
+    }
+  },
+  "availableForms": [
+    "Flanges",
+    "Pipes & Tubes",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NC17D",
+    "DIN": "W.Nr. 2.4819",
+    "JIS": "NW 0276",
+    "EN": "NiMo16Cr15W"
+  }
+}

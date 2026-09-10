@@ -1,0 +1,369 @@
+---
+import { footerLinks } from '../../data/navigation';
+import { siteConfig } from '../../data/site';
+---
+
+<footer class="site-footer" aria-label="Footer & Corporate Information">
+  <div class="container footer-container">
+    <div class="footer-grid">
+      <!-- COLUMN 1: Company Profile, Trust & Registered Offices -->
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo-wrap">
+          <div class="footer-chevron-mark" aria-hidden="true"></div>
+          <span class="footer-brand-title">{siteConfig.name}</span>
+        </div>
+        <p class="footer-bio">
+          Premier Government Recognized Export House & Stockist of High Nickel Superalloys, Stainless Steel Pipes, ASME B16.5 Flanges, and High-Pressure Forged Fittings.
+        </p>
+
+        <div class="office-block">
+          <span class="office-label">Registered &amp; Stockyard Offices</span>
+          <address class="office-address">
+            <strong>Registered:</strong> {siteConfig.office.fullAddress}<br />
+            <strong>Godown:</strong> {siteConfig.godown.address}
+          </address>
+        </div>
+
+        <p class="footer-reg-line">
+          GST · IEC · RCMC registered export house
+        </p>
+
+        <div class="footer-iso-tag">
+          <span class="iso-dot" aria-hidden="true"></span>
+          <span>{siteConfig.certifications.isoRegNo} · ISO 9001:2015</span>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: High Nickel Alloys Deep Links -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">High Nickel Alloys</h3>
+        <ul class="footer-link-list">
+          {
+            footerLinks.highNickel.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- COLUMN 3: Stainless Steel & Product Lines -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Piping &amp; Products</h3>
+        <ul class="footer-link-list">
+          {
+            footerLinks.products.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- COLUMN 4: Engineering Resources & Tools -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Engineering Tools</h3>
+        <ul class="footer-link-list">
+          {
+            footerLinks.engineering.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- COLUMN 5: Global Logistics, Port & Direct Contact -->
+      <div class="footer-col footer-col-logistics">
+        <h3 class="footer-col-title">Logistics &amp; Sales</h3>
+        <div class="contact-group">
+          <span class="contact-label">Mumbai Office Lines:</span>
+          <a href={`tel:${siteConfig.contacts.landline1}`} class="contact-val">{siteConfig.contacts.landline1}</a>
+          <a href={`tel:${siteConfig.contacts.landline2}`} class="contact-val">{siteConfig.contacts.landline2}</a>
+        </div>
+
+        <div class="contact-group">
+          <span class="contact-label">Sales WhatsApp (24/7):</span>
+          <a
+            href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-val whatsapp-link"
+          >
+            {siteConfig.contacts.salesWhatsApp} ({siteConfig.contacts.salesContactPerson})
+          </a>
+        </div>
+
+        <div class="contact-group">
+          <span class="contact-label">Procurement Desk:</span>
+          <a href={`mailto:${siteConfig.contacts.salesEmail}`} class="contact-val email-link">{siteConfig.contacts.salesEmail}</a>
+        </div>
+
+        <div class="logistics-box">
+          <span class="logistics-title">Export Dispatch:</span>
+          <p class="logistics-text">
+            <strong>Sea:</strong> JNPT Nhava Sheva Port<br />
+            <strong>Air:</strong> BOM Mumbai Air Cargo<br />
+            <strong>Domestic:</strong> Same-day dispatch with EN 10204 3.1 MTC.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    /* Flat navy, not a gradient. A wide vertical gradient made the lightest
+       band land mid-column, so identical link text measured 4.54:1 at the top
+       and 4.43:1 in the middle — below AA. A flat surface keeps contrast
+       uniform at every scroll position. */
+    background-color: var(--color-slab);
+    color: var(--on-ink);
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  .footer-container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-grid {
+    display: grid;
+    /* Column 1 holds the longest prose and the addresses, so it takes the
+       lion's share; the link columns are short and don't need equal width. */
+    grid-template-columns: 1.75fr 1fr 1.05fr 1.1fr 1.35fr;
+    gap: 2.5rem;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-chevron-mark {
+    width: 6px;
+    height: 20px;
+    background-color: var(--color-primary-bright);
+    border-radius: 2px;
+  }
+
+  .footer-brand-title {
+    font-size: 1.125rem;
+    font-weight: var(--weight-display);
+    letter-spacing: -0.02em;
+    color: var(--on-ink);
+  }
+
+  .footer-bio {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--on-ink-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .office-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .office-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--on-ink-2);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* Registered + godown addresses share one row-pair instead of two stacked
+     blocks — column 1 was carrying five separate jobs. */
+  .office-address {
+    font-size: 0.8125rem;
+    font-style: normal;
+    line-height: 1.55;
+    color: var(--on-ink-muted);
+  }
+
+  .office-address strong {
+    color: var(--on-ink-2);
+    font-weight: var(--weight-semibold);
+  }
+
+  .footer-reg-line {
+    font-size: 0.8125rem;
+    color: var(--on-ink-muted);
+  }
+
+  .footer-iso-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--color-primary-bright);
+    margin-top: 0.75rem;
+    padding: 5px 10px;
+    border: 1px solid rgba(120, 169, 255, 0.35);
+    border-radius: var(--radius-sm);
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .iso-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-primary-bright);
+  }
+
+  .footer-col-title {
+    font-size: 0.8125rem;
+    font-weight: var(--weight-semibold);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: var(--on-ink-2);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .footer-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-link {
+    font-size: 0.8125rem;
+    color: var(--on-ink-muted);
+    text-decoration: none;
+    transition: color 250ms var(--ease-apple);
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    color: var(--on-ink);
+  }
+
+  .contact-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--on-ink-2);
+  }
+
+  .contact-val {
+    font-size: 0.8125rem;
+    color: var(--on-ink-muted);
+    text-decoration: none;
+    transition: color 250ms var(--ease-apple);
+  }
+
+  .contact-val:hover {
+    color: var(--on-ink);
+  }
+
+  /* Was #34d399 — a fourth hue in the footer, unrelated to the brand blue.
+     The WhatsApp affordance is already carried by the icon and label. */
+  .whatsapp-link {
+    color: var(--on-ink-muted);
+    font-weight: var(--weight-semibold);
+  }
+
+  .whatsapp-link:hover {
+    color: var(--on-ink);
+  }
+
+  .email-link {
+    color: var(--color-primary-bright);
+  }
+
+  .email-link:hover {
+    color: var(--color-primary-bright-hover);
+  }
+
+  .logistics-box {
+    margin-top: 0.75rem;
+    padding: 0.875rem 1rem;
+    /* Was a glass panel with backdrop-filter: blur(12px) over a smooth
+       gradient, where blurring produces no perceptible effect. Flat border. */
+    background: none;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .logistics-title {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--on-ink-2);
+    text-transform: none;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .logistics-text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--on-ink-muted);
+    margin: 0;
+  }
+
+  .logistics-text strong {
+    color: var(--on-ink-2);
+    font-weight: var(--weight-semibold);
+  }
+
+  @media (max-width: 1200px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-col-brand {
+      grid-column: span 3;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .footer-col-brand {
+      grid-column: span 1;
+    }
+    .site-footer {
+      padding-top: 3.5rem;
+      padding-bottom: 2rem;
+    }
+  }
+</style>
+

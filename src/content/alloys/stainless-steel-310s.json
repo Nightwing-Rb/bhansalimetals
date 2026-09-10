@@ -1,0 +1,88 @@
+{
+  "title": "Stainless Steel 310S (UNS S31008 / W.Nr. 1.4845)",
+  "grade": "SS 310S",
+  "family": "Stainless Steel",
+  "familyDisplayName": "High Temperature Stainless Steel",
+  "metallurgy": "High Chromium-Nickel Heat Resistant Stainless Steel",
+  "uns": "UNS S31008",
+  "unsNumber": "UNS S31008",
+  "wnr": "1.4845",
+  "werkstoffNumber": "1.4845",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A312",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A403"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-312",
+    "SA-182",
+    "SA-276",
+    "SA-403"
+  ],
+  "naceCompliance": false,
+  "metaTitle": "Stainless Steel 310S Furnace Pipes, Plates & High-Temp Flanges | Bhansali Metals",
+  "metaDescription": "Heat-resistant SS 310S (UNS S31008 / 1.4845, Cr 24-26%, Ni 19-22%) plates, furnace tubes, and flanges rated for 1150°C service from Bhansali Metals Mumbai.",
+  "summary": "Grade 310S is a high chromium (24.0-26.0%) and high nickel (19.0-22.0%) austenitic heat-resistant stainless steel. It exhibits exceptional resistance to oxidation up to 2010°F (1100°C) under cyclic conditions and 2100°F (1150°C) under continuous service.",
+  "keyFeatures": [
+    "High Cr (24-26%) and Ni (19-22%) content for extreme scaling resistance",
+    "Continuous oxidation resistance up to 1150°C (2100°F)",
+    "Excellent resistance to thermal fatigue and cyclic heating",
+    "High creep strength and superior ductility at elevated temperatures"
+  ],
+  "corrosionResistance": "Excellent resistance to high-temperature oxidation, carburizing atmospheres, and sulfidation. Good resistance to hot fuming nitric acid at room temperature.",
+  "applications": [
+    "Industrial furnace parts, conveyor belts, burners, and retorts",
+    "Petrochemical radiant tubes and fluidized bed coal combustor tubes",
+    "Kiln liners, combustion chambers, and flare tips",
+    "Ore roasting equipment and waste incineration plant recuperators"
+  ],
+  "chemicalComposition": {
+    "Cr": "24.00 - 26.00",
+    "Ni": "19.00 - 22.00",
+    "C": "0.08 max",
+    "Mn": "2.00 max",
+    "Si": "1.50 max",
+    "P": "0.045 max",
+    "S": "0.030 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "515 min",
+      "ksi": "74.7 min"
+    },
+    "yieldStrength": {
+      "mpa": "205 min",
+      "ksi": "29.7 min"
+    },
+    "elongation": "40% min",
+    "hardness": "BHN 217 max / HRB 95 max",
+    "density": {
+      "metric": "7.98 g/cm³",
+      "imperial": "0.288 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1402 - 1454 °C",
+      "fahrenheit": "2555 - 2650 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z8CN25-20",
+    "DIN": "W.Nr. 1.4845",
+    "JIS": "SUS 310S",
+    "EN": "X8CrNi25-21"
+  }
+}

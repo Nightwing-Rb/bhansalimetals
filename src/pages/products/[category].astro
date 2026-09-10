@@ -1,0 +1,853 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Badge from '../../components/common/Badge.astro';
+import Button from '../../components/common/Button.astro';
+import { siteConfig } from '../../data/site';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((product) => ({
+    params: { category: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const { data } = product;
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Products', url: '/products' },
+  { name: data.title, url: `/products/${product.id}` },
+];
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": `${data.title} (ASME / ASTM)`,
+  "category": data.category,
+  "description": data.shortDescription,
+  "material": "Inconel, Monel, Hastelloy, Stainless Steel, Duplex & Super Duplex",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "offerCount": "1000",
+    "lowPrice": "500",
+    "highPrice": "500000"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": siteConfig.name
+  }
+};
+
+const waMessage = `⚡ *BHANSALI METALS INQUIRY*\n• Product: ${data.title}\n• Category: ${data.category}\n• Size / Rating: ${data.sizeRange}\n• Inquiry: Please provide quotation with EN 10204 3.1 MTC.`;
+const waUrl = `https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent(waMessage)}`;
+
+// Related categories navigation
+const allProducts = await getCollection('products');
+const otherProducts = allProducts.filter(p => p.id !== product.id);
+
+const alloyFamilyMap = [
+  { name: 'High Nickel Inconel', grades: ['Inconel 625 (UNS N06625)', 'Inconel 600 (UNS N06600)', 'Inconel 718 (UNS N07718)'], link: '/alloys/inconel-625' },
+  { name: 'Corrosion Resistant Monel', grades: ['Monel 400 (UNS N04400)', 'Monel K-500 (UNS N05500)'], link: '/alloys/monel-400' },
+  { name: 'Severe Acid Hastelloy', grades: ['Hastelloy C-276 (UNS N10276)', 'Hastelloy C-22 (UNS N06022)', 'Hastelloy B-2'], link: '/alloys/hastelloy-c276' },
+  { name: 'Austenitic Stainless Steel', grades: ['SS 316 / 316L (UNS S31603)', 'SS 304 / 304L (UNS S30403)', 'SS 321 / 347', 'SS 310S', 'SS 904L'], link: '/alloys/stainless-steel-316l' },
+  { name: 'Duplex & Super Duplex', grades: ['Duplex 2205 (UNS S32205)', 'Super Duplex 2507 (UNS S32750)'], link: '/alloys/super-duplex-2507' }
+];
+---
+
+<BaseLayout
+  title={`${data.title} Manufacturer & Stockist Mumbai | Bhansali Metals`}
+  description={data.metaDescription || data.shortDescription}
+  canonicalUrl={`https://www.bhansalimetals.com/products/${product.id}`}
+  breadcrumbs={breadcrumbs}
+  schemaType="Product"
+  schemaData={productSchema}
+>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="/products">Products</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">{data.title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Product Hero & Above-the-Fold Metallurgical Badges -->
+  <section class="band-canvas product-hero">
+    <div class="container">
+      <div class="product-hero-grid">
+        <!-- Left: Text, Specs, Badges & Conversion CTAs -->
+        <div class="product-hero-info">
+          <!-- Stock Readiness Pill (Feature 25.5) -->
+          <div class="stock-pill-wrapper">
+            <span class="stock-pill">
+              <span class="pulsing-dot" aria-hidden="true"></span>
+              <strong>Kalamboli Yard Ready</strong> &nbsp;|&nbsp; Same-Day MTC 3.1 Dispatch
+            </span>
+          </div>
+
+          <!-- Metallurgical & Standard Badges (Feature 25.3) -->
+          <div class="badges-row">
+            {data.applicableStandards.map((std) => (
+              <Badge variant="ink" text={std} />
+            ))}
+            <Badge variant="soft-blue" text="ASTM B564 / ASME B16.5" />
+            <Badge variant="outline" text="NACE MR0175 / ISO 15156" />
+          </div>
+
+          <h1 class="display-xl product-hero-title">
+            {data.title}
+          </h1>
+
+          {data.tagline && <p class="lead product-tagline">{data.tagline}</p>}
+
+          <p class="product-summary">{data.shortDescription}</p>
+
+          <!-- Core Quick-Spec Matrix (Sizes, Pressure Classes, Forms) -->
+          <div class="card core-specs-card">
+            <div class="spec-grid-item">
+              <span class="spec-label">Size Range</span>
+              <span class="spec-value font-mono">{data.sizeRange}</span>
+            </div>
+            {data.pressureRatings && data.pressureRatings.length > 0 && (
+              <div class="spec-grid-item">
+                <span class="spec-label">Pressure Ratings</span>
+                <span class="spec-value font-mono">{data.pressureRatings.join(', ')}</span>
+              </div>
+            )}
+            <div class="spec-grid-item">
+              <span class="spec-label">Inspection &amp; MTC</span>
+              <span class="spec-value">EN 10204 3.1 &amp; 3.2 / 100% PMI</span>
+            </div>
+            <div class="spec-grid-item">
+              <span class="spec-label">Kalamboli Inventory</span>
+              <span class="spec-value" style="color: var(--color-success); font-weight: var(--weight-bold);">Immediate Dispatch Ready</span>
+            </div>
+          </div>
+
+          <!-- Primary Conversion CTAs (Feature 28.5 & 26.1) -->
+          <div class="hero-actions">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-open-rfq
+              data-product={data.title}
+            >
+              Request Official Quotation (RFQ)
+            </button>
+            <Button
+              href={waUrl}
+              variant="whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chat on WhatsApp (+91 98922 44451)
+            </Button>
+          </div>
+        </div>
+
+        <!-- Right: Technical Schematic (Zero External Hotlinks) -->
+        <div class="product-hero-schematic">
+          <div class="schematic-container card card-soft-lift">
+            <div class="schematic-header">
+              <span class="schematic-title">ASME / ASTM Engineering Schematic</span>
+              <span class="cad-badge">CAD Vector</span>
+            </div>
+            {data.schematicSvg ? (
+              <img
+                src={data.schematicSvg}
+                alt={`${data.title} engineering dimensional schematic`}
+                class="schematic-svg-image"
+                width="600"
+                height="400"
+              />
+            ) : (
+              <div class="schematic-fallback">
+                <p>Engineering Drawing: {data.title}</p>
+              </div>
+            )}
+            <div class="schematic-footer">
+              <span>All dimensions conform to ASME / ASTM tolerances</span>
+              <a href="/technical-data" class="tech-link">View Dimensional Data &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Subtypes & Component Variations -->
+  {data.subTypes && data.subTypes.length > 0 && (
+    <section class="band-cloud subtypes-section" data-animate>
+      <div class="container">
+        <div class="section-title-box">
+          <span class="eyebrow">Dimensional Profiles &amp; Forms</span>
+          <h2 class="display-md">Available {data.title} Subtypes</h2>
+          <p class="caption-md" style="margin-top: 0.25rem;">
+            Manufactured in seamless and forged executions with raised face (RF), flat face (FF), and ring type joint (RTJ) facings.
+          </p>
+        </div>
+
+        <div class="subtypes-grid">
+          {data.subTypes.map((st) => (
+            <div class="card card-soft-lift subtype-card">
+              <div class="subtype-header">
+                {st.abbreviation && <span class="badge badge-mono">{st.abbreviation}</span>}
+                <h3 class="display-xs subtype-name">{st.name}</h3>
+              </div>
+              <p class="subtype-desc">{st.description}</p>
+              {st.facingTypes && st.facingTypes.length > 0 && (
+                <div class="facings-row">
+                  <span class="facings-label">Facing Types:</span>
+                  <div class="facings-tags">
+                    {st.facingTypes.map((f) => (
+                      <span class="facing-tag">{f}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Section: Compatible Alloys & Metallurgy (Feature 28.3) -->
+  <section class="band-canvas compatible-alloys-section" data-animate>
+    <div class="container">
+      <div class="section-title-box">
+        <span class="eyebrow">Metallurgical Compatibility</span>
+        <h2 class="display-md">Compatible Alloy Families</h2>
+        <p class="lead" style="margin-top: 0.5rem; max-width: 760px;">
+          Bhansali Metals stocks and manufactures {data.title} in Inconel, Monel, Hastelloy, Stainless Steel, and Duplex grades with comprehensive mill test certificates (EN 10204 3.1).
+        </p>
+      </div>
+
+      <div class="alloy-families-grid">
+        {alloyFamilyMap.map((fam) => (
+          <div class="card card-soft-lift family-card">
+            <div class="family-card-header">
+              <h3 class="display-xs family-title">{fam.name}</h3>
+              <a href={fam.link} class="family-link">View Grade &rarr;</a>
+            </div>
+            <ul class="grade-list">
+              {fam.grades.map((g) => (
+                <li class="grade-item">
+                  <span class="check-icon">✓</span>
+                  <span>{g}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Quality Assurance & Testing Lab -->
+  <section class="band-cloud qa-section" data-animate>
+    <div class="container">
+      <div class="section-title-box">
+        <span class="eyebrow">Certified Reliability</span>
+        <h2 class="display-md">Quality Testing &amp; Inspection Protocols</h2>
+        <p class="caption-md" style="margin-top: 0.25rem;">
+          Every {data.title} dispatch undergoes rigorous non-destructive and laboratory examination to ensure 100% defect-free service.
+        </p>
+      </div>
+
+      <div class="qa-grid">
+        <div class="card qa-card">
+          <span class="qa-num">01</span>
+          <h3 class="display-xs qa-card-title">100% Spectro PMI Testing</h3>
+          <p class="qa-card-desc">Positive Material Identification using calibrated handheld XRF analyzer verifying chemical limits for every piece before packing.</p>
+        </div>
+        <div class="card qa-card">
+          <span class="qa-num">02</span>
+          <h3 class="display-xs qa-card-title">Hydrostatic Proof Testing</h3>
+          <p class="qa-card-desc">Hydrostatic testing up to 15,000 PSI per ASME Sec VIII &amp; B16.5 verifying pressure-tight envelope integrity.</p>
+        </div>
+        <div class="card qa-card">
+          <span class="qa-num">03</span>
+          <h3 class="display-xs qa-card-title">Ultrasonic &amp; Radiography (NDT)</h3>
+          <p class="qa-card-desc">Volumetric inspection detecting inclusions, voids, and subsurface defects to ASME Section V standards.</p>
+        </div>
+        <div class="card qa-card">
+          <span class="qa-num">04</span>
+          <h3 class="display-xs qa-card-title">EN 10204 3.1 &amp; 3.2 MTC</h3>
+          <p class="qa-card-desc">Complete chemical ladle analysis, mechanical properties (tensile, yield, hardness), and heat treatment records provided.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation: Complementary Product Lines -->
+  <section class="band-cloud complementary-section" data-animate>
+    <div class="container">
+      <div class="section-title-box">
+        <span class="eyebrow">Complete Piping Package</span>
+        <h2 class="display-md">Related Product Lines</h2>
+      </div>
+
+      <div class="complementary-grid">
+        {otherProducts.map((op) => (
+          <a href={`/products/${op.id}`} class="complementary-card card card-soft-lift">
+            <span class="comp-category">{op.data.category.toUpperCase().replace('-', ' ')}</span>
+            <h3 class="display-xs comp-title">{op.data.title}</h3>
+            <span class="comp-size">{op.data.sizeRange}</span>
+            <span class="comp-cta">Explore Specs &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Dark Ink Band: Commercial RFQ & Direct WhatsApp -->
+  <section class="band-dark-gradient product-rfq-band">
+    <div class="container">
+      <div class="product-rfq-box" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Direct Procurement Desk</span>
+          <h2 class="display-md" style="color: var(--color-on-ink);">Order {data.title} from Kalamboli Stockyard</h2>
+          <p class="lead" style="color: var(--color-fog); max-width: 660px; margin-top: 0.5rem;">
+            Immediate container packing and dispatch to JNPT Port (Nhava Sheva) or domestic delivery across India. Send your required sizes, schedules, and tonnages.
+          </p>
+        </div>
+        <div class="rfq-band-actions">
+          <button
+            type="button"
+            class="btn btn-primary-bright"
+            data-open-rfq
+            data-product={data.title}
+          >
+            Submit RFQ to Sales Desk
+          </button>
+          <Button
+            href={waUrl}
+            variant="whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp Sales Desk
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Product Hero Grid */
+  .product-hero {
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .product-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 1024px) {
+    .product-hero-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .stock-pill-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .stock-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 4px 12px;
+    background-color: var(--color-success-soft);
+    color: var(--color-success-deep);
+    border: 1px solid #a7f3d0;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: var(--weight-regular);
+  }
+
+  .pulsing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-success);
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(4, 120, 87, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0); }
+  }
+
+  .badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-hero-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .product-tagline {
+    color: var(--color-primary);
+    font-weight: var(--weight-display);
+    margin-bottom: 1rem;
+  }
+
+  .product-summary {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .core-specs-card {
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 1rem 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  @media (max-width: 580px) {
+    .core-specs-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .spec-grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .spec-label {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-graphite);
+  }
+
+  .spec-value {
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Schematic Container */
+  .schematic-container {
+    background-color: var(--color-canvas);
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--color-fog);
+    box-shadow: var(--shadow-soft-lift);
+    overflow: hidden;
+  }
+
+  .schematic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--color-fog);
+    background-color: var(--color-cloud);
+  }
+
+  .schematic-title {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .cad-badge {
+    font-size: 0.625rem;
+    font-weight: var(--weight-bold);
+    background-color: var(--color-ink);
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: var(--radius-xs);
+  }
+
+  .schematic-svg-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 1rem;
+    background-color: #fafafa;
+  }
+
+  .schematic-fallback {
+    padding: 3rem;
+    text-align: center;
+    color: var(--color-steel);
+  }
+
+  .schematic-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--color-fog);
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    background-color: var(--color-cloud);
+  }
+
+  .tech-link {
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+
+  /* Subtypes Section */
+  .subtypes-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .section-title-box {
+    margin-bottom: 2rem;
+  }
+
+  .subtypes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .subtypes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .subtypes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .subtype-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subtype-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtype-name {
+    margin: 0;
+  }
+
+  .subtype-desc {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .facings-row {
+    margin-top: auto;
+    font-size: 0.75rem;
+  }
+
+  .facings-label {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-graphite);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .facings-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .facing-tag {
+    font-size: 0.6875rem;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    padding: 1px 6px;
+    border-radius: var(--radius-xs);
+    color: var(--color-ink);
+  }
+
+  /* Compatible Alloys */
+  .compatible-alloys-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .alloy-families-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .family-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.25rem;
+  }
+
+  .family-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-fog);
+  }
+
+  .family-title {
+    margin: 0;
+    color: var(--color-ink);
+  }
+
+  .family-link {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+
+  .grade-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .grade-item {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .check-icon {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 0.75rem;
+  }
+
+  /* QA Section */
+  .qa-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .qa-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .qa-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .qa-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .qa-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .qa-num {
+    font-size: 1.5rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-primary-soft);
+    margin-bottom: 0.5rem;
+    display: block;
+    line-height: 1;
+  }
+
+  .qa-card-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .qa-card-desc {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Complementary Section */
+  .complementary-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .complementary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .complementary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .complementary-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .complementary-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--color-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .complementary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 26, 26, 0.1);
+  }
+
+  .comp-category {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+  }
+
+  .comp-title {
+    margin: 0;
+  }
+
+  .comp-size {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    font-family: var(--font-mono);
+  }
+
+  .comp-cta {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    margin-top: 0.5rem;
+  }
+
+  /* Product RFQ Band */
+  .product-rfq-band {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .product-rfq-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .rfq-band-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .rfq-band-actions {
+      width: 100%;
+    }
+  }
+</style>

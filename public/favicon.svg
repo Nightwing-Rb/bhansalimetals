@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="4" fill="#024ad8" />
+  <!-- Parallel 45° chevrons forming industrial metal symbol -->
+  <path d="M7 25 L15 7 L19 7 L11 25 Z" fill="#ffffff" />
+  <path d="M14 25 L22 7 L26 7 L18 25 Z" fill="#c9e0fc" />
+</svg>

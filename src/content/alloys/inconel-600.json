@@ -1,0 +1,87 @@
+{
+  "title": "Inconel 600 (UNS N06600 / W.Nr. 2.4816)",
+  "grade": "Inconel 600",
+  "family": "Inconel",
+  "familyDisplayName": "High Nickel Superalloys",
+  "metallurgy": "Ni-Cr superalloy",
+  "uns": "UNS N06600",
+  "unsNumber": "UNS N06600",
+  "wnr": "2.4816",
+  "werkstoffNumber": "2.4816",
+  "astmStandards": [
+    "ASTM B166",
+    "ASTM B167",
+    "ASTM B168",
+    "ASTM B163",
+    "ASTM B564"
+  ],
+  "asmeStandards": [
+    "SB-166",
+    "SB-167",
+    "SB-168",
+    "SB-564"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Inconel 600 Pipes, Flanges & Fittings Manufacturer Mumbai | Bhansali Metals",
+  "metaDescription": "Bhansali Metals manufactures & stocks Inconel 600 (UNS N06600 / W.Nr. 2.4816) pipes, flanges, fittings, and sheets with EN 10204 3.1 MTC from Mumbai, India.",
+  "summary": "Inconel 600 is a standard engineering material for applications requiring high temperature resistance and corrosion resistance. It offers excellent mechanical properties and high strength combined with good workability.",
+  "keyFeatures": [
+    "Resistant to a wide range of corrosive media",
+    "Virtually immune to chlorine-ion stress-corrosion cracking",
+    "Non-magnetic with excellent mechanical properties",
+    "High strength and good weldability under wide temperature ranges"
+  ],
+  "corrosionResistance": "High nickel content provides resistance to reducing environments, while chromium provides resistance to oxidizing conditions. Immune to chloride-ion stress corrosion cracking.",
+  "applications": [
+    "Chemical and food processing equipment",
+    "Heat treating muffles, retorts, and furnace components",
+    "Nuclear reactor components and steam generator tubing",
+    "Pulp and paper manufacturing digestors"
+  ],
+  "chemicalComposition": {
+    "Ni": "72.0 min",
+    "Cr": "14.0 - 17.0",
+    "Fe": "6.0 - 10.0",
+    "C": "0.15 max",
+    "Mn": "1.0 max",
+    "S": "0.015 max",
+    "Si": "0.50 max",
+    "Cu": "0.50 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "550 min",
+      "ksi": "80 min"
+    },
+    "yieldStrength": {
+      "mpa": "240 min",
+      "ksi": "35 min"
+    },
+    "elongation": "30% min",
+    "hardness": "HRB 65 - 85",
+    "density": {
+      "metric": "8.47 g/cm³",
+      "imperial": "0.306 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1354 - 1413 °C",
+      "fahrenheit": "2470 - 2575 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NC15Fe",
+    "DIN": "W.Nr. 2.4816",
+    "JIS": "NCF 600",
+    "EN": "NiCr15Fe"
+  }
+}

@@ -1,0 +1,24 @@
+---
+interface Props {
+  variant?: 'ink' | 'outline' | 'error' | 'soft-blue' | 'status-green' | 'mono' | 'glass' | 'glass-dark';
+  text?: string;
+  class?: string;
+}
+
+const { variant = 'ink', text, class: className = '' } = Astro.props;
+
+const variantClass = {
+  ink: 'badge-ink',
+  outline: 'badge-outline',
+  error: 'badge-error',
+  'soft-blue': 'badge-soft-blue',
+  'status-green': 'badge-status-green',
+  mono: 'badge-mono',
+  glass: 'badge-glass',
+  'glass-dark': 'badge-glass-dark',
+}[variant];
+---
+
+<span class={`badge ${variantClass} ${className}`.trim()}>
+  {text ? text : <slot />}
+</span>

@@ -1,0 +1,89 @@
+{
+  "title": "Stainless Steel 304 (UNS S30400 / W.Nr. 1.4301)",
+  "grade": "SS 304",
+  "family": "Stainless Steel",
+  "familyDisplayName": "Austenitic Stainless Steel",
+  "metallurgy": "Austenitic Stainless Steel (18-8)",
+  "uns": "UNS S30400",
+  "unsNumber": "UNS S30400",
+  "wnr": "1.4301",
+  "werkstoffNumber": "1.4301",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A312",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A403"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-312",
+    "SA-182",
+    "SA-276",
+    "SA-403"
+  ],
+  "naceCompliance": false,
+  "metaTitle": "Stainless Steel 304 Pipes, Flanges & Sheets Stockist Mumbai | Bhansali Metals",
+  "metaDescription": "Premium Stainless Steel 304 (UNS S30400 / 1.4301) flanges, buttweld fittings, round bars, and seamless pipes from Bhansali Metals Mumbai with MTC.",
+  "summary": "Grade 304 is the classic 18/8 austenitic stainless steel. It is the most widely utilized stainless steel across all industrial, commercial, and architectural sectors due to its excellent combination of corrosion resistance, fabricability, and hygiene.",
+  "keyFeatures": [
+    "Standard 18% chromium and 8% nickel metallurgical matrix",
+    "Excellent drawability and deep-draw forming characteristics",
+    "Outstanding cryogenic toughness down to -196°C",
+    "Non-magnetic in annealed condition with easy sanitary cleanability"
+  ],
+  "corrosionResistance": "Resistant to a wide variety of atmospheric environments and many corrosive media. Subject to pitting and crevice corrosion in warm chloride environments.",
+  "applications": [
+    "Food and beverage processing equipment and dairy tanks",
+    "Architectural paneling, railings, and trims",
+    "Chemical storage containers and domestic appliances",
+    "Automotive exhaust headers and general industrial piping"
+  ],
+  "chemicalComposition": {
+    "Cr": "18.00 - 20.00",
+    "Ni": "8.00 - 10.50",
+    "C": "0.08 max",
+    "Mn": "2.00 max",
+    "Si": "0.75 max",
+    "P": "0.045 max",
+    "S": "0.030 max",
+    "N": "0.10 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "515 min",
+      "ksi": "74.7 min"
+    },
+    "yieldStrength": {
+      "mpa": "205 min",
+      "ksi": "29.7 min"
+    },
+    "elongation": "40% min",
+    "hardness": "BHN 201 max / HRB 92 max",
+    "density": {
+      "metric": "8.00 g/cm³",
+      "imperial": "0.289 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1400 - 1450 °C",
+      "fahrenheit": "2550 - 2650 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z7CN18-09",
+    "DIN": "W.Nr. 1.4301",
+    "JIS": "SUS 304",
+    "EN": "X5CrNi18-10"
+  }
+}

@@ -1,0 +1,119 @@
+---
+import { siteConfig } from '../../data/site';
+---
+
+<div class="utility-strip" aria-label="Quick Contact Header">
+  <div class="container utility-content">
+    <!-- Left: Live Stock Status -->
+    <div class="utility-left">
+      <span class="dispatch-badge">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Ready Stock Available</span>
+      </span>
+    </div>
+
+    <!-- Right: Key Contact Links -->
+    <div class="utility-right">
+      <a href={`tel:${siteConfig.contacts.landline1}`} class="utility-link" title="Call Mumbai Office">
+        <span>{siteConfig.contacts.landline1}</span>
+      </a>
+
+      <span class="dot-sep" aria-hidden="true">·</span>
+
+      <a
+        href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I would like to inquire about high nickel alloys.')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="utility-link utility-whatsapp"
+        title="Chat on WhatsApp"
+      >
+        <span>WhatsApp</span>
+      </a>
+
+      <span class="dot-sep" aria-hidden="true">·</span>
+
+      <a href={`mailto:${siteConfig.contacts.salesEmail}`} class="utility-link" title="Email Sales Desk">
+        <span>{siteConfig.contacts.salesEmail}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .utility-strip {
+    height: 32px;
+    background-color: var(--color-ink);
+    color: var(--color-on-ink);
+    font-size: 0.75rem;
+    line-height: 32px;
+  }
+
+  .utility-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .utility-left, .utility-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dispatch-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-success);
+    font-size: 0.6875rem;
+    letter-spacing: 0.02em;
+  }
+
+  .status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 6px #10b981;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .utility-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.6875rem;
+    transition: color 200ms var(--ease-apple);
+  }
+
+  .utility-link:hover {
+    color: #ffffff;
+  }
+
+  .utility-whatsapp:hover {
+    color: #25d366;
+  }
+
+  .dot-sep {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 680px) {
+    .utility-left {
+      display: none;
+    }
+    .utility-content {
+      justify-content: center;
+    }
+  }
+</style>

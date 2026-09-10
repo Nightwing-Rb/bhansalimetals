@@ -1,0 +1,89 @@
+{
+  "title": "Stainless Steel 304L (UNS S30403 / W.Nr. 1.4306)",
+  "grade": "SS 304L",
+  "family": "Stainless Steel",
+  "familyDisplayName": "Austenitic Stainless Steel",
+  "metallurgy": "Low Carbon Austenitic Stainless Steel",
+  "uns": "UNS S30403",
+  "unsNumber": "UNS S30403",
+  "wnr": "1.4306",
+  "werkstoffNumber": "1.4306",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A312",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A403"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-312",
+    "SA-182",
+    "SA-276",
+    "SA-403"
+  ],
+  "naceCompliance": false,
+  "metaTitle": "Stainless Steel 304L Welded Pipes, Flanges & Fittings | Bhansali Metals",
+  "metaDescription": "Extra low carbon SS 304L (UNS S30403 / 1.4306, C<=0.030%) seamless pipes, flanges, and fittings with EN 10204 3.1 MTC supplied by Bhansali Metals Mumbai.",
+  "summary": "Grade 304L is the extra low-carbon variation of 304 (carbon strictly capped at 0.030% max). It eliminates harmful carbide precipitation in the heat-affected zone (HAZ) during welding, making it ideal for heavy-gauge welded construction.",
+  "keyFeatures": [
+    "Strict carbon cap <= 0.030% preventing intergranular sensitization",
+    "Immunity to intergranular corrosion in the as-welded condition",
+    "No requirement for post-weld solution annealing on heavy joints",
+    "High cryogenic impact toughness at subzero temperatures"
+  ],
+  "corrosionResistance": "Identical corrosion resistance to 304 in most environments, but with superior resistance to intergranular corrosion in welded components.",
+  "applications": [
+    "Chemical and petrochemical heavy-wall welded vessels",
+    "Brewery, winery, and pharmaceutical processing equipment",
+    "Cryogenic storage tanks, LNG piping, and transfer manifolds",
+    "Water treatment and municipal sewage plant structures"
+  ],
+  "chemicalComposition": {
+    "Cr": "18.00 - 20.00",
+    "Ni": "8.00 - 12.00",
+    "C": "0.030 max",
+    "Mn": "2.00 max",
+    "Si": "0.75 max",
+    "P": "0.045 max",
+    "S": "0.030 max",
+    "N": "0.10 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "485 min",
+      "ksi": "70.3 min"
+    },
+    "yieldStrength": {
+      "mpa": "170 min",
+      "ksi": "24.7 min"
+    },
+    "elongation": "40% min",
+    "hardness": "BHN 201 max / HRB 92 max",
+    "density": {
+      "metric": "8.00 g/cm³",
+      "imperial": "0.289 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1400 - 1450 °C",
+      "fahrenheit": "2550 - 2650 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z3CN18-10",
+    "DIN": "W.Nr. 1.4306",
+    "JIS": "SUS 304L",
+    "EN": "X2CrNi19-11"
+  }
+}

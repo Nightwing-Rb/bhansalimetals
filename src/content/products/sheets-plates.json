@@ -1,0 +1,82 @@
+{
+  "title": "Sheets, Plates & Coils",
+  "category": "sheets-plates",
+  "tagline": "Hot-Rolled Heavy Plates & Cold-Rolled Precision Sheets up to 200mm Thick",
+  "shortDescription": "Bhansali Metals stocks and processes industrial sheets, plates, coils, and shim sheets in high nickel alloys, stainless steel, and duplex steel with custom cutting capabilities.",
+  "metaTitle": "Stainless Steel & Nickel Alloy Plates, Sheets & Coils | Bhansali Metals",
+  "metaDescription": "High nickel and stainless steel plates, cold-rolled sheets, and coils from 0.5mm to 200mm thickness. Custom plasma and laser cutting from Bhansali Metals Mumbai.",
+  "sizeRange": "Thickness: 0.5mm to 200mm; Width: 1000mm to 3000mm; Length: 2000mm to 12500mm (or custom cut)",
+  "pressureRatings": [
+    "Tolerances per ASTM A480 / EN 10029 Class A & Class B"
+  ],
+  "applicableStandards": [
+    "ASTM A240",
+    "ASTM B168",
+    "ASTM B443",
+    "ASTM B670",
+    "ASTM B409",
+    "ASTM B127",
+    "ASTM B575",
+    "ASME SA-240",
+    "ASME SB-168",
+    "ASME SB-443",
+    "ASME SB-409"
+  ],
+  "forms": [
+    "Hot Rolled Plates",
+    "Cold Rolled Sheets",
+    "Coils",
+    "Strips",
+    "Shim Sheets"
+  ],
+  "subTypes": [
+    {
+      "name": "Hot Rolled Industrial Plates (No. 1 / 1D Finish)",
+      "description": "Heavy gauge plates for pressure vessels, storage tanks, heat exchangers, and marine offshore structures."
+    },
+    {
+      "name": "Cold Rolled Precision Sheets (2B / BA Finish)",
+      "description": "Smooth high-accuracy sheets for sanitary, pharmaceutical, architectural, and food processing applications."
+    },
+    {
+      "name": "Continuous Coils & Slit Strips",
+      "description": "Precision slit coils for automated stamping, deep drawing, and welded tube fabrication lines."
+    },
+    {
+      "name": "Thin Gauge Shim Sheets",
+      "description": "Precision ground shim foil and thin sheet (0.5mm to 3.0mm) for mechanical leveling and gasket support."
+    }
+  ],
+  "compatibleAlloys": [
+    "inconel-600",
+    "inconel-625",
+    "inconel-718",
+    "incoloy-800",
+    "incoloy-825",
+    "monel-400",
+    "monel-k500",
+    "hastelloy-c276",
+    "hastelloy-c22",
+    "hastelloy-x",
+    "nickel-200",
+    "stainless-steel-304",
+    "stainless-steel-304l",
+    "stainless-steel-316",
+    "stainless-steel-316l",
+    "stainless-steel-321",
+    "stainless-steel-310s",
+    "stainless-steel-904l",
+    "duplex-2205",
+    "super-duplex-2507"
+  ],
+  "manufacturingProcess": "Hot slab breakdown rolling, continuous vacuum annealing, descaling, multi-stand cold rolling reduction, tension leveling, and CNC plasma/waterjet cutting.",
+  "qualityInspection": [
+    "EN 10204 3.1 Mill Test Certificate (MTC)",
+    "Ultrasonic Plate Testing per ASTM A435 / A578",
+    "Intergranular Corrosion Testing per ASTM A262",
+    "Mechanical Tensile and Charpy Impact Testing",
+    "PMI Material Verification"
+  ],
+  "heroImage": "/images/products/sheets-plates.svg",
+  "schematicSvg": "/images/schematics/pipe-fitting.svg"
+}

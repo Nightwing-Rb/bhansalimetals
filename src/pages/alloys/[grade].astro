@@ -1,0 +1,812 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Badge from '../../components/common/Badge.astro';
+import Button from '../../components/common/Button.astro';
+import { siteConfig } from '../../data/site';
+
+export async function getStaticPaths() {
+  const alloys = await getCollection('alloys');
+  return alloys.map((alloy) => ({
+    params: { grade: alloy.id },
+    props: { alloy },
+  }));
+}
+
+const { alloy } = Astro.props;
+const { data } = alloy;
+
+const unsCode = data.unsNumber || data.uns || '';
+const wnrCode = data.werkstoffNumber || data.wnr || '';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Alloys Matrix', url: '/alloys' },
+  { name: data.grade, url: `/alloys/${alloy.id}` },
+];
+
+const alloySchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": `${data.title} - Raw Material & Fabricated Piping Components`,
+  "category": data.familyDisplayName || data.family,
+  "description": data.summary,
+  "material": `${data.grade} (${unsCode} / ${wnrCode})`,
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "offerCount": "500",
+    "lowPrice": "1000",
+    "highPrice": "1000000"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": siteConfig.name
+  }
+};
+
+const waMessage = `⚡ *BHANSALI METALS INQUIRY*\n• Material Grade: ${data.grade}\n• UNS: ${unsCode}\n• Werkstoff: ${wnrCode}\n• Please provide quotation, stock availability, and EN 10204 3.1 MTC from Kalamboli yard.`;
+const waUrl = `https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent(waMessage)}`;
+
+// Form link mapping to product pages
+const formProductMap: Record<string, string> = {
+  'Flanges': '/products/flanges',
+  'Pipes & Tubes': '/products/pipes-tubes',
+  'Pipes': '/products/pipes-tubes',
+  'Tubes': '/products/pipes-tubes',
+  'Buttweld Fittings': '/products/buttweld-fittings',
+  'Fittings': '/products/buttweld-fittings',
+  'Forged Fittings': '/products/forged-fittings',
+  'Fasteners': '/products/fasteners',
+  'Round Bars': '/products/round-bars',
+  'Sheets & Plates': '/products/sheets-plates',
+  'Sheets': '/products/sheets-plates',
+  'Plates': '/products/sheets-plates',
+};
+---
+
+<BaseLayout
+  title={`${data.grade} (${unsCode} / ${wnrCode}) Supplier Mumbai | Bhansali Metals`}
+  description={data.metaDescription || data.summary}
+  canonicalUrl={`https://www.bhansalimetals.com/alloys/${alloy.id}`}
+  breadcrumbs={breadcrumbs}
+  schemaType="Product"
+  schemaData={alloySchema}
+>
+  <!-- Breadcrumb Bar -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="/alloys">Alloys</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">{data.grade}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Above-the-Fold Specs & Hero Section (Features 25.1, 25.2, 25.4, 25.5) -->
+  <section class="band-canvas alloy-detail-hero">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <!-- Stock Readiness Pill (Feature 25.5) -->
+          <div class="stock-pill-wrapper">
+            <span class="stock-pill">
+              <span class="pulsing-dot" aria-hidden="true"></span>
+              <strong>Kalamboli Yard Ready</strong> &nbsp;|&nbsp; Same-Day MTC Dispatch
+            </span>
+          </div>
+
+          <!-- Metallurgical Code Badges (Features 25.1, 25.2, 25.4) -->
+          <div class="badges-row">
+            {unsCode && <Badge variant="ink" text={`UNS ${unsCode.replace(/^UNS\s*/i, '')}`} />}
+            {wnrCode && <Badge variant="soft-blue" text={`W.Nr. ${wnrCode}`} />}
+            {data.astmStandards && data.astmStandards.length > 0 && (
+              <Badge variant="outline" text={data.astmStandards[0]} />
+            )}
+            {data.naceCompliance && (
+              <Badge variant="status-green" text="NACE MR0175 / ISO 15156 Compliant" />
+            )}
+            {data.pren && (
+              <Badge variant="error" text={`PREN ≥ ${data.pren}`} />
+            )}
+          </div>
+
+          <h1 class="display-xl alloy-page-title">
+            {data.title}
+          </h1>
+
+          <p class="lead alloy-metallurgy-sub">
+            {data.metallurgy || `${data.family} High-Performance Alloy System`}
+          </p>
+
+          <p class="alloy-summary-lead">
+            {data.summary}
+          </p>
+
+          <!-- Above-The-Fold Specs Box -->
+          <div class="card card-soft-lift atf-specs-box">
+            <div class="atf-grid">
+              <div class="atf-cell">
+                <span class="atf-label">UNS Designation</span>
+                <span class="atf-val font-mono">{unsCode || 'N/A'}</span>
+              </div>
+              <div class="atf-cell">
+                <span class="atf-label">Werkstoff / DIN</span>
+                <span class="atf-val font-mono">{wnrCode ? `W.Nr. ${wnrCode}` : 'N/A'}</span>
+              </div>
+              <div class="atf-cell">
+                <span class="atf-label">Tensile Strength (min)</span>
+                <span class="atf-val font-mono">
+                  {data.mechanicalProperties.tensileStrength.mpa} MPa ({data.mechanicalProperties.tensileStrength.ksi} ksi)
+                </span>
+              </div>
+              <div class="atf-cell">
+                <span class="atf-label">Yield Strength (0.2%)</span>
+                <span class="atf-val font-mono">
+                  {data.mechanicalProperties.yieldStrength.mpa} MPa ({data.mechanicalProperties.yieldStrength.ksi} ksi)
+                </span>
+              </div>
+              <div class="atf-cell">
+                <span class="atf-label">Primary ASTM Standards</span>
+                <span class="atf-val font-mono">{data.astmStandards.slice(0, 3).join(', ')}</span>
+              </div>
+              <div class="atf-cell">
+                <span class="atf-label">Sour Service (NACE)</span>
+                <span class="atf-val" style="color: var(--color-success); font-weight: var(--weight-semibold);">
+                  {data.naceCompliance ? 'NACE MR0175 / ISO 15156 Certified' : 'Standard Service'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Action CTAs -->
+          <div class="hero-ctas">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-open-rfq
+              data-alloy={data.grade}
+            >
+              Request RFQ for {data.grade}
+            </button>
+            <Button
+              href={waUrl}
+              variant="whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instant WhatsApp Quote (+91 98922 44451)
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Chemical Composition Table (Feature 29.2 & 20.5) -->
+  <section class="band-cloud chem-section" data-animate>
+    <div class="container">
+      <div class="section-title-block">
+        <span class="eyebrow">Elemental Chemistry</span>
+        <h2 class="display-md">Chemical Composition Standard Limits (% Weight)</h2>
+        <p class="caption-md" style="margin-top: 0.25rem;">
+          Verified via 100% positive material identification (Spectro PMI) on all incoming stock and final dispatches.
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              {Object.keys(data.chemicalComposition).map((element) => (
+                <th>{element}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {Object.values(data.chemicalComposition).map((val) => (
+                <td class="font-mono">{val}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-notes">
+          All values are elemental percentages by weight (% wt) per ASTM specification bounds. Ladle and heat analysis provided on EN 10204 3.1 MTC.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Dual-Unit Mechanical Properties Table (Feature 29.3 & 20.1, 20.2) -->
+  <section class="band-canvas mech-section" data-animate>
+    <div class="container">
+      <div class="section-title-block">
+        <span class="eyebrow">Physical Metallurgy</span>
+        <h2 class="display-md">Mechanical Properties &amp; Physical Constants (Dual-Unit)</h2>
+        <p class="caption-md" style="margin-top: 0.25rem;">
+          Tested at ambient room temperature (20°C / 68°F) in accordance with ASTM A370 and ASTM E8.
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Property Parameter</th>
+              <th>Metric Units (SI)</th>
+              <th>Imperial Units (US)</th>
+              <th>Specification Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tensile Strength (Rm)</strong></td>
+              <td class="font-mono">{data.mechanicalProperties.tensileStrength.mpa} MPa</td>
+              <td class="font-mono">{data.mechanicalProperties.tensileStrength.ksi} ksi</td>
+              <td>ASTM A370 / ASTM E8</td>
+            </tr>
+            <tr>
+              <td><strong>Yield Strength (0.2% Offset)</strong></td>
+              <td class="font-mono">{data.mechanicalProperties.yieldStrength.mpa} MPa</td>
+              <td class="font-mono">{data.mechanicalProperties.yieldStrength.ksi} ksi</td>
+              <td>ASTM A370 / ASTM E8</td>
+            </tr>
+            <tr>
+              <td><strong>Elongation (A50mm / 2")</strong></td>
+              <td class="font-mono">{data.mechanicalProperties.elongation}</td>
+              <td class="font-mono">{data.mechanicalProperties.elongation}</td>
+              <td>ASTM A370</td>
+            </tr>
+            {data.mechanicalProperties.hardness && (
+              <tr>
+                <td><strong>Hardness (Brinell / Rockwell)</strong></td>
+                <td class="font-mono">{data.mechanicalProperties.hardness}</td>
+                <td class="font-mono">{data.mechanicalProperties.hardness}</td>
+                <td>ASTM E10 / ASTM E18</td>
+              </tr>
+            )}
+            {data.mechanicalProperties.density && (
+              <tr>
+                <td><strong>Density</strong></td>
+                <td class="font-mono">{data.mechanicalProperties.density.metric}</td>
+                <td class="font-mono">{data.mechanicalProperties.density.imperial}</td>
+                <td>Physical Constant</td>
+              </tr>
+            )}
+            {data.mechanicalProperties.meltingPoint && (
+              <tr>
+                <td><strong>Melting Range</strong></td>
+                <td class="font-mono">{data.mechanicalProperties.meltingPoint.celsius}</td>
+                <td class="font-mono">{data.mechanicalProperties.meltingPoint.fahrenheit}</td>
+                <td>Physical Constant</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+        <div class="table-notes">
+          Values denote minimum specification limits unless expressed as a standard range. Complete mechanical tensile coupons provided with MTC 3.1.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Key Engineering Features & Corrosion Resistance -->
+  <section class="band-cloud features-section" data-animate>
+    <div class="container">
+      <div class="features-grid">
+        <div class="card card-soft-lift feature-card">
+          <span class="eyebrow">Corrosion Performance</span>
+          <h3 class="display-xs feature-card-title">Corrosion Resistance Characteristics</h3>
+          <p class="feature-text">{data.corrosionResistance || data.summary}</p>
+        </div>
+
+        {data.keyFeatures && data.keyFeatures.length > 0 && (
+          <div class="card card-soft-lift feature-card">
+            <span class="eyebrow">Metallurgical Highlights</span>
+            <h3 class="display-xs feature-card-title">Key Engineering Features</h3>
+            <ul class="feature-bullet-list">
+              {data.keyFeatures.map((kf) => (
+                <li class="feature-bullet-item">
+                  <span class="bullet-check">✓</span>
+                  <span>{kf}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Available Product Forms (Feature 29.4) -->
+  <section class="band-canvas forms-section" data-animate>
+    <div class="container">
+      <div class="section-title-block">
+        <span class="eyebrow">Manufactured &amp; Stocked Inventory</span>
+        <h2 class="display-md">Available {data.grade} Product Forms</h2>
+        <p class="lead" style="margin-top: 0.5rem; max-width: 740px;">
+          Bhansali Metals manufactures and maintains ready inventory of {data.grade} in all standard piping and raw material forms for fast delivery worldwide.
+        </p>
+      </div>
+
+      <div class="forms-grid">
+        {data.availableForms.map((form) => {
+          const productHref = formProductMap[form] || '/products';
+          return (
+            <a href={productHref} class="card card-soft-lift form-card">
+              <div class="form-card-inner">
+                <span class="form-tag">Certified Form</span>
+                <h3 class="display-xs form-name">{form}</h3>
+                <p class="form-sub">Inconel, Monel, Hastelloy, Stainless &amp; Duplex stock</p>
+                <span class="form-cta">View Form Specifications &rarr;</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Industrial Applications -->
+  {data.applications && data.applications.length > 0 && (
+    <section class="band-cloud apps-section" data-animate>
+      <div class="container">
+        <div class="section-title-block">
+          <span class="eyebrow">Field Deployments</span>
+          <h2 class="display-md">Critical Industrial Applications for {data.grade}</h2>
+        </div>
+
+        <div class="apps-grid">
+          {data.applications.map((app) => (
+            <div class="card app-card">
+              <div class="app-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <p class="app-text">{app}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Section: Equivalent International Standards (Feature 29.5) -->
+  {data.equivalentGrades && (
+    <section class="band-canvas equiv-section" data-animate>
+      <div class="container">
+        <div class="section-title-block">
+          <span class="eyebrow">Global Specifications</span>
+          <h2 class="display-md">International Standard Cross-Reference</h2>
+        </div>
+
+        <div class="equiv-grid">
+          {Object.entries(data.equivalentGrades).map(([standard, code]) => (
+            <div class="card equiv-item">
+              <span class="equiv-std">{standard}</span>
+              <span class="equiv-code font-mono">{code}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Closing Dark Ink Band: Direct Conversion CTA -->
+  <section class="band-dark-gradient alloy-rfq-band">
+    <div class="container">
+      <div class="alloy-rfq-box" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Direct Mill Procurement</span>
+          <h2 class="display-md" style="color: var(--color-on-ink);">Order {data.grade} with Guaranteed EN 10204 3.1 MTC</h2>
+          <p class="lead" style="color: var(--color-fog); max-width: 680px; margin-top: 0.5rem;">
+            Immediate stock inspection at our Kalamboli warehouse or Mumbai central godown. Third-party inspection (TPI) by Bureau Veritas, TÜV, or Lloyd's available upon request.
+          </p>
+        </div>
+        <div class="rfq-band-actions">
+          <button
+            type="button"
+            class="btn btn-primary-bright"
+            data-open-rfq
+            data-alloy={data.grade}
+          >
+            Request Instant Quotation (RFQ)
+          </button>
+          <Button
+            href={waUrl}
+            variant="whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Direct WhatsApp Desk
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Alloy Detail Hero */
+  .alloy-detail-hero {
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-main {
+    max-width: 900px;
+  }
+
+  .stock-pill-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .stock-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 4px 12px;
+    background-color: var(--color-success-soft);
+    color: var(--color-success-deep);
+    border: 1px solid #a7f3d0;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: var(--weight-regular);
+  }
+
+  .pulsing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-success);
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(4, 120, 87, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0); }
+  }
+
+  .badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .alloy-page-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .alloy-metallurgy-sub {
+    color: var(--color-primary);
+    font-weight: var(--weight-display);
+    margin-bottom: 1rem;
+  }
+
+  .alloy-summary-lead {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-bottom: 1.75rem;
+  }
+
+  /* Above The Fold Specs Card */
+  .atf-specs-box {
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .atf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .atf-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .atf-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .atf-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .atf-label {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-graphite);
+  }
+
+  .atf-val {
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Table & Content Sections */
+  .chem-section, .mech-section, .features-section, .forms-section, .apps-section, .equiv-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .section-title-block {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .feature-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+  }
+
+  .feature-card-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-text {
+    font-size: 0.875rem;
+    color: var(--color-charcoal);
+    line-height: 1.5;
+  }
+
+  .feature-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .feature-bullet-item {
+    font-size: 0.875rem;
+    color: var(--color-charcoal);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .bullet-check {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  /* Forms Grid */
+  .forms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .forms-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 580px) {
+    .forms-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .form-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(26, 26, 26, 0.1);
+  }
+
+  .form-card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .form-tag {
+    font-size: 0.625rem;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-primary);
+  }
+
+  .form-name {
+    margin: 0;
+  }
+
+  .form-sub {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-cta {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+
+  /* Apps Grid */
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .apps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .apps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .app-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .app-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--color-primary);
+  }
+
+  .app-text {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Equiv Grid */
+  .equiv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .equiv-item {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .equiv-std {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-graphite);
+    text-transform: uppercase;
+  }
+
+  .equiv-code {
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+  }
+
+  /* Closing Dark RFQ Band */
+  .alloy-rfq-band {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .alloy-rfq-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .rfq-band-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .rfq-band-actions {
+      width: 100%;
+    }
+  }
+</style>

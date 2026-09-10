@@ -1,0 +1,87 @@
+{
+  "title": "Nickel 200 (UNS N02200 / W.Nr. 2.4066)",
+  "grade": "Nickel 200",
+  "family": "Nickel",
+  "familyDisplayName": "Commercially Pure Nickel",
+  "metallurgy": "Pure Wrought Nickel (99.6%)",
+  "uns": "UNS N02200",
+  "unsNumber": "UNS N02200",
+  "wnr": "2.4066",
+  "werkstoffNumber": "2.4066",
+  "astmStandards": [
+    "ASTM B160",
+    "ASTM B161",
+    "ASTM B162",
+    "ASTM B163",
+    "ASTM B366"
+  ],
+  "asmeStandards": [
+    "SB-160",
+    "SB-161",
+    "SB-162",
+    "SB-163",
+    "SB-366"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Nickel 200 Pipes, Flanges & Caustic Soda Equipment | Bhansali Metals",
+  "metaDescription": "Commercially pure Nickel 200 (UNS N02200 / 2.4066) seamless pipes, plates, and fittings from Bhansali Metals Mumbai with EN 10204 3.1 MTC.",
+  "summary": "Nickel 200 is commercially pure wrought nickel (99.6% nominal) with good mechanical properties and excellent resistance to a range of corrosive media, especially caustic alkalies across all concentrations and temperatures.",
+  "keyFeatures": [
+    "Virtually immune to caustic soda and alkali attack",
+    "High thermal and electrical conductivity",
+    "Magnetostrictive properties and low vapor pressure",
+    "Excellent ductility and wide service temperature range"
+  ],
+  "corrosionResistance": "Highly resistant to caustic alkalies up to and including the molten state. Outstanding resistance in dry halogens and neutral/alkaline salt solutions.",
+  "applications": [
+    "Caustic soda concentration evaporators and transfer piping",
+    "Synthetic fiber (rayon, nylon) processing vessels",
+    "Chlorine storage tanks and hydrogen chloride manufacturing",
+    "Food processing equipment and alkali handling pumps"
+  ],
+  "chemicalComposition": {
+    "Ni": "99.0 min",
+    "C": "0.15 max",
+    "Cu": "0.25 max",
+    "Fe": "0.40 max",
+    "Mn": "0.35 max",
+    "Si": "0.35 max",
+    "S": "0.010 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "380 min",
+      "ksi": "55 min"
+    },
+    "yieldStrength": {
+      "mpa": "105 min",
+      "ksi": "15 min"
+    },
+    "elongation": "40% min",
+    "hardness": "HRB 45 - 70",
+    "density": {
+      "metric": "8.89 g/cm³",
+      "imperial": "0.321 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1435 - 1446 °C",
+      "fahrenheit": "2615 - 2635 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Ni-99.6",
+    "DIN": "W.Nr. 2.4066",
+    "JIS": "NNi 200",
+    "EN": "Ni 99.2"
+  }
+}

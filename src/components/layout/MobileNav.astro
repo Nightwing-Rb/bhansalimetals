@@ -1,0 +1,331 @@
+---
+import { headerNav } from '../../data/navigation';
+import { siteConfig } from '../../data/site';
+import Button from '../common/Button.astro';
+---
+
+<div id="mobile-nav-drawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation" aria-hidden="true">
+  <div class="mobile-drawer-backdrop" id="mobile-nav-backdrop"></div>
+  <div class="mobile-drawer-panel">
+    <!-- Header with Close Button -->
+    <div class="drawer-header">
+      <img src="/images/logo.svg" alt={siteConfig.name} height="32" class="drawer-logo" />
+      <button type="button" id="mobile-nav-close" class="drawer-close-btn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Quick RFQ Action -->
+    <div class="drawer-action">
+      <Button variant="primary" data-open-rfq class="w-full">
+        <span>Request Instant RFQ</span>
+      </Button>
+    </div>
+
+    <!-- Navigation List with Accordions -->
+    <nav class="drawer-nav" aria-label="Mobile Navigation">
+      <ul class="drawer-list">
+        {
+          headerNav.map((item) => (
+            <li class="drawer-item">
+              <a href={item.href} class="drawer-link">
+                <span>{item.title}</span>
+              </a>
+              {item.children && (
+                <ul class="drawer-sublist">
+                  {item.children.map((sub) => (
+                    <li>
+                      <a href={sub.href} class="drawer-sublink">
+                        {sub.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <!-- Quick Contact Footer -->
+    <div class="drawer-footer">
+      <div class="footer-row">
+        <span class="footer-label">Direct Sales Desk:</span>
+        <a href={`tel:${siteConfig.contacts.landline1}`} class="footer-val">{siteConfig.contacts.landline1}</a>
+      </div>
+      <div class="footer-row">
+        <span class="footer-label">WhatsApp:</span>
+        <a href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}`} target="_blank" rel="noopener noreferrer" class="footer-val text-emerald">
+          {siteConfig.contacts.salesWhatsApp}
+        </a>
+      </div>
+      <div class="footer-row">
+        <span class="footer-label">Email:</span>
+        <a href={`mailto:${siteConfig.contacts.salesEmail}`} class="footer-val">{siteConfig.contacts.salesEmail}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mobile-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 350ms;
+  }
+
+  .mobile-drawer.is-open {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 350ms ease;
+  }
+
+  .mobile-drawer.is-open .mobile-drawer-backdrop {
+    opacity: 1;
+  }
+
+  .mobile-drawer-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 380px;
+    background: var(--glass-bg-dark-strong, rgba(30, 30, 30, 0.85));
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-floating-modal);
+    overflow-y: auto;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 350ms var(--ease-spring, cubic-bezier(0.175, 0.885, 0.32, 1.275));
+    border-radius: var(--radius-sharp, 10px) 0 0 var(--radius-sharp, 10px);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .mobile-drawer-panel {
+      background-color: #1a1a1a;
+    }
+  }
+
+  .mobile-drawer.is-open .mobile-drawer-panel {
+    transform: translateX(0);
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .drawer-logo {
+    height: 30px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .drawer-close-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: var(--color-on-ink, #ffffff);
+    cursor: pointer;
+    border-radius: var(--radius-sharp, 10px);
+  }
+
+  .drawer-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .drawer-action {
+    padding: 1rem 1.25rem 0.5rem;
+  }
+
+  .drawer-action :global(.btn) {
+    width: 100%;
+    border-radius: var(--radius-sharp, 10px);
+  }
+
+  .drawer-nav {
+    flex: 1 1 auto;
+    padding: 0.5rem 1.25rem;
+  }
+
+  .drawer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .drawer-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .drawer-link {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--color-on-ink, #ffffff);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 56px;
+  }
+
+  .drawer-link:hover {
+    color: var(--color-primary);
+  }
+
+  .drawer-sublist {
+    list-style: none;
+    padding: 0 0 0.5rem 0.75rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drawer-sublink {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 48px;
+  }
+
+  .drawer-sublink:hover {
+    color: var(--color-primary);
+  }
+
+  .drawer-footer {
+    padding: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-label {
+    color: var(--color-graphite);
+  }
+
+  .footer-val {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+  }
+
+  .text-emerald {
+    color: var(--color-success);
+  }
+</style>
+
+<script is:inline>
+  function setupMobileNav() {
+    const toggleBtn = document.getElementById('mobile-nav-toggle');
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const closeBtn = document.getElementById('mobile-nav-close');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+
+    function getFocusableElements() {
+      if (!drawer) return [];
+      return Array.from(
+        drawer.querySelectorAll(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true');
+    }
+
+    function openDrawer() {
+      if (!drawer) return;
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      toggleBtn?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      // Set initial focus to close button
+      closeBtn?.focus();
+    }
+
+    function closeDrawer() {
+      if (!drawer) return;
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      // Restore focus to toggle button
+      toggleBtn?.focus();
+    }
+
+    toggleBtn?.addEventListener('click', openDrawer);
+    closeBtn?.addEventListener('click', closeDrawer);
+    backdrop?.addEventListener('click', closeDrawer);
+
+    // Keyboard handlers: ESC to dismiss & Tab focus trapping
+    document.addEventListener('keydown', (e) => {
+      if (!drawer?.classList.contains('is-open')) return;
+
+      if (e.key === 'Escape') {
+        closeDrawer();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusables = getFocusableElements();
+        if (focusables.length === 0) {
+          e.preventDefault();
+          return;
+        }
+
+        const firstEl = focusables[0];
+        const lastEl = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstEl || !drawer.contains(document.activeElement)) {
+            e.preventDefault();
+            lastEl.focus();
+          }
+        } else {
+          if (document.activeElement === lastEl || !drawer.contains(document.activeElement)) {
+            e.preventDefault();
+            firstEl.focus();
+          }
+        }
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileNav);
+  } else {
+    setupMobileNav();
+  }
+</script>

@@ -1,0 +1,806 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Badge from '../components/common/Badge.astro';
+import { siteConfig } from '../data/site';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Request for Quote', url: '/rfq' },
+];
+
+const alloyOptions = [
+  { group: 'High Nickel Inconel', options: ['Inconel 600 (UNS N06600)', 'Inconel 625 (UNS N06625)', 'Inconel 718 (UNS N07718)'] },
+  { group: 'Incoloy & Monel', options: ['Incoloy 800 / 800H (UNS N08800)', 'Incoloy 825 (UNS N08825)', 'Monel 400 (UNS N04400)', 'Monel K-500 (UNS N05500)'] },
+  { group: 'Hastelloy & Pure Nickel', options: ['Hastelloy C-276 (UNS N10276)', 'Hastelloy C-22 (UNS N06022)', 'Hastelloy B-2 (UNS N10665)', 'Nickel 200 / 201 (UNS N02200/N02201)'] },
+  { group: 'Duplex & Super Duplex', options: ['Duplex 2205 (UNS S31803 / S32205)', 'Super Duplex 2507 (UNS S32750)'] },
+  { group: 'Stainless Steel Grades', options: ['SS 304 / 304L (UNS S30400/S30403)', 'SS 316 / 316L (UNS S31600/S31603)', 'SS 321 / 321H (UNS S32100)', 'SS 310 / 310S (UNS S31008)', 'SS 904L (UNS N08904)'] },
+];
+
+const productOptions = [
+  'ASME B16.5 / B16.47 Flanges (150# to 2500#)',
+  'Seamless & Welded Pipes and Heavy Wall Tubes',
+  'ASME B16.9 Buttweld Fittings (Elbows, Tees, Reducers, Caps)',
+  'ASME B16.11 Forged High-Pressure Fittings (3000#, 6000#, 9000#)',
+  'Heavy Hex Bolts, Studs & Fasteners (ASTM A193/A194)',
+  'Round Bars, Billets & Hex Bars (Bright & Black)',
+  'Sheets, Plates, Cut Circles & Coils',
+  'Custom Machined Components & Forgings',
+];
+---
+
+<BaseLayout
+  title="Request for Quote (RFQ) | Instant B2B Metallurgy Pricing | Bhansali Metals"
+  description="Submit your Bill of Quantities (BOQ) or material schedule for fast B2B pricing on Inconel, Monel, Hastelloy, Stainless Steel pipes, flanges, and fittings. Same-day MTC quotes."
+  canonicalUrl="https://www.bhansalimetals.com/rfq"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">Request for Quote</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Section: RFQ Hero -->
+  <section class="band-canvas rfq-hero" data-animate>
+    <div class="container">
+      <div class="rfq-hero-layout">
+        <div class="rfq-hero-text">
+          <div class="badge-strip">
+            <Badge variant="status-green">
+              <span>● Live Kalamboli Yard Ready | Same-Day MTC Dispatch</span>
+            </Badge>
+            <Badge variant="soft-blue">
+              <span>ISO 9001:2015 Registered ({siteConfig.certifications.isoRegNo})</span>
+            </Badge>
+          </div>
+
+          <h1 class="display-xl rfq-title">
+            Request an Industrial Quotation &amp; Bill of Quantities Evaluation
+          </h1>
+
+          <p class="lead rfq-subtitle">
+            Upload your project piping specification, paste a multi-line BOQ, or input item schedules below. Our metallurgical estimators provide mill-direct pricing, stock confirmation, and EN 10204 3.1 compliance within 2 to 4 business hours.
+          </p>
+
+          <div class="trust-pill-row">
+            <div class="trust-mini-pill">
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>100% EN 10204 3.1 MTC Included</span>
+            </div>
+            <div class="trust-mini-pill">
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>PED 2014/68/EU &amp; IBR Approved</span>
+            </div>
+            <div class="trust-mini-pill">
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>JNPT Rapid Port Logistics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Assistance Card -->
+        <div class="rfq-hero-side card card-soft-lift">
+          <h3 class="side-title">Urgent EPC Requirement?</h3>
+          <p class="side-desc">
+            Need pricing immediately for a tender submission or emergency shutdown? Chat directly with Director of Sales Mr. Nitin Bhansali.
+          </p>
+          <div class="side-actions">
+            <a
+              href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I have an urgent RFQ for materials.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sharp btn-whatsapp"
+            >
+              <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 2.2-.86 4.28-2.42 5.83a8.21 8.21 0 0 1-5.83 2.42c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.248 8.248 0 0 1-1.26-4.39c0-4.55 3.69-8.24 8.25-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.18-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.03 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.31z"/>
+              </svg>
+              <span>Chat on WhatsApp (+91 98922 44451)</span>
+            </a>
+            <a href={`tel:${siteConfig.contacts.landline1.replace(/\s+/g, '')}`} class="btn btn-sharp btn-outline">
+              Call Head Office: {siteConfig.contacts.landline1}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Main Full RFQ Form -->
+  <section class="band-cloud rfq-form-section" data-animate>
+    <div class="container">
+      <div class="rfq-card card card-soft-lift">
+        <div class="rfq-card-header">
+          <span class="eyebrow">Procurement Specification</span>
+          <h2 class="display-sm">B2B Material Request &amp; BOQ Dispatch</h2>
+          <p class="header-desc">
+            Complete the form fields below. All technical submissions are reviewed by qualified metallurgical sales engineers.
+          </p>
+        </div>
+
+        <form id="rfq-main-form" class="rfq-form" method="POST" action="/rfq" enctype="multipart/form-data">
+          <!-- Anti-Spam Honeypot -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <!-- Contact Details Group -->
+          <div class="form-section-title">
+            <span class="step-badge">1</span>
+            <h3>Buyer &amp; Commercial Details</h3>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label for="rfq-name">Full Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="rfq-name"
+                name="name"
+                class="text-input"
+                placeholder="e.g. Anand Mehta"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="rfq-email">Work Email <span class="required">*</span></label>
+              <input
+                type="email"
+                id="rfq-email"
+                name="email"
+                class="text-input"
+                placeholder="procurement@company.com"
+                required
+              />
+              <span id="rfq-email-error" class="input-error" style="display:none;">Please enter a valid work email.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="rfq-phone">Phone / WhatsApp <span class="required">*</span></label>
+              <input
+                type="tel"
+                id="rfq-phone"
+                name="phone"
+                class="text-input"
+                placeholder="+91 98XXX XXXXX"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="rfq-company">Company / Organization Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="rfq-company"
+                name="company"
+                class="text-input"
+                placeholder="e.g. Larsen &amp; Toubro / Reliance EPC"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="rfq-destination">Delivery Location / Incoterms</label>
+              <input
+                type="text"
+                id="rfq-destination"
+                name="destination"
+                class="text-input"
+                placeholder="e.g. Ex-Works Kalamboli / FOB JNPT Mumbai / CIF Dubai"
+              />
+            </div>
+          </div>
+
+          <!-- Material & Product Category Group -->
+          <div class="form-section-title">
+            <span class="step-badge">2</span>
+            <h3>Material Selection &amp; Standards</h3>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="rfq-product">Product Category <span class="required">*</span></label>
+              <select id="rfq-product" name="product" class="text-input" required>
+                <option value="">Select Category...</option>
+                {productOptions.map((prod) => (
+                  <option value={prod}>{prod}</option>
+                ))}
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rfq-alloy">Primary Alloy Grade <span class="required">*</span></label>
+              <select id="rfq-alloy" name="alloy" class="text-input" required>
+                <option value="">Select Primary Grade...</option>
+                {alloyOptions.map((grp) => (
+                  <optgroup label={grp.group}>
+                    {grp.options.map((opt) => (
+                      <option value={opt}>{opt}</option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <!-- Multi-line BOQ Area Group -->
+          <div class="form-section-title">
+            <span class="step-badge">3</span>
+            <h3>Bill of Quantities (BOQ) &amp; Technical Schedule</h3>
+          </div>
+
+          <div class="form-group">
+            <div class="label-row">
+              <label for="rfq-boq">
+                Paste Multi-Line BOQ / Item Schedule <span class="required">*</span>
+              </label>
+              <span class="label-hint">Paste full spreadsheet text or itemized line items</span>
+            </div>
+            <textarea
+              id="rfq-boq"
+              name="boq"
+              rows="7"
+              class="text-input"
+              placeholder={`Example multi-line BOQ:\n1. Inconel 625 Seamless Pipe 4" Sch 80 ASTM B444 - 120 meters\n2. Inconel 625 WNRF Flange 4" Class 600# ASME B16.5 - 24 pcs\n3. Monel 400 Equal Tee 2" Sch 40 ASME B16.9 - 15 pcs\n4. Hastelloy C-276 Heavy Hex Bolt 3/4" x 4" with 2 Nuts - 200 sets`}
+              required
+            ></textarea>
+          </div>
+
+          <!-- File Upload and TPI Selection -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="rfq-file">Attach Specification / BOQ Document (PDF, Excel, CAD)</label>
+              <div class="file-input-wrapper">
+                <input
+                  type="file"
+                  id="rfq-file"
+                  name="attachment"
+                  accept=".pdf,.xlsx,.dwg,.doc,.docx"
+                  class="form-file"
+                />
+                <span class="file-hint">Accepted: .pdf, .xlsx, .dwg, .doc, .docx (Max 25 MB)</span>
+              </div>
+              <span id="file-size-error" class="input-error" style="display:none;">File size exceeds maximum limit of 25MB.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="rfq-tpi">Third-Party Inspection Requirement</label>
+              <select id="rfq-tpi" name="tpiAgency" class="text-input">
+                <option value="none">Standard EN 10204 3.1 Mill Test Certificate (Manufacturer)</option>
+                <option value="bv">Bureau Veritas (BV) 3.2 Witness</option>
+                <option value="tuv">TÜV India 3.2 Witness</option>
+                <option value="lr">Lloyd's Register (LR) 3.2 Witness</option>
+                <option value="eil">Engineers India Limited (EIL) Witness</option>
+                <option value="dnv">DNV GL 3.2 Witness</option>
+                <option value="sgs">SGS India Witness</option>
+                <option value="client">Client Nominated Inspector</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Form Actions & Dual Conversion -->
+          <div class="rfq-actions-bar">
+            <button type="submit" id="rfq-submit-btn" class="btn btn-sharp btn-primary btn-lg">
+              Submit RFQ for Official Quote
+            </button>
+
+            <button type="button" id="rfq-wa-btn" class="btn btn-sharp btn-whatsapp-large">
+              <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 2.2-.86 4.28-2.42 5.83a8.21 8.21 0 0 1-5.83 2.42c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.248 8.248 0 0 1-1.26-4.39c0-4.55 3.69-8.24 8.25-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.18-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.03 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.31z"/>
+              </svg>
+              <span>Instant Dispatch via WhatsApp &rarr;</span>
+            </button>
+          </div>
+
+          <!-- Success Notification Banner -->
+          <div id="rfq-success-banner" class="success-alert" style="display:none;">
+            <svg class="alert-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <div>
+              <strong>RFQ Received Successfully!</strong>
+              <p>Your Bill of Quantities has been assigned ticket priority. Our senior estimating engineer will email the formal quotation within 2 hours.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: RFQ FAQ & Guidance -->
+  <section class="band-canvas rfq-faq-section" data-animate>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Procurement FAQ</span>
+        <h2 class="display-md">Frequently Asked Questions on Quotations &amp; Testing</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item card card-soft-lift">
+          <h3 class="faq-question">What is the standard turnaround time for a BOQ quotation?</h3>
+          <p class="faq-answer">
+            For standard piping components, flanges, and high-nickel alloys available in our Kalamboli yard, quotations are issued within 2 to 4 hours. Custom forging and large tonnage mill deliveries are quoted within 24 hours.
+          </p>
+        </div>
+
+        <div class="faq-item card card-soft-lift">
+          <h3 class="faq-question">Are Mill Test Certificates (MTC) included in the quote?</h3>
+          <p class="faq-answer">
+            Yes, 100% of our products include authentic EN 10204 Type 3.1 MTCs with heat numbers, chemical analysis, and mechanical properties at zero additional charge. Type 3.2 co-certified inspection can also be included upon request.
+          </p>
+        </div>
+
+        <div class="faq-item card card-soft-lift">
+          <h3 class="faq-question">Can we inspect material prior to dispatch from Kalamboli?</h3>
+          <p class="faq-answer">
+            Yes. We encourage client or third-party inspection (Bureau Veritas, TÜV, Lloyd's, EIL, SGS) at our Kalamboli warehouse prior to final container loading or domestic freight dispatch.
+          </p>
+        </div>
+
+        <div class="faq-item card card-soft-lift">
+          <h3 class="faq-question">What export shipping terms do you support?</h3>
+          <p class="faq-answer">
+            We handle Ex-Works (Kalamboli), FOB (JNPT Nhava Sheva Port, Mumbai), CIF worldwide sea cargo, and CIP air cargo via Mumbai International Airport (BOM).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // RFQ Submission, File Size Validation, and Dynamic WhatsApp Dispatch
+  document.addEventListener('DOMContentLoaded', () => {
+    const rfqForm = document.getElementById('rfq-main-form') as HTMLFormElement | null;
+    const emailInput = document.getElementById('rfq-email') as HTMLInputElement | null;
+    const emailError = document.getElementById('rfq-email-error');
+    const fileInput = document.getElementById('rfq-file') as HTMLInputElement | null;
+    const fileError = document.getElementById('file-size-error');
+    const successBanner = document.getElementById('rfq-success-banner');
+    const waBtn = document.getElementById('rfq-wa-btn');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MB
+
+    // File size validation
+    if (fileInput && fileError) {
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files && fileInput.files[0]) {
+          if (fileInput.files[0].size > MAX_FILE_SIZE) {
+            fileError.style.display = 'block';
+            fileInput.value = '';
+          } else {
+            fileError.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Form submission validation
+    if (rfqForm && emailInput) {
+      rfqForm.addEventListener('submit', (e) => {
+        const trimmedEmail = emailInput.value.trim();
+        emailInput.value = trimmedEmail;
+
+        if (!emailRegex.test(trimmedEmail)) {
+          e.preventDefault();
+          if (emailError) emailError.style.display = 'block';
+          emailInput.focus();
+          return;
+        }
+
+        if (emailError) emailError.style.display = 'none';
+
+        // Check honeypot
+        const honeypot = rfqForm.querySelector('input[name="_gotcha"]') as HTMLInputElement | null;
+        if (honeypot && honeypot.value) {
+          e.preventDefault();
+          return;
+        }
+
+        // Mock success UI
+        e.preventDefault();
+        if (successBanner) successBanner.style.display = 'flex';
+        rfqForm.reset();
+        window.scrollTo({ top: rfqForm.offsetTop - 50, behavior: 'smooth' });
+      });
+    }
+
+    // Dynamic WhatsApp Dispatch Button
+    if (waBtn) {
+      waBtn.addEventListener('click', () => {
+        const nameInput = document.getElementById('rfq-name') as HTMLInputElement | null;
+        const companyInput = document.getElementById('rfq-company') as HTMLInputElement | null;
+        const prodSelect = document.getElementById('rfq-product') as HTMLSelectElement | null;
+        const alloySelect = document.getElementById('rfq-alloy') as HTMLSelectElement | null;
+        const boqTextarea = document.getElementById('rfq-boq') as HTMLTextAreaElement | null;
+
+        const name = nameInput?.value.trim() || 'Procurement Officer';
+        const company = companyInput?.value.trim() || 'EPC Client';
+        const product = prodSelect?.value || 'Piping / Flanges';
+        const alloy = alloySelect?.value || 'High Nickel Alloy';
+        const boq = boqTextarea?.value.trim() || 'Please review our RFQ requirements.';
+
+        // WhatsApp percent encoding bounds
+        const message = `Hello Bhansali Metals,\n*RFQ Submission*\nName: ${name}\nCompany: ${company}\nCategory: ${product}\nAlloy: ${alloy}\n\n*BOQ Specifications:*\n${boq}`;
+        const encoded = encodeURIComponent(message);
+
+        window.open(`https://wa.me/919892244451?text=${encoded}`, '_blank', 'noopener,noreferrer');
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+    text-decoration: none;
+  }
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .breadcrumb-separator {
+    color: var(--color-graphite);
+  }
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  /* RFQ Hero */
+  .rfq-hero {
+    padding: 3.5rem 0;
+  }
+  .rfq-hero-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .rfq-hero-layout {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3.5rem;
+    }
+  }
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .rfq-title {
+    color: var(--color-ink);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .rfq-subtitle {
+    color: var(--color-charcoal);
+    margin-bottom: 1.75rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .trust-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .trust-mini-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-pill);
+  }
+  .check-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary);
+  }
+
+  /* RFQ Hero Side Card */
+  .rfq-hero-side {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+  .side-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+  }
+  .side-desc {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-charcoal);
+    margin: 0 0 1.5rem;
+  }
+  .side-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #25d366;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sharp);
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+  .btn-whatsapp:hover {
+    background-color: #1ebe5d;
+  }
+  .wa-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* RFQ Form Section */
+  .rfq-form-section {
+    padding: 4rem 0;
+  }
+  .rfq-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft-lift);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .rfq-card-header {
+    border-bottom: 1px solid var(--color-fog);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+  }
+  .header-desc {
+    font-size: 0.9375rem;
+    color: var(--color-charcoal);
+    margin: 0.5rem 0 0;
+  }
+  .rfq-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Form Titles */
+  .form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .step-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .form-section-title h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  /* Grid Layouts */
+  .form-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .form-grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .form-grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Inputs */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .form-group label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .label-hint {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+  }
+  .required {
+    color: var(--color-error);
+  }
+  .form-textarea {
+    font-family: monospace;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+  .file-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .form-file {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+  }
+  .file-hint {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+  }
+  .input-error {
+    font-size: 0.75rem;
+    color: #d93025;
+  }
+
+  /* Actions */
+  .rfq-actions-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-fog);
+  }
+  .btn-whatsapp-large {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #25d366;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-sharp);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    transition: background-color 0.15s ease;
+  }
+  .btn-whatsapp-large:hover {
+    background-color: #1ebe5d;
+  }
+  .btn-lg {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+  }
+  .btn-sharp {
+    border-radius: var(--radius-sharp);
+  }
+
+  /* Success Alert */
+  .success-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #e6f4ea;
+    border: 1px solid #ceead6;
+    color: #137333;
+    padding: 1.25rem;
+    border-radius: var(--radius-sharp);
+  }
+  .alert-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .success-alert p {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  /* FAQ */
+  .rfq-faq-section {
+    padding: 4.5rem 0;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .faq-item {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+  .faq-question {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+  }
+  .faq-answer {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+</style>

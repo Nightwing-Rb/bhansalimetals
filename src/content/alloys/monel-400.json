@@ -1,0 +1,87 @@
+{
+  "title": "Monel 400 (UNS N04400 / W.Nr. 2.4360)",
+  "grade": "Monel 400",
+  "family": "Monel",
+  "familyDisplayName": "Nickel-Copper Alloys",
+  "metallurgy": "Ni-Cu alloy",
+  "uns": "UNS N04400",
+  "unsNumber": "UNS N04400",
+  "wnr": "2.4360",
+  "werkstoffNumber": "2.4360",
+  "astmStandards": [
+    "ASTM B127",
+    "ASTM B163",
+    "ASTM B164",
+    "ASTM B165",
+    "ASTM B564"
+  ],
+  "asmeStandards": [
+    "SB-127",
+    "SB-163",
+    "SB-164",
+    "SB-165",
+    "SB-564"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Monel 400 Flanges, Seawater Piping & Round Bars | Bhansali Metals",
+  "metaDescription": "Monel 400 (UNS N04400 / 2.4360) marine-grade nickel-copper flanges, seamless pipes, and round bars from Bhansali Metals Mumbai with EN 10204 3.1 MTC.",
+  "summary": "Monel 400 is a solid-solution binary nickel-copper alloy that can be hardened only by cold working. It provides high strength and toughness across temperature extremes with outstanding resistance to seawater, hydrofluoric acid, and caustic solutions.",
+  "keyFeatures": [
+    "Exceptional resistance to rapidly flowing seawater and marine bio-fouling",
+    "Immune to chloride stress corrosion cracking",
+    "Excellent resistance to hydrofluoric acid in all concentrations",
+    "Good mechanical properties from subzero cryogenic up to 1020°F (550°C)"
+  ],
+  "corrosionResistance": "Exhibits low corrosion rates in rapidly flowing seawater and brackish water. Highly resistant to non-oxidizing acids, deaerated hydrochloric and sulfuric acid, and dry chlorine.",
+  "applications": [
+    "Marine engineering piping, propeller shafts, and pump impellers",
+    "Chemical and hydrocarbon processing crude distillation columns",
+    "Hydrofluoric (HF) alkylation units in oil refineries",
+    "Boiler feedwater heaters and industrial heat exchangers"
+  ],
+  "chemicalComposition": {
+    "Ni": "63.0 min",
+    "Cu": "28.0 - 34.0",
+    "Fe": "2.5 max",
+    "Mn": "2.0 max",
+    "C": "0.30 max",
+    "Si": "0.50 max",
+    "S": "0.024 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "480 min",
+      "ksi": "70 min"
+    },
+    "yieldStrength": {
+      "mpa": "170 min",
+      "ksi": "25 min"
+    },
+    "elongation": "35% min",
+    "hardness": "HRB 60 - 80",
+    "density": {
+      "metric": "8.80 g/cm³",
+      "imperial": "0.318 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1300 - 1350 °C",
+      "fahrenheit": "2370 - 2460 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NU-30M",
+    "DIN": "W.Nr. 2.4360",
+    "JIS": "NCU 400",
+    "EN": "NiCu30Fe"
+  }
+}

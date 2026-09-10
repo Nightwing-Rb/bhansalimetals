@@ -1,0 +1,293 @@
+---
+interface Props {
+  composition: Record<string, string | number>;
+  grade: string;
+  standard?: string;
+  caption?: string;
+  notes?: string[];
+  class?: string;
+}
+
+const {
+  composition,
+  grade,
+  standard,
+  caption,
+  notes = [],
+  class: className = '',
+} = Astro.props;
+
+const elementNames: Record<string, string> = {
+  Ni: 'Nickel',
+  Cr: 'Chromium',
+  Mo: 'Molybdenum',
+  Fe: 'Iron',
+  C: 'Carbon',
+  Mn: 'Manganese',
+  Si: 'Silicon',
+  P: 'Phosphorus',
+  S: 'Sulfur',
+  Cu: 'Copper',
+  Ti: 'Titanium',
+  Al: 'Aluminium',
+  Nb: 'Niobium',
+  'Nb+Ta': 'Niobium + Tantalum',
+  Co: 'Cobalt',
+  W: 'Tungsten',
+  V: 'Vanadium',
+  N: 'Nitrogen',
+  B: 'Boron',
+};
+
+const primaryElements = new Set(['Ni', 'Cr', 'Mo']);
+
+const entries = Object.entries(composition);
+const primaryEntries = entries.filter(([elem]) => primaryElements.has(elem));
+---
+
+<div class={`table-container metallurgy-table-container ${className}`.trim()}>
+  <!-- Table Header Bar -->
+  <div class="table-header-bar">
+    <div class="table-title-group">
+      <span class="eyebrow" style="margin-bottom: 2px;">Ladle Chemical Analysis</span>
+      <h3 class="table-title">{grade} Chemical Composition (% by Weight)</h3>
+      {standard && <span class="table-standard font-mono">{standard}</span>}
+    </div>
+    <div class="table-cert-tag">
+      <span class="badge badge-status-green">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>100% PMI Spectro Verified</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Primary Alloying Elements Key Strip (Ni, Cr, Mo Highlight) -->
+  {
+    primaryEntries.length > 0 && (
+      <div class="primary-elements-strip" aria-label="Primary alloying constituents">
+        <span class="strip-label">Key Alloying Elements:</span>
+        <div class="primary-cards-grid">
+          {primaryEntries.map(([elem, val]) => (
+            <div class="primary-card">
+              <div class="primary-card-header">
+                <span class="primary-symbol">{elem}</span>
+                <span class="primary-name">{elementNames[elem] || elem}</span>
+              </div>
+              <div class="primary-card-val font-mono">{val}%</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  <!-- Full Metallurgical Table -->
+  <div class="table-scroll-wrapper" tabindex="0" role="region" aria-label={`${grade} Chemical Composition Table`}>
+    <table class="data-table composition-table">
+      <thead>
+        <tr>
+          <th scope="col">Element Symbol</th>
+          <th scope="col">Element Name</th>
+          <th scope="col">Composition (Weight %)</th>
+          <th scope="col">Classification</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          entries.map(([symbol, value]) => {
+            const isPrimary = primaryElements.has(symbol);
+            const fullName = elementNames[symbol] || symbol;
+
+            return (
+              <tr class={isPrimary ? 'row-primary-highlight' : ''}>
+                <td class="element-symbol-cell">
+                  <span class={`symbol-badge ${isPrimary ? 'symbol-primary' : ''}`}>
+                    {symbol}
+                  </span>
+                </td>
+                <td class="element-name-cell">{fullName}</td>
+                <td class="element-val-cell font-mono">
+                  <strong>{value}</strong>%
+                </td>
+                <td class="element-role-cell">
+                  {isPrimary ? (
+                    <span class="badge badge-soft-blue">Primary Constituent</span>
+                  ) : (
+                    <span class="badge badge-mono">Residual / Balance</span>
+                  )}
+                </td>
+              </tr>
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Table Notes & Disclaimer -->
+  <div class="table-notes">
+    <p>
+      {caption || `Values represent ladle analysis requirements specified by applicable ASTM/ASME standards. All batches dispatched with certified EN 10204 3.1 Mill Test Certificates detailing exact chemical analysis.`}
+    </p>
+    {
+      notes.length > 0 && (
+        <ul class="notes-list">
+          {notes.map((note) => (
+            <li>{note}</li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .metallurgy-table-container {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft, 16px);
+    overflow: hidden;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+
+  .table-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .table-title {
+    font-size: 1.125rem;
+    font-weight: var(--weight-display, 500);
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .table-standard {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    display: block;
+    margin-top: 2px;
+  }
+
+  .primary-elements-strip {
+    background-color: #f0f6ff;
+    border-bottom: 1px solid var(--color-primary-soft);
+    padding: 1rem 1.5rem;
+  }
+
+  .strip-label {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold, 600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .primary-cards-grid {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .primary-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-primary-soft);
+    border-radius: var(--radius-sharp, 4px);
+    padding: 0.5rem 1rem;
+    min-width: 140px;
+    box-shadow: 0 1px 3px rgba(var(--color-primary-rgb), 0.08);
+  }
+
+  .primary-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .primary-symbol {
+    font-size: 1rem;
+    font-weight: var(--weight-bold, 700);
+    color: var(--color-primary);
+  }
+
+  .primary-name {
+    font-size: 0.6875rem;
+    color: var(--color-graphite);
+  }
+
+  .primary-card-val {
+    font-size: 0.9375rem;
+    font-weight: var(--weight-bold, 700);
+    color: var(--color-ink);
+    margin-top: 2px;
+  }
+
+  .table-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .composition-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  /* Highlight tint on primary elements (Ni, Cr, Mo) */
+  .row-primary-highlight {
+    background-color: rgba(var(--color-primary-rgb), 0.04) !important;
+  }
+
+  .row-primary-highlight:hover {
+    background-color: var(--color-primary-soft) !important;
+  }
+
+  .symbol-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp, 4px);
+    font-weight: var(--weight-semibold, 600);
+    font-size: 0.8125rem;
+  }
+
+  .symbol-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+  }
+
+  .element-symbol-cell {
+    width: 120px;
+  }
+
+  .element-val-cell {
+    font-size: 0.875rem;
+  }
+
+  .live-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-success);
+    box-shadow: 0 0 6px var(--color-success);
+  }
+
+  .notes-list {
+    margin-top: 0.5rem;
+    padding-left: 1.25rem;
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+  }
+</style>

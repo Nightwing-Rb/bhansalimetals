@@ -1,0 +1,118 @@
+{
+  "title": "ASME B16.9 & MSS SP-43 Butt-Weld Fittings Manufacturing Tolerances",
+  "standard": "ASME B16.9 / MSS SP-43",
+  "category": "fittings-dimensions",
+  "metaTitle": "ASME B16.9 Pipe Fitting Tolerances Chart | Bhansali Metals",
+  "metaDescription": "Standard dimensional tolerances for wrought buttweld fittings per ASME B16.9 and MSS SP-43: outside diameter, inside diameter, wall thickness, center-to-end, and angularity.",
+  "description": "Comprehensive manufacturing tolerance limits for factory-made wrought buttwelding fittings manufactured to ASME B16.9 and MSS SP-43. Covers allowable deviations for outside diameter (OD), inside diameter (ID), wall thickness, center-to-end dimensions, overall length, off-plane alignment, and angular squareness.",
+  "downloadablePdf": "/downloads/asme-b16-9-pipe-fitting-tolerances-bhansali.pdf",
+  "tableHeaders": [
+    "Nominal Pipe Size (NPS)",
+    "Outside Diam at Bevel (mm)",
+    "Inside Diam at End (mm)",
+    "Wall Thickness Min (%)",
+    "Center to End 90° / 45° (mm)",
+    "Overall Length Reducer/Cap (mm)",
+    "Angular Alignment (mm)",
+    "Off-Plane Squareness (mm)"
+  ],
+  "rows": [
+    {
+      "Nominal Pipe Size (NPS)": "1/2\" to 2-1/2\"",
+      "Outside Diam at Bevel (mm)": "+1.6 / -0.8",
+      "Inside Diam at End (mm)": "±0.8",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±1.6",
+      "Overall Length Reducer/Cap (mm)": "±1.6",
+      "Angular Alignment (mm)": "1.0",
+      "Off-Plane Squareness (mm)": "0.8"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\" to 3-1/2\"",
+      "Outside Diam at Bevel (mm)": "±1.6",
+      "Inside Diam at End (mm)": "±1.6",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±1.6",
+      "Overall Length Reducer/Cap (mm)": "±1.6",
+      "Angular Alignment (mm)": "1.0",
+      "Off-Plane Squareness (mm)": "0.8"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Outside Diam at Bevel (mm)": "±1.6",
+      "Inside Diam at End (mm)": "±1.6",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±1.6",
+      "Overall Length Reducer/Cap (mm)": "±1.6",
+      "Angular Alignment (mm)": "1.0",
+      "Off-Plane Squareness (mm)": "0.8"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "5\" to 8\"",
+      "Outside Diam at Bevel (mm)": "+2.4 / -1.6",
+      "Inside Diam at End (mm)": "±1.6",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±1.6",
+      "Overall Length Reducer/Cap (mm)": "±1.6",
+      "Angular Alignment (mm)": "2.0",
+      "Off-Plane Squareness (mm)": "1.6"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\" to 18\"",
+      "Outside Diam at Bevel (mm)": "+4.0 / -3.2",
+      "Inside Diam at End (mm)": "±3.2",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±2.4",
+      "Overall Length Reducer/Cap (mm)": "±2.4",
+      "Angular Alignment (mm)": "3.0",
+      "Off-Plane Squareness (mm)": "2.4"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\" to 24\"",
+      "Outside Diam at Bevel (mm)": "+6.4 / -4.8",
+      "Inside Diam at End (mm)": "±4.8",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±2.4",
+      "Overall Length Reducer/Cap (mm)": "±4.8",
+      "Angular Alignment (mm)": "4.0",
+      "Off-Plane Squareness (mm)": "3.2"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "26\" to 30\"",
+      "Outside Diam at Bevel (mm)": "+8.0 / -4.8",
+      "Inside Diam at End (mm)": "±4.8",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±3.2",
+      "Overall Length Reducer/Cap (mm)": "±4.8",
+      "Angular Alignment (mm)": "5.0",
+      "Off-Plane Squareness (mm)": "4.8"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "32\" to 36\"",
+      "Outside Diam at Bevel (mm)": "+9.5 / -4.8",
+      "Inside Diam at End (mm)": "±6.4",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±4.8",
+      "Overall Length Reducer/Cap (mm)": "±6.4",
+      "Angular Alignment (mm)": "5.0",
+      "Off-Plane Squareness (mm)": "4.8"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "38\" to 48\"",
+      "Outside Diam at Bevel (mm)": "+9.5 / -4.8",
+      "Inside Diam at End (mm)": "±6.4",
+      "Wall Thickness Min (%)": "87.5% (-12.5%)",
+      "Center to End 90° / 45° (mm)": "±4.8",
+      "Overall Length Reducer/Cap (mm)": "±6.4",
+      "Angular Alignment (mm)": "5.0",
+      "Off-Plane Squareness (mm)": "4.8"
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "Tolerances conform to ASME B16.9 (factory-made wrought buttwelding fittings) and MSS SP-43 (lightweight stainless steel fittings).",
+    "Minimum wall thickness shall not be less than 87.5% of nominal specified wall thickness (minus 12.5% manufacturing allowance).",
+    "Out-of-roundness (ovality) is the difference between maximum and minimum measured diameters at the welding bevel.",
+    "Angular alignment tolerance allows maximum angular deviation measured across the face of the weld prep."
+  ]
+}

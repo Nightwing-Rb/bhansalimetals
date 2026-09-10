@@ -1,0 +1,75 @@
+{
+  "title": "Industrial Fasteners & Hardware",
+  "category": "fasteners",
+  "tagline": "High-Tensile Stud Bolts, Hex Bolts & Heavy Nuts in Corrosion Resistant Alloys",
+  "shortDescription": "Bhansali Metals manufactures industrial bolting hardware, full-thread stud bolts, heavy hex nuts, and precision washers for extreme pressure and marine environments.",
+  "metaTitle": "Industrial Fasteners, Stud Bolts & Nuts Manufacturer Mumbai | Bhansali Metals",
+  "metaDescription": "High-tensile stud bolts, heavy hex nuts, and bolts in Inconel 718, Monel K-500, Hastelloy C-276, and Stainless Steel 316/304 from Bhansali Metals Mumbai.",
+  "sizeRange": "M6 to M64 (Metric) / 1/4\" to 2-1/2\" (Imperial); Lengths up to 6000mm",
+  "pressureRatings": [
+    "ASTM A193 Grade B8 / B8M Class 1 & Class 2",
+    "ASTM A194 Grade 8 / 8M Heavy Hex",
+    "ASTM A453 Grade 660 High Temp",
+    "Inconel 718 NACE MR0175 Bolting"
+  ],
+  "applicableStandards": [
+    "ASTM A193",
+    "ASTM A194",
+    "ASTM A320",
+    "ASTM A453",
+    "ASME B18.2.1",
+    "ASME B18.2.2",
+    "DIN 931",
+    "DIN 933",
+    "DIN 934",
+    "DIN 976"
+  ],
+  "forms": [
+    "Stud Bolts",
+    "Hex Bolts",
+    "Heavy Hex Nuts",
+    "Plain Washers",
+    "Spring Washers",
+    "Threaded Rods"
+  ],
+  "subTypes": [
+    {
+      "name": "Fully Threaded Stud Bolts",
+      "description": "Continuous-thread stud bolts engineered for ASME B16.5 and B16.47 flange connections, supplied with dual heavy hex nuts."
+    },
+    {
+      "name": "Heavy Hex Bolts & Screws",
+      "description": "High-strength structural and pressure-vessel bolts with enlarged hex heads for uniform clamp load distribution."
+    },
+    {
+      "name": "Heavy Hex Nuts",
+      "description": "Thick cross-section industrial nuts hot forged and tapped per ASME B18.2.2 to prevent thread stripping under severe tension."
+    },
+    {
+      "name": "Industrial Washers",
+      "description": "Flat, spring, and spherical seating washers engineered to maintain preload tension under thermal cycling and vibrational loads."
+    }
+  ],
+  "compatibleAlloys": [
+    "inconel-718",
+    "inconel-625",
+    "monel-400",
+    "monel-k500",
+    "hastelloy-c276",
+    "stainless-steel-316",
+    "stainless-steel-316l",
+    "stainless-steel-304",
+    "duplex-2205",
+    "super-duplex-2507"
+  ],
+  "manufacturingProcess": "Cold heading for small sizes, precision hot forging for large diameters, precision thread rolling, controlled heat treatment, and anti-galling surface coatings (PTFE, Xylan, Zinc-Nickel, Hot Dip Galvanizing).",
+  "qualityInspection": [
+    "EN 10204 3.1 Mill Test Certificate (MTC)",
+    "Proof Load and Tensile Testing",
+    "Charpy V-Notch Impact Testing at subzero temperatures (-196°C to -46°C)",
+    "Coating Thickness and Salt Spray Corrosion Testing",
+    "100% PMI Material Verification"
+  ],
+  "heroImage": "/images/products/fasteners.svg",
+  "schematicSvg": "/images/schematics/pipe-fitting.svg"
+}

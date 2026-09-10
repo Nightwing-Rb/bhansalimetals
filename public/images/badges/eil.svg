@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect x="4" y="4" width="112" height="112" rx="8" fill="#ffffff" stroke="#e8e8e8" stroke-width="2" />
+  <circle cx="60" cy="44" r="22" fill="#c25e00" />
+  <text x="60" y="52" font-family="'Inter', sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">EIL</text>
+  <text x="60" y="86" font-family="'Inter', sans-serif" font-size="8.5" font-weight="800" fill="#1a1a1a" text-anchor="middle" letter-spacing="0.5">ENGINEERS INDIA</text>
+  <text x="60" y="98" font-family="'Inter', sans-serif" font-size="7.5" font-weight="600" fill="#636363" text-anchor="middle">PSU SPEC READY</text>
+</svg>

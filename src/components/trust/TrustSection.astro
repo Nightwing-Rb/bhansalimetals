@@ -1,0 +1,401 @@
+---
+/**
+ * Combined trust section: certification credentials + accredited inspection
+ * agencies.
+ *
+ * These were previously two separate components rendered as two consecutive
+ * bands (TrustStrip + TpiMarquee), which put the same message on screen twice
+ * with two competing headings. They are one idea — "this material is certified
+ * and independently inspected" — so they now share a single section:
+ *
+ *   1. Credential row  — the four things Bhansali holds (ISO, MTC, PMI, stock)
+ *   2. Agency marquee  — the eight inspection bodies that clear the material
+ *
+ * IMPORTANT — the marquee is deliberately NOT a "trusted by our clients" wall.
+ * Bureau Veritas, TÜV India, Lloyd's Register, Engineers India, DNV and SGS are
+ * inspection agencies Bhansali Metals hires to witness-test material. They are
+ * not customers. The copy and the accessible label both describe the actual
+ * relationship. Do not relabel it as client social proof, and do not add
+ * third-party logos without written permission.
+ */
+import { siteConfig } from '../../data/site';
+
+interface Props {
+  showTitle?: boolean;
+  class?: string;
+}
+
+const { showTitle = true, class: className = '' } = Astro.props;
+
+const credentials = [
+  {
+    title: 'ISO 9001:2015 Certified',
+    desc: `${siteConfig.certifications.isoRegNo} Registered`,
+    tone: 'primary',
+    icon: 'M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z',
+  },
+  {
+    title: 'EN 10204 3.1 MTC',
+    desc: 'Chemical & Mech Properties',
+    tone: 'primary',
+    icon: 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z',
+  },
+  {
+    title: '100% PMI Verified',
+    desc: 'Spectro XRF Alloy Verification',
+    tone: 'primary',
+    icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z',
+  },
+  {
+    title: 'Kalamboli Yard Ready',
+    desc: 'Same-Day Domestic Dispatch',
+    tone: 'success',
+    icon: 'M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z',
+  },
+];
+
+const agencies = [
+  { name: 'Bureau Veritas', subtitle: 'Marine & Industrial TPI', icon: '/images/badges/bv.svg' },
+  { name: 'TÜV India', subtitle: 'Pressure Equipment', icon: '/images/badges/tuv-india.svg' },
+  { name: "Lloyd's Register", subtitle: 'Marine & Offshore', icon: '/images/badges/lloyds.svg' },
+  { name: 'Engineers India', subtitle: 'EIL PSU Spec Ready', icon: '/images/badges/eil.svg' },
+  { name: 'DNV', subtitle: 'Energy Systems', icon: '/images/badges/dnv.svg' },
+  { name: 'SGS India', subtitle: 'Chemical & Mechanical', icon: '/images/badges/sgs.svg' },
+  { name: 'ISO 9001:2015', subtitle: siteConfig.certifications.isoRegNo, icon: '/images/badges/iso-9001-qaic.svg' },
+  { name: 'EN 10204 3.1', subtitle: 'Mill Test Certificate', icon: '/images/badges/en-10204-mtc.svg' },
+];
+---
+
+<section
+  class={`trust-section band-canvas ${className}`.trim()}
+  aria-label="Certification credentials and accredited third-party inspection agencies"
+>
+  {
+    showTitle && (
+      <div class="container trust-head" data-animate>
+        <span class="eyebrow">Quality Management &amp; Global Compliance</span>
+        <h2 class="display-md">Certified, Inspected &amp; Cleared</h2>
+        <p class="trust-sub">
+          Every consignment from our Kalamboli yard ships with an authentic{' '}
+          <strong>EN 10204 Type 3.1 Mill Test Certificate</strong> and full heat-number
+          traceability — and can be witness-tested before dispatch by an accredited
+          inspection authority you appoint.
+        </p>
+      </div>
+    )
+  }
+
+  <!-- 1. Credential row — what Bhansali holds -->
+  <div class="container">
+    <div class="credential-row" data-animate>
+      {
+        credentials.map((cred) => (
+          <div class="credential">
+            <span class={`credential-icon credential-icon-${cred.tone}`} aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d={cred.icon} />
+              </svg>
+            </span>
+            <span class="credential-text">
+              <span class="credential-title">{cred.title}</span>
+              <span class="credential-desc">{cred.desc}</span>
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- 2. Agency marquee — who clears it -->
+  <div class="agency-label-row container" data-animate>
+    <span class="agency-label">Independently inspected &amp; cleared by</span>
+  </div>
+
+  <div
+    class="marquee"
+    role="group"
+    aria-label="Accredited inspection agencies: Bureau Veritas, TÜV India, Lloyd's Register, Engineers India, DNV, SGS, ISO 9001:2015, EN 10204 3.1"
+  >
+    <div class="marquee-track">
+      {
+        /* Two identical passes: the animation translates exactly -50%, so the
+           second pass slides into place as the first leaves. */
+        [0, 1].map((pass) => (
+          <ul class="marquee-group" aria-hidden={pass === 1 ? 'true' : undefined}>
+            {agencies.map((agency) => (
+              <li class="marquee-item">
+                <img
+                  src={agency.icon}
+                  alt={pass === 1 ? '' : agency.name}
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  class="marquee-logo"
+                />
+                <span class="marquee-meta">
+                  <span class="marquee-name">{agency.name}</span>
+                  <span class="marquee-role">{agency.subtitle}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="trust-footnote">
+      Client-appointed inspection to ASME, PED 2014/68/EU and IBR 1950 scope. EN 10204 3.1
+      or 3.2 certification issued on release.
+    </p>
+  </div>
+</section>
+
+<style>
+  .trust-section {
+    overflow: hidden;
+  }
+
+  .trust-head {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .trust-sub {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-charcoal);
+    margin-top: 0.75rem;
+  }
+
+  /* ---- Credential row ---- */
+  .credential-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .credential {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-lg);
+    padding: 1.125rem 1.25rem;
+    box-shadow: var(--shadow-soft-lift);
+    transition: transform 250ms var(--ease-apple), box-shadow 250ms var(--ease-apple);
+  }
+
+  .credential:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .credential-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sharp);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .credential-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .credential-icon-primary {
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary-deep);
+  }
+
+  .credential-icon-success {
+    background-color: var(--color-success-soft);
+    color: var(--color-success-deep);
+  }
+
+  .credential-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .credential-title {
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+    line-height: 1.2;
+  }
+
+  .credential-desc {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    margin-top: 2px;
+  }
+
+  /* ---- Agency label ---- */
+  .agency-label-row {
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .agency-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-graphite);
+  }
+
+  /* ---- Marquee ---- */
+  .marquee {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    /* Fade at both edges so items enter and leave the viewport instead of
+       being clipped. Same mask technique already used by .data-table. */
+    mask-image: linear-gradient(to right, transparent 0, #000 6rem, #000 calc(100% - 6rem), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6rem, #000 calc(100% - 6rem), transparent 100%);
+  }
+
+  .marquee-track {
+    display: flex;
+    flex-shrink: 0;
+    gap: 1rem;
+    padding: 0.25rem 0;
+    will-change: transform;
+    animation: marquee-scroll 46s linear infinite;
+  }
+
+  .marquee-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: stretch;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-lg);
+    padding: 0.75rem 1.25rem;
+    min-width: 232px;
+    transition: border-color 250ms var(--ease-apple), box-shadow 250ms var(--ease-apple);
+  }
+
+  .marquee-item:hover {
+    border-color: var(--color-primary-soft);
+    box-shadow: var(--shadow-soft-lift);
+  }
+
+  .marquee-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .marquee-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .marquee-name {
+    font-size: 0.8125rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  .marquee-role {
+    font-size: 0.6875rem;
+    color: var(--color-graphite);
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  .trust-footnote {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-graphite);
+    text-align: center;
+    max-width: 720px;
+    margin: 2rem auto 0;
+  }
+
+  /* Animation moves exactly one pass width (-50% of the doubled track). */
+  @keyframes marquee-scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+
+  /* Pausing on hover is required: a moving target is hard to read. */
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 900px) {
+    .credential-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .credential-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .marquee {
+      mask-image: linear-gradient(to right, transparent 0, #000 2rem, #000 calc(100% - 2rem), transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 2rem, #000 calc(100% - 2rem), transparent 100%);
+    }
+
+    .marquee-item {
+      min-width: 200px;
+      padding: 0.625rem 1rem;
+    }
+
+    .marquee-logo {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      overflow-x: auto;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .marquee-track {
+      animation: none;
+      will-change: auto;
+    }
+
+    /* The duplicated pass is redundant once the track no longer scrolls. */
+    .marquee-group[aria-hidden='true'] {
+      display: none;
+    }
+  }
+</style>

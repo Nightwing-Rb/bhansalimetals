@@ -1,0 +1,557 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Badge from '../../components/common/Badge.astro';
+import Button from '../../components/common/Button.astro';
+import { siteConfig } from '../../data/site';
+
+const allAlloys = await getCollection('alloys');
+
+const families = [
+  { id: 'inconel', name: 'Inconel Superalloys', desc: 'Nickel-chromium based superalloys for high temperature and extreme oxidation resistance.' },
+  { id: 'incoloy', name: 'Incoloy High-Temp Alloys', desc: 'Nickel-iron-chromium alloys offering high temperature strength and resistance to carburization.' },
+  { id: 'monel', name: 'Monel Nickel-Copper', desc: 'Precipitation hardening and solid-solution nickel-copper alloys immune to seawater biofouling and marine corrosion.' },
+  { id: 'hastelloy', name: 'Hastelloy Chemical Service', desc: 'Molybdenum-chromium-nickel superalloys with unmatched resistance to wet chlorine, sulfuric acid, and hydrochloric acids.' },
+  { id: 'nickel', name: 'Commercially Pure Nickel', desc: 'High thermal and electrical conductivity with superior resistance to caustic alkalies and reducing media.' },
+  { id: 'stainless-steel', name: 'Austenitic Stainless Steel', desc: 'Standard 300 series and specialty 904L stainless steels for sanitary, architectural, and cryogenic piping.' },
+  { id: 'duplex', name: 'Duplex & Super Duplex', desc: 'Two-phase austenitic-ferritic microstructures delivering double the yield strength of standard austenitic stainless steels.' }
+];
+
+function getFamilyAlloys(familyId: string) {
+  return allAlloys.filter(a => {
+    const fam = a.data.family.toLowerCase();
+    if (familyId === 'inconel') return fam === 'inconel';
+    if (familyId === 'incoloy') return fam === 'incoloy';
+    if (familyId === 'monel') return fam === 'monel';
+    if (familyId === 'hastelloy') return fam === 'hastelloy';
+    if (familyId === 'nickel') return fam === 'nickel';
+    if (familyId === 'stainless-steel') return fam === 'stainless steel' || fam === 'stainless-steel';
+    if (familyId === 'duplex') return fam === 'duplex' || fam === 'super duplex' || fam === 'super-duplex';
+    return false;
+  });
+}
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Alloys Matrix', url: '/alloys' },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "High Nickel Alloys & Stainless Steel Materials Matrix | Bhansali Metals",
+  "description": "Stock inventory matrix covering Inconel 625/600/718, Monel 400/K-500, Hastelloy C-276/C-22, Nickel 200/201, Stainless Steel, and Super Duplex 2507.",
+  "url": "https://www.bhansalimetals.com/alloys"
+};
+---
+
+<BaseLayout
+  title="High Nickel Alloys & Specialty Steel Grade Matrix | Bhansali Metals"
+  description="Explore Bhansali Metals high nickel alloy inventory: Inconel, Monel, Hastelloy, Nickel 200, Stainless Steel 316L, Duplex 2205 & Super Duplex 2507 with full MTC 3.1."
+  canonicalUrl="https://www.bhansalimetals.com/alloys"
+  breadcrumbs={breadcrumbs}
+  schemaData={schemaData}
+>
+  <!-- Breadcrumb Bar -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">Alloys Matrix</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="band-canvas alloy-hub-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <Badge variant="status-green">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Kalamboli Yard Stock Ready</span>
+          </Badge>
+          <Badge variant="soft-blue">
+            <span>EN 10204 3.1 Mill Test Certificates</span>
+          </Badge>
+          <Badge variant="outline">
+            <span>NACE MR0175 / ISO 15156 Sour Service</span>
+          </Badge>
+        </div>
+        <h1 class="display-xl alloy-hub-title">High Nickel Superalloys &amp; Stainless Steel Matrix</h1>
+        <p class="lead alloy-hub-subtitle">
+          Bhansali Metals is an authorized distributor and direct importer of US and European melt corrosion-resistant superalloys. Search our complete cross-reference matrix by UNS code, Werkstoff number, or commercial grade.
+        </p>
+
+        <!-- Quick Filter Pill Navigation -->
+        <div class="filter-pills-bar">
+          <span class="filter-label">Quick Jump:</span>
+          <div class="filter-pills">
+            {families.map((f) => (
+              <a href={`#family-${f.id}`} class="filter-pill">
+                {f.name.split(' ')[0]}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alloys Categorized by Family (DESIGN.md: 16px rounded cards, Soft Lift shadow) -->
+  <section class="band-cloud alloys-matrix-section">
+    <div class="container">
+      {families.map((f) => {
+        const alloys = getFamilyAlloys(f.id);
+        if (alloys.length === 0) return null;
+        return (
+          <div class="family-block" id={`family-${f.id}`} data-animate>
+            <div class="family-header">
+              <div>
+                <span class="eyebrow">{f.name.toUpperCase()}</span>
+                <h2 class="display-sm family-title">{f.name}</h2>
+                <p class="caption-md family-desc">{f.desc}</p>
+              </div>
+              <span class="badge badge-ink">{alloys.length} Registered Grades</span>
+            </div>
+
+            <div class="alloy-grid" data-animate-stagger>
+              {alloys.map((alloy) => {
+                const d = alloy.data;
+                const uns = d.unsNumber || d.uns;
+                const wnr = d.werkstoffNumber || d.wnr;
+                return (
+                  <article class="card card-soft-lift alloy-card">
+                    <div class="alloy-card-header">
+                      <div>
+                        <span class="alloy-category-tag">{d.family.toUpperCase()}</span>
+                        <h3 class="display-xs alloy-name">
+                          <a href={`/alloys/${alloy.id}`} class="alloy-link">
+                            {d.grade}
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="alloy-meta-chips">
+                        {uns && <span class="badge badge-mono">{uns}</span>}
+                        {wnr && <span class="badge badge-mono">W.Nr. {wnr}</span>}
+                      </div>
+                    </div>
+
+                    <p class="alloy-summary-text">{d.summary}</p>
+
+                    <div class="alloy-specs-table">
+                      {d.mechanicalProperties?.tensileStrength && (
+                        <div class="spec-table-row">
+                          <span class="spec-k">Tensile:</span>
+                          <span class="spec-v font-mono">{d.mechanicalProperties.tensileStrength.mpa} ({d.mechanicalProperties.tensileStrength.ksi})</span>
+                        </div>
+                      )}
+                      {d.mechanicalProperties?.yieldStrength && (
+                        <div class="spec-table-row">
+                          <span class="spec-k">Yield (0.2%):</span>
+                          <span class="spec-v font-mono">{d.mechanicalProperties.yieldStrength.mpa} ({d.mechanicalProperties.yieldStrength.ksi})</span>
+                        </div>
+                      )}
+                      {d.astmStandards && d.astmStandards.length > 0 && (
+                        <div class="spec-table-row">
+                          <span class="spec-k">Standards:</span>
+                          <span class="spec-v font-mono">{d.astmStandards.slice(0, 3).join(', ')}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div class="forms-container">
+                      <span class="forms-heading">Available Stock Forms:</span>
+                      <div class="forms-chips">
+                        {d.availableForms.slice(0, 5).map((form) => (
+                          <span class="form-chip">{form}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div class="alloy-card-actions">
+                      <Button href={`/alloys/${alloy.id}`} variant="primary" size="sm" class="view-grade-btn">
+                        View Metallurgy
+                      </Button>
+                      <button
+                        type="button"
+                        class="btn btn-outline btn-sm rfq-grade-btn"
+                        data-open-rfq
+                        data-alloy={d.grade}
+                      >
+                        Request RFQ
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Closing Dark Ink Band -->
+  <section class="band-dark-gradient rfq-prelude-slab">
+    <div class="container">
+      <div class="prelude-box" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Direct Metallurgical Consultation</span>
+          <h2 class="display-md" style="color: var(--color-on-ink);">Need Assistance Selecting the Right Superalloy Grade?</h2>
+          <p class="lead" style="color: var(--color-fog); max-width: 680px; margin-top: 0.5rem;">
+            Our metallurgical engineers can evaluate your operating temperatures, chemical exposure (H2S, chlorides, acids), and mechanical load requirements.
+          </p>
+        </div>
+        <div class="prelude-actions">
+          <Button href="/contact" variant="primary-bright" size="md">
+            Consult Metallurgical Desk
+          </Button>
+          <Button
+            href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I require guidance on superalloy grade selection for our project.')}`}
+            variant="whatsapp"
+            size="md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp Senior Metallurgist
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Hero */
+  .alloy-hub-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-content {
+    max-width: 900px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-success);
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(4, 120, 87, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0); }
+  }
+
+  .alloy-hub-title {
+    margin-bottom: 1rem;
+  }
+
+  .alloy-hub-subtitle {
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .filter-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    color: var(--color-graphite);
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .filter-pill {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    padding: 4px 12px;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-pill);
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+
+  .filter-pill:hover {
+    background-color: var(--color-ink);
+    color: #ffffff;
+    border-color: var(--color-ink);
+  }
+
+  /* Matrix Section */
+  .alloys-matrix-section {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .family-block {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 80px;
+  }
+
+  .family-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .family-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-fog);
+    padding-bottom: 0.75rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .family-title {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .family-desc {
+    color: var(--color-graphite);
+    margin: 0;
+    max-width: 680px;
+  }
+
+  /* Alloy Grid & 16px Rounded Cards with Soft Lift */
+  .alloy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .alloy-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .alloy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .alloy-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft); /* 16px */
+    box-shadow: var(--shadow-soft-lift);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .alloy-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 26, 26, 0.1);
+  }
+
+  .alloy-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .alloy-category-tag {
+    font-size: 0.625rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.5px;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .alloy-name {
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .alloy-link {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .alloy-link:hover {
+    color: var(--color-primary);
+  }
+
+  .alloy-meta-chips {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+
+  .alloy-summary-text {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+
+  .alloy-specs-table {
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 0.625rem 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .spec-table-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .spec-k {
+    color: var(--color-graphite);
+  }
+
+  .spec-v {
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+    text-align: right;
+  }
+
+  .forms-container {
+    margin-bottom: 1.25rem;
+  }
+
+  .forms-heading {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    color: var(--color-graphite);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .forms-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .form-chip {
+    font-size: 0.6875rem;
+    background-color: var(--color-fog);
+    color: var(--color-ink);
+    padding: 2px 6px;
+    border-radius: var(--radius-xs);
+  }
+
+  .alloy-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .alloy-card-actions .view-grade-btn {
+    flex: 1 1 60%;
+  }
+
+  .alloy-card-actions .rfq-grade-btn {
+    flex: 1 1 40%;
+  }
+
+  /* Closing Prelude Slab */
+  .rfq-prelude-slab {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .prelude-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .prelude-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .prelude-actions {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,710 @@
+@import "./tokens.css";
+
+/* ==========================================================================
+   CSS RESET & BASELINE
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Lenis Smooth Scroll Support */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img, svg, picture, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 200ms var(--ease-apple);
+}
+
+a:hover {
+  color: var(--color-primary-deep);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY — APPLE-STYLE: Inter, Semibold Headlines, 1.1 Line Height
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-display); /* 600 semibold */
+  line-height: 1.1;
+  letter-spacing: -0.025em; /* Apple-tight tracking */
+  color: var(--color-ink);
+}
+
+.display-xxl {
+  font-size: 4.5rem;   /* 72px */
+  line-height: 1.05;
+  font-weight: var(--weight-display);
+  letter-spacing: -0.035em;
+}
+
+.display-xl {
+  font-size: 3.5rem;   /* 56px */
+  line-height: 1.07;
+  font-weight: var(--weight-display);
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-size: 2.75rem;  /* 44px */
+  line-height: 1.1;
+  font-weight: var(--weight-display);
+  letter-spacing: -0.025em;
+}
+
+.display-md {
+  font-size: 2rem;     /* 32px */
+  line-height: 1.15;
+  font-weight: var(--weight-display);
+  letter-spacing: -0.02em;
+}
+
+.display-sm {
+  font-size: 1.5rem;   /* 24px */
+  line-height: 1.2;
+  font-weight: var(--weight-display);
+}
+
+.display-xs {
+  font-size: 1.25rem;  /* 20px */
+  line-height: 1.25;
+  font-weight: var(--weight-display);
+}
+
+/* Responsive display scaling */
+@media (max-width: 768px) {
+  .display-xxl { font-size: 2.5rem; line-height: 1.1; }
+  .display-xl  { font-size: 2rem; line-height: 1.12; }
+  .display-lg  { font-size: 1.625rem; line-height: 1.15; }
+  .display-md  { font-size: 1.375rem; line-height: 1.2; }
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6; /* Apple uses 1.5-1.6 body line height */
+  color: var(--color-charcoal);
+  margin-bottom: 0.75rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--color-charcoal);
+  font-weight: var(--weight-regular);
+}
+
+.caption-md {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-graphite);
+}
+
+.caption-sm {
+  font-size: 0.75rem;
+  line-height: 1.33;
+  color: var(--color-graphite);
+}
+
+.eyebrow {
+  font-size: 0.8125rem; /* 13px — slightly larger than before */
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   CONTAINER & SECTION RHYTHM — APPLE GENEROUS SPACING
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* Section Bands — cleaner, no hard borders */
+.band-canvas {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+.band-cloud {
+  background-color: var(--color-cloud);
+  color: var(--color-ink);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+.band-fog {
+  background-color: var(--color-fog);
+  color: var(--color-ink);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+.band-ink {
+  background-color: var(--color-ink);
+  color: var(--color-on-ink);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+/* Dark gradient band — Apple-style immersive dark sections */
+.band-dark-gradient {
+  background: var(--surface-dark-gradient);
+  color: var(--color-on-ink);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  position: relative;
+  overflow: hidden;
+}
+
+.band-dark-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--surface-mesh-subtle);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .band-canvas, .band-cloud, .band-fog, .band-ink, .band-dark-gradient {
+    padding-top: var(--spacing-section-mobile);
+    padding-bottom: var(--spacing-section-mobile);
+  }
+}
+
+/* ==========================================================================
+   BUTTONS — APPLE-STYLE: Softer Radius, No Uppercase, Clean Transitions
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 48px;             /* slightly taller — Apple-like */
+  padding: 0 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;     /* 15px */
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  letter-spacing: -0.01em;  /* Apple: no tracking, slight negative */
+  text-transform: none;     /* Apple: no uppercase */
+  border-radius: var(--radius-sharp); /* 10px — softer */
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: all 250ms var(--ease-apple);
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  background-color: #86868b !important; /* Apple disabled gray — good contrast with white */
+  color: #ffffff !important;
+  border-color: transparent !important;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7;
+}
+
+/* Primary Blue Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-deep);
+  border-color: var(--color-primary-deep);
+}
+
+/* Bright Blue button — the light tint, for DARK surfaces.
+   Carries ink text, not white: white on #78A9FF is only 1.96:1, while
+   --color-on-primary-bright measures 7.70:1. */
+.btn-primary-bright {
+  background-color: var(--color-primary-bright);
+  color: var(--color-on-primary-bright);
+  border-color: var(--color-primary-bright);
+}
+
+.btn-primary-bright:hover {
+  background-color: var(--color-primary-bright-hover);
+  border-color: var(--color-primary-bright-hover);
+  color: var(--color-on-primary-bright);
+  box-shadow: 0 4px 20px rgba(120, 169, 255, 0.35);
+}
+
+.btn-primary-bright:active {
+  background-color: #6b9df5;
+  border-color: #6b9df5;
+  color: var(--color-on-primary-bright);
+}
+
+/* Ink (dark) filled button */
+.btn-ink {
+  background-color: var(--color-ink);
+  color: #ffffff;
+  border-color: var(--color-ink);
+}
+
+.btn-ink:hover {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+/* Blue outline button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.06);
+  color: var(--color-primary-hover);
+}
+
+/* Ink outline button */
+.btn-outline-ink {
+  background-color: transparent;
+  color: var(--color-ink);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.btn-outline-ink:hover {
+  background-color: var(--color-cloud);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Glass button for dark backgrounds */
+.btn-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  color: var(--color-ink);
+  border: var(--glass-border-subtle);
+}
+
+.btn-glass:hover {
+  background: var(--glass-bg-strong);
+  box-shadow: var(--shadow-soft-lift);
+}
+
+/* Glass dark button */
+.btn-glass-dark {
+  background: var(--glass-bg-dark);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  color: var(--color-on-ink);
+  border: var(--glass-border-dark);
+}
+
+.btn-glass-dark:hover {
+  background: var(--glass-bg-dark-strong);
+}
+
+/* Compact button */
+.btn-sm {
+  height: 40px;
+  padding: 0 1.25rem;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 768px) {
+  .btn-sm {
+    height: 44px;
+    padding: 0 1.25rem;
+  }
+}
+
+/* WhatsApp branded button */
+.btn-whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20ba59;
+  border-color: #20ba59;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* Outline on dark surfaces */
+.btn-outline-on-dark {
+  background-color: transparent;
+  color: var(--color-on-ink);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-outline-on-dark:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   CARDS & CONTAINERS — APPLE-STYLE: Softer, Larger Radius, Diffuse Shadows
+   ========================================================================== */
+
+.card {
+  background-color: var(--color-canvas);
+  border-radius: var(--radius-soft); /* 20px */
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 300ms var(--ease-apple), box-shadow 300ms var(--ease-apple);
+}
+
+.card-soft-lift {
+  box-shadow: var(--shadow-soft-lift);
+}
+
+.card-soft-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.card-body {
+  padding: var(--spacing-xl);
+}
+
+/* Glassmorphism card */
+.card-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  border-radius: var(--radius-soft);
+  box-shadow: var(--shadow-soft-lift);
+}
+
+.card-glass-dark {
+  background: var(--glass-bg-dark);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border-dark);
+  border-radius: var(--radius-soft);
+}
+
+/* Glassmorphism fallback for unsupported browsers */
+@supports not (backdrop-filter: blur(1px)) {
+  .card-glass {
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .card-glass-dark {
+    background: rgba(30, 30, 30, 0.95);
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+  .glass-dark {
+    background: rgba(30, 30, 30, 0.95) !important;
+  }
+}
+
+/* ==========================================================================
+   BADGES & PILLS — APPLE-STYLE
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-lg); /* 12px */
+  font-size: 0.8125rem;
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  transition: all 200ms var(--ease-apple);
+}
+
+.badge-ink {
+  background-color: var(--color-ink);
+  color: #ffffff;
+}
+
+.badge-outline {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Semantic error badge. Replaces .badge-coral, which was a leftover from the
+   retired HP-derived palette and was unrelated to the brand blue. */
+.badge-error {
+  background-color: var(--color-error-soft);
+  color: var(--color-error);
+}
+
+.badge-soft-blue {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-deep);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.15);
+}
+
+.badge-status-green {
+  background-color: var(--color-success-soft);
+  color: var(--color-success-deep);
+  border: 1px solid #a7f3d0;
+}
+
+.badge-mono {
+  font-family: var(--font-mono);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  font-size: 0.8125rem;
+  background-color: var(--color-cloud);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--color-ink);
+}
+
+/* Glass badge for dark backgrounds */
+.badge-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  color: var(--color-ink);
+}
+
+.badge-glass-dark {
+  background: var(--glass-bg-dark);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border-dark);
+  color: var(--color-on-ink);
+}
+
+/* ==========================================================================
+   FORMS & INPUTS — APPLE-STYLE: Taller, Softer Radius
+   ========================================================================== */
+
+.text-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-sharp); /* 10px */
+  transition: border-color 200ms var(--ease-apple), box-shadow 200ms var(--ease-apple);
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+}
+
+.text-input-search {
+  height: 40px;
+  border-radius: var(--radius-pill);
+  padding: 0 16px;
+  background-color: var(--color-cloud);
+  border: 1px solid transparent;
+}
+
+.text-input-search:focus {
+  background-color: var(--color-canvas);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+}
+
+/* Both focus rings above are two-part: the border-color change carries the
+   required 3:1 (5.00:1 measured on white), the halo is decorative. A
+   0.15-alpha halo alone measures 1.24:1 and fails WCAG 2.2 SC 1.4.11. */
+
+textarea.text-input {
+  height: auto;
+  padding: 12px 16px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   GLASSMORPHISM UTILITIES
+   ========================================================================== */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border: var(--glass-border);
+}
+
+.glass-dark {
+  background: var(--glass-bg-dark);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border-dark);
+}
+
+.glass-dark-strong {
+  background: var(--glass-bg-dark-strong);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border: var(--glass-border-dark);
+}
+
+/* ==========================================================================
+   SCROLL-TRIGGERED ANIMATIONS
+   ========================================================================== */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s var(--ease-spring),
+    transform 0.7s var(--ease-spring);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children animation delays */
+[data-animate-stagger] > [data-animate]:nth-child(1) { transition-delay: 0ms; }
+[data-animate-stagger] > [data-animate]:nth-child(2) { transition-delay: 80ms; }
+[data-animate-stagger] > [data-animate]:nth-child(3) { transition-delay: 160ms; }
+[data-animate-stagger] > [data-animate]:nth-child(4) { transition-delay: 240ms; }
+[data-animate-stagger] > [data-animate]:nth-child(5) { transition-delay: 320ms; }
+[data-animate-stagger] > [data-animate]:nth-child(6) { transition-delay: 400ms; }
+[data-animate-stagger] > [data-animate]:nth-child(7) { transition-delay: 480ms; }
+[data-animate-stagger] > [data-animate]:nth-child(8) { transition-delay: 560ms; }
+
+/* Slide-up variant */
+[data-animate="fade-up"] {
+  transform: translateY(40px);
+}
+
+/* Scale-in variant */
+[data-animate="scale-in"] {
+  transform: scale(0.95);
+}
+[data-animate="scale-in"].is-visible {
+  transform: scale(1);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  [data-animate].is-visible {
+    transform: none !important;
+  }
+  html.lenis, html.lenis body {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+.text-center { text-align: center; }
+.text-balance { text-wrap: balance; }
+.font-mono { font-family: var(--font-mono); }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

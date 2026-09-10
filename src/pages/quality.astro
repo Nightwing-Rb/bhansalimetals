@@ -1,0 +1,542 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Badge from '../components/common/Badge.astro';
+import Button from '../components/common/Button.astro';
+import TpiGrid from '../components/trust/TpiGrid.astro';
+import { siteConfig } from '../data/site';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Quality Assurance', url: '/quality' },
+];
+
+const qaStages = [
+  {
+    stage: '01',
+    title: 'Raw Material Inward Verification & Spectro PMI',
+    desc: 'Every heat and raw material billet received from Mukand Ltd or certified international mills undergoes immediate Positive Material Identification (PMI) using calibrated handheld XRF spectrometers before acceptance into inventory.',
+    checks: ['100% XRF Chemical Analysis', 'Heat Number & Mill Tag Matching', 'Visual Surface Flaw Inspection', 'Master Heat Ledger Inscription']
+  },
+  {
+    stage: '02',
+    title: 'In-Process Dimensional & Machining Tolerances',
+    desc: 'During cutting, forging, turning, and beveling, precision digital micrometers, vernier calipers, and ultrasonic thickness gauges verify tolerances against strict ASME B16.5, ASME B16.9, and DIN standards.',
+    checks: ['Wall Thickness (t) Verification', 'Bolt Circle (BCD) & Hole Alignment', 'Flange Face Serration Finish (Ra 3.2-6.3 µm)', 'Bevel End Angle (37.5° ± 2.5°)']
+  },
+  {
+    stage: '03',
+    title: 'In-House Testing Laboratory & Non-Destructive Testing (NDT)',
+    desc: 'Comprehensive non-destructive and destructive testing conducted in our accredited laboratory facilities verifying mechanical strength, pressure containment, and severe environment endurance.',
+    checks: ['Hydrostatic Testing up to 15,000 PSI', 'Ultrasonic Testing (ASME Sec V Art 4/5)', 'Liquid Penetrant Examination (DPT)', 'Intergranular Corrosion (ASTM A262 Prat E)']
+  },
+  {
+    stage: '04',
+    title: 'Third-Party Inspection (TPI) & Client Witnessing',
+    desc: 'Full accommodation of independent third-party inspection agencies appointed by global EPC contractors. Material stages, hydrostatic holds, and PMI scans witnessed with formal stamping.',
+    checks: ['Bureau Veritas (BV) Witnessing', 'TÜV India Class Verification', "Lloyd's Register (LR) Certification", 'Engineers India Limited (EIL) Approvals']
+  },
+  {
+    stage: '05',
+    title: 'Final Packaging, Marking & EN 10204 3.1/3.2 Certification',
+    desc: 'Finished piping components are hard-stamped or laser-etched with grade, heat number, size, and rating, coated with rust-preventive oil, capped with protective end covers, and paired with MTC 3.1.',
+    checks: ['Traceable Heat Number Stamping', 'Heavy Polyethylene End Caps Fitted', 'Seaworthy Wooden Crate Packaging', 'Original EN 10204 Type 3.1 MTC Issued']
+  }
+];
+
+const labCapabilities = [
+  {
+    title: '100% Spectro PMI Verification',
+    standard: 'ASTM E1476 / ASTM E572',
+    desc: 'Handheld Thermo Niton / Olympus XRF analyzers verify elemental percentage concentrations for Ni, Cr, Mo, Fe, Cu, Ti, and Nb on 100% of finished pieces.',
+    icon: 'pmi'
+  },
+  {
+    title: 'Hydrostatic Proof Testing',
+    standard: 'ASME B16.5 / ASME Sec VIII',
+    desc: 'Proof pressure testing up to 15,000 PSI verifying pressure-tight envelope integrity of forged flanges, seamless pipes, and buttweld fittings.',
+    icon: 'hydro'
+  },
+  {
+    title: 'Ultrasonic & Radiography (NDT)',
+    standard: 'ASME Section V Article 4 & 5',
+    desc: 'Volumetric examination detecting subsurface flaws, inclusions, laminations, and internal discontinuities with certified ASNT Level II/III technicians.',
+    icon: 'ut'
+  },
+  {
+    title: 'Intergranular Corrosion (IGC)',
+    standard: 'ASTM A262 Practice E / ASTM G28',
+    desc: 'Boiling acid testing evaluating susceptibility to intergranular attack in austenitic stainless steels and high-nickel alloys in severe sour environments.',
+    icon: 'igc'
+  },
+  {
+    title: 'Cryogenic & Elevated Tensile',
+    standard: 'ASTM A370 / ASTM E8 / ASTM E21',
+    desc: 'Charpy V-Notch impact testing down to -196°C for LNG/cryogenic service and elevated temperature tensile testing up to 800°C for furnace components.',
+    icon: 'cryo'
+  },
+  {
+    title: 'Hardness & Microstructure',
+    standard: 'ASTM E10 / ASTM E18 / ASTM E384',
+    desc: 'Brinell, Rockwell B/C, and Vickers microhardness profiling ensuring compliance with NACE MR0175 sour service maximum hardness restrictions.',
+    icon: 'hardness'
+  }
+];
+---
+
+<BaseLayout
+  title="Quality Assurance & Testing Laboratory | EN 10204 3.1 MTC | Bhansali Metals"
+  description="Bhansali Metals Quality Assurance System: 5-Stage QA/QC inspection workflow, PMI, Ultrasonic, Hydrostatic proof testing to 15,000 PSI, and EN 10204 3.1 MTC."
+  canonicalUrl="https://www.bhansalimetals.com/quality"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">Quality Assurance</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="band-canvas qa-hero">
+    <div class="container">
+      <div class="qa-hero-content" data-animate>
+        <div class="hero-badges">
+          <Badge variant="status-green">
+            <span>ISO 9001:2015 QAIC/IN/1103-A Certified</span>
+          </Badge>
+          <Badge variant="soft-blue">
+            <span>EN 10204 Type 3.1 &amp; 3.2 MTC Guaranteed</span>
+          </Badge>
+          <Badge variant="outline">
+            <span>NACE MR0175 / ISO 15156 Sour Service</span>
+          </Badge>
+        </div>
+
+        <h1 class="display-xl qa-title">Quality Assurance System &amp; Testing Protocols</h1>
+        <p class="lead qa-subtitle">
+          At Bhansali Metals, quality is not a secondary inspection step—it is the governing discipline of our entire procurement, fabrication, and stockholding lifecycle. Every component dispatched from our Mumbai and Kalamboli facilities carries 100% metallurgical traceability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: 5-Stage QA/QC Workflow (Feature 30.2 & B30.5) -->
+  <section class="band-cloud qa-workflow-section">
+    <div class="container">
+      <div class="section-title-box" data-animate>
+        <span class="eyebrow">Zero-Defect Quality Process</span>
+        <h2 class="display-md">5-Stage Comprehensive Quality Assurance Workflow</h2>
+        <p class="caption-md" style="margin-top: 0.25rem;">
+          From mill raw material intake to final sea container packaging, every batch passes through five gated inspection checkpoints.
+        </p>
+      </div>
+
+      <div class="workflow-grid">
+        {qaStages.map((stage) => (
+          <div class="card card-soft-lift stage-card" id={`qa-stage-${stage.stage}`} data-animate>
+            <div class="stage-header">
+              <span class="stage-num font-mono">Stage {stage.stage}</span>
+              <span class="badge badge-status-green">Gated Inspection</span>
+            </div>
+
+            <h3 class="display-xs stage-title">{stage.title}</h3>
+            <p class="stage-desc">{stage.desc}</p>
+
+            <div class="stage-checks-box">
+              <span class="checks-heading">Key Verification Criteria:</span>
+              <ul class="checks-list">
+                {stage.checks.map((chk) => (
+                  <li class="check-item">
+                    <span class="check-icon">✓</span>
+                    <span>{chk}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Testing Laboratory Capabilities -->
+  <section class="band-canvas lab-section">
+    <div class="container">
+      <div class="section-title-box" data-animate>
+        <span class="eyebrow">Testing Infrastructure</span>
+        <h2 class="display-md">In-House Laboratory &amp; Non-Destructive Testing (NDT)</h2>
+        <p class="lead" style="max-width: 800px; margin-top: 0.5rem;">
+          Our Kalamboli inspection facility is equipped with state-of-the-art testing equipment operated by certified metallurgical technicians.
+        </p>
+      </div>
+
+      <div class="lab-grid">
+        {labCapabilities.map((lab) => (
+          <div class="card card-soft-lift lab-card" data-animate>
+            <div class="lab-card-header">
+              <span class="badge badge-mono">{lab.standard}</span>
+            </div>
+            <h3 class="display-xs lab-title">{lab.title}</h3>
+            <p class="lab-desc">{lab.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: EN 10204 3.1 & 3.2 Certification Policy -->
+  <section class="band-cloud mtc-policy-section">
+    <div class="container">
+      <div class="card card-soft-lift mtc-card" data-animate>
+        <div class="mtc-content">
+          <span class="eyebrow">Documentary Integrity</span>
+          <h2 class="display-sm mtc-heading">EN 10204 Type 3.1 &amp; Type 3.2 Mill Test Certificates</h2>
+          <p class="lead mtc-desc">
+            We guarantee complete transparency. Every shipment is accompanied by original manufacturer mill test certificates compliant with European Standard EN 10204:2004.
+          </p>
+
+          <div class="mtc-details-grid">
+            <div class="mtc-detail-item">
+              <strong>Type 3.1 MTC (Standard Supply)</strong>
+              <p>Document issued by the manufacturer validated by an authorized inspection representative independent of the manufacturing department. Validates complete chemical analysis, mechanical test results, heat treatment cycles, and NDT examination.</p>
+            </div>
+            <div class="mtc-detail-item">
+              <strong>Type 3.2 MTC (Third-Party Witnessed)</strong>
+              <p>Document validated jointly by the manufacturer’s authorized inspection representative and an independent third-party inspection agency (e.g. Bureau Veritas, TÜV, Lloyd's) verifying witnessed testing on actual supply heats.</p>
+            </div>
+          </div>
+
+          <div class="mtc-cta-strip">
+            <Button href="/certificates" variant="primary" size="sm">
+              View ISO &amp; Quality Certificates &rarr;
+            </Button>
+            <Button href="/rfq" variant="outline" size="sm">
+              Request Sample MTC for Your Grade
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Third-Party Inspection Witness Agencies (Features 12.3, 12.4) -->
+  <section class="band-canvas">
+    <div class="container">
+      <div class="section-title-box" data-animate>
+        <span class="eyebrow">Approved Witness Inspection</span>
+        <h2 class="display-md">Third-Party Inspection Agency (TPI) Readiness</h2>
+        <p class="caption-md" style="margin-top: 0.25rem;">
+          Bhansali Metals welcomes customer-appointed inspection agencies for witnessing raw material testing, hydrostatic holds, dimension verification, and final packing.
+        </p>
+      </div>
+      <TpiGrid />
+    </div>
+  </section>
+
+  <!-- Closing Dark Band -->
+  <section class="band-dark-gradient qa-closing-band">
+    <div class="container">
+      <div class="qa-closing-box" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Quality Assurance Helpdesk</span>
+          <h2 class="display-md" style="color: #fff;">Require Quality Plans (ITP) or Spec Approvals?</h2>
+          <p class="lead" style="color: rgba(255,255,255,0.6); max-width: 680px; margin-top: 0.5rem;">
+            Our QA/QC team will provide detailed Inspection and Test Plans (ITP), welding procedure specifications (WPS/PQR), and material compliance reports for your engineering approval.
+          </p>
+        </div>
+        <div class="qa-closing-actions">
+          <Button href="/rfq" variant="primary-bright" size="md">
+            Submit RFQ with Quality Specs
+          </Button>
+          <Button
+            href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals QA Team, I require an Inspection and Test Plan (ITP) and MTC sample.')}`}
+            variant="whatsapp"
+            size="md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Direct WhatsApp QA Desk
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Hero */
+  .qa-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .qa-hero-content {
+    max-width: 900px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .qa-title {
+    margin-bottom: 1rem;
+  }
+
+  .qa-subtitle {
+    color: var(--color-charcoal);
+  }
+
+  /* Workflow */
+  .qa-workflow-section, .lab-section, .mtc-policy-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .section-title-box {
+    margin-bottom: 2.25rem;
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .stage-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .stage-num {
+    font-size: 1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+  }
+
+  .stage-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .stage-desc {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .stage-checks-box {
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 0.875rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .checks-heading {
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    color: var(--color-graphite);
+    display: block;
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.5px;
+  }
+
+  .checks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-ink);
+  }
+
+  .check-icon {
+    color: var(--color-success);
+    font-weight: bold;
+  }
+
+  /* Lab Grid */
+  .lab-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .lab-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .lab-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .lab-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lab-card-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .lab-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .lab-desc {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* MTC Policy */
+  .mtc-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2.5rem;
+  }
+
+  .mtc-content {
+    max-width: 860px;
+  }
+
+  .mtc-heading {
+    margin-bottom: 0.75rem;
+  }
+
+  .mtc-desc {
+    margin-bottom: 2rem;
+  }
+
+  .mtc-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .mtc-details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .mtc-detail-item strong {
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .mtc-detail-item p {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .mtc-cta-strip {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--color-fog);
+    padding-top: 1.5rem;
+  }
+
+  /* Closing Dark Band */
+  .qa-closing-band {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .qa-closing-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .qa-closing-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .qa-closing-actions {
+      width: 100%;
+    }
+  }
+</style>

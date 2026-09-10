@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <rect width="600" height="400" fill="#f7f7f7" rx="8"/>
+  <text x="300" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1a1a1a">ASME B16.9 CONCENTRIC & ECCENTRIC REDUCER</text>
+  <text x="300" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#636363">Large End (D), Small End (d), and Length (H)</text>
+
+  <!-- Concentric Reducer Profile -->
+  <polygon points="160,120 440,170 440,270 160,320" fill="#ffffff" stroke="#024ad8" stroke-width="2.5"/>
+
+  <!-- Centerline -->
+  <line x1="120" y1="220" x2="480" y2="220" stroke="#ff5050" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Large End D -->
+  <line x1="130" y1="120" x2="130" y2="320" stroke="#1a1a1a" stroke-width="1.5"/>
+  <polygon points="127,120 130,110 133,120" fill="#1a1a1a"/>
+  <polygon points="127,320 130,330 133,320" fill="#1a1a1a"/>
+  <text x="95" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">D (Large OD)</text>
+
+  <!-- Small End d -->
+  <line x1="470" y1="170" x2="470" y2="270" stroke="#1a1a1a" stroke-width="1.5"/>
+  <polygon points="467,170 470,160 473,170" fill="#1a1a1a"/>
+  <polygon points="467,270 470,280 473,270" fill="#1a1a1a"/>
+  <text x="520" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">d (Small OD)</text>
+
+  <!-- Length H -->
+  <line x1="160" y1="350" x2="440" y2="350" stroke="#024ad8" stroke-width="1.5"/>
+  <polygon points="160,347 150,350 160,353" fill="#024ad8"/>
+  <polygon points="440,347 450,350 440,353" fill="#024ad8"/>
+  <text x="300" y="375" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#024ad8">H (End to End Length)</text>
+</svg>

@@ -1,0 +1,71 @@
+{
+  "title": "Forged High-Pressure Fittings",
+  "category": "forged-fittings",
+  "tagline": "ASME B16.11 Class 3000#, 6000#, and 9000# Heavy Industrial Fittings",
+  "shortDescription": "Bhansali Metals manufactures high-pressure socket weld and threaded forged fittings and branch outlets engineered for critical petrochemical and offshore services.",
+  "metaTitle": "ASME B16.11 Forged Fittings Class 3000# 6000# Mumbai | Bhansali Metals",
+  "metaDescription": "High-pressure forged socket-weld & threaded fittings (Class 3000#, 6000#), couplings, unions, and olets in Inconel, Monel, Hastelloy & SS from Bhansali Metals.",
+  "sizeRange": "1/8\" NB to 4\" NB (DN6 to DN100)",
+  "pressureRatings": [
+    "Class 2000#",
+    "Class 3000#",
+    "Class 6000#",
+    "Class 9000#"
+  ],
+  "applicableStandards": [
+    "ASME B16.11",
+    "MSS SP-79",
+    "MSS SP-83",
+    "MSS SP-95",
+    "MSS SP-97",
+    "BS 3799"
+  ],
+  "forms": [
+    "3000# Elbow",
+    "6000# Tee",
+    "Coupling",
+    "Union",
+    "Nipple",
+    "Olet (Weldolet, Threadolet, Sockolet)"
+  ],
+  "subTypes": [
+    {
+      "name": "Socket Weld Fittings",
+      "description": "High-pressure 90° and 45° elbows, tees, crosses, couplings, half couplings, and caps featuring deep socket bores for fillet welded assembly."
+    },
+    {
+      "name": "Threaded (Screwed) Fittings",
+      "description": "Precision machined NPT, BSPT, and BSPP threaded elbows, tees, hex nipples, bushings, and square/hex head plugs."
+    },
+    {
+      "name": "High-Pressure Forged Unions",
+      "description": "Ground-joint three-piece unions rated for Class 3000# and 6000# service with integral precision-seated metal sealing faces."
+    },
+    {
+      "name": "Branch Outlets (Olets)",
+      "description": "Self-reinforced branch outlet fittings including Weldolets, Threadolets, Sockolets, Elbolets, and Latrolets per MSS SP-97."
+    }
+  ],
+  "compatibleAlloys": [
+    "inconel-625",
+    "inconel-600",
+    "incoloy-800",
+    "incoloy-825",
+    "monel-400",
+    "hastelloy-c276",
+    "stainless-steel-304l",
+    "stainless-steel-316l",
+    "duplex-2205",
+    "super-duplex-2507"
+  ],
+  "manufacturingProcess": "Closed-die drop forging from round bar stock, solution annealing, and CNC precision turning/threading per ASME B1.20.1 / ISO 7-1.",
+  "qualityInspection": [
+    "EN 10204 3.1 Mill Test Certificate (MTC)",
+    "Thread Inspection using calibrated Go/No-Go plug gauges",
+    "Magnetic Particle Testing (MT) / Liquid Penetrant Testing (PT)",
+    "Positive Material Identification (PMI 100%)",
+    "Proof and Burst Pressure Validation"
+  ],
+  "heroImage": "/images/products/forged-fittings.svg",
+  "schematicSvg": "/images/schematics/forged-fitting.svg"
+}

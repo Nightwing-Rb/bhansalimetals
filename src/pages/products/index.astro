@@ -1,0 +1,544 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Badge from '../../components/common/Badge.astro';
+import Button from '../../components/common/Button.astro';
+import { siteConfig } from '../../data/site';
+
+const products = await getCollection('products');
+
+// Order products by standard catalog sequence
+const order = ['flanges', 'pipes-tubes', 'buttweld-fittings', 'forged-fittings', 'fasteners', 'round-bars', 'sheets-plates'];
+const sortedProducts = [...products].sort((a, b) => {
+  const indexA = order.indexOf(a.id);
+  const indexB = order.indexOf(b.id);
+  return (indexA === -1 ? 99 : indexA) - (indexB === -1 ? 99 : indexB);
+});
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Products', url: '/products' },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Industrial Piping Products, Flanges & Fittings Catalog | Bhansali Metals",
+  "description": "Comprehensive catalog of ASME B16.5 Flanges, Seamless Pipes, Buttweld Fittings, Forged Fittings, Fasteners, Round Bars, and Plates in High Nickel & Stainless Steel.",
+  "url": "https://www.bhansalimetals.com/products",
+  "hasPart": sortedProducts.map(p => ({
+    "@type": "Product",
+    "name": p.data.title,
+    "description": p.data.shortDescription,
+    "url": `https://www.bhansalimetals.com/products/${p.id}`,
+    "material": "Inconel, Monel, Hastelloy, Stainless Steel, Duplex"
+  }))
+};
+---
+
+<BaseLayout
+  title="Industrial Piping Products Catalog | Flanges, Pipes & Fittings | Bhansali Metals"
+  description="Explore Bhansali Metals complete inventory of ASME B16.5 Flanges, Seamless & Welded Pipes, Buttweld & Forged Fittings, Fasteners, and Plates in High Nickel & Stainless Steel."
+  canonicalUrl="https://www.bhansalimetals.com/products"
+  breadcrumbs={breadcrumbs}
+  schemaData={schemaData}
+>
+  <!-- Breadcrumb Bar -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">Products</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Section: Catalog Hero -->
+  <section class="band-canvas catalog-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge-row">
+          <Badge variant="status-green">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Kalamboli Yard Stock Ready</span>
+          </Badge>
+          <Badge variant="soft-blue">
+            <span>Same-Day EN 10204 3.1 MTC Dispatch</span>
+          </Badge>
+          <Badge variant="outline">
+            <span>35+ Years Proven Reliability</span>
+          </Badge>
+        </div>
+        <h1 class="display-xl catalog-title">Industrial Piping Systems &amp; Hardware Catalog</h1>
+        <p class="lead catalog-subtitle">
+          Engineered for extreme offshore, chemical, petrochemical, and power generation environments. All 7 product lines manufactured to ASME, ASTM, DIN, and ISO standards with 100% PMI verification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: 7 Product Categories Grid (16px rounded cards, Soft Lift shadow) -->
+  <section class="band-cloud catalog-grid-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <div>
+          <span class="eyebrow">Manufacturing &amp; Stockist Scope</span>
+          <h2 class="display-md">7 Core Product Lines</h2>
+        </div>
+        <p class="caption-md header-desc">
+          Supplying certified pressure piping components from 1/8" to 48" in high nickel superalloys and stainless steel grades.
+        </p>
+      </div>
+
+      <div class="product-grid" data-animate-stagger>
+        {
+          sortedProducts.map((p) => {
+            const data = p.data;
+            return (
+              <article class="card card-soft-lift product-card" id={`product-${p.id}`}>
+                <div class="product-card-schematic">
+                  {data.schematicSvg ? (
+                    <img
+                      src={data.schematicSvg}
+                      alt={`${data.title} technical drawing schematic`}
+                      class="schematic-img"
+                      loading="lazy"
+                      width="600"
+                      height="400"
+                    />
+                  ) : (
+                    <div class="schematic-placeholder">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="schematic-icon">
+                        <path d="M4 6h16M4 12h16M4 18h16M9 3v18M15 3v18" />
+                      </svg>
+                    </div>
+                  )}
+                  <div class="card-standards-overlay">
+                    {data.applicableStandards.slice(0, 2).map((std) => (
+                      <span class="standard-pill">{std}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="product-card-body">
+                  <div class="category-meta">
+                    <span class="category-pill">{data.category.toUpperCase().replace('-', ' ')}</span>
+                    <span class="stock-indicator">● In Stock</span>
+                  </div>
+
+                  <h3 class="display-xs product-name">
+                    <a href={`/products/${p.id}`} class="product-title-link">
+                      {data.title}
+                    </a>
+                  </h3>
+
+                  <p class="product-desc">{data.shortDescription}</p>
+
+                  <div class="specs-box">
+                    <div class="spec-row">
+                      <span class="spec-key">Size Range:</span>
+                      <span class="spec-val font-mono">{data.sizeRange}</span>
+                    </div>
+                    {data.pressureRatings && data.pressureRatings.length > 0 && (
+                      <div class="spec-row">
+                        <span class="spec-key">Pressure:</span>
+                        <span class="spec-val font-mono">{data.pressureRatings.slice(0, 4).join(', ')}</span>
+                      </div>
+                    )}
+                    {data.forms && data.forms.length > 0 && (
+                      <div class="spec-row">
+                        <span class="spec-key">Subtypes:</span>
+                        <span class="spec-val">{data.forms.slice(0, 3).join(', ')}...</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div class="compatible-row">
+                    <span class="compat-label">Key Alloys:</span>
+                    <div class="compat-tags">
+                      <span class="compat-tag">Inconel 625</span>
+                      <span class="compat-tag">Monel 400</span>
+                      <span class="compat-tag">Hastelloy C-276</span>
+                      <span class="compat-tag">SS 316L</span>
+                      <span class="compat-tag">Duplex 2205</span>
+                    </div>
+                  </div>
+
+                  <div class="product-card-actions">
+                    <Button href={`/products/${p.id}`} variant="primary" size="sm" class="view-specs-btn">
+                      View Specifications
+                    </Button>
+                  </div>
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Dark Ink Band: Direct Sales Desk Assistance -->
+  <section class="band-dark-gradient quick-inquiry-slab">
+    <div class="container">
+      <div class="inquiry-box" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Direct Procurement Desk</span>
+          <h2 class="display-md" style="color: var(--color-on-ink);">Need Custom Dimensions or Immediate Kalamboli Yard Dispatch?</h2>
+          <p class="lead" style="color: var(--color-fog); max-width: 680px; margin-top: 0.5rem;">
+            Contact our engineering sales team with your project bill of materials (BOQ). We guarantee official commercial quotations within 2 hours.
+          </p>
+        </div>
+        <div class="inquiry-actions">
+          <Button href="/rfq" variant="primary-bright" size="md">
+            Open Full RFQ Portal
+          </Button>
+          <Button
+            href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I require an official quotation for industrial piping products.')}`}
+            variant="whatsapp"
+            size="md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Direct WhatsApp Sales Chat
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Catalog Hero */
+  .catalog-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+    background-color: var(--color-canvas);
+  }
+
+  .hero-content {
+    max-width: 860px;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 1rem;
+  }
+
+  .live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-success);
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(4, 120, 87, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(4, 120, 87, 0); }
+  }
+
+  .catalog-title {
+    color: var(--color-ink);
+    margin-bottom: 1rem;
+  }
+
+  .catalog-subtitle {
+    color: var(--color-charcoal);
+  }
+
+  /* Section Header */
+  .catalog-grid-section {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .header-desc {
+    max-width: 480px;
+    color: var(--color-graphite);
+    margin-bottom: 0;
+  }
+
+  /* Responsive 16px Rounded Product Grid (DESIGN.md: rounded.xl 16px, Soft Lift shadow) */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .product-card {
+    background-color: var(--color-canvas);
+    border-radius: var(--radius-soft); /* 16px */
+    border: 1px solid var(--color-fog);
+    box-shadow: var(--shadow-soft-lift);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(26, 26, 26, 0.1);
+  }
+
+  .product-card-schematic {
+    position: relative;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid var(--color-fog);
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .schematic-img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .schematic-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-steel);
+  }
+
+  .schematic-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .card-standards-overlay {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .standard-pill {
+    background-color: rgba(26, 26, 26, 0.85);
+    color: #ffffff;
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.3px;
+  }
+
+  .product-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+  }
+
+  .category-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-pill {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.8px;
+    color: var(--color-primary);
+  }
+
+  .stock-indicator {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-success);
+  }
+
+  .product-name {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .product-title-link {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .product-title-link:hover {
+    color: var(--color-primary);
+  }
+
+  .product-desc {
+    font-size: 0.875rem;
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .specs-box {
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 0.75rem 0.875rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .spec-key {
+    color: var(--color-graphite);
+    font-weight: var(--weight-regular);
+  }
+
+  .spec-val {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+    text-align: right;
+  }
+
+  .compatible-row {
+    margin-bottom: 1.25rem;
+  }
+
+  .compat-label {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    color: var(--color-graphite);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .compat-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .compat-tag {
+    font-size: 0.6875rem;
+    background-color: var(--color-fog);
+    color: var(--color-ink);
+    padding: 2px 6px;
+    border-radius: var(--radius-xs);
+  }
+
+  .product-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .product-card-actions .view-specs-btn {
+    flex: 1 1 60%;
+  }
+
+  .product-card-actions .rfq-quick-btn {
+    flex: 1 1 40%;
+  }
+
+  /* Quick Inquiry Closing Slab */
+  .quick-inquiry-slab {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .inquiry-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .inquiry-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .inquiry-actions {
+      width: 100%;
+    }
+  }
+</style>

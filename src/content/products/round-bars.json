@@ -1,0 +1,83 @@
+{
+  "title": "Round Bars & Rods",
+  "category": "round-bars",
+  "tagline": "Precision Bright Drawn & Hot Rolled Black Round Bars from 3mm to 400mm",
+  "shortDescription": "Bhansali Metals is an authorized distributor and manufacturer of bright drawn, centerless ground, and hot-rolled black bars in high nickel superalloys and stainless steels.",
+  "metaTitle": "Stainless Steel & Nickel Alloy Round Bars Stockist Mumbai | Bhansali Metals",
+  "metaDescription": "Bright drawn (h9/h11), centerless ground, and black hot-rolled round bars in Inconel, Monel, Hastelloy, SS 304/316, and Duplex 2205 from Bhansali Metals.",
+  "sizeRange": "3mm to 400mm Diameter (Round); 10mm to 40mm (Hex & Square); 0.6mm to 23mm (Wire)",
+  "pressureRatings": [
+    "Dimensional Tolerances: h8, h9, h11, k12, k13 per ISO 286 / PN-EN 754-3"
+  ],
+  "applicableStandards": [
+    "ASTM A276",
+    "ASTM A484",
+    "ASTM A479",
+    "ASTM A582",
+    "ASTM B166",
+    "ASTM B446",
+    "ASTM B637",
+    "ASTM B164",
+    "ASTM B574",
+    "DIN EN 10278"
+  ],
+  "forms": [
+    "Cold Drawn Ground Polished (Bright)",
+    "Hot Rolled Black Bars",
+    "Forged Round Bars",
+    "Hexagonal Bars",
+    "Square Bars",
+    "Wire"
+  ],
+  "subTypes": [
+    {
+      "name": "Bright Drawn Ground Polished Bars",
+      "description": "Precision cold-drawn and centerless ground bars with h9/h11 tolerance and mirror-like surface finish for high-speed machining and shafts."
+    },
+    {
+      "name": "Hot Rolled Black Round Bars",
+      "description": "Heavy structural and forging bar stock supplied in the annealed and pickled or as-rolled condition for re-forging and heavy fabrication."
+    },
+    {
+      "name": "Forged Round Bars & Shafts",
+      "description": "Large diameter (up to 400mm) rough-turned forged bars with verified internal grain structure for critical pump and turbine shafts."
+    },
+    {
+      "name": "Hexagonal & Square Bars",
+      "description": "Cold-finished hex and square cross-section bar stock for fastener manufacturing, valves, and precision mechanical components."
+    },
+    {
+      "name": "Stainless & Superalloy Wire Rods",
+      "description": "Cold-drawn coils from 0.6mm to 23mm diameter for spring manufacturing, wire mesh, welding consumables, and cold heading."
+    }
+  ],
+  "compatibleAlloys": [
+    "inconel-600",
+    "inconel-625",
+    "inconel-718",
+    "incoloy-800",
+    "monel-400",
+    "monel-k500",
+    "hastelloy-c276",
+    "nickel-200",
+    "nickel-201",
+    "stainless-steel-304",
+    "stainless-steel-304l",
+    "stainless-steel-316",
+    "stainless-steel-316l",
+    "stainless-steel-321",
+    "stainless-steel-310s",
+    "duplex-2205",
+    "super-duplex-2507"
+  ],
+  "manufacturingProcess": "Electric arc furnace melting, AOD refining, continuous casting, hot rolling, solution annealing, precision cold drawing, centerless grinding, and rotary straightening.",
+  "qualityInspection": [
+    "EN 10204 3.1 Mill Test Certificate (MTC)",
+    "100% Ultrasonic Testing (UT) per ASTM A388 / SEP 1921",
+    "Surface Roughness (Ra) Measurement",
+    "PMI Chemical Spectroscopy Verification",
+    "Macro-etch and Grain Size Testing"
+  ],
+  "heroImage": "/images/products/round-bars.svg",
+  "schematicSvg": "/images/schematics/pipe-fitting.svg"
+}

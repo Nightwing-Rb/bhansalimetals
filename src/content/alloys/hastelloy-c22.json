@@ -1,0 +1,92 @@
+{
+  "title": "Hastelloy C-22 (UNS N06022 / W.Nr. 2.4602)",
+  "grade": "Hastelloy C-22",
+  "family": "Hastelloy",
+  "familyDisplayName": "Nickel-Chromium-Molybdenum Superalloys",
+  "metallurgy": "Ni-Cr-Mo-W superalloy",
+  "uns": "UNS N06022",
+  "unsNumber": "UNS N06022",
+  "wnr": "2.4602",
+  "werkstoffNumber": "2.4602",
+  "astmStandards": [
+    "ASTM B574",
+    "ASTM B575",
+    "ASTM B619",
+    "ASTM B622",
+    "ASTM B564"
+  ],
+  "asmeStandards": [
+    "SB-574",
+    "SB-575",
+    "SB-619",
+    "SB-622",
+    "SB-564"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Hastelloy C-22 Pipes, Flanges & Process Equipment | Bhansali Metals",
+  "metaDescription": "Hastelloy C-22 (UNS N06022 / 2.4602) superior chromium-nickel-moly piping, fittings, and flanges from Bhansali Metals Mumbai with EN 10204 3.1 MTC.",
+  "summary": "Hastelloy C-22 is a versatile nickel-chromium-molybdenum-tungsten alloy with superior resistance to pitting, crevice corrosion, and stress corrosion cracking compared to other Ni-Cr-Mo alloys including C-276 and alloy 625.",
+  "keyFeatures": [
+    "Higher chromium content (20-22.5%) for superior oxidizing resistance",
+    "Exceptional resistance in mixed acid environments (nitric/hydrochloric)",
+    "Outstanding resistance to chloride-induced localized attack",
+    "Excellent thermal stability preventing HAZ intergranular attack"
+  ],
+  "corrosionResistance": "Provides outstanding resistance in aqueous media across a spectrum of oxidizing and reducing chemicals, wet chlorine, and mixtures containing nitric acid or oxidizing acids with chlorine ions.",
+  "applications": [
+    "Pharmaceutical reactors, centrifuges, and synthesis vessels",
+    "Waste water treatment, chlorination systems, and incinerator scrubbers",
+    "Nuclear waste processing and spent fuel reprocessing containers",
+    "Cellophane manufacturing, pesticide synthesis, and agrochemicals"
+  ],
+  "chemicalComposition": {
+    "Ni": "Bal (approx 56.0)",
+    "Cr": "20.0 - 22.5",
+    "Mo": "12.5 - 14.5",
+    "Fe": "2.0 - 6.0",
+    "W": "2.5 - 3.5",
+    "Co": "2.5 max",
+    "Mn": "0.50 max",
+    "V": "0.35 max",
+    "Si": "0.08 max",
+    "C": "0.010 max",
+    "P": "0.02 max",
+    "S": "0.02 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "690 min",
+      "ksi": "100 min"
+    },
+    "yieldStrength": {
+      "mpa": "310 min",
+      "ksi": "45 min"
+    },
+    "elongation": "45% min",
+    "hardness": "HRB 93 max",
+    "density": {
+      "metric": "8.69 g/cm³",
+      "imperial": "0.314 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1357 - 1399 °C",
+      "fahrenheit": "2475 - 2550 °F"
+    }
+  },
+  "availableForms": [
+    "Flanges",
+    "Pipes & Tubes",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NC21FeD",
+    "DIN": "W.Nr. 2.4602",
+    "JIS": "NW 06022",
+    "EN": "NiCr21Mo14W"
+  }
+}

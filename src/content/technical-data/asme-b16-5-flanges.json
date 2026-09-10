@@ -1,0 +1,867 @@
+{
+  "title": "ASME B16.5 Flange Dimensions & Bolt Hole Specifications",
+  "standard": "ASME B16.5 / ASTM A182 / ASTM B564",
+  "category": "flange-dimensions",
+  "metaTitle": "ASME B16.5 Flange Dimensions Chart (Class 150 - 2500) | Bhansali Metals",
+  "metaDescription": "Standard dimensions, bolt circle diameter (PCD/BCD), bolt holes, and weights for ASME B16.5 flanges across 1/2 inch to 24 inch NPS. Class 150, 300, 600, 900, 1500, 2500#.",
+  "description": "Comprehensive engineering dimensional data for forged steel and high-nickel alloy flanges manufactured to ASME B16.5 standards. Covers Outside Diameter (OD), Flange Thickness, Bolt Circle (BCD), Number of Holes, Hole Diameter, and Approx Weight across all 6 pressure classes: Class 150, 300, 600, 900, 1500, and 2500#.",
+  "downloadablePdf": "/downloads/asme-b16-5-flange-dimensions-bhansali.pdf",
+  "tableHeaders": [
+    "Nominal Pipe Size (NPS)",
+    "Pressure Class",
+    "Outside Diameter (OD mm / in)",
+    "Flange Thickness (mm / in)",
+    "Bolt Circle (PCD / BCD mm)",
+    "Number of Holes",
+    "Hole Diameter (mm)",
+    "Approx Weight (kg / lbs)"
+  ],
+  "rows": [
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "89 mm / 3.50\"",
+      "Flange Thickness (mm / in)": "11.2 mm / 0.44\"",
+      "Bolt Circle (PCD / BCD mm)": "60.5 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "16 mm",
+      "Approx Weight (kg / lbs)": "0.9 kg / 2.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "98.5 mm / 3.88\"",
+      "Flange Thickness (mm / in)": "12.7 mm / 0.50\"",
+      "Bolt Circle (PCD / BCD mm)": "69.8 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "16 mm",
+      "Approx Weight (kg / lbs)": "1.2 kg / 2.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "108 mm / 4.25\"",
+      "Flange Thickness (mm / in)": "14.3 mm / 0.56\"",
+      "Bolt Circle (PCD / BCD mm)": "79.2 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "16 mm",
+      "Approx Weight (kg / lbs)": "1.5 kg / 3.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "127 mm / 5.00\"",
+      "Flange Thickness (mm / in)": "17.5 mm / 0.69\"",
+      "Bolt Circle (PCD / BCD mm)": "98.6 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "16 mm",
+      "Approx Weight (kg / lbs)": "2.4 kg / 5.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "152.4 mm / 6.00\"",
+      "Flange Thickness (mm / in)": "19.1 mm / 0.75\"",
+      "Bolt Circle (PCD / BCD mm)": "120.7 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "3.2 kg / 7.1 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "190.5 mm / 7.50\"",
+      "Flange Thickness (mm / in)": "23.9 mm / 0.94\"",
+      "Bolt Circle (PCD / BCD mm)": "152.4 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "5.6 kg / 12.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "228.6 mm / 9.00\"",
+      "Flange Thickness (mm / in)": "23.9 mm / 0.94\"",
+      "Bolt Circle (PCD / BCD mm)": "190.5 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "8 kg / 17.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "279.4 mm / 11.00\"",
+      "Flange Thickness (mm / in)": "25.4 mm / 1.00\"",
+      "Bolt Circle (PCD / BCD mm)": "241.3 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "12 kg / 26.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "342.9 mm / 13.50\"",
+      "Flange Thickness (mm / in)": "28.4 mm / 1.12\"",
+      "Bolt Circle (PCD / BCD mm)": "298.5 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "19.5 kg / 43.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "406.4 mm / 16.00\"",
+      "Flange Thickness (mm / in)": "30.2 mm / 1.19\"",
+      "Bolt Circle (PCD / BCD mm)": "362 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "27.5 kg / 60.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "482.6 mm / 19.00\"",
+      "Flange Thickness (mm / in)": "31.8 mm / 1.25\"",
+      "Bolt Circle (PCD / BCD mm)": "431.8 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "40 kg / 88.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "16\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "596.9 mm / 23.50\"",
+      "Flange Thickness (mm / in)": "36.6 mm / 1.44\"",
+      "Bolt Circle (PCD / BCD mm)": "539.8 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "29 mm",
+      "Approx Weight (kg / lbs)": "65 kg / 143.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "698.5 mm / 27.50\"",
+      "Flange Thickness (mm / in)": "42.9 mm / 1.69\"",
+      "Bolt Circle (PCD / BCD mm)": "635 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "32 mm",
+      "Approx Weight (kg / lbs)": "98 kg / 216.1 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "24\"",
+      "Pressure Class": "Class 150#",
+      "Outside Diameter (OD mm / in)": "812.8 mm / 32.00\"",
+      "Flange Thickness (mm / in)": "47.8 mm / 1.88\"",
+      "Bolt Circle (PCD / BCD mm)": "749.3 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "35 mm",
+      "Approx Weight (kg / lbs)": "140 kg / 308.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "95 mm / 3.74\"",
+      "Flange Thickness (mm / in)": "14.3 mm / 0.56\"",
+      "Bolt Circle (PCD / BCD mm)": "66.7 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "16 mm",
+      "Approx Weight (kg / lbs)": "1.4 kg / 3.1 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "117 mm / 4.61\"",
+      "Flange Thickness (mm / in)": "15.9 mm / 0.63\"",
+      "Bolt Circle (PCD / BCD mm)": "82.6 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "2 kg / 4.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "124 mm / 4.88\"",
+      "Flange Thickness (mm / in)": "17.5 mm / 0.69\"",
+      "Bolt Circle (PCD / BCD mm)": "88.9 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "2.6 kg / 5.7 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "155 mm / 6.10\"",
+      "Flange Thickness (mm / in)": "20.6 mm / 0.81\"",
+      "Bolt Circle (PCD / BCD mm)": "114.3 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "4.2 kg / 9.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "165 mm / 6.50\"",
+      "Flange Thickness (mm / in)": "22.3 mm / 0.88\"",
+      "Bolt Circle (PCD / BCD mm)": "127 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "5 kg / 11.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "210 mm / 8.27\"",
+      "Flange Thickness (mm / in)": "28.6 mm / 1.13\"",
+      "Bolt Circle (PCD / BCD mm)": "168.3 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "8.5 kg / 18.7 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "255 mm / 10.04\"",
+      "Flange Thickness (mm / in)": "31.8 mm / 1.25\"",
+      "Bolt Circle (PCD / BCD mm)": "200 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "13.5 kg / 29.8 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "320 mm / 12.60\"",
+      "Flange Thickness (mm / in)": "36.5 mm / 1.44\"",
+      "Bolt Circle (PCD / BCD mm)": "269.9 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "22 kg / 48.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "380 mm / 14.96\"",
+      "Flange Thickness (mm / in)": "41.1 mm / 1.62\"",
+      "Bolt Circle (PCD / BCD mm)": "330.2 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "35 kg / 77.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "445 mm / 17.52\"",
+      "Flange Thickness (mm / in)": "47.8 mm / 1.88\"",
+      "Bolt Circle (PCD / BCD mm)": "387.4 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "29 mm",
+      "Approx Weight (kg / lbs)": "53 kg / 116.8 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "520 mm / 20.47\"",
+      "Flange Thickness (mm / in)": "50.8 mm / 2.00\"",
+      "Bolt Circle (PCD / BCD mm)": "450.8 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "32 mm",
+      "Approx Weight (kg / lbs)": "74 kg / 163.1 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "16\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "650 mm / 25.59\"",
+      "Flange Thickness (mm / in)": "57.2 mm / 2.25\"",
+      "Bolt Circle (PCD / BCD mm)": "571.5 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "35 mm",
+      "Approx Weight (kg / lbs)": "120 kg / 264.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "775 mm / 30.51\"",
+      "Flange Thickness (mm / in)": "63.5 mm / 2.50\"",
+      "Bolt Circle (PCD / BCD mm)": "685.8 mm",
+      "Number of Holes": 24,
+      "Hole Diameter (mm)": "35 mm",
+      "Approx Weight (kg / lbs)": "185 kg / 407.9 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "24\"",
+      "Pressure Class": "Class 300#",
+      "Outside Diameter (OD mm / in)": "915 mm / 36.02\"",
+      "Flange Thickness (mm / in)": "69.9 mm / 2.75\"",
+      "Bolt Circle (PCD / BCD mm)": "812.8 mm",
+      "Number of Holes": 24,
+      "Hole Diameter (mm)": "41 mm",
+      "Approx Weight (kg / lbs)": "270 kg / 595.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "95 mm / 3.74\"",
+      "Flange Thickness (mm / in)": "14.3 mm / 0.56\"",
+      "Bolt Circle (PCD / BCD mm)": "66.7 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "16 mm",
+      "Approx Weight (kg / lbs)": "1.6 kg / 3.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "117 mm / 4.61\"",
+      "Flange Thickness (mm / in)": "15.9 mm / 0.63\"",
+      "Bolt Circle (PCD / BCD mm)": "82.6 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "2.2 kg / 4.9 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "124 mm / 4.88\"",
+      "Flange Thickness (mm / in)": "17.5 mm / 0.69\"",
+      "Bolt Circle (PCD / BCD mm)": "88.9 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "2.8 kg / 6.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "155 mm / 6.10\"",
+      "Flange Thickness (mm / in)": "22.3 mm / 0.88\"",
+      "Bolt Circle (PCD / BCD mm)": "114.3 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "4.8 kg / 10.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "165 mm / 6.50\"",
+      "Flange Thickness (mm / in)": "25.4 mm / 1.00\"",
+      "Bolt Circle (PCD / BCD mm)": "127 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "19 mm",
+      "Approx Weight (kg / lbs)": "6.2 kg / 13.7 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "210 mm / 8.27\"",
+      "Flange Thickness (mm / in)": "31.8 mm / 1.25\"",
+      "Bolt Circle (PCD / BCD mm)": "168.3 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "10.5 kg / 23.1 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "275 mm / 10.83\"",
+      "Flange Thickness (mm / in)": "38.1 mm / 1.50\"",
+      "Bolt Circle (PCD / BCD mm)": "215.9 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "19.5 kg / 43.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "355 mm / 13.98\"",
+      "Flange Thickness (mm / in)": "47.8 mm / 1.88\"",
+      "Bolt Circle (PCD / BCD mm)": "292.1 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "29 mm",
+      "Approx Weight (kg / lbs)": "39 kg / 86.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "420 mm / 16.54\"",
+      "Flange Thickness (mm / in)": "55.6 mm / 2.19\"",
+      "Bolt Circle (PCD / BCD mm)": "349.2 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "32 mm",
+      "Approx Weight (kg / lbs)": "60 kg / 132.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "510 mm / 20.08\"",
+      "Flange Thickness (mm / in)": "63.5 mm / 2.50\"",
+      "Bolt Circle (PCD / BCD mm)": "431.8 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "35 mm",
+      "Approx Weight (kg / lbs)": "105 kg / 231.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "560 mm / 22.05\"",
+      "Flange Thickness (mm / in)": "66.5 mm / 2.62\"",
+      "Bolt Circle (PCD / BCD mm)": "489 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "35 mm",
+      "Approx Weight (kg / lbs)": "135 kg / 297.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "16\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "685 mm / 26.97\"",
+      "Flange Thickness (mm / in)": "76.2 mm / 3.00\"",
+      "Bolt Circle (PCD / BCD mm)": "603.2 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "41 mm",
+      "Approx Weight (kg / lbs)": "215 kg / 474.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "815 mm / 32.09\"",
+      "Flange Thickness (mm / in)": "88.9 mm / 3.50\"",
+      "Bolt Circle (PCD / BCD mm)": "723.9 mm",
+      "Number of Holes": 24,
+      "Hole Diameter (mm)": "44 mm",
+      "Approx Weight (kg / lbs)": "345 kg / 760.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "24\"",
+      "Pressure Class": "Class 600#",
+      "Outside Diameter (OD mm / in)": "940 mm / 37.01\"",
+      "Flange Thickness (mm / in)": "101.6 mm / 4.00\"",
+      "Bolt Circle (PCD / BCD mm)": "838.2 mm",
+      "Number of Holes": 24,
+      "Hole Diameter (mm)": "51 mm",
+      "Approx Weight (kg / lbs)": "515 kg / 1135.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "120 mm / 4.72\"",
+      "Flange Thickness (mm / in)": "22.3 mm / 0.88\"",
+      "Bolt Circle (PCD / BCD mm)": "82.6 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "2.8 kg / 6.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "130 mm / 5.12\"",
+      "Flange Thickness (mm / in)": "25.4 mm / 1.00\"",
+      "Bolt Circle (PCD / BCD mm)": "88.9 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "3.8 kg / 8.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "150 mm / 5.91\"",
+      "Flange Thickness (mm / in)": "28.6 mm / 1.13\"",
+      "Bolt Circle (PCD / BCD mm)": "101.6 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "5.2 kg / 11.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "180 mm / 7.09\"",
+      "Flange Thickness (mm / in)": "31.8 mm / 1.25\"",
+      "Bolt Circle (PCD / BCD mm)": "124 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "29 mm",
+      "Approx Weight (kg / lbs)": "8 kg / 17.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "215 mm / 8.46\"",
+      "Flange Thickness (mm / in)": "38.1 mm / 1.50\"",
+      "Bolt Circle (PCD / BCD mm)": "165.1 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "14 kg / 30.9 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "240 mm / 9.45\"",
+      "Flange Thickness (mm / in)": "38.1 mm / 1.50\"",
+      "Bolt Circle (PCD / BCD mm)": "190.5 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "17 kg / 37.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "290 mm / 11.42\"",
+      "Flange Thickness (mm / in)": "44.5 mm / 1.75\"",
+      "Bolt Circle (PCD / BCD mm)": "235 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "32 mm",
+      "Approx Weight (kg / lbs)": "28 kg / 61.7 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "380 mm / 14.96\"",
+      "Flange Thickness (mm / in)": "55.6 mm / 2.19\"",
+      "Bolt Circle (PCD / BCD mm)": "317.5 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "32 mm",
+      "Approx Weight (kg / lbs)": "55 kg / 121.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "470 mm / 18.50\"",
+      "Flange Thickness (mm / in)": "63.5 mm / 2.50\"",
+      "Bolt Circle (PCD / BCD mm)": "393.7 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "38 mm",
+      "Approx Weight (kg / lbs)": "95 kg / 209.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "545 mm / 21.46\"",
+      "Flange Thickness (mm / in)": "69.9 mm / 2.75\"",
+      "Bolt Circle (PCD / BCD mm)": "469.9 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "38 mm",
+      "Approx Weight (kg / lbs)": "145 kg / 319.7 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "610 mm / 24.02\"",
+      "Flange Thickness (mm / in)": "79.2 mm / 3.12\"",
+      "Bolt Circle (PCD / BCD mm)": "533.4 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "38 mm",
+      "Approx Weight (kg / lbs)": "215 kg / 474.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "16\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "705 mm / 27.76\"",
+      "Flange Thickness (mm / in)": "88.9 mm / 3.50\"",
+      "Bolt Circle (PCD / BCD mm)": "616 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "44 mm",
+      "Approx Weight (kg / lbs)": "320 kg / 705.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "855 mm / 33.66\"",
+      "Flange Thickness (mm / in)": "108 mm / 4.25\"",
+      "Bolt Circle (PCD / BCD mm)": "749.3 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "54 mm",
+      "Approx Weight (kg / lbs)": "530 kg / 1168.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "24\"",
+      "Pressure Class": "Class 900#",
+      "Outside Diameter (OD mm / in)": "1040 mm / 40.94\"",
+      "Flange Thickness (mm / in)": "140 mm / 5.51\"",
+      "Bolt Circle (PCD / BCD mm)": "901.7 mm",
+      "Number of Holes": 20,
+      "Hole Diameter (mm)": "67 mm",
+      "Approx Weight (kg / lbs)": "940 kg / 2072.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "120 mm / 4.72\"",
+      "Flange Thickness (mm / in)": "22.3 mm / 0.88\"",
+      "Bolt Circle (PCD / BCD mm)": "82.6 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "2.9 kg / 6.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "130 mm / 5.12\"",
+      "Flange Thickness (mm / in)": "25.4 mm / 1.00\"",
+      "Bolt Circle (PCD / BCD mm)": "88.9 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "3.8 kg / 8.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "150 mm / 5.91\"",
+      "Flange Thickness (mm / in)": "28.6 mm / 1.13\"",
+      "Bolt Circle (PCD / BCD mm)": "101.6 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "5.2 kg / 11.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "180 mm / 7.09\"",
+      "Flange Thickness (mm / in)": "31.8 mm / 1.25\"",
+      "Bolt Circle (PCD / BCD mm)": "124 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "29 mm",
+      "Approx Weight (kg / lbs)": "8 kg / 17.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "215 mm / 8.46\"",
+      "Flange Thickness (mm / in)": "38.1 mm / 1.50\"",
+      "Bolt Circle (PCD / BCD mm)": "165.1 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "14 kg / 30.9 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "265 mm / 10.43\"",
+      "Flange Thickness (mm / in)": "47.8 mm / 1.88\"",
+      "Bolt Circle (PCD / BCD mm)": "203.2 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "32 mm",
+      "Approx Weight (kg / lbs)": "24.5 kg / 54.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "310 mm / 12.20\"",
+      "Flange Thickness (mm / in)": "53.8 mm / 2.12\"",
+      "Bolt Circle (PCD / BCD mm)": "241.3 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "35 mm",
+      "Approx Weight (kg / lbs)": "38 kg / 83.8 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "395 mm / 15.55\"",
+      "Flange Thickness (mm / in)": "82.6 mm / 3.25\"",
+      "Bolt Circle (PCD / BCD mm)": "317.5 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "38 mm",
+      "Approx Weight (kg / lbs)": "95 kg / 209.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "485 mm / 19.09\"",
+      "Flange Thickness (mm / in)": "92.2 mm / 3.63\"",
+      "Bolt Circle (PCD / BCD mm)": "393.7 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "44 mm",
+      "Approx Weight (kg / lbs)": "155 kg / 341.7 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "585 mm / 23.03\"",
+      "Flange Thickness (mm / in)": "108 mm / 4.25\"",
+      "Bolt Circle (PCD / BCD mm)": "482.6 mm",
+      "Number of Holes": 12,
+      "Hole Diameter (mm)": "51 mm",
+      "Approx Weight (kg / lbs)": "260 kg / 573.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "675 mm / 26.57\"",
+      "Flange Thickness (mm / in)": "124 mm / 4.88\"",
+      "Bolt Circle (PCD / BCD mm)": "571.5 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "54 mm",
+      "Approx Weight (kg / lbs)": "395 kg / 870.8 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "16\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "825 mm / 32.48\"",
+      "Flange Thickness (mm / in)": "146 mm / 5.75\"",
+      "Bolt Circle (PCD / BCD mm)": "692.2 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "67 mm",
+      "Approx Weight (kg / lbs)": "695 kg / 1532.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "985 mm / 38.78\"",
+      "Flange Thickness (mm / in)": "178 mm / 7.01\"",
+      "Bolt Circle (PCD / BCD mm)": "831.8 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "79 mm",
+      "Approx Weight (kg / lbs)": "1250 kg / 2755.8 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "24\"",
+      "Pressure Class": "Class 1500#",
+      "Outside Diameter (OD mm / in)": "1170 mm / 46.06\"",
+      "Flange Thickness (mm / in)": "203 mm / 7.99\"",
+      "Bolt Circle (PCD / BCD mm)": "990.6 mm",
+      "Number of Holes": 16,
+      "Hole Diameter (mm)": "92 mm",
+      "Approx Weight (kg / lbs)": "1950 kg / 4299.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "135 mm / 5.31\"",
+      "Flange Thickness (mm / in)": "30.2 mm / 1.19\"",
+      "Bolt Circle (PCD / BCD mm)": "88.9 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "3.4 kg / 7.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "140 mm / 5.51\"",
+      "Flange Thickness (mm / in)": "31.8 mm / 1.25\"",
+      "Bolt Circle (PCD / BCD mm)": "95.2 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "22 mm",
+      "Approx Weight (kg / lbs)": "4.8 kg / 10.6 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "160 mm / 6.30\"",
+      "Flange Thickness (mm / in)": "35 mm / 1.38\"",
+      "Bolt Circle (PCD / BCD mm)": "108 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "25 mm",
+      "Approx Weight (kg / lbs)": "6.8 kg / 15.0 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "205 mm / 8.07\"",
+      "Flange Thickness (mm / in)": "44.5 mm / 1.75\"",
+      "Bolt Circle (PCD / BCD mm)": "146 mm",
+      "Number of Holes": 4,
+      "Hole Diameter (mm)": "32 mm",
+      "Approx Weight (kg / lbs)": "13.5 kg / 29.8 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "235 mm / 9.25\"",
+      "Flange Thickness (mm / in)": "50.8 mm / 2.00\"",
+      "Bolt Circle (PCD / BCD mm)": "171.4 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "29 mm",
+      "Approx Weight (kg / lbs)": "20.5 kg / 45.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "305 mm / 12.01\"",
+      "Flange Thickness (mm / in)": "66.7 mm / 2.63\"",
+      "Bolt Circle (PCD / BCD mm)": "228.6 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "35 mm",
+      "Approx Weight (kg / lbs)": "45 kg / 99.2 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "355 mm / 13.98\"",
+      "Flange Thickness (mm / in)": "76.2 mm / 3.00\"",
+      "Bolt Circle (PCD / BCD mm)": "273 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "41 mm",
+      "Approx Weight (kg / lbs)": "75 kg / 165.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "485 mm / 19.09\"",
+      "Flange Thickness (mm / in)": "108 mm / 4.25\"",
+      "Bolt Circle (PCD / BCD mm)": "368.3 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "54 mm",
+      "Approx Weight (kg / lbs)": "175 kg / 385.8 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "550 mm / 21.65\"",
+      "Flange Thickness (mm / in)": "127 mm / 5.00\"",
+      "Bolt Circle (PCD / BCD mm)": "438.2 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "54 mm",
+      "Approx Weight (kg / lbs)": "280 kg / 617.3 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "675 mm / 26.57\"",
+      "Flange Thickness (mm / in)": "165 mm / 6.50\"",
+      "Bolt Circle (PCD / BCD mm)": "539.8 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "67 mm",
+      "Approx Weight (kg / lbs)": "510 kg / 1124.4 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "760 mm / 29.92\"",
+      "Flange Thickness (mm / in)": "184 mm / 7.24\"",
+      "Bolt Circle (PCD / BCD mm)": "616 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "73 mm",
+      "Approx Weight (kg / lbs)": "760 kg / 1675.5 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "16\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "890 mm / 35.04\"",
+      "Flange Thickness (mm / in)": "216 mm / 8.50\"",
+      "Bolt Circle (PCD / BCD mm)": "749.3 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "79 mm",
+      "Approx Weight (kg / lbs)": "1100 kg / 2425.1 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "1070 mm / 42.13\"",
+      "Flange Thickness (mm / in)": "248 mm / 9.76\"",
+      "Bolt Circle (PCD / BCD mm)": "901.7 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "92 mm",
+      "Approx Weight (kg / lbs)": "2100 kg / 4629.7 lbs"
+    },
+    {
+      "Nominal Pipe Size (NPS)": "24\"",
+      "Pressure Class": "Class 2500#",
+      "Outside Diameter (OD mm / in)": "1260 mm / 49.61\"",
+      "Flange Thickness (mm / in)": "298 mm / 11.73\"",
+      "Bolt Circle (PCD / BCD mm)": "1060.4 mm",
+      "Number of Holes": 8,
+      "Hole Diameter (mm)": "105 mm",
+      "Approx Weight (kg / lbs)": "3450 kg / 7605.9 lbs"
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "Dimensions comply with ASME B16.5 for pipe flanges and flanged fittings from NPS 1/2 through NPS 24.",
+    "Pressure ratings: Class 150, Class 300, Class 600, Class 900, Class 1500, and Class 2500.",
+    "Available in Inconel 625, Monel 400, Hastelloy C-276, Stainless Steel 316L, and Super Duplex 2507 with EN 10204 3.1 MTC."
+  ]
+}

@@ -1,0 +1,341 @@
+---
+import { headerNav } from '../../data/navigation';
+import { siteConfig } from '../../data/site';
+import Button from '../common/Button.astro';
+---
+
+<header class="main-navbar" aria-label="Main Navigation">
+  <div class="container nav-container">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-logo" title={`${siteConfig.name} - Home`}>
+      <img src="/images/logo.svg" alt={`${siteConfig.name} Logo`} width="240" height="42" />
+    </a>
+
+    <!-- Desktop Nav Links & Dropdowns -->
+    <nav class="nav-menu" aria-label="Desktop Primary Navigation">
+      <ul class="nav-list">
+        {
+          headerNav.map((item) => (
+            <li class={`nav-item ${item.children ? 'has-dropdown' : ''}`}>
+              <a href={item.href} class="nav-link">
+                <span>{item.title}</span>
+                {item.children && (
+                  <svg class="dropdown-chevron" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                )}
+              </a>
+
+              {item.children && (
+                <div class="dropdown-menu">
+                  <div class="dropdown-grid">
+                    {item.children.map((sub) => (
+                      <a href={sub.href} class="dropdown-item">
+                        <span class="dropdown-title">{sub.title}</span>
+                        {sub.description && <span class="dropdown-desc">{sub.description}</span>}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <!-- Right Controls: Search Pill, RFQ Button, Mobile Hamburger -->
+    <div class="nav-actions">
+      <div class="search-box">
+        <input
+          type="search"
+          placeholder="Search alloy, standard, flange..."
+          class="text-input text-input-search"
+          aria-label="Search catalog and specifications"
+          id="global-search-input"
+        />
+        <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+        </svg>
+      </div>
+
+      <Button variant="primary" data-open-rfq size="sm" class="rfq-nav-btn">
+        <span>Instant RFQ</span>
+      </Button>
+
+      <!-- Hamburger toggle button for mobile -->
+      <button
+        type="button"
+        id="mobile-nav-toggle"
+        class="mobile-toggle"
+        aria-label="Open Navigation Menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav-drawer"
+      >
+        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .main-navbar {
+    height: 64px;
+    background: var(--glass-bg, rgba(255, 255, 255, 0.72));
+    backdrop-filter: blur(var(--glass-blur, 20px));
+    -webkit-backdrop-filter: blur(var(--glass-blur, 20px));
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 250ms var(--ease-apple, ease);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .main-navbar {
+      background-color: var(--color-canvas);
+    }
+  }
+
+  .nav-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-width: 0;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    min-width: 0;
+  }
+
+  .brand-logo img {
+    height: 38px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  /* Navigation Links */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    height: 100%;
+    padding: 0 0.85rem;
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 400;
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: all 250ms var(--ease-apple, ease);
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+
+  .dropdown-chevron {
+    width: 14px;
+    height: 14px;
+    color: var(--color-graphite);
+    transition: transform 150ms ease;
+  }
+
+  .nav-item:hover .dropdown-chevron {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  /* Dropdown Menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--glass-bg, rgba(255, 255, 255, 0.72));
+    backdrop-filter: blur(var(--glass-blur, 20px));
+    -webkit-backdrop-filter: blur(var(--glass-blur, 20px));
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.18));
+    border-radius: var(--radius-sharp, 10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    min-width: 280px;
+    max-width: 360px;
+    padding: 0.75rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+    pointer-events: none;
+    z-index: 200;
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .dropdown-menu {
+      background-color: var(--color-canvas);
+    }
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .dropdown-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sharp);
+    text-decoration: none;
+    transition: background-color 100ms ease;
+  }
+
+  .dropdown-item:hover {
+    background-color: var(--color-cloud);
+  }
+
+  .dropdown-title {
+    font-size: 0.8125rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+  }
+
+  .dropdown-item:hover .dropdown-title {
+    color: var(--color-primary);
+  }
+
+  .dropdown-desc {
+    font-size: 0.6875rem;
+    color: var(--color-graphite);
+    margin-top: 2px;
+  }
+
+  /* Right Actions */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* Flex children default to min-width:auto, which refuses to shrink below
+       content size. Without this the row overflows the viewport on phones and
+       the hamburger toggle gets pushed off-screen. */
+    min-width: 0;
+  }
+
+  .search-box {
+    position: relative;
+    width: 220px;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding-right: 32px;
+    font-size: 0.8125rem;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--color-graphite);
+    pointer-events: none;
+  }
+
+  .mobile-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--color-ink);
+    border-radius: var(--radius-sharp);
+  }
+
+  .mobile-toggle:hover {
+    background-color: var(--color-cloud);
+  }
+
+  .hamburger-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  @media (max-width: 1200px) {
+    .search-box {
+      width: 180px;
+    }
+    .nav-link {
+      padding: 0 0.5rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .nav-menu {
+      display: none;
+    }
+    .mobile-toggle {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .search-box {
+      display: none;
+    }
+    .brand-logo img {
+      height: 32px;
+    }
+  }
+
+  /* Phones: the logo + a 44px hamburger + the nowrap "Instant RFQ" button
+     exceed the row by ~30px and push the toggle off-screen. The mobile drawer
+     already carries its own full-width RFQ CTA, so the header button stands
+     down rather than forcing a horizontal scroll. */
+  @media (max-width: 480px) {
+    .rfq-nav-btn {
+      display: none;
+    }
+  }
+</style>

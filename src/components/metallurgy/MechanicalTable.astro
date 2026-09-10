@@ -1,0 +1,370 @@
+---
+export interface MechanicalProperties {
+  tensileStrength?: { mpa: string | number; ksi: string | number } | string | number;
+  yieldStrength?: { mpa: string | number; ksi: string | number } | string | number;
+  elongation?: string | number;
+  hardness?: string;
+  density?: { metric: string; imperial: string };
+  meltingPoint?: { celsius: string; fahrenheit: string };
+  reductionOfArea?: string | number;
+  impactStrength?: string;
+  [key: string]: any;
+}
+
+interface Props {
+  properties: MechanicalProperties;
+  grade: string;
+  condition?: string;
+  standard?: string;
+  caption?: string;
+  class?: string;
+}
+
+const {
+  properties,
+  grade,
+  condition = 'Solution Annealed / Hot Finished',
+  standard,
+  caption,
+  class: className = '',
+} = Astro.props;
+
+// Helper to extract dual values
+const getTensile = () => {
+  const ts = properties.tensileStrength;
+  if (!ts) return { mpa: '—', ksi: '—' };
+  if (typeof ts === 'object') {
+    return {
+      mpa: typeof ts.mpa === 'number' ? `${ts.mpa} MPa` : String(ts.mpa).includes('MPa') ? ts.mpa : `${ts.mpa} MPa`,
+      ksi: typeof ts.ksi === 'number' ? `${ts.ksi} ksi` : String(ts.ksi).includes('ksi') ? ts.ksi : `${ts.ksi} ksi`,
+    };
+  }
+  return { mpa: String(ts), ksi: '—' };
+};
+
+const getYield = () => {
+  const ys = properties.yieldStrength;
+  if (!ys) return { mpa: '—', ksi: '—' };
+  if (typeof ys === 'object') {
+    return {
+      mpa: typeof ys.mpa === 'number' ? `${ys.mpa} MPa` : String(ys.mpa).includes('MPa') ? ys.mpa : `${ys.mpa} MPa`,
+      ksi: typeof ys.ksi === 'number' ? `${ys.ksi} ksi` : String(ys.ksi).includes('ksi') ? ys.ksi : `${ys.ksi} ksi`,
+    };
+  }
+  return { mpa: String(ys), ksi: '—' };
+};
+
+const formatElongation = (el: string | number | undefined) => {
+  if (!el) return '—';
+  const str = String(el);
+  return str.includes('%') ? str : `${str}% min`;
+};
+
+const tensile = getTensile();
+const yieldVal = getYield();
+const elongation = formatElongation(properties.elongation);
+const hardness = properties.hardness || '—';
+const density = properties.density;
+const melting = properties.meltingPoint;
+---
+
+<div
+  class={`table-container data-table-container mechanical-table-container ${className}`.trim()}
+  data-unit="both"
+  id={`mech-table-${grade.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+>
+  <!-- Table Header Bar with Unit Switcher -->
+  <div class="table-header-bar">
+    <div class="table-title-group">
+      <span class="eyebrow" style="margin-bottom: 2px;">Mechanical &amp; Physical Specifications</span>
+      <h3 class="table-title">{grade} Mechanical Properties</h3>
+      <span class="table-condition">Condition: <strong>{condition}</strong> {standard ? `• ${standard}` : ''}</span>
+    </div>
+
+    <!-- Dual Unit Switcher (Metric / Imperial / Both) -->
+    <div class="unit-toggle-group" role="radiogroup" aria-label="Unit system selector">
+      <button type="button" class="unit-toggle-btn active" data-unit-target="both">Both</button>
+      <button type="button" class="unit-toggle-btn" data-unit-target="metric">Metric (SI)</button>
+      <button type="button" class="unit-toggle-btn" data-unit-target="imperial">Imperial</button>
+    </div>
+  </div>
+
+  <!-- Key Mechanical Highlights Cards -->
+  <div class="mech-kpi-grid">
+    <div class="kpi-card">
+      <span class="kpi-label">Tensile Strength (UTS)</span>
+      <div class="kpi-val font-mono">
+        <span class="unit-metric">{tensile.mpa}</span>
+        <span class="unit-separator" aria-hidden="true">/</span>
+        <span class="unit-imperial">{tensile.ksi}</span>
+      </div>
+      <span class="kpi-sub">Min. Specified Limit</span>
+    </div>
+
+    <div class="kpi-card">
+      <span class="kpi-label">Yield Strength (0.2% Offset)</span>
+      <div class="kpi-val font-mono">
+        <span class="unit-metric">{yieldVal.mpa}</span>
+        <span class="unit-separator" aria-hidden="true">/</span>
+        <span class="unit-imperial">{yieldVal.ksi}</span>
+      </div>
+      <span class="kpi-sub">Rp0.2 Proof Stress</span>
+    </div>
+
+    <div class="kpi-card">
+      <span class="kpi-label">Elongation at Break</span>
+      <div class="kpi-val font-mono">{elongation}</div>
+      <span class="kpi-sub">Gauge Length 2" (50mm)</span>
+    </div>
+
+    <div class="kpi-card">
+      <span class="kpi-label">Hardness Value</span>
+      <div class="kpi-val font-mono">{hardness}</div>
+      <span class="kpi-sub">Rockwell / Brinell Scale</span>
+    </div>
+  </div>
+
+  <!-- Detailed Dual Unit Mechanical Table -->
+  <div class="table-scroll-wrapper" tabindex="0" role="region" aria-label={`${grade} Mechanical Properties Table`}>
+    <table class="data-table mechanical-data-table">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col" class="unit-metric">Metric Value (SI)</th>
+          <th scope="col" class="unit-imperial">Imperial Value (US)</th>
+          <th scope="col">Testing Standard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tensile Strength (Ultimate, Rm)</strong></td>
+          <td class="font-mono unit-metric">{tensile.mpa}</td>
+          <td class="font-mono unit-imperial">{tensile.ksi}</td>
+          <td>ASTM A370 / ASTM E8</td>
+        </tr>
+
+        <tr>
+          <td><strong>Yield Strength (0.2% Proof Stress, Rp0.2)</strong></td>
+          <td class="font-mono unit-metric">{yieldVal.mpa}</td>
+          <td class="font-mono unit-imperial">{yieldVal.ksi}</td>
+          <td>ASTM A370 / ASTM E8</td>
+        </tr>
+
+        <tr>
+          <td><strong>Elongation (% in 2" / 50mm)</strong></td>
+          <td class="font-mono unit-metric">{elongation}</td>
+          <td class="font-mono unit-imperial">{elongation}</td>
+          <td>ASTM A370</td>
+        </tr>
+
+        <tr>
+          <td><strong>Hardness (Rockwell / Brinell)</strong></td>
+          <td class="font-mono unit-metric">{hardness}</td>
+          <td class="font-mono unit-imperial">{hardness}</td>
+          <td>ASTM E18 / ASTM E10</td>
+        </tr>
+
+        {
+          density && (
+            <tr>
+              <td><strong>Density (Room Temperature)</strong></td>
+              <td class="font-mono unit-metric">{density.metric}</td>
+              <td class="font-mono unit-imperial">{density.imperial}</td>
+              <td>ASTM B311</td>
+            </tr>
+          )
+        }
+
+        {
+          melting && (
+            <tr>
+              <td><strong>Melting Range</strong></td>
+              <td class="font-mono unit-metric">{melting.celsius}</td>
+              <td class="font-mono unit-imperial">{melting.fahrenheit}</td>
+              <td>Thermal Analysis</td>
+            </tr>
+          )
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Table Footnote -->
+  <div class="table-notes">
+    <p>
+      {caption || `Mechanical properties tested at ambient room temperature (20°C / 68°F) in compliance with ASTM A370 / ASTM E8 standards. 100% heat-traceable EN 10204 3.1 inspection certificates supplied with every dispatch.`}
+    </p>
+  </div>
+</div>
+
+<script is:inline>
+  (function initUnitToggle() {
+    function setupTables() {
+      document.querySelectorAll('.mechanical-table-container').forEach((container) => {
+        const buttons = container.querySelectorAll('.unit-toggle-btn');
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const targetUnit = btn.getAttribute('data-unit-target');
+            if (!targetUnit) return;
+
+            buttons.forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            container.setAttribute('data-unit', targetUnit);
+          });
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupTables);
+    } else {
+      setupTables();
+    }
+  })();
+</script>
+
+<style>
+  .mechanical-table-container {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft, 16px);
+    overflow: hidden;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+
+  .table-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .table-title {
+    font-size: 1.125rem;
+    font-weight: var(--weight-display, 500);
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .table-condition {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* Unit Toggle */
+  .unit-toggle-group {
+    display: inline-flex;
+    background-color: var(--color-fog);
+    padding: 2px;
+    border-radius: var(--radius-sharp, 4px);
+    border: 1px solid var(--color-steel);
+  }
+
+  .unit-toggle-btn {
+    background: transparent;
+    border: none;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold, 600);
+    color: var(--color-charcoal);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .unit-toggle-btn.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  /* KPI Grid */
+  .mech-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background-color: #fcfcfc;
+    border-bottom: 1px solid var(--color-fog);
+  }
+
+  @media (max-width: 900px) {
+    .mech-kpi-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .mech-kpi-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .kpi-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp, 4px);
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(26, 26, 26, 0.04);
+  }
+
+  .kpi-label {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold, 600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-graphite);
+    margin-bottom: 4px;
+  }
+
+  .kpi-val {
+    font-size: 1.125rem;
+    font-weight: var(--weight-bold, 700);
+    color: var(--color-ink);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .unit-separator {
+    color: var(--color-steel);
+    font-weight: var(--weight-regular);
+  }
+
+  .kpi-sub {
+    font-size: 0.6875rem;
+    color: var(--color-graphite);
+    margin-top: 4px;
+  }
+
+  .table-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mechanical-data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  /* Unit Toggle visibility rules */
+  .mechanical-table-container[data-unit="metric"] .unit-imperial,
+  .mechanical-table-container[data-unit="metric"] .unit-separator {
+    display: none !important;
+  }
+
+  .mechanical-table-container[data-unit="imperial"] .unit-metric,
+  .mechanical-table-container[data-unit="imperial"] .unit-separator {
+    display: none !important;
+  }
+</style>

@@ -1,0 +1,88 @@
+{
+  "title": "Inconel 718 (UNS N07718 / W.Nr. 2.4668)",
+  "grade": "Inconel 718",
+  "family": "Inconel",
+  "familyDisplayName": "High Nickel Superalloys",
+  "metallurgy": "Ni-Cr-Fe-Mo-Nb superalloy",
+  "uns": "UNS N07718",
+  "unsNumber": "UNS N07718",
+  "wnr": "2.4668",
+  "werkstoffNumber": "2.4668",
+  "astmStandards": [
+    "ASTM B637",
+    "ASTM B670"
+  ],
+  "asmeStandards": [
+    "SB-637",
+    "SB-670"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Inconel 718 Fasteners, Round Bars & Forged Rings Mumbai | Bhansali Metals",
+  "metaDescription": "Precipitation-hardened Inconel 718 (UNS N07718 / 2.4668) high-tensile fasteners, round bars, and forged fittings certified to NACE MR0175 and EN 10204 3.1 MTC.",
+  "summary": "Inconel 718 is a precipitation-hardenable nickel-chromium alloy containing significant amounts of iron, niobium, and molybdenum along with lesser amounts of aluminum and titanium. It combines corrosion resistance and high strength with outstanding weldability.",
+  "keyFeatures": [
+    "Extreme yield and tensile strength up to 1300°F (704°C)",
+    "Excellent creep-rupture strength at high temperatures",
+    "Post-weld age hardening without spontaneous cracking",
+    "High resistance to chloride and sulfide stress corrosion cracking"
+  ],
+  "corrosionResistance": "Excellent resistance to a wide range of atmospheric and chemical environments including sour gas (H2S), CO2, chlorides, and organic acids.",
+  "applications": [
+    "Gas turbine engines, turbocharger rotors, and fasteners",
+    "High-strength downhole drilling tools, packers, and wellhead valves",
+    "Cryogenic storage tanks and liquid fuel rocket motors",
+    "High-tensile naval bolts and marine drive shafts"
+  ],
+  "chemicalComposition": {
+    "Ni": "50.0 - 55.0",
+    "Cr": "17.0 - 21.0",
+    "Fe": "Bal (approx 17.0)",
+    "Mo": "2.80 - 3.30",
+    "Nb+Ta": "4.75 - 5.50",
+    "Ti": "0.65 - 1.15",
+    "Al": "0.20 - 0.80",
+    "Co": "1.0 max",
+    "C": "0.08 max",
+    "Mn": "0.35 max",
+    "Si": "0.35 max",
+    "P": "0.015 max",
+    "S": "0.015 max",
+    "B": "0.006 max",
+    "Cu": "0.30 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "1240 min",
+      "ksi": "180 min"
+    },
+    "yieldStrength": {
+      "mpa": "1034 min",
+      "ksi": "150 min"
+    },
+    "elongation": "12% min",
+    "hardness": "HRC 36 - 44",
+    "density": {
+      "metric": "8.19 g/cm³",
+      "imperial": "0.296 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1260 - 1336 °C",
+      "fahrenheit": "2300 - 2437 °F"
+    }
+  },
+  "availableForms": [
+    "Round Bars",
+    "Forged Fittings",
+    "Fasteners",
+    "Sheets & Plates",
+    "Flanges",
+    "Pipes & Tubes"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NC19FeNb",
+    "DIN": "W.Nr. 2.4668",
+    "JIS": "NCF 718",
+    "EN": "NiCr19Fe19Nb5Mo3"
+  }
+}

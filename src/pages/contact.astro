@@ -1,0 +1,993 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Badge from '../components/common/Badge.astro';
+import { siteConfig } from '../data/site';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Contact Us', url: '/contact' },
+];
+
+const contactChannels = [
+  {
+    title: 'Registered Head Office',
+    icon: 'office',
+    primary: 'Kataria Mansion, Opera House',
+    details: [
+      siteConfig.office.address,
+      `${siteConfig.office.city} - ${siteConfig.office.pincode}, ${siteConfig.office.state}, ${siteConfig.office.country}`,
+    ],
+    landmark: 'Opera House Metal Market / Near SVP Road',
+    mapLink: 'https://maps.google.com/?q=Kataria+Mansion+7th+Khetwadi+Lane+Opera+House+Mumbai+400004',
+    mapLabel: 'View Opera House Map',
+  },
+  {
+    title: 'Central Stockyard & Logistics Center',
+    icon: 'warehouse',
+    primary: 'Steel Market, Kalamboli',
+    details: [
+      siteConfig.godown.address,
+    ],
+    landmark: 'Kalamboli Steel Market (1–2 hrs to JNPT Port)',
+    mapLink: 'https://maps.google.com/?q=Plot+18+Steel+Market+Kalamboli+Navi+Mumbai+410218',
+    mapLabel: 'View Kalamboli Yard Map',
+  },
+  {
+    title: 'Export & Maritime Logistics',
+    icon: 'ship',
+    primary: siteConfig.logistics.seaPort,
+    details: [
+      'Rapid export container stuffing & customs clearance',
+      `Air Cargo: ${siteConfig.logistics.airPort}`,
+      'Incoterms: FOB Mumbai, CIF Worldwide, Ex-Works',
+    ],
+    landmark: 'Direct high-speed highway connection from Kalamboli to JNPT',
+    mapLink: 'https://maps.google.com/?q=Jawaharlal+Nehru+Port+Trust+Nhava+Sheva',
+    mapLabel: 'View JNPT Port Location',
+  },
+];
+
+const leadershipContacts = [
+  {
+    name: 'Mr. Harakchand Bhansali',
+    role: 'Founder & Managing Director',
+    phone: siteConfig.contacts.directorMobile,
+    phoneLink: `tel:${siteConfig.contacts.directorMobile.replace(/\s+/g, '')}`,
+    desc: 'Executive commercial decisions, large mill contracts, and authorized Mukand dealership allocations.',
+  },
+  {
+    name: 'Mr. Nitin Bhansali',
+    role: 'Director — Sales & Metallurgical Engineering',
+    phone: siteConfig.contacts.salesWhatsApp,
+    phoneLink: `tel:${siteConfig.contacts.salesWhatsApp.replace(/\s+/g, '')}`,
+    email: siteConfig.contacts.directEmail,
+    desc: 'Technical RFQ evaluation, ASTM/ASME specifications, NACE compliance, and export inquiries.',
+  },
+];
+---
+
+<BaseLayout
+  title="Contact Bhansali Metals | Opera House Mumbai Office & Kalamboli Yard"
+  description="Contact Bhansali Metals: Registered Office at 31 Kataria Mansion Opera House Mumbai, Kalamboli stockyard, phone +91 22 6743 8356, WhatsApp +91 98922 44451."
+  canonicalUrl="https://www.bhansalimetals.com/contact"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">Contact Us</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Section: Contact Hero -->
+  <section class="band-canvas contact-hero" data-animate>
+    <div class="container">
+      <div class="contact-hero-layout">
+        <div class="contact-hero-text">
+          <div class="badge-strip">
+            <Badge variant="status-green">
+              <span>Direct Sales Desk &bull; Kalamboli Yard Ready</span>
+            </Badge>
+            <Badge variant="soft-blue">
+              <span>Registered Office: Opera House, Mumbai</span>
+            </Badge>
+          </div>
+
+          <h1 class="display-xl contact-title">
+            Connect With Our Engineering &amp; Procurement Desk
+          </h1>
+
+          <p class="lead contact-subtitle">
+            Whether you require an urgent mill test certificate, high-nickel alloy stock verification at our Kalamboli warehouse, or an ASME B16.5 custom flange quote, our sales engineers are standing by.
+          </p>
+
+          <div class="quick-contact-pills">
+            <a href={`tel:${siteConfig.contacts.landline1.replace(/\s+/g, '')}`} class="contact-pill">
+              <svg class="pill-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <span>{siteConfig.contacts.landline1}</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent('Hello Bhansali Metals, I have an inquiry regarding materials.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-pill highlight"
+            >
+              <svg class="pill-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 2.2-.86 4.28-2.42 5.83a8.21 8.21 0 0 1-5.83 2.42c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.248 8.248 0 0 1-1.26-4.39c0-4.55 3.69-8.24 8.25-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.18-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.03 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.31z"/>
+              </svg>
+              <span>{siteConfig.contacts.salesWhatsApp} (WhatsApp)</span>
+            </a>
+
+            <a href={`mailto:${siteConfig.contacts.salesEmail}`} class="contact-pill">
+              <svg class="pill-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <span>{siteConfig.contacts.salesEmail}</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Working Hours & Quick Summary Card -->
+        <div class="contact-hero-summary card card-soft-lift">
+          <h3 class="summary-card-title">Commercial Desk Hours</h3>
+          <ul class="summary-details">
+            <li>
+              <span class="detail-label">Monday &ndash; Saturday:</span>
+              <span class="detail-val">9:30 AM &ndash; 7:00 PM IST</span>
+            </li>
+            <li>
+              <span class="detail-label">Sunday:</span>
+              <span class="detail-val">Closed (WhatsApp active for urgent EPC RFQs)</span>
+            </li>
+            <li>
+              <span class="detail-label">Response Time:</span>
+              <span class="detail-val text-green">&le; 2 Hours for BOQ quotes</span>
+            </li>
+            <li>
+              <span class="detail-label">Warehouse Dispatch:</span>
+              <span class="detail-val">Same-Day from Kalamboli yard</span>
+            </li>
+          </ul>
+
+          <div class="summary-phones">
+            <span class="phone-label">Direct Landlines:</span>
+            <div class="phone-links">
+              <a href={`tel:${siteConfig.contacts.landline1.replace(/\s+/g, '')}`}>{siteConfig.contacts.landline1}</a>
+              <span class="sep">&bull;</span>
+              <a href={`tel:${siteConfig.contacts.landline2.replace(/\s+/g, '')}`}>{siteConfig.contacts.landline2}</a>
+              <span class="sep">&bull;</span>
+              <a href={`tel:${siteConfig.contacts.landline3.replace(/\s+/g, '')}`}>{siteConfig.contacts.landline3}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Locations & Stockyards -->
+  <section class="band-cloud locations-section" data-animate>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Physical Infrastructure</span>
+        <h2 class="display-md">Registered Office, Central Godown &amp; Export Ports</h2>
+        <p class="section-lead">
+          Strategic logistics footprint connecting Mumbai's primary trading hub to Kalamboli's high-capacity warehouse and JNPT maritime shipping terminals.
+        </p>
+      </div>
+
+      <div class="locations-grid">
+        {contactChannels.map((loc) => (
+          <div class="location-card card card-soft-lift">
+            <div class="location-header">
+              <span class="location-badge">{loc.title}</span>
+              <h3 class="location-name">{loc.primary}</h3>
+            </div>
+
+            <div class="location-body">
+              <ul class="location-lines">
+                {loc.details.map((line) => (
+                  <li>{line}</li>
+                ))}
+              </ul>
+              <div class="location-landmark">
+                <svg class="pin-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span>{loc.landmark}</span>
+              </div>
+            </div>
+
+            <div class="location-footer">
+              <a
+                href={loc.mapLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-sharp btn-outline-sm"
+              >
+                {loc.mapLabel} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Contact Form & Leadership Desk -->
+  <section class="band-canvas contact-main-section" data-animate>
+    <div class="container">
+      <div class="contact-main-layout">
+        <!-- Interactive Contact Form -->
+        <div class="contact-form-container card card-soft-lift">
+          <div class="form-header">
+            <span class="form-eyebrow">Direct Inquiry Form</span>
+            <h2 class="form-title">Send Material Specifications or Inquiries</h2>
+            <p class="form-lead">
+              Fill out the form below. For large multi-line Bill of Quantities (BOQ), you can also use our dedicated <a href="/rfq" class="text-link">Full RFQ Portal</a>.
+            </p>
+          </div>
+
+          <form id="contact-form" class="inquiry-form" method="POST" action="/contact">
+            <!-- Anti-Spam Honeypot Field -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Full Name <span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  class="text-input"
+                  placeholder="e.g. Rajesh Sharma"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Work Email <span class="required">*</span></label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  class="text-input"
+                  placeholder="name@company.com"
+                  required
+                />
+                <span id="email-error" class="input-error-msg" style="display: none;">Please provide a valid work email address.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-phone">Phone / WhatsApp <span class="required">*</span></label>
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  class="text-input"
+                  placeholder="+91 98XXX XXXXX"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-company">Company / Organization</label>
+                <input
+                  type="text"
+                  id="contact-company"
+                  name="company"
+                  class="text-input"
+                  placeholder="e.g. Petrochem Engineering Ltd"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-product">Material Category of Interest</label>
+                <select id="contact-product" name="productCategory" class="text-input">
+                  <option value="">Select Category...</option>
+                  <option value="flanges">ASME B16.5 Flanges (150# to 2500#)</option>
+                  <option value="pipes-tubes">Pipes &amp; Tubes (Seamless &amp; Welded)</option>
+                  <option value="buttweld-fittings">Buttweld Fittings (Elbows, Tees, Reducers)</option>
+                  <option value="forged-fittings">Forged High-Pressure Fittings (3000#, 6000#)</option>
+                  <option value="fasteners">Industrial Fasteners &amp; Studs</option>
+                  <option value="round-bars">Round Bars &amp; Precision Billets</option>
+                  <option value="sheets-plates">Sheets, Plates &amp; Coils</option>
+                  <option value="high-nickel">High Nickel Superalloys (Inconel / Monel / Hastelloy)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-alloy">Preferred Alloy Grade</label>
+                <select id="contact-alloy" name="alloyGrade" class="text-input">
+                  <option value="">Select Alloy Grade...</option>
+                  <option value="inconel-625">Inconel 625 (UNS N06625)</option>
+                  <option value="inconel-600">Inconel 600 (UNS N06600)</option>
+                  <option value="inconel-718">Inconel 718 (UNS N07718)</option>
+                  <option value="monel-400">Monel 400 (UNS N04400)</option>
+                  <option value="monel-k500">Monel K-500 (UNS N05500)</option>
+                  <option value="hastelloy-c276">Hastelloy C-276 (UNS N10276)</option>
+                  <option value="hastelloy-c22">Hastelloy C-22 (UNS N06022)</option>
+                  <option value="super-duplex-2507">Super Duplex 2507 (UNS S32750)</option>
+                  <option value="duplex-2205">Duplex 2205 (UNS S32205)</option>
+                  <option value="ss-316l">Stainless Steel 316 / 316L</option>
+                  <option value="ss-304l">Stainless Steel 304 / 304L</option>
+                  <option value="ss-904l">Stainless Steel 904L (UNS N08904)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Requirements / Material Details <span class="required">*</span></label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="4"
+                class="text-input"
+                placeholder="Specify size, schedule/wall thickness, pressure class, quantities, and MTC requirements (e.g., 20 pcs 4-inch Sch 80 Inconel 625 seamless pipe with 3.1 MTC)..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="submit-btn" class="btn btn-sharp btn-primary">
+                Send Inquiry to Sales Desk
+              </button>
+              <button
+                type="button"
+                id="whatsapp-dispatch-btn"
+                class="btn btn-sharp btn-outline"
+              >
+                Send via WhatsApp &rarr;
+              </button>
+            </div>
+
+            <div id="form-success-banner" class="success-banner" style="display: none;">
+              <svg class="check-circle" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Thank you! Your inquiry has been routed to our Opera House sales engineers. We will respond within 2 hours.</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- Leadership & Direct Desk Contacts -->
+        <div class="leadership-desk-container">
+          <div class="leadership-card card card-soft-lift">
+            <span class="desk-eyebrow">Executive Management</span>
+            <h3 class="desk-title">Leadership Direct Contacts</h3>
+            <p class="desk-caption">
+              For mill dealership allocations, high-tonnage EPC contracts, or direct executive escalation.
+            </p>
+
+            <div class="leaders-list">
+              {leadershipContacts.map((leader) => (
+                <div class="leader-item">
+                  <div class="leader-header">
+                    <h4 class="leader-name">{leader.name}</h4>
+                    <span class="leader-role">{leader.role}</span>
+                  </div>
+                  <p class="leader-desc">{leader.desc}</p>
+                  <div class="leader-links">
+                    <a href={leader.phoneLink} class="leader-link">
+                      <svg class="icon-sm" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/>
+                      </svg>
+                      <span>{leader.phone}</span>
+                    </a>
+                    {leader.email && (
+                      <a href={`mailto:${leader.email}`} class="leader-link">
+                        <svg class="icon-sm" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span>{leader.email}</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- MTC & Material Verification Support -->
+          <div class="support-card card card-soft-lift">
+            <h4 class="support-title">MTC Verification &amp; Inspection Desk</h4>
+            <p class="support-text">
+              Have an existing order or need an authentic copy of your EN 10204 3.1 Mill Test Certificate? Contact our QA/QC department directly with your purchase order number.
+            </p>
+            <div class="support-actions">
+              <a href="mailto:sales@bhansalimetals.com?subject=MTC%20Verification%20Request" class="btn btn-sharp btn-outline-sm">
+                Email QA/QC Department &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Email trim-tolerant validation and WhatsApp dispatch handler
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
+    const emailInput = document.getElementById('contact-email') as HTMLInputElement | null;
+    const emailError = document.getElementById('email-error');
+    const successBanner = document.getElementById('form-success-banner');
+    const whatsappBtn = document.getElementById('whatsapp-dispatch-btn');
+
+    // RFC 5322 permissive test regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Contact Form submission handler
+    if (contactForm && emailInput) {
+      contactForm.addEventListener('submit', (e) => {
+        // Trim whitespace from email
+        const trimmedEmail = emailInput.value.trim();
+        emailInput.value = trimmedEmail;
+
+        if (!emailRegex.test(trimmedEmail)) {
+          e.preventDefault();
+          if (emailError) emailError.style.display = 'block';
+          emailInput.focus();
+          return;
+        }
+
+        if (emailError) emailError.style.display = 'none';
+
+        // Check honeypot
+        const honeypot = contactForm.querySelector('input[name="_gotcha"]') as HTMLInputElement | null;
+        if (honeypot && honeypot.value) {
+          e.preventDefault();
+          return;
+        }
+
+        // Mock success UI state
+        e.preventDefault();
+        if (successBanner) successBanner.style.display = 'flex';
+        contactForm.reset();
+      });
+    }
+
+    // Direct WhatsApp dispatch button
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener('click', () => {
+        const nameInput = document.getElementById('contact-name') as HTMLInputElement | null;
+        const msgInput = document.getElementById('contact-message') as HTMLTextAreaElement | null;
+        const prodSelect = document.getElementById('contact-product') as HTMLSelectElement | null;
+        const alloySelect = document.getElementById('contact-alloy') as HTMLSelectElement | null;
+
+        const name = nameInput?.value.trim() || 'Client';
+        const product = prodSelect?.value || 'Piping Materials';
+        const alloy = alloySelect?.value || 'High Nickel Alloy';
+        const details = msgInput?.value.trim() || 'Please provide quotation and catalog.';
+
+        const messageText = `Hello Bhansali Metals,\nName: ${name}\nCategory: ${product}\nAlloy: ${alloy}\nRequirements: ${details}`;
+        const encoded = encodeURIComponent(messageText);
+
+        window.open(`https://wa.me/919892244451?text=${encoded}`, '_blank', 'noopener,noreferrer');
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+    text-decoration: none;
+  }
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .breadcrumb-separator {
+    color: var(--color-graphite);
+  }
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  /* Contact Hero */
+  .contact-hero {
+    padding: 3.5rem 0;
+  }
+  .contact-hero-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .contact-hero-layout {
+      grid-template-columns: 1.3fr 1fr;
+      gap: 3.5rem;
+    }
+  }
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .contact-title {
+    color: var(--color-ink);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .contact-subtitle {
+    color: var(--color-charcoal);
+    margin-bottom: 1.75rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .quick-contact-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sharp);
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    color: var(--color-ink);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .contact-pill:hover {
+    background-color: var(--color-fog);
+    color: var(--color-primary);
+  }
+  .contact-pill.highlight {
+    background-color: var(--color-primary-soft);
+    border-color: rgba(var(--color-primary-rgb), 0.2);
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .contact-pill.highlight:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+  .pill-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Summary Card */
+  .contact-hero-summary {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+  .summary-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 1.25rem;
+  }
+  .summary-details {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .summary-details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-cloud);
+  }
+  .detail-label {
+    color: var(--color-charcoal);
+  }
+  .detail-val {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .detail-val.text-green {
+    color: #107c41;
+  }
+  .summary-phones {
+    font-size: 0.8125rem;
+    background-color: var(--color-cloud);
+    padding: 1rem;
+    border-radius: var(--radius-sharp);
+  }
+  .phone-label {
+    display: block;
+    color: var(--color-graphite);
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+  }
+  .phone-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .phone-links a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .phone-links a:hover {
+    text-decoration: underline;
+  }
+  .sep {
+    color: var(--color-graphite);
+  }
+
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .section-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-top: 0.75rem;
+  }
+
+  /* Locations Grid */
+  .locations-section {
+    padding: 4rem 0;
+  }
+  .locations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  @media (min-width: 768px) {
+    .locations-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .location-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-soft-lift);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .location-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .location-name {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+  .location-body {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+  .location-lines {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-charcoal);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .location-landmark {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    color: var(--color-graphite);
+    line-height: 1.35;
+  }
+  .pin-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .location-footer {
+    border-top: 1px solid var(--color-fog);
+    padding-top: 1rem;
+  }
+
+  /* Contact Main Section */
+  .contact-main-section {
+    padding: 4.5rem 0;
+  }
+  .contact-main-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .contact-main-layout {
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3.5rem;
+    }
+  }
+
+  /* Form Styling */
+  .contact-form-container {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+  .form-header {
+    margin-bottom: 2rem;
+  }
+  .form-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin-bottom: 0.375rem;
+  }
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+  }
+  .form-lead {
+    font-size: 0.9375rem;
+    color: var(--color-charcoal);
+    line-height: 1.45;
+    margin: 0;
+  }
+  .text-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .form-group label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .required {
+    color: var(--color-error);
+  }
+  .input-error-msg {
+    font-size: 0.75rem;
+    color: var(--color-error);
+    margin-top: 0.25rem;
+  }
+  .form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .success-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #e6f4ea;
+    border: 1px solid #ceead6;
+    color: #137333;
+    padding: 1rem;
+    border-radius: var(--radius-sharp);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+  }
+  .check-circle {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* Leadership Card */
+  .leadership-desk-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .leadership-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+  .desk-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+  }
+  .desk-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0.25rem 0 0.5rem;
+  }
+  .desk-caption {
+    font-size: 0.875rem;
+    color: var(--color-charcoal);
+    margin: 0 0 1.5rem;
+    line-height: 1.4;
+  }
+  .leaders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .leader-item {
+    border-top: 1px solid var(--color-cloud);
+    padding-top: 1.25rem;
+  }
+  .leader-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .leader-name {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0;
+  }
+  .leader-role {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .leader-desc {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--color-charcoal);
+    margin: 0 0 0.75rem;
+  }
+  .leader-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .leader-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+  .leader-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .icon-sm {
+    width: 14px;
+    height: 14px;
+    color: var(--color-primary);
+  }
+
+  /* Support Card */
+  .support-card {
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.5rem;
+  }
+  .support-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+  }
+  .support-text {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--color-charcoal);
+    margin: 0 0 1rem;
+  }
+  .btn-sharp {
+    border-radius: var(--radius-sharp);
+  }
+  .btn-outline-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-outline-sm:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+</style>

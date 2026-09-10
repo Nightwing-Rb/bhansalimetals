@@ -1,0 +1,462 @@
+---
+interface Props {
+  headers: string[];
+  rows: Array<Record<string, any>> | Array<Array<string | number>>;
+  title?: string;
+  subtitle?: string;
+  standard?: string;
+  caption?: string;
+  notes?: string[];
+  searchPlaceholder?: string;
+  downloadPdfUrl?: string;
+  showCopyButton?: boolean;
+  showSearch?: boolean;
+  id?: string;
+  class?: string;
+}
+
+const {
+  headers = [],
+  rows = [],
+  title,
+  subtitle,
+  standard,
+  caption,
+  notes = [],
+  searchPlaceholder = 'Filter dimensions, NPS, schedule, or thickness...',
+  downloadPdfUrl,
+  showCopyButton = true,
+  showSearch = true,
+  id = `data-table-${Math.random().toString(36).substring(2, 9)}`,
+  class: className = '',
+} = Astro.props;
+
+// Normalizing row data to uniform arrays of cell values
+const normalizedRows: Array<Array<string | number>> = rows.map((row) => {
+  if (Array.isArray(row)) {
+    return row;
+  }
+  return headers.map((h) => (row[h] !== undefined ? row[h] : '—'));
+});
+
+// Helper to determine if a cell contains predominantly numerical engineering data
+const isNumericLike = (val: string | number) => {
+  if (typeof val === 'number') return true;
+  const trimmed = String(val).trim();
+  // Check if string contains numbers with units (e.g. 10.3, 1/2", 150#, 25.4mm, etc)
+  return /^[\d\.\-\/\s\+]+(mm|in|kg|#|%|lbs|MPa|ksi|°C|°F|DN)?$/i.test(trimmed);
+};
+---
+
+<div class={`table-container engineering-data-table-container ${className}`.trim()} id={id}>
+  <!-- Table Header Bar / Title & Subtitle -->
+  {
+    (title || standard) && (
+      <div class="dt-header-bar">
+        <div class="dt-title-block">
+          {standard && <span class="eyebrow dt-standard-eyebrow">{standard}</span>}
+          {title && <h3 class="dt-title">{title}</h3>}
+          {subtitle && <p class="dt-subtitle">{subtitle}</p>}
+        </div>
+
+        {downloadPdfUrl && (
+          <a
+            href={downloadPdfUrl}
+            class="btn btn-outline-ink btn-sm dt-pdf-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            <span>Download PDF Chart</span>
+          </a>
+        )}
+      </div>
+    )
+  }
+
+  <!-- Toolbar: Live Search & Copy Table Button -->
+  {
+    (showSearch || showCopyButton) && (
+      <div class="dt-toolbar">
+        {showSearch && (
+          <div class="dt-search-box">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dt-search-icon" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="search"
+              class="dt-search-input"
+              placeholder={searchPlaceholder}
+              aria-label="Filter table data"
+              data-table-search
+            />
+          </div>
+        )}
+
+        <div class="dt-toolbar-actions">
+          <span class="dt-row-counter" data-row-counter>
+            Showing {normalizedRows.length} rows
+          </span>
+
+          {showCopyButton && (
+            <button
+              type="button"
+              class="btn btn-outline btn-sm dt-copy-btn"
+              data-copy-table
+              aria-label="Copy table data as spreadsheet TSV"
+            >
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-btn-text">Copy Table</span>
+            </button>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  <!-- Scrollable Engineering Table -->
+  <div class="table-scroll-wrapper" tabindex="0" role="region" aria-label={title || 'Engineering Data Table'}>
+    <table class="data-table" data-engineering-table>
+      <thead>
+        <tr>
+          {headers.map((header) => (
+            <th scope="col">{header}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {
+          normalizedRows.map((row) => (
+            <tr data-row>
+              {row.map((cell) => {
+                const isNumeric = isNumericLike(cell);
+                return (
+                  <td class={isNumeric ? 'font-mono' : ''} data-numeric={isNumeric ? 'true' : 'false'}>
+                    {cell}
+                  </td>
+                );
+              })}
+            </tr>
+          ))
+        }
+        <tr class="dt-no-match-row" style="display: none;">
+          <td colspan={headers.length} class="dt-no-match-cell">
+            No matching engineering specifications found. Try adjusting your search query.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Table Footnotes & Captions -->
+  {
+    (caption || notes.length > 0) && (
+      <div class="table-notes">
+        {caption && <p class="dt-caption">{caption}</p>}
+        {notes.length > 0 && (
+          <ul class="dt-notes-list">
+            {notes.map((note) => (
+              <li>{note}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+    )
+  }
+</div>
+
+<script is:inline>
+  (function initDataTable() {
+    function setupTables() {
+      document.querySelectorAll('.engineering-data-table-container').forEach((tableContainer) => {
+        // Prevent multiple initializations
+        if (tableContainer.dataset.initialized === 'true') return;
+        tableContainer.dataset.initialized = 'true';
+
+        const searchInput = tableContainer.querySelector('[data-table-search]');
+        const counterEl = tableContainer.querySelector('[data-row-counter]');
+        const copyBtn = tableContainer.querySelector('[data-copy-table]');
+        const table = tableContainer.querySelector('[data-engineering-table]');
+        if (!table) return;
+
+        const rows = Array.from(table.querySelectorAll('tbody tr[data-row]'));
+        const noMatchRow = table.querySelector('.dt-no-match-row');
+        const totalRows = rows.length;
+
+        // 1. Live Search Filter
+        if (searchInput) {
+          searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            rows.forEach((row) => {
+              const text = row.textContent?.toLowerCase() || '';
+              const matches = !query || text.includes(query);
+              row.style.display = matches ? '' : 'none';
+              if (matches) visibleCount++;
+            });
+
+            if (noMatchRow) {
+              noMatchRow.style.display = visibleCount === 0 ? '' : 'none';
+            }
+
+            if (counterEl) {
+              counterEl.textContent = query
+                ? `Showing ${visibleCount} of ${totalRows} rows`
+                : `Showing ${totalRows} rows`;
+            }
+          });
+        }
+
+        // 2. Copy Table to Clipboard as TSV (Excel/Google Sheets friendly)
+        if (copyBtn) {
+          copyBtn.addEventListener('click', async () => {
+            const headers = Array.from(table.querySelectorAll('thead th')).map(
+              (th) => th.textContent?.trim() || ''
+            );
+
+            // Get only visible rows
+            const visibleRows = rows.filter((r) => r.style.display !== 'none');
+            const rowData = visibleRows.map((tr) =>
+              Array.from(tr.querySelectorAll('td')).map((td) => td.textContent?.trim() || '')
+            );
+
+            const tsvContent = [
+              headers.join('\t'),
+              ...rowData.map((r) => r.join('\t')),
+            ].join('\n');
+
+            try {
+              await navigator.clipboard.writeText(tsvContent);
+              const textSpan = copyBtn.querySelector('.copy-btn-text');
+              const originalText = textSpan ? textSpan.textContent : 'Copy Table';
+
+              if (textSpan) textSpan.textContent = 'Copied!';
+              copyBtn.classList.add('btn-whatsapp');
+              copyBtn.classList.remove('btn-outline');
+
+              setTimeout(() => {
+                if (textSpan) textSpan.textContent = originalText;
+                copyBtn.classList.remove('btn-whatsapp');
+                copyBtn.classList.add('btn-outline');
+              }, 2000);
+            } catch (err) {
+              console.error('Failed to copy table:', err);
+            }
+          });
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupTables);
+    } else {
+      setupTables();
+    }
+  })();
+</script>
+
+<style>
+  .engineering-data-table-container {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft, 16px);
+    overflow: hidden;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-soft-lift);
+  }
+
+  .dt-header-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .dt-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .dt-standard-eyebrow {
+    margin-bottom: 2px;
+  }
+
+  .dt-title {
+    font-size: 1.25rem;
+    font-weight: var(--weight-display, 500);
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .dt-subtitle {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+
+  .dt-pdf-btn {
+    flex-shrink: 0;
+  }
+
+  /* Toolbar */
+  .dt-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.5rem;
+    background-color: var(--color-canvas);
+    border-bottom: 1px solid var(--color-hairline);
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .dt-search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1 1 280px;
+    max-width: 480px;
+  }
+
+  .dt-search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--color-graphite);
+    pointer-events: none;
+  }
+
+  .dt-search-input {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px 0 36px;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--color-ink);
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp, 4px);
+    transition: border-color 150ms ease, background-color 150ms ease;
+  }
+
+  .dt-search-input:focus {
+    outline: none;
+    background-color: var(--color-canvas);
+    border-color: var(--color-primary);
+  }
+
+  .dt-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  .dt-row-counter {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .dt-copy-btn {
+    height: 36px;
+  }
+
+  /* Table Scroll Wrapper & Sticky Header */
+  .table-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: 560px; /* Sensible sticky header engineering view */
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+
+  .data-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-fog);
+    color: var(--color-ink);
+    font-weight: var(--weight-display, 500);
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--color-steel);
+    white-space: nowrap;
+  }
+
+  .data-table tbody tr {
+    border-bottom: 1px solid var(--color-hairline);
+    transition: background-color 100ms ease;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background-color: var(--color-cloud);
+  }
+
+  .data-table tbody tr:hover {
+    background-color: var(--color-primary-soft);
+  }
+
+  .data-table td {
+    padding: 8px 14px;
+    vertical-align: middle;
+  }
+
+  .dt-no-match-cell {
+    text-align: center;
+    padding: 2.5rem 1rem !important;
+    color: var(--color-graphite);
+    font-size: 0.875rem;
+    background-color: var(--color-cloud) !important;
+  }
+
+  /* Notes */
+  .dt-caption {
+    font-size: 0.75rem;
+    color: var(--color-charcoal);
+    margin-bottom: 0.5rem;
+  }
+
+  .dt-notes-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  @media (max-width: 640px) {
+    .dt-header-bar {
+      padding: 1rem;
+    }
+    .dt-toolbar {
+      padding: 0.75rem 1rem;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .dt-search-box {
+      max-width: 100%;
+    }
+    .dt-toolbar-actions {
+      justify-content: space-between;
+    }
+  }
+</style>

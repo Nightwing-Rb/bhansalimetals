@@ -1,0 +1,85 @@
+{
+  "title": "Round Bar Dimensional Tolerances (PN-EN 754/755 & ISO 286)",
+  "standard": "ISO 286 / PN-EN 754 / ASTM A484",
+  "category": "metallurgical-data",
+  "metaTitle": "Round Bar Dimensional Tolerances Chart | Bhansali Metals",
+  "metaDescription": "Precision dimensional tolerance charts for bright drawn, peeled, and centerless ground round bars per ISO 286 h9, h11, and k12 classes.",
+  "description": "Standard dimensional tolerances and permissible straightness limits for bright drawn, peeled, and turned round bars in stainless steel and high nickel alloys.",
+  "downloadablePdf": "/downloads/round-bar-tolerances-bhansali.pdf",
+  "tableHeaders": [
+    "Nominal Diameter (mm)",
+    "Tolerance Class h9 (mm)",
+    "Tolerance Class h11 (mm)",
+    "Tolerance Class k12 (mm)",
+    "Straightness (mm/m)"
+  ],
+  "rows": [
+    {
+      "Nominal Diameter (mm)": "Over 3 to 6 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.030",
+      "Tolerance Class h11 (mm)": "0 to -0.075",
+      "Tolerance Class k12 (mm)": "+0.120 to 0",
+      "Straightness (mm/m)": "1.5 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 6 to 10 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.036",
+      "Tolerance Class h11 (mm)": "0 to -0.090",
+      "Tolerance Class k12 (mm)": "+0.150 to 0",
+      "Straightness (mm/m)": "1.5 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 10 to 18 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.043",
+      "Tolerance Class h11 (mm)": "0 to -0.110",
+      "Tolerance Class k12 (mm)": "+0.180 to 0",
+      "Straightness (mm/m)": "1.0 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 18 to 30 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.052",
+      "Tolerance Class h11 (mm)": "0 to -0.130",
+      "Tolerance Class k12 (mm)": "+0.210 to 0",
+      "Straightness (mm/m)": "1.0 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 30 to 50 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.062",
+      "Tolerance Class h11 (mm)": "0 to -0.160",
+      "Tolerance Class k12 (mm)": "+0.250 to 0",
+      "Straightness (mm/m)": "1.0 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 50 to 80 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.074",
+      "Tolerance Class h11 (mm)": "0 to -0.190",
+      "Tolerance Class k12 (mm)": "+0.300 to 0",
+      "Straightness (mm/m)": "1.0 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 80 to 120 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.087",
+      "Tolerance Class h11 (mm)": "0 to -0.220",
+      "Tolerance Class k12 (mm)": "+0.350 to 0",
+      "Straightness (mm/m)": "1.5 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 120 to 180 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.100",
+      "Tolerance Class h11 (mm)": "0 to -0.250",
+      "Tolerance Class k12 (mm)": "+0.400 to 0",
+      "Straightness (mm/m)": "1.5 mm/m"
+    },
+    {
+      "Nominal Diameter (mm)": "Over 180 to 250 mm",
+      "Tolerance Class h9 (mm)": "0 to -0.115",
+      "Tolerance Class h11 (mm)": "0 to -0.290",
+      "Tolerance Class k12 (mm)": "+0.460 to 0",
+      "Straightness (mm/m)": "2.0 mm/m"
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "Class h9 applies to centerless ground and polished bars. Class h11 applies to cold drawn bars."
+  ]
+}

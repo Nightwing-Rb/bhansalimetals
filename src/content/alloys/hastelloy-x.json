@@ -1,0 +1,89 @@
+{
+  "title": "Hastelloy X (UNS N06002 / W.Nr. 2.4665)",
+  "grade": "Hastelloy X",
+  "family": "Hastelloy",
+  "familyDisplayName": "Nickel-Chromium-Iron-Molybdenum Superalloys",
+  "metallurgy": "Ni-Cr-Fe-Mo superalloy",
+  "uns": "UNS N06002",
+  "unsNumber": "UNS N06002",
+  "wnr": "2.4665",
+  "werkstoffNumber": "2.4665",
+  "astmStandards": [
+    "ASTM B572",
+    "ASTM B435",
+    "ASTM B619",
+    "ASTM B622"
+  ],
+  "asmeStandards": [
+    "SB-572",
+    "SB-435",
+    "SB-619",
+    "SB-622"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Hastelloy X High-Temperature Gas Turbine Sheets & Fasteners | Bhansali Metals",
+  "metaDescription": "Oxidation-resistant Hastelloy X (UNS N06002 / 2.4665) high-temperature plates, round bars, and combustion components supplied by Bhansali Metals Mumbai.",
+  "summary": "Hastelloy X is a nickel-chromium-iron-molybdenum superalloy characterized by outstanding high-temperature strength, oxidation resistance, and fabricability up to 2200°F (1200°C). It exhibits exceptional resistance to stress-corrosion cracking in petrochemical applications.",
+  "keyFeatures": [
+    "Superior oxidation resistance up to 2200°F (1200°C)",
+    "High tensile and creep-rupture strength at elevated temperatures",
+    "Excellent resistance to carburization and nitriding atmospheres",
+    "Easily formed and welded by all standard processes"
+  ],
+  "corrosionResistance": "Resistant to oxidizing, reducing, and neutral atmospheres. Forms a protective tenacity oxide film that resists spalling in cyclic heating.",
+  "applications": [
+    "Gas turbine combustion cans, transition ducts, and spray bars",
+    "Industrial furnace retorts, baffles, and heat-treating muffles",
+    "Petrochemical pyrolysis units and catalyst support grids",
+    "Aircraft engine exhaust tailpipes and afterburner parts"
+  ],
+  "chemicalComposition": {
+    "Ni": "Bal (approx 47.0)",
+    "Cr": "20.5 - 23.0",
+    "Fe": "17.0 - 20.0",
+    "Mo": "8.0 - 10.0",
+    "Co": "0.50 - 2.50",
+    "W": "0.20 - 1.0",
+    "C": "0.05 - 0.15",
+    "Mn": "1.0 max",
+    "Si": "1.0 max",
+    "P": "0.04 max",
+    "S": "0.03 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "715 min",
+      "ksi": "104 min"
+    },
+    "yieldStrength": {
+      "mpa": "325 min",
+      "ksi": "47 min"
+    },
+    "elongation": "35% min",
+    "hardness": "HRB 90 max",
+    "density": {
+      "metric": "8.22 g/cm³",
+      "imperial": "0.297 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1260 - 1355 °C",
+      "fahrenheit": "2300 - 2470 °F"
+    }
+  },
+  "availableForms": [
+    "Flanges",
+    "Pipes & Tubes",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "NC22FeD8M",
+    "DIN": "W.Nr. 2.4665",
+    "JIS": "NW 0002",
+    "EN": "NiCr22Fe18Mo"
+  }
+}

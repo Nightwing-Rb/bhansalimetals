@@ -1,0 +1,90 @@
+{
+  "title": "Hastelloy B-2 (UNS N10665 / W.Nr. 2.4617)",
+  "grade": "Hastelloy B-2",
+  "family": "Hastelloy",
+  "familyDisplayName": "Nickel-Molybdenum Alloys",
+  "metallurgy": "Ni-Mo alloy",
+  "uns": "UNS N10665",
+  "unsNumber": "UNS N10665",
+  "wnr": "2.4617",
+  "werkstoffNumber": "2.4617",
+  "astmStandards": [
+    "ASTM B333",
+    "ASTM B335",
+    "ASTM B619",
+    "ASTM B622",
+    "ASTM B564"
+  ],
+  "asmeStandards": [
+    "SB-333",
+    "SB-335",
+    "SB-619",
+    "SB-622",
+    "SB-564"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Hastelloy B-2 Hydrochloric Acid Resistant Piping & Flanges | Bhansali Metals",
+  "metaDescription": "Bhansali Metals manufactures Hastelloy B-2 (UNS N10665 / 2.4617) nickel-moly fittings, pipes, and flanges specialized for hydrochloric acid service with MTC.",
+  "summary": "Hastelloy B-2 is a solid-solution strengthened nickel-molybdenum alloy with significant resistance to reducing environments like hydrogen chloride gas, sulfuric, acetic, and phosphoric acids. It controls carbon and silicon to resist HAZ grain boundary precipitation.",
+  "keyFeatures": [
+    "Resistant to hydrochloric acid at all concentrations and temperatures",
+    "Significant resistance to reducing media including sulfuric and acetic acids",
+    "Resists pitting and stress corrosion cracking in reducing halides",
+    "Can be used in the as-welded condition in chemical process equipment"
+  ],
+  "corrosionResistance": "Excellent resistance to pure hydrochloric, phosphoric, and sulfuric acids, and organic acids. Note: Not recommended for service with oxidizing contaminants (ferric or cupric salts).",
+  "applications": [
+    "Hydrochloric acid synthesis, storage, and transfer lines",
+    "Alkylation units, isomerisation units, and acetic acid synthesis",
+    "Styrene and ethylbenzene manufacturing units",
+    "Pharmaceutical production equipment for handling HCl gas"
+  ],
+  "chemicalComposition": {
+    "Ni": "Bal (approx 68.0)",
+    "Mo": "26.0 - 30.0",
+    "Fe": "2.0 max",
+    "Cr": "1.0 max",
+    "Co": "1.0 max",
+    "Mn": "1.0 max",
+    "Si": "0.10 max",
+    "C": "0.010 max",
+    "P": "0.04 max",
+    "S": "0.03 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "760 min",
+      "ksi": "110 min"
+    },
+    "yieldStrength": {
+      "mpa": "350 min",
+      "ksi": "51 min"
+    },
+    "elongation": "40% min",
+    "hardness": "HRB 94 max",
+    "density": {
+      "metric": "9.22 g/cm³",
+      "imperial": "0.333 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1332 - 1377 °C",
+      "fahrenheit": "2430 - 2510 °F"
+    }
+  },
+  "availableForms": [
+    "Flanges",
+    "Pipes & Tubes",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "N-Mo28",
+    "DIN": "W.Nr. 2.4617",
+    "JIS": "NW 0665",
+    "EN": "NiMo28"
+  }
+}

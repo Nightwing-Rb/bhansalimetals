@@ -1,0 +1,90 @@
+{
+  "title": "Stainless Steel 316L (UNS S31603 / W.Nr. 1.4404)",
+  "grade": "SS 316L",
+  "family": "Stainless Steel",
+  "familyDisplayName": "Austenitic Stainless Steel",
+  "metallurgy": "Low Carbon Moly Austenitic Stainless Steel",
+  "uns": "UNS S31603",
+  "unsNumber": "UNS S31603",
+  "wnr": "1.4404",
+  "werkstoffNumber": "1.4404",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A312",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A403"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-312",
+    "SA-182",
+    "SA-276",
+    "SA-403"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Stainless Steel 316L Flanges, Pipes & Buttweld Fittings | Bhansali Metals",
+  "metaDescription": "Low-carbon SS 316L (UNS S31603 / 1.4404, C<=0.030%) forged flanges, seamless pipes, and buttweld fittings supplied by Bhansali Metals Mumbai with MTC.",
+  "summary": "Grade 316L is the low-carbon version of 316 stainless steel (carbon strictly capped at 0.030% max). It is immune to grain-boundary carbide precipitation during welding, providing maximum corrosion resistance in heavy welded sections.",
+  "keyFeatures": [
+    "Strict carbon cap <= 0.030% eliminating sensitization during welding",
+    "Molybdenum content (2.0-3.0%) resisting chloride pitting",
+    "NACE MR0175 compliant for sour service piping systems",
+    "Superior biopharmaceutical and electropolished surface finish characteristics"
+  ],
+  "corrosionResistance": "Exceptional resistance to pitting in chloride-bearing environments, industrial chemicals, and organic and inorganic acids.",
+  "applications": [
+    "Offshore topside piping, instrumentation lines, and chemical manifolds",
+    "Pharmaceutical bioprocess vessels, fermenters, and pure steam lines",
+    "Marine exhaust scrubbers and coastal power plant cooling piping",
+    "Paper and pulp bleaching equipment and fertilizer manufacturing"
+  ],
+  "chemicalComposition": {
+    "Cr": "16.00 - 18.00",
+    "Ni": "10.00 - 14.00",
+    "Mo": "2.00 - 3.00",
+    "C": "0.030 max",
+    "Mn": "2.00 max",
+    "Si": "0.75 max",
+    "P": "0.045 max",
+    "S": "0.030 max",
+    "N": "0.10 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "485 min",
+      "ksi": "70.3 min"
+    },
+    "yieldStrength": {
+      "mpa": "170 min",
+      "ksi": "24.7 min"
+    },
+    "elongation": "40% min",
+    "hardness": "BHN 217 max / HRB 95 max",
+    "density": {
+      "metric": "8.02 g/cm³",
+      "imperial": "0.290 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1375 - 1400 °C",
+      "fahrenheit": "2500 - 2550 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z3CND17-11-02",
+    "DIN": "W.Nr. 1.4404",
+    "JIS": "SUS 316L",
+    "EN": "X2CrNiMo17-12-2"
+  }
+}

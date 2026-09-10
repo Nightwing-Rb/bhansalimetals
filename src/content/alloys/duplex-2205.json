@@ -1,0 +1,92 @@
+{
+  "title": "Duplex 2205 (UNS S31803 / S32205 / W.Nr. 1.4462)",
+  "grade": "Duplex 2205",
+  "family": "Duplex",
+  "familyDisplayName": "Duplex Stainless Steel",
+  "metallurgy": "Austenitic-Ferritic Duplex Stainless Steel",
+  "uns": "UNS S31803 / S32205",
+  "unsNumber": "UNS S31803 / S32205",
+  "wnr": "1.4462",
+  "werkstoffNumber": "1.4462",
+  "astmStandards": [
+    "ASTM A240",
+    "ASTM A789",
+    "ASTM A790",
+    "ASTM A182",
+    "ASTM A276",
+    "ASTM A815"
+  ],
+  "asmeStandards": [
+    "SA-240",
+    "SA-789",
+    "SA-790",
+    "SA-182",
+    "SA-276",
+    "SA-815"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Duplex 2205 Flanges, Seamless Pipes & Fittings Stockist | Bhansali Metals",
+  "metaDescription": "High-strength Duplex 2205 (UNS S31803 / S32205 / 1.4462) flanges, pipes, and fittings supplied by Bhansali Metals Mumbai with EN 10204 3.1 certification.",
+  "summary": "Duplex 2205 is a nitrogen-enhanced 22% chromium duplex stainless steel with an approximate 50/50 austenitic-ferritic microstructure. It delivers twice the design yield strength of standard austenitic grades along with superior resistance to stress-corrosion cracking.",
+  "keyFeatures": [
+    "Approximately double the yield strength of 316L and standard austenitics",
+    "High resistance to chloride stress corrosion cracking and pitting",
+    "Pitting Resistance Equivalent (PREN) > 35 for aggressive marine environments",
+    "High energy absorption and fatigue strength under cyclic loads"
+  ],
+  "corrosionResistance": "Excellent resistance to general corrosion, pitting, crevice corrosion, and chloride stress-corrosion cracking in marine, oilfield, and refinery operations.",
+  "applications": [
+    "Oil and gas exploration subsea manifolds, piping, and separation vessels",
+    "Chemical process tanks, heat exchangers, and chlorination equipment",
+    "Marine cargo tanks, chemical tankers, and seawater cooling systems",
+    "Desalination plant reverse osmosis high-pressure piping and pumps"
+  ],
+  "chemicalComposition": {
+    "Cr": "21.0 - 23.0",
+    "Ni": "4.5 - 6.5",
+    "Mo": "2.5 - 3.5",
+    "N": "0.08 - 0.20",
+    "C": "0.030 max",
+    "Mn": "2.00 max",
+    "Si": "1.00 max",
+    "P": "0.030 max",
+    "S": "0.020 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "655 min",
+      "ksi": "95 min"
+    },
+    "yieldStrength": {
+      "mpa": "450 min",
+      "ksi": "65 min"
+    },
+    "elongation": "25% min",
+    "hardness": "HRC 32 max / BHN 293 max",
+    "density": {
+      "metric": "7.82 g/cm³",
+      "imperial": "0.282 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1385 - 1443 °C",
+      "fahrenheit": "2525 - 2630 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z3CND22-05-02",
+    "DIN": "W.Nr. 1.4462",
+    "JIS": "SUS 329J3L",
+    "EN": "X2CrNiMoN22-5-3"
+  }
+}

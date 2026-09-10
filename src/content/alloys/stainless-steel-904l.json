@@ -1,0 +1,91 @@
+{
+  "title": "Stainless Steel 904L (UNS N08904 / W.Nr. 1.4539)",
+  "grade": "SS 904L",
+  "family": "Stainless Steel",
+  "familyDisplayName": "Super Austenitic Stainless Steel",
+  "metallurgy": "Super Austenitic Stainless Steel (Cu-Mo Enhanced)",
+  "uns": "UNS N08904",
+  "unsNumber": "UNS N08904",
+  "wnr": "1.4539",
+  "werkstoffNumber": "1.4539",
+  "astmStandards": [
+    "ASTM B625",
+    "ASTM B673",
+    "ASTM B674",
+    "ASTM B677",
+    "ASTM A182"
+  ],
+  "asmeStandards": [
+    "SB-625",
+    "SB-673",
+    "SB-674",
+    "SB-677",
+    "SA-182"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Stainless Steel 904L Flanges, Pipes & Sulfuric Acid Valves | Bhansali Metals",
+  "metaDescription": "Super austenitic SS 904L (UNS N08904 / 1.4539, Cu 1-2%, Mo 4-5%) sulfuric acid resistant pipes, plates, and flanges from Bhansali Metals Mumbai with MTC.",
+  "summary": "Grade 904L is a high-alloy super austenitic stainless steel containing 4.5% molybdenum and 1.5% copper additions. It was originally engineered to resist dilute sulfuric acid across full concentration ranges and temperatures up to 40°C.",
+  "keyFeatures": [
+    "Copper addition (1.0-2.0%) provides exceptional resistance to sulfuric acid",
+    "High molybdenum (4.0-5.0%) and nickel (23-28%) resist chloride pitting",
+    "Fully austenitic structure with very low carbon (0.020% max)",
+    "Excellent resistance to warm seawater and concentrated organic acids"
+  ],
+  "corrosionResistance": "Outstanding resistance to sulfuric, phosphoric, acetic, and formic acids. Virtually immune to pitting and crevice corrosion in seawater and chloride brine.",
+  "applications": [
+    "Sulfuric acid pickling plants, cooling coils, and pipe distribution",
+    "Phosphate fertilizer production evaporators and reaction tanks",
+    "Flue gas desulfurization (FGD) scrubbers and coastal sea water cooling",
+    "Bleach plant washing stages in pulp and paper manufacturing"
+  ],
+  "chemicalComposition": {
+    "Ni": "23.00 - 28.00",
+    "Cr": "19.00 - 23.00",
+    "Mo": "4.00 - 5.00",
+    "Cu": "1.00 - 2.00",
+    "C": "0.020 max",
+    "Mn": "2.00 max",
+    "Si": "1.00 max",
+    "P": "0.045 max",
+    "S": "0.035 max",
+    "N": "0.10 max",
+    "Fe": "Bal"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "490 min",
+      "ksi": "71.1 min"
+    },
+    "yieldStrength": {
+      "mpa": "220 min",
+      "ksi": "31.9 min"
+    },
+    "elongation": "35% min",
+    "hardness": "BHN 192 max / HRB 90 max",
+    "density": {
+      "metric": "8.05 g/cm³",
+      "imperial": "0.291 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1300 - 1390 °C",
+      "fahrenheit": "2370 - 2535 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z1NCDU25-20-04",
+    "DIN": "W.Nr. 1.4539",
+    "JIS": "SUS 890L",
+    "EN": "X1NiCrMoCu25-20-5"
+  }
+}

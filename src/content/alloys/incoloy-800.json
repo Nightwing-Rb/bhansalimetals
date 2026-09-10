@@ -1,0 +1,89 @@
+{
+  "title": "Incoloy 800 (UNS N08800 / W.Nr. 1.4876)",
+  "grade": "Incoloy 800",
+  "family": "Incoloy",
+  "familyDisplayName": "Nickel-Iron-Chromium Alloys",
+  "metallurgy": "Ni-Fe-Cr superalloy",
+  "uns": "UNS N08800",
+  "unsNumber": "UNS N08800",
+  "wnr": "1.4876",
+  "werkstoffNumber": "1.4876",
+  "astmStandards": [
+    "ASTM B408",
+    "ASTM B409",
+    "ASTM B407",
+    "ASTM B564"
+  ],
+  "asmeStandards": [
+    "SB-408",
+    "SB-409",
+    "SB-407",
+    "SB-564"
+  ],
+  "naceCompliance": true,
+  "metaTitle": "Incoloy 800 Pipes, Sheets & Heat Exchanger Tubes Mumbai | Bhansali Metals",
+  "metaDescription": "Authentic Incoloy 800 (UNS N08800 / 1.4876) nickel-iron-chromium plates, seamless pipes, and buttweld fittings from Bhansali Metals Mumbai with MTC guarantee.",
+  "summary": "Incoloy 800 is a nickel-iron-chromium alloy engineered to resist oxidation, carburization, and other high-temperature corrosion mechanisms. Its high nickel content maintains an austenitic structure while resisting chloride stress-corrosion cracking.",
+  "keyFeatures": [
+    "High creep and stress-rupture strength at elevated temperatures",
+    "Resistance to oxidation and carburization up to 1500°F (816°C)",
+    "Good resistance to many aqueous environments",
+    "Readily formed and welded by standard industrial procedures"
+  ],
+  "corrosionResistance": "Nickel content imparts high resistance to stress-corrosion cracking; chromium confers resistance to oxidation and sulfidation.",
+  "applications": [
+    "Ethylene furnace quench boilers and pyrolysis tubes",
+    "Hydrocarbon steam reforming pigtails and headers",
+    "Industrial heating elements and radiant tubes",
+    "Thermal processing baskets, fixtures, and retorts"
+  ],
+  "chemicalComposition": {
+    "Fe": "39.5 min",
+    "Ni": "30.0 - 35.0",
+    "Cr": "19.0 - 23.0",
+    "C": "0.10 max",
+    "Al": "0.15 - 0.60",
+    "Ti": "0.15 - 0.60",
+    "Al+Ti": "0.30 - 1.20",
+    "Cu": "0.75 max",
+    "Mn": "1.50 max",
+    "Si": "1.0 max",
+    "S": "0.015 max"
+  },
+  "mechanicalProperties": {
+    "tensileStrength": {
+      "mpa": "520 min",
+      "ksi": "75 min"
+    },
+    "yieldStrength": {
+      "mpa": "205 min",
+      "ksi": "30 min"
+    },
+    "elongation": "30% min",
+    "hardness": "HRB 70 - 85",
+    "density": {
+      "metric": "7.94 g/cm³",
+      "imperial": "0.287 lb/in³"
+    },
+    "meltingPoint": {
+      "celsius": "1357 - 1385 °C",
+      "fahrenheit": "2475 - 2525 °F"
+    }
+  },
+  "availableForms": [
+    "Pipes & Tubes",
+    "Flanges",
+    "Buttweld Fittings",
+    "Forged Fittings",
+    "Fasteners",
+    "Round Bars",
+    "Sheets & Plates"
+  ],
+  "stockReadiness": "Ready Stock in Opera House Godown, Mumbai",
+  "equivalentGrades": {
+    "AFNOR": "Z8NC32-21",
+    "DIN": "W.Nr. 1.4876",
+    "JIS": "NCF 800",
+    "EN": "X10NiCrAlTi32-20"
+  }
+}

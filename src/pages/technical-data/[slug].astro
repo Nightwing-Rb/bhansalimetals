@@ -1,0 +1,825 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Badge from '../../components/common/Badge.astro';
+import Button from '../../components/common/Button.astro';
+import { siteConfig } from '../../data/site';
+
+export async function getStaticPaths() {
+  const technicalData = await getCollection('technical-data');
+  return technicalData.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { data } = item;
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Technical Data', url: '/technical-data' },
+  { name: data.title, url: `/technical-data/${item.id}` },
+];
+
+const isFlangeTable = item.id.includes('flange') || data.category === 'flange-dimensions';
+const isWeightFormulas = item.id.includes('weight-formula') || data.category === 'weight-formulas';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": data.title,
+  "description": data.description,
+  "standard": data.standard,
+  "author": {
+    "@type": "Organization",
+    "name": siteConfig.name
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": siteConfig.name,
+    "url": siteConfig.url
+  }
+};
+---
+
+<BaseLayout
+  title={`${data.title} | Technical Reference | Bhansali Metals`}
+  description={data.metaDescription || data.description}
+  canonicalUrl={`https://www.bhansalimetals.com/technical-data/${item.id}`}
+  breadcrumbs={breadcrumbs}
+  schemaData={schemaData}
+>
+  <!-- Breadcrumb Bar (Feature 24.3) -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="/technical-data">Technical Data</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">{data.title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Technical Page Header -->
+  <section class="band-canvas tech-page-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-badges">
+          <Badge variant="ink" text={data.standard} />
+          <Badge variant="status-green">
+            <span>Verified Engineering Standard</span>
+          </Badge>
+          {data.dualUnitAvailable && (
+            <Badge variant="soft-blue">
+              <span>Dual Unit: Metric (mm / kg) &amp; Imperial (in / lbs)</span>
+            </Badge>
+          )}
+        </div>
+
+        <h1 class="display-lg tech-h1-title">
+          {data.title}
+        </h1>
+
+        <div class="standard-callout">
+          <span class="std-lbl">Governing Reference Specification:</span>
+          <strong class="std-val font-mono">{data.standard}</strong>
+        </div>
+
+        <p class="lead tech-description">
+          {data.description}
+        </p>
+
+        <!-- Action strip: Download note & RFQ CTA (Feature 24.5) -->
+        <div class="tech-header-actions">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-open-rfq
+            data-product={data.title}
+          >
+            Request Quote for this Standard
+          </button>
+          {data.downloadablePdf && (
+            <a href={data.downloadablePdf} class="btn btn-outline download-btn" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              <span>Download Reference PDF</span>
+            </a>
+          )}
+          <button type="button" class="btn btn-outline print-btn" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print Data Sheet</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Weight Calculator (Rendered if Category is Weight Formulas) (Feature 23.5) -->
+  {isWeightFormulas && (
+    <section class="band-cloud weight-calc-section" data-animate>
+      <div class="container">
+        <div class="card card-soft-lift calculator-card">
+          <div class="calc-header">
+            <span class="eyebrow">Interactive Calculation Engine</span>
+            <h2 class="display-sm">Live Theoretical Metal Weight Calculator</h2>
+            <p class="caption-md">Instant theoretical weight computation for pipes, round bars, sheets, and hex bars with density selection.</p>
+          </div>
+
+          <div class="calc-form-grid">
+            <div class="form-group">
+              <label for="calc-product-type" class="form-label">Product Form *</label>
+              <select id="calc-product-type" class="text-input">
+                <option value="pipe">Seamless / Welded Pipe (kg/m)</option>
+                <option value="round-bar">Round Bar / Rod (kg/m)</option>
+                <option value="sheet">Sheet / Plate (kg/piece)</option>
+                <option value="hex-bar">Hexagonal Bar (kg/m)</option>
+                <option value="square-bar">Square Bar (kg/m)</option>
+                <option value="circle">Circle / Blank (kg/piece)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-material" class="form-label">Material Alloy *</label>
+              <select id="calc-material" class="text-input">
+                <option value="ss304">Stainless Steel 304 / 304L (Density 8.00 g/cm³)</option>
+                <option value="ss316">Stainless Steel 316 / 316L (Density 8.02 g/cm³)</option>
+                <option value="cs">Carbon Steel / Mild Steel (Density 7.85 g/cm³)</option>
+                <option value="inconel625">Inconel 625 (Density 8.44 g/cm³)</option>
+                <option value="monel400">Monel 400 (Density 8.80 g/cm³)</option>
+                <option value="hastelloy">Hastelloy C-276 (Density 8.89 g/cm³)</option>
+                <option value="duplex2205">Duplex 2205 (Density 7.80 g/cm³)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-inputs-grid" id="calc-dynamic-inputs">
+            <!-- Dynamically populated or default pipe inputs -->
+            <div class="form-group" id="group-od">
+              <label for="input-od" class="form-label">Outside Diameter (OD mm) *</label>
+              <input type="number" id="input-od" class="text-input" placeholder="e.g. 60.3" min="0" step="any" value="60.3" />
+            </div>
+            <div class="form-group" id="group-wt">
+              <label for="input-wt" class="form-label">Wall Thickness (WT mm) *</label>
+              <input type="number" id="input-wt" class="text-input" placeholder="e.g. 3.91" min="0" step="any" value="3.91" />
+            </div>
+            <div class="form-group" id="group-len">
+              <label for="input-len" class="form-label">Length (meters) *</label>
+              <input type="number" id="input-len" class="text-input" placeholder="e.g. 6.0" min="0" step="any" value="6.0" />
+            </div>
+            <div class="form-group" id="group-w" style="display:none;">
+              <label for="input-width" class="form-label">Width (meters) *</label>
+              <input type="number" id="input-width" class="text-input" placeholder="e.g. 1.25" min="0" step="any" value="1.25" />
+            </div>
+          </div>
+
+          <div class="calc-output-strip">
+            <div class="calc-result-box">
+              <span class="calc-result-label">Computed Theoretical Weight:</span>
+              <span class="calc-result-value font-mono" id="calc-result-text">33.24 kg</span>
+              <span class="calc-result-imperial font-mono" id="calc-result-imperial">(73.28 lbs)</span>
+            </div>
+            <div class="calc-btn-group">
+              <button type="button" id="calc-btn" class="btn btn-primary">Calculate Weight</button>
+              <button
+                type="button"
+                id="calc-rfq-btn"
+                class="btn btn-outline"
+                data-open-rfq
+                data-product="Custom Weight Order"
+              >
+                Inquire This Tonnage
+              </button>
+            </div>
+          </div>
+          <p class="calc-footnote">Note: Calculation algorithm guards against division by zero and employs official ASTM density factors.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Section: Main Engineering Data Table with Controls -->
+  <section class="band-canvas data-table-main-section" data-animate>
+    <div class="container">
+      <!-- Interactive Table Controls Bar (Features 21.5, 22.5, B24.3) -->
+      <div class="table-controls-bar">
+        <div class="search-filter-box">
+          <label for="table-search" class="visually-hidden">Search table rows</label>
+          <input
+            type="search"
+            id="table-search"
+            class="text-input text-input-search"
+            placeholder="Search size, diameter, rating, or standard..."
+          />
+        </div>
+
+        <div class="controls-right">
+          <!-- Flange Class Selector Filter (Feature 21.1, 21.5) -->
+          {isFlangeTable && (
+            <div class="class-filter-box">
+              <label for="class-select" class="control-label">Filter Pressure Class:</label>
+              <select id="class-select" class="text-input class-dropdown">
+                <option value="all">All Classes (150# to 2500#)</option>
+                <option value="150">Class 150#</option>
+                <option value="300">Class 300#</option>
+                <option value="600">Class 600#</option>
+                <option value="900">Class 900#</option>
+                <option value="1500">Class 1500#</option>
+                <option value="2500">Class 2500#</option>
+              </select>
+            </div>
+          )}
+
+          <!-- Dual Unit Toggle (Feature 20.1-20.4, B24.3) -->
+          {data.dualUnitAvailable && (
+            <div class="unit-toggle-group">
+              <span class="unit-toggle-label">Units:</span>
+              <button type="button" class="unit-btn active" id="unit-metric-btn" data-unit="metric">Metric (mm/kg)</button>
+              <button type="button" class="unit-btn" id="unit-imperial-btn" data-unit="imperial">Imperial (in/lb)</button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Responsive Table Container with Sticky Headers (Feature 22.5) -->
+      <div class="table-container" id="engineering-table-container">
+        <table class="data-table" id="main-data-table">
+          <thead>
+            <tr>
+              {data.tableHeaders.map((header) => (
+                <th scope="col">{header}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody id="table-body-rows">
+            {data.rows.map((row) => (
+              <tr>
+                {data.tableHeaders.map((header) => {
+                  const val = row[header];
+                  const isNum = typeof val === 'number' || (!isNaN(Number(val)) && val !== '' && val !== '-');
+                  return (
+                    <td class={isNum ? 'font-mono num' : ''} data-numeric={isNum ? "true" : "false"}>
+                      {val !== undefined ? val : '-'}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {data.notes && data.notes.length > 0 && (
+          <div class="table-notes">
+            <strong>Engineering Notes &amp; Tolerances:</strong>
+            <ul class="notes-list">
+              {data.notes.map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <!-- Bottom Reference Card & RFQ Trigger -->
+      <div class="card card-soft-lift table-bottom-card">
+        <div class="bottom-card-content">
+          <div>
+            <span class="eyebrow">Quality &amp; Compliance Guarantee</span>
+            <h3 class="display-xs">Certified Material Test Certificates (EN 10204 3.1)</h3>
+            <p class="caption-md" style="margin-top: 0.25rem;">
+              All items tabulated above are stocked and supplied in compliance with ASME, ASTM, and NACE MR0175 standards. Same-day dispatch from our Kalamboli logistics stockyard.
+            </p>
+          </div>
+          <div class="bottom-card-actions">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-open-rfq
+              data-product={data.title}
+            >
+              Request RFQ for {data.title}
+            </button>
+            <Button
+              href={`https://wa.me/${siteConfig.contacts.salesWhatsAppRaw}?text=${encodeURIComponent(`Hello Bhansali Metals, I require technical clarification and official quotation for ${data.title}.`)}`}
+              variant="whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp Technical Desk
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Header */
+  .tech-page-header {
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .header-inner {
+    max-width: 960px;
+  }
+
+  .header-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-h1-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .standard-callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+    margin-bottom: 1rem;
+  }
+
+  .std-lbl {
+    color: var(--color-graphite);
+  }
+
+  .std-val {
+    color: var(--color-primary);
+  }
+
+  .tech-description {
+    color: var(--color-charcoal);
+    margin-bottom: 1.75rem;
+  }
+
+  .tech-header-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Interactive Weight Calculator */
+  .weight-calc-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .calculator-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 2rem;
+  }
+
+  .calc-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .calc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .calc-form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .calc-inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .calc-inputs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .calc-output-strip {
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-result-box {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-result-label {
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+  }
+
+  .calc-result-value {
+    font-size: 1.5rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+  }
+
+  .calc-result-imperial {
+    font-size: 1rem;
+    color: var(--color-graphite);
+  }
+
+  .calc-btn-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .calc-footnote {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  /* Table Main Section */
+  .data-table-main-section {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .table-controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .search-filter-box {
+    flex: 1 1 300px;
+    max-width: 420px;
+  }
+
+  .controls-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .class-filter-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .control-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-graphite);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .class-dropdown {
+    height: 40px;
+    width: auto;
+    min-width: 170px;
+    font-size: 0.8125rem;
+  }
+
+  .unit-toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .unit-toggle-label {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-graphite);
+    margin-right: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  .unit-btn {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp);
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .unit-btn.active {
+    background-color: var(--color-ink);
+    color: #ffffff;
+    border-color: var(--color-ink);
+  }
+
+  /* Bottom Card */
+  .table-bottom-card {
+    margin-top: 2rem;
+    padding: 1.75rem 2rem;
+    background-color: var(--color-cloud);
+  }
+
+  .bottom-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .bottom-card-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .notes-list {
+    margin-top: 0.25rem;
+    padding-left: 1.25rem;
+  }
+
+  /* Print Stylesheet (B24.5) */
+  @media print {
+    .breadcrumb-strip,
+    .tech-header-actions,
+    .table-controls-bar,
+    .table-bottom-card,
+    .utility-strip,
+    nav,
+    footer,
+    .bottom-bar {
+      display: none !important;
+    }
+
+    body {
+      background: #ffffff !important;
+      color: #000000 !important;
+    }
+
+    .table-container {
+      box-shadow: none !important;
+      border: 1px solid #cccccc !important;
+      overflow: visible !important;
+    }
+
+    .data-table th, .data-table td {
+      border: 1px solid #dddddd !important;
+      font-size: 10pt !important;
+      padding: 6px 8px !important;
+    }
+  }
+</style>
+
+<script is:inline>
+  function setupTechnicalPage() {
+    // 1. Live Table Search Filter
+    const searchInput = document.getElementById('table-search');
+    const tableBody = document.getElementById('table-body-rows');
+    const classSelect = document.getElementById('class-select');
+
+    function filterRows() {
+      if (!tableBody) return;
+      const q = (searchInput?.value || '').toLowerCase().trim();
+      const selectedClass = classSelect?.value || 'all';
+
+      const rows = tableBody.querySelectorAll('tr');
+      rows.forEach((row) => {
+        const text = row.textContent?.toLowerCase() || '';
+        const matchesQuery = q === '' || text.includes(q);
+        let matchesClass = true;
+        if (selectedClass !== 'all') {
+          matchesClass = text.includes(`class ${selectedClass}`) || text.includes(`${selectedClass}#`) || text.includes(selectedClass);
+        }
+        row.style.display = matchesQuery && matchesClass ? '' : 'none';
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterRows);
+    }
+    if (classSelect) {
+      classSelect.addEventListener('change', filterRows);
+    }
+
+    // 2. Dual Unit Switch
+    const metricBtn = document.getElementById('unit-metric-btn');
+    const imperialBtn = document.getElementById('unit-imperial-btn');
+    const tableContainer = document.getElementById('engineering-table-container');
+
+    if (metricBtn && imperialBtn && tableContainer) {
+      metricBtn.addEventListener('click', () => {
+        metricBtn.classList.add('active');
+        imperialBtn.classList.remove('active');
+        tableContainer.setAttribute('data-unit', 'metric');
+      });
+      imperialBtn.addEventListener('click', () => {
+        imperialBtn.classList.add('active');
+        metricBtn.classList.remove('active');
+        tableContainer.setAttribute('data-unit', 'imperial');
+      });
+    }
+
+    // 3. Theoretical Weight Calculator Engine
+    const prodType = document.getElementById('calc-product-type');
+    const matSelect = document.getElementById('calc-material');
+    const odInput = document.getElementById('input-od');
+    const wtInput = document.getElementById('input-wt');
+    const lenInput = document.getElementById('input-len');
+    const widthInput = document.getElementById('input-width');
+    const resultText = document.getElementById('calc-result-text');
+    const resultImp = document.getElementById('calc-result-imperial');
+    const calcBtn = document.getElementById('calc-btn');
+    const calcRfqBtn = document.getElementById('calc-rfq-btn');
+
+    const densities = {
+      ss304: 8.00,
+      ss316: 8.02,
+      cs: 7.85,
+      inconel625: 8.44,
+      monel400: 8.80,
+      hastelloy: 8.89,
+      duplex2205: 7.80
+    };
+
+    function updateCalculator() {
+      if (!resultText) return;
+      const type = prodType?.value || 'pipe';
+      const mat = matSelect?.value || 'ss304';
+      const density = densities[mat] || 8.00;
+
+      const od = parseFloat(odInput?.value) || 0;
+      const wt = parseFloat(wtInput?.value) || 0;
+      const len = parseFloat(lenInput?.value) || 0;
+      const width = parseFloat(widthInput?.value) || 0;
+
+      // Protection against negative or zero parameters
+      if (od < 0 || wt < 0 || len < 0 || width < 0) {
+        resultText.textContent = '0.00 kg';
+        if (resultImp) resultImp.textContent = '(0.00 lbs)';
+        return;
+      }
+
+      let kg = 0;
+      if (type === 'pipe') {
+        // formula: (OD - WT) * WT * 0.02491 for 8.0 density, adjusted by density ratio
+        if (od === 0 || wt === 0) {
+          kg = 0;
+        } else {
+          const factor = (density / 8.0) * 0.02491;
+          const wtPerMeter = Math.max(0, (od - wt) * wt * factor);
+          kg = wtPerMeter * len;
+        }
+      } else if (type === 'round-bar') {
+        // formula: OD * OD * 0.00623 * (density/8.0)
+        const factor = (density / 8.0) * 0.00623;
+        kg = od * od * factor * len;
+      } else if (type === 'sheet') {
+        // formula: Length * Width * Thickness * Density
+        kg = len * width * wt * density;
+      } else if (type === 'hex-bar') {
+        // formula: AF * AF * 0.00679
+        kg = od * od * 0.00679 * (density / 7.93) * len;
+      } else if (type === 'square-bar') {
+        // formula: Side * Side * 0.00787
+        kg = od * od * 0.00787 * (density / 7.93) * len;
+      } else if (type === 'circle') {
+        // formula: OD * OD * Thickness * 0.00000623
+        kg = od * od * wt * 0.00000623 * (density / 8.00);
+      }
+
+      if (isNaN(kg) || !isFinite(kg) || kg < 0) kg = 0;
+      const lbs = kg * 2.20462;
+      resultText.textContent = `${kg.toFixed(2)} kg`;
+      if (resultImp) resultImp.textContent = `(${lbs.toFixed(2)} lbs)`;
+
+      if (calcRfqBtn) {
+        calcRfqBtn.setAttribute(
+          'data-product',
+          `${matSelect?.options[matSelect.selectedIndex]?.text.split(' ')[0]} ${prodType?.options[prodType.selectedIndex]?.text.split(' ')[0]}: ${kg.toFixed(1)} kg`
+        );
+      }
+    }
+
+    if (calcBtn) calcBtn.addEventListener('click', updateCalculator);
+    if (prodType) {
+      prodType.addEventListener('change', () => {
+        const val = prodType.value;
+        const groupW = document.getElementById('group-w');
+        const groupWt = document.getElementById('group-wt');
+        const groupOd = document.getElementById('group-od');
+        const labelOd = groupOd?.querySelector('label');
+        const labelWt = groupWt?.querySelector('label');
+
+        if (val === 'sheet') {
+          if (groupW) groupW.style.display = '';
+          if (labelOd) labelOd.textContent = 'Length (meters) *';
+          if (labelWt) labelWt.textContent = 'Thickness (mm) *';
+        } else {
+          if (groupW) groupW.style.display = 'none';
+          if (labelOd) labelOd.textContent = 'Outside Diameter (OD mm) *';
+          if (labelWt) labelWt.textContent = 'Wall Thickness (WT mm) *';
+        }
+        updateCalculator();
+      });
+    }
+
+    [odInput, wtInput, lenInput, widthInput, matSelect].forEach(el => {
+      if (el) el.addEventListener('input', updateCalculator);
+    });
+
+    // Run initial calculation
+    updateCalculator();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTechnicalPage);
+  } else {
+    setupTechnicalPage();
+  }
+</script>

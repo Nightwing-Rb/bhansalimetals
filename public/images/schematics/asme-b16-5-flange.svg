@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <rect width="600" height="400" fill="#f7f7f7" rx="8"/>
+  <text x="300" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1a1a1a">ASME B16.5 WELD NECK FLANGE (WNRF) SCHEMATIC</text>
+  <text x="300" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#636363">Class 150 - 2500# Engineering Cross-Section</text>
+
+  <!-- Flange Cross-section Profile -->
+  <path d="M 120 280 L 120 230 L 220 230 L 240 120 L 260 120 L 260 280 Z" fill="#ffffff" stroke="#024ad8" stroke-width="2.5"/>
+  <path d="M 480 280 L 480 230 L 380 230 L 360 120 L 340 120 L 340 280 Z" fill="#ffffff" stroke="#024ad8" stroke-width="2.5"/>
+
+  <!-- Raised Face -->
+  <rect x="230" y="280" width="140" height="15" fill="#e8e8e8" stroke="#024ad8" stroke-width="2"/>
+
+  <!-- Centerline -->
+  <line x1="300" y1="80" x2="300" y2="330" stroke="#ff5050" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Bolt Holes -->
+  <rect x="150" y="230" width="24" height="50" fill="#f7f7f7" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="426" y="230" width="24" height="50" fill="#f7f7f7" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- Dimension Lines -->
+  <!-- OD (Outer Diameter) -->
+  <line x1="120" y1="320" x2="480" y2="320" stroke="#1a1a1a" stroke-width="1.5"/>
+  <polygon points="120,317 110,320 120,323" fill="#1a1a1a"/>
+  <polygon points="480,317 490,320 480,323" fill="#1a1a1a"/>
+  <text x="300" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">O (Outside Diameter)</text>
+
+  <!-- PCD (Bolt Circle) -->
+  <line x1="162" y1="210" x2="438" y2="210" stroke="#024ad8" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <polygon points="162,207 152,210 162,213" fill="#024ad8"/>
+  <polygon points="438,207 448,210 438,213" fill="#024ad8"/>
+  <text x="300" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#024ad8">C (Bolt Circle Diameter / PCD)</text>
+
+  <!-- Bore ID (B) -->
+  <line x1="260" y1="100" x2="340" y2="100" stroke="#1a1a1a" stroke-width="1.5"/>
+  <polygon points="260,97 250,100 260,103" fill="#1a1a1a"/>
+  <polygon points="340,97 350,100 340,103" fill="#1a1a1a"/>
+  <text x="300" y="92" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">B (Bore / Inside Diameter)</text>
+
+  <!-- Thickness (T) -->
+  <line x1="80" y1="230" x2="80" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+  <polygon points="77,230 80,220 83,230" fill="#1a1a1a"/>
+  <polygon points="77,280 80,290 83,280" fill="#1a1a1a"/>
+  <text x="60" y="260" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">T</text>
+
+  <!-- Height (Y) -->
+  <line x1="520" y1="120" x2="520" y2="280" stroke="#024ad8" stroke-width="1.5"/>
+  <polygon points="517,120 520,110 523,120" fill="#024ad8"/>
+  <polygon points="517,280 520,290 523,280" fill="#024ad8"/>
+  <text x="545" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#024ad8">Y (Hub Ht)</text>
+</svg>

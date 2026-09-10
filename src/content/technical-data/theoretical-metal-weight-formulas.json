@@ -1,0 +1,152 @@
+{
+  "title": "Theoretical Metal Weight Calculation Formulas & Densities",
+  "standard": "Industry Standard Engineering Formulas / ASTM A276 / ASTM A312",
+  "category": "weight-formulas",
+  "metaTitle": "Theoretical Metal Weight Calculation Formulas | Bhansali Metals",
+  "metaDescription": "Engineering calculation formulas for calculating theoretical weights of stainless steel, carbon steel, copper, nickel, lead, and aluminium pipes, sheets, round bars, and blanks.",
+  "description": "Standard mathematical formulas and empirical coefficients for calculating theoretical weights of industrial metal products. Includes 14 standard calculation equations for stainless steel, nickel alloys, carbon steel, copper, lead, and aluminium in pipes, tubes, sheets, plates, round bars, hex bars, square bars, and blanks.",
+  "downloadablePdf": "/downloads/metal-weight-calculation-formulas-bhansali.pdf",
+  "tableHeaders": [
+    "Product Form",
+    "Material Alloy",
+    "Mathematical Formula",
+    "Input Variables & Units",
+    "Output Unit",
+    "Material Density (g/cm³)",
+    "Practical Example"
+  ],
+  "rows": [
+    {
+      "Product Form": "Pipes & Tubes",
+      "Material Alloy": "Stainless Steel (304, 316, etc.)",
+      "Mathematical Formula": "(OD - WT) x WT x 0.02466",
+      "Input Variables & Units": "OD = Outside Diam (mm), WT = Wall Thickness (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 7.93,
+      "Practical Example": "60.3 OD x 3.91 WT = 5.44 kg/m"
+    },
+    {
+      "Product Form": "Rolled & Welded Pipe Blank",
+      "Material Alloy": "Steel & Stainless Alloys",
+      "Mathematical Formula": "(OD - THK) x 3.14159",
+      "Input Variables & Units": "OD = Outside Diam (mm), THK = Plate Thickness (mm)",
+      "Output Unit": "mm (Sheet Width)",
+      "Material Density (g/cm³)": 7.93,
+      "Practical Example": "(219.1 - 4.0) x 3.14159 = 675.8 mm width"
+    },
+    {
+      "Product Form": "Sheets & Plates",
+      "Material Alloy": "Stainless Steel",
+      "Mathematical Formula": "Length(m) x Width(m) x Thk(mm) x 8.00",
+      "Input Variables & Units": "Length (m), Width (m), Thickness (mm)",
+      "Output Unit": "kg / sheet",
+      "Material Density (g/cm³)": 8,
+      "Practical Example": "2.0m x 1.0m x 3.0mm = 48.00 kg"
+    },
+    {
+      "Product Form": "Circles & Blanks",
+      "Material Alloy": "Stainless Steel",
+      "Mathematical Formula": "OD(mm) x OD(mm) x Thk(mm) / 160000",
+      "Input Variables & Units": "OD = Diameter (mm), Thk = Thickness (mm)",
+      "Output Unit": "kg / piece",
+      "Material Density (g/cm³)": 8,
+      "Practical Example": "300 OD x 300 OD x 10 Thk / 160000 = 5.63 kg"
+    },
+    {
+      "Product Form": "Round Bars",
+      "Material Alloy": "Stainless Steel",
+      "Mathematical Formula": "Dia(mm) x Dia(mm) x 0.00623",
+      "Input Variables & Units": "Dia = Diameter (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 7.93,
+      "Practical Example": "50mm Dia = 50 x 50 x 0.00623 = 15.58 kg/m"
+    },
+    {
+      "Product Form": "Hexagonal Bars",
+      "Material Alloy": "Stainless Steel",
+      "Mathematical Formula": "A/F(mm) x A/F(mm) x 0.00679",
+      "Input Variables & Units": "A/F = Across Flats width (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 7.93,
+      "Practical Example": "24mm A/F = 24 x 24 x 0.00679 = 3.91 kg/m"
+    },
+    {
+      "Product Form": "Square Bars",
+      "Material Alloy": "Stainless Steel",
+      "Mathematical Formula": "Side(mm) x Side(mm) x 0.00787",
+      "Input Variables & Units": "Side = Width of square side (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 7.93,
+      "Practical Example": "25mm Side = 25 x 25 x 0.00787 = 4.92 kg/m"
+    },
+    {
+      "Product Form": "Pipes & Tubes",
+      "Material Alloy": "Carbon Steel",
+      "Mathematical Formula": "(OD - WT) x WT x 0.02466",
+      "Input Variables & Units": "OD = Outside Diam (mm), WT = Wall Thickness (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 7.85,
+      "Practical Example": "114.3 OD x 6.02 WT = 16.07 kg/m"
+    },
+    {
+      "Product Form": "Sheets & Plates",
+      "Material Alloy": "Carbon Steel",
+      "Mathematical Formula": "Length(m) x Width(m) x Thk(mm) x 7.85",
+      "Input Variables & Units": "Length (m), Width (m), Thickness (mm)",
+      "Output Unit": "kg / sheet",
+      "Material Density (g/cm³)": 7.85,
+      "Practical Example": "2.5m x 1.25m x 5.0mm = 122.66 kg"
+    },
+    {
+      "Product Form": "Pipes & Tubes",
+      "Material Alloy": "Copper",
+      "Mathematical Formula": "(OD - WT) x WT x 0.02560",
+      "Input Variables & Units": "OD = Outside Diam (mm), WT = Wall Thickness (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 8.96,
+      "Practical Example": "28.0 OD x 1.5 WT = 1.02 kg/m"
+    },
+    {
+      "Product Form": "Pipes & Tubes",
+      "Material Alloy": "Lead",
+      "Mathematical Formula": "(OD - WT) x WT x 0.03450",
+      "Input Variables & Units": "OD = Outside Diam (mm), WT = Wall Thickness (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 11.34,
+      "Practical Example": "50.0 OD x 3.0 WT = 4.86 kg/m"
+    },
+    {
+      "Product Form": "Sheets & Plates",
+      "Material Alloy": "Lead",
+      "Mathematical Formula": "Length(m) x Width(m) x Thk(mm) x 11.20",
+      "Input Variables & Units": "Length (m), Width (m), Thickness (mm)",
+      "Output Unit": "kg / sheet",
+      "Material Density (g/cm³)": 11.34,
+      "Practical Example": "2.0m x 1.0m x 2.0mm = 44.80 kg"
+    },
+    {
+      "Product Form": "Pipes & Tubes",
+      "Material Alloy": "Aluminium",
+      "Mathematical Formula": "(OD - WT) x WT x 0.00820",
+      "Input Variables & Units": "OD = Outside Diam (mm), WT = Wall Thickness (mm)",
+      "Output Unit": "kg / meter",
+      "Material Density (g/cm³)": 2.7,
+      "Practical Example": "50.0 OD x 2.0 WT = 0.79 kg/m"
+    },
+    {
+      "Product Form": "Sheets & Plates",
+      "Material Alloy": "Aluminium",
+      "Mathematical Formula": "Length(m) x Width(m) x Thk(mm) x 2.66",
+      "Input Variables & Units": "Length (m), Width (m), Thickness (mm)",
+      "Output Unit": "kg / sheet",
+      "Material Density (g/cm³)": 2.7,
+      "Practical Example": "2.0m x 1.0m x 2.0mm = 10.64 kg"
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "Density values used: Stainless Steel (300 series) = 7.93-8.00 g/cm³, Carbon Steel = 7.85 g/cm³, Copper = 8.96 g/cm³, Aluminium = 2.70 g/cm³, Lead = 11.34 g/cm³.",
+    "For high nickel alloys (Inconel 625: 8.44 g/cm³, Hastelloy C-276: 8.89 g/cm³, Monel 400: 8.80 g/cm³), multiply stainless steel formula weight by density factor (Alloy Density / 7.93).",
+    "Tensile Strength Conversions: 1 kg/mm² = 9.80665 MPa (N/mm²); 1 ksi = 1000 psi = 6.89476 MPa; 1 kg/mm² = 1.42233 ksi; 1 psi = 0.000703 kg/mm²."
+  ]
+}

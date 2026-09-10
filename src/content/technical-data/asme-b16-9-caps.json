@@ -1,0 +1,202 @@
+{
+  "title": "ASME B16.9 Buttweld Pipe End Caps Dimensions Chart",
+  "standard": "ASME B16.9 / ASTM A403 / ASTM B366",
+  "category": "fittings-dimensions",
+  "metaTitle": "ASME B16.9 Pipe End Caps Dimensions Chart | Bhansali Metals",
+  "metaDescription": "Dimensional specifications for ASME B16.9 pipe end caps from 1/2\" to 28\" NPS (outside diameter and height / length E).",
+  "description": "Standard dimensions for factory-made wrought butt-welding pipe end caps manufactured per ASME B16.9. Dimension D gives the outside diameter at the bevel, and Dimension E specifies the total overall height / length. Covers nominal pipe sizes from 1/2\" (DN 15) to 28\" (DN 700).",
+  "downloadablePdf": "/downloads/asme-b16-9-caps-dimensions-bhansali.pdf",
+  "tableHeaders": [
+    "Nominal Pipe Size (NPS)",
+    "Nominal Bore (DN mm)",
+    "Outside Diameter D (mm)",
+    "Outside Diameter D (in)",
+    "Total Length E (mm)",
+    "Total Length E (in)"
+  ],
+  "rows": [
+    {
+      "Nominal Pipe Size (NPS)": "1/2\"",
+      "Nominal Bore (DN mm)": 15,
+      "Outside Diameter D (mm)": 21.34,
+      "Outside Diameter D (in)": 0.84,
+      "Total Length E (mm)": 25.4,
+      "Total Length E (in)": 1.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3/4\"",
+      "Nominal Bore (DN mm)": 20,
+      "Outside Diameter D (mm)": 26.67,
+      "Outside Diameter D (in)": 1.05,
+      "Total Length E (mm)": 31.75,
+      "Total Length E (in)": 1.25
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1\"",
+      "Nominal Bore (DN mm)": 25,
+      "Outside Diameter D (mm)": 33.4,
+      "Outside Diameter D (in)": 1.315,
+      "Total Length E (mm)": 38.1,
+      "Total Length E (in)": 1.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/4\"",
+      "Nominal Bore (DN mm)": 32,
+      "Outside Diameter D (mm)": 42.16,
+      "Outside Diameter D (in)": 1.66,
+      "Total Length E (mm)": 38.1,
+      "Total Length E (in)": 1.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "1-1/2\"",
+      "Nominal Bore (DN mm)": 40,
+      "Outside Diameter D (mm)": 48.26,
+      "Outside Diameter D (in)": 1.9,
+      "Total Length E (mm)": 38.1,
+      "Total Length E (in)": 1.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2\"",
+      "Nominal Bore (DN mm)": 50,
+      "Outside Diameter D (mm)": 60.32,
+      "Outside Diameter D (in)": 2.375,
+      "Total Length E (mm)": 38.1,
+      "Total Length E (in)": 1.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "2-1/2\"",
+      "Nominal Bore (DN mm)": 65,
+      "Outside Diameter D (mm)": 73.02,
+      "Outside Diameter D (in)": 2.875,
+      "Total Length E (mm)": 38.1,
+      "Total Length E (in)": 1.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3\"",
+      "Nominal Bore (DN mm)": 80,
+      "Outside Diameter D (mm)": 88.9,
+      "Outside Diameter D (in)": 3.5,
+      "Total Length E (mm)": 50.8,
+      "Total Length E (in)": 2.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "3-1/2\"",
+      "Nominal Bore (DN mm)": 90,
+      "Outside Diameter D (mm)": 101.6,
+      "Outside Diameter D (in)": 4.0,
+      "Total Length E (mm)": 63.5,
+      "Total Length E (in)": 2.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "4\"",
+      "Nominal Bore (DN mm)": 100,
+      "Outside Diameter D (mm)": 114.3,
+      "Outside Diameter D (in)": 4.5,
+      "Total Length E (mm)": 63.5,
+      "Total Length E (in)": 2.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "5\"",
+      "Nominal Bore (DN mm)": 125,
+      "Outside Diameter D (mm)": 141.3,
+      "Outside Diameter D (in)": 5.563,
+      "Total Length E (mm)": 76.2,
+      "Total Length E (in)": 3.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "6\"",
+      "Nominal Bore (DN mm)": 150,
+      "Outside Diameter D (mm)": 168.27,
+      "Outside Diameter D (in)": 6.625,
+      "Total Length E (mm)": 88.9,
+      "Total Length E (in)": 3.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "8\"",
+      "Nominal Bore (DN mm)": 200,
+      "Outside Diameter D (mm)": 219.07,
+      "Outside Diameter D (in)": 8.625,
+      "Total Length E (mm)": 101.6,
+      "Total Length E (in)": 4.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "10\"",
+      "Nominal Bore (DN mm)": 250,
+      "Outside Diameter D (mm)": 273.05,
+      "Outside Diameter D (in)": 10.75,
+      "Total Length E (mm)": 127.0,
+      "Total Length E (in)": 5.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "12\"",
+      "Nominal Bore (DN mm)": 300,
+      "Outside Diameter D (mm)": 323.85,
+      "Outside Diameter D (in)": 12.75,
+      "Total Length E (mm)": 152.4,
+      "Total Length E (in)": 6.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "14\"",
+      "Nominal Bore (DN mm)": 350,
+      "Outside Diameter D (mm)": 355.6,
+      "Outside Diameter D (in)": 14.0,
+      "Total Length E (mm)": 165.1,
+      "Total Length E (in)": 6.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "16\"",
+      "Nominal Bore (DN mm)": 400,
+      "Outside Diameter D (mm)": 406.4,
+      "Outside Diameter D (in)": 16.0,
+      "Total Length E (mm)": 177.8,
+      "Total Length E (in)": 7.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "18\"",
+      "Nominal Bore (DN mm)": 450,
+      "Outside Diameter D (mm)": 457.2,
+      "Outside Diameter D (in)": 18.0,
+      "Total Length E (mm)": 203.2,
+      "Total Length E (in)": 8.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "20\"",
+      "Nominal Bore (DN mm)": 500,
+      "Outside Diameter D (mm)": 508.0,
+      "Outside Diameter D (in)": 20.0,
+      "Total Length E (mm)": 228.6,
+      "Total Length E (in)": 9.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "22\"",
+      "Nominal Bore (DN mm)": 550,
+      "Outside Diameter D (mm)": 558.8,
+      "Outside Diameter D (in)": 22.0,
+      "Total Length E (mm)": 254.0,
+      "Total Length E (in)": 10.0
+    },
+    {
+      "Nominal Pipe Size (NPS)": "24\"",
+      "Nominal Bore (DN mm)": 600,
+      "Outside Diameter D (mm)": 609.6,
+      "Outside Diameter D (in)": 24.0,
+      "Total Length E (mm)": 266.7,
+      "Total Length E (in)": 10.5
+    },
+    {
+      "Nominal Pipe Size (NPS)": "28\"",
+      "Nominal Bore (DN mm)": 700,
+      "Outside Diameter D (mm)": 711.2,
+      "Outside Diameter D (in)": 28.0,
+      "Total Length E (mm)": 266.7,
+      "Total Length E (in)": 10.5
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "Dimensions conform to ASME B16.9 standards for wrought butt-welding end caps.",
+    "Length E applies for nominal wall thickness up to ASME B36.10 Schedule Extra Strong (XS).",
+    "Shape shall be ellipsoidal conforming to the shape requirements of ASME Boiler and Pressure Vessel Code Section VIII, Div 1.",
+    "All dimensions are in millimeters and inches as shown."
+  ]
+}

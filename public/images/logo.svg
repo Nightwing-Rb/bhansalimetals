@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" width="280" height="48" fill="none">
+  <!-- 45-degree signature chevrons icon -->
+  <g transform="translate(2, 4)">
+    <rect width="40" height="40" rx="4" fill="#024ad8" />
+    <path d="M9 31 L19 9 L24 9 L14 31 Z" fill="#ffffff" />
+    <path d="M18 31 L28 9 L33 9 L23 31 Z" fill="#c9e0fc" />
+  </g>
+  <!-- Brand typography -->
+  <text x="52" y="24" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.02em" fill="#1a1a1a">BHANSALI METALS</text>
+  <text x="52" y="38" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.12em" fill="#636363">HIGH NICKEL ALLOYS &amp; PIPING</text>
+</svg>

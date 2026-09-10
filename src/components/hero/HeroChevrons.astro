@@ -1,0 +1,99 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`hero-chevron-wrapper ${className}`.trim()}>
+  <!-- Left 45-degree HP Electric Blue chevron -->
+  <div class="chevron-flank chevron-left" aria-hidden="true">
+    <div class="chevron-shape"></div>
+  </div>
+
+  <!-- Hero content slot (Card with soft 16px radius) -->
+  <div class="hero-card-container">
+    <slot />
+  </div>
+
+  <!-- Right 45-degree HP Electric Blue chevron -->
+  <div class="chevron-flank chevron-right" aria-hidden="true">
+    <div class="chevron-shape"></div>
+  </div>
+</div>
+
+<style>
+  .hero-chevron-wrapper {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-card-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    background-color: var(--color-canvas);
+    border-radius: var(--radius-soft); /* 16px */
+    box-shadow: var(--shadow-soft-lift);
+    border: 1px solid var(--color-fog);
+    overflow: hidden;
+  }
+
+  .chevron-flank {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .chevron-shape {
+    width: 28px;
+    height: 320px;
+    background-color: var(--color-primary); /* Signal Blue */
+    border-radius: 0; /* Strict 0px radius */
+    transform: skewY(-45deg);
+  }
+
+  /* Tablet scaling (768px - 1023px): 60% size */
+  @media (min-width: 768px) {
+    .chevron-flank {
+      display: block;
+    }
+    .chevron-left {
+      left: -20px;
+    }
+    .chevron-right {
+      right: -20px;
+    }
+    .chevron-shape {
+      width: 18px;
+      height: 200px;
+    }
+  }
+
+  /* Desktop full size (>= 1024px) */
+  @media (min-width: 1024px) {
+    .chevron-left {
+      left: -38px;
+    }
+    .chevron-right {
+      right: -38px;
+    }
+    .chevron-shape {
+      width: 28px;
+      height: 320px;
+    }
+  }
+
+  /* Mobile (<768px): chevrons completely collapse to prevent horizontal overflow */
+  @media (max-width: 767px) {
+    .chevron-flank {
+      display: none !important;
+    }
+  }
+</style>

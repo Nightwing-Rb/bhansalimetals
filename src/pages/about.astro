@@ -1,0 +1,601 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Badge from '../components/common/Badge.astro';
+import Button from '../components/common/Button.astro';
+import { siteConfig } from '../data/site';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'About Us', url: '/about' },
+];
+
+const leadershipTeam = [
+  {
+    name: 'Mr. Harakchand Bhansali',
+    role: 'Founder & Managing Director',
+    experience: '38+ Years Metallurgy Experience',
+    bio: 'Established Bhansali Metals in 1988 in the historic Opera House metal market. Pioneered the distribution of Mukand Ltd high-nickel alloy billets and stainless steel piping across India and international markets.',
+    contact: siteConfig.contacts.directorMobile,
+  },
+  {
+    name: 'Mr. Nitin Bhansali',
+    role: 'Director — Sales & Metallurgical Engineering',
+    experience: '20+ Years Technical Procurement',
+    bio: 'Oversees global EPC contract sales, technical material specifications, and mill relations. Expert in NACE MR0175 sour service compliance and ASME B16.5 / B16.47 custom forged flange requirements.',
+    contact: siteConfig.contacts.salesWhatsApp,
+  },
+  {
+    name: 'Mr. Kushal Bhansali',
+    role: 'Director — Operations & Global Logistics',
+    experience: '15+ Years Supply Chain Operations',
+    bio: 'Manages central stockyard logistics at Kalamboli, Navi Mumbai, high-speed container freight via JNPT Nhava Sheva, and 100% Spectro PMI quality control inspections.',
+    contact: siteConfig.contacts.landline1,
+  }
+];
+
+const milestones = [
+  { year: '1988', title: 'Founding in Opera House', desc: 'Bhansali Metals established at Kataria Mansion, Khetwadi, Mumbai, specializing in specialty stainless steel rounds and heavy wall piping.' },
+  { year: '1996', title: 'Mukand Ltd Dealership', desc: 'Appointed as Authorized Dealer and Stockist for Mukand Ltd, expanding distribution of certified alloy steel rounds and seamless billets.' },
+  { year: '2004', title: 'Kalamboli Logistics Center', desc: 'Acquisition and commissioning of our central 50,000 sq. ft. godown and stockyard at Steel Market, Kalamboli, Navi Mumbai.' },
+  { year: '2012', title: 'Superalloys Division Expansion', desc: 'Direct stockist representation for Inconel, Monel, Hastelloy, and Super Duplex 2507 for critical offshore oil & gas platforms.' },
+  { year: '2018', title: 'ISO 9001:2015 & PED Compliance', desc: 'Accreditation by QA International Certification (QAIC/IN/1103-A) and European Pressure Equipment Directive (PED 2014/68/EU).' },
+  { year: '2026', title: '30,000 MT Annual Capacity', desc: 'Supplying over 30,000 MT of certified piping components and high-nickel alloys annually to 45+ countries worldwide.' },
+];
+---
+
+<BaseLayout
+  title="About Bhansali Metals | 35+ Years Stockist & Mukand Dealership Mumbai"
+  description="Learn about Bhansali Metals: 35+ years track record, Authorized Dealer for Mukand Ltd, 30,000 MT capacity, and leadership under Mr. Harakchand Bhansali, Mr. Nitin Bhansali, and Mr. Kushal Bhansali."
+  canonicalUrl="https://www.bhansalimetals.com/about"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Breadcrumb Bar -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">About Us</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Section: About Hero -->
+  <section class="band-canvas about-hero">
+    <div class="container">
+      <div class="about-hero-layout">
+        <div class="about-hero-text" data-animate>
+          <div class="badge-strip">
+            <Badge variant="status-green">
+              <span>Established 1988 &bull; 35+ Years Industry Service</span>
+            </Badge>
+            <Badge variant="soft-blue">
+              <span>Authorized Dealer Mukand Ltd</span>
+            </Badge>
+            <Badge variant="outline">
+              <span>ISO 9001:2015 Registered</span>
+            </Badge>
+          </div>
+
+          <h1 class="display-xl about-title">
+            Over 35 Years of Metallurgical Excellence &amp; Industrial Trust
+          </h1>
+
+          <p class="lead about-subtitle">
+            Bhansali Metals is an industry-leading manufacturer, stockist, and worldwide exporter of High Nickel Superalloys (Inconel, Monel, Hastelloy, Nickel) and Stainless Steel Pipes, ASME B16.5 Flanges, and Precision Fittings headquartered in Mumbai, India.
+          </p>
+
+          <p class="about-body">
+            Founded in 1988 by Mr. Harakchand Bhansali at Kataria Mansion in Opera House, Mumbai, our company has grown from a regional stockist to an internationally accredited supply partner serving major engineering, procurement, and construction (EPC) contractors across oil &amp; gas, petrochemical, aerospace, marine, and nuclear power industries.
+          </p>
+        </div>
+
+        <div class="about-hero-stat-card card card-soft-lift" data-animate>
+          <span class="stat-badge">Annual Operational Throughput</span>
+          <div class="stat-highlight">
+            <span class="stat-num">30,000</span>
+            <span class="stat-unit">MT</span>
+          </div>
+          <p class="stat-caption">Annual handling capacity of certified stainless steel, duplex, and high-nickel superalloys.</p>
+
+          <div class="stat-row">
+            <div class="stat-mini">
+              <strong>1,800+ Tons</strong>
+              <span>Ready Stock Inventory</span>
+            </div>
+            <div class="stat-mini">
+              <strong>45+</strong>
+              <span>Export Destinations</span>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-mini">
+              <strong>24–48 Hrs</strong>
+              <span>Domestic Dispatch</span>
+            </div>
+            <div class="stat-mini">
+              <strong>JNPT Port</strong>
+              <span>Nhava Sheva Sea Freight</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Dealership & Core Credentials -->
+  <section class="band-cloud credentials-section">
+    <div class="container">
+      <div class="section-title-box" data-animate>
+        <span class="eyebrow">Strategic Distributorship</span>
+        <h2 class="display-md">Authorized Dealer &amp; Stockist for Mukand Ltd</h2>
+        <p class="lead" style="max-width: 820px; margin-top: 0.5rem;">
+          Bhansali Metals is a premier authorized dealership partner of Mukand Ltd, India’s pioneer in specialty alloy steel and stainless steel manufacturing.
+        </p>
+      </div>
+
+      <div class="credentials-grid">
+        <div class="card card-soft-lift cred-card" data-animate>
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+            </svg>
+          </div>
+          <h3 class="display-xs cred-title">Mukand Ltd Certified Melt Billets</h3>
+          <p class="cred-desc">
+            Direct access to prime European and Indian melt heats with clean chemistry, low inclusion ratings, and certified grain size compliance for critical nuclear and aerospace applications.
+          </p>
+        </div>
+
+        <div class="card card-soft-lift cred-card" data-animate>
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/>
+            </svg>
+          </div>
+          <h3 class="display-xs cred-title">50,000 Sq. Ft. Kalamboli Stockyard</h3>
+          <p class="cred-desc">
+            Equipped with heavy overhead gantry cranes, precision band saws, automated bevelling machines, and climate-controlled storage for high-nickel alloys and precision stainless steel tubes.
+          </p>
+        </div>
+
+        <div class="card card-soft-lift cred-card" data-animate>
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+            </svg>
+          </div>
+          <h3 class="display-xs cred-title">JNPT Nhava Sheva Port Gate</h3>
+          <p class="cred-desc">
+            Located just 25 kilometers from Jawaharlal Nehru Port Trust (JNPT / Nhava Sheva), our logistics team provides same-day container stuffing, customs clearance, and global ocean freight dispatch.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Executive Leadership -->
+  <section class="band-canvas leadership-section">
+    <div class="container">
+      <div class="section-title-box" data-animate>
+        <span class="eyebrow">Executive Governance</span>
+        <h2 class="display-md">Leadership &amp; Metallurgical Direction</h2>
+        <p class="caption-md" style="margin-top: 0.25rem;">
+          Led by three generations of metallurgy specialists committed to engineering integrity, uncompromised quality, and transparent client partnerships.
+        </p>
+      </div>
+
+      <div class="leadership-grid">
+        {leadershipTeam.map((leader) => (
+          <div class="card card-soft-lift leader-card" data-animate>
+            <div class="leader-avatar-box">
+              <div class="avatar-initials" aria-label={`Portrait icon for ${leader.name}`}>
+                {leader.name.split(' ').map(n => n[0]).slice(-2).join('')}
+              </div>
+            </div>
+            <div class="leader-info">
+              <h3 class="display-xs leader-name">{leader.name}</h3>
+              <span class="leader-role">{leader.role}</span>
+              <span class="badge badge-soft-blue leader-exp">{leader.experience}</span>
+              <p class="leader-bio">{leader.bio}</p>
+              <div class="leader-contact">
+                <span class="contact-lbl">Direct Desk:</span>
+                <span class="contact-val font-mono">{leader.contact}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: 35+ Year Chronological Timeline -->
+  <section class="band-cloud timeline-section">
+    <div class="container">
+      <div class="section-title-box" data-animate>
+        <span class="eyebrow">Our Journey Since 1988</span>
+        <h2 class="display-md">Milestones of Industrial Leadership</h2>
+      </div>
+
+      <div class="timeline-grid">
+        {milestones.map((m) => (
+          <div class="timeline-item card" data-animate>
+            <div class="timeline-year font-mono">{m.year}</div>
+            <h3 class="display-xs timeline-title">{m.title}</h3>
+            <p class="timeline-desc">{m.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Dark Band -->
+  <section class="band-dark-gradient about-cta-band">
+    <div class="container">
+      <div class="about-cta-box" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Partner with Bhansali Metals</span>
+          <h2 class="display-md" style="color: #fff;">Need a Trusted Supply Partner for Critical Projects?</h2>
+          <p class="lead" style="color: rgba(255,255,255,0.6); max-width: 680px; margin-top: 0.5rem;">
+            Visit our registered head office at Kataria Mansion, Opera House Mumbai or tour our 50,000 sq. ft. stockyard in Kalamboli.
+          </p>
+        </div>
+        <div class="about-cta-actions">
+          <Button href="/contact" variant="primary-bright" size="md">
+            Schedule a Visit / Contact Us
+          </Button>
+          <Button href="/rfq" variant="outline" class="btn-outline-on-dark" size="md">
+            Request Official Quotation
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-steel);
+  }
+
+  /* Hero Section */
+  .about-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .about-hero-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 1024px) {
+    .about-hero-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-title {
+    margin-bottom: 1rem;
+  }
+
+  .about-subtitle {
+    margin-bottom: 1rem;
+    color: var(--color-ink);
+  }
+
+  .about-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-charcoal);
+  }
+
+  /* Stat Card */
+  .about-hero-stat-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-soft-lift);
+    padding: 2rem;
+  }
+
+  .stat-badge {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-highlight {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-num {
+    font-size: 3.5rem;
+    font-weight: var(--weight-bold);
+    line-height: 1;
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+  }
+
+  .stat-unit {
+    font-size: 1.5rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+
+  .stat-caption {
+    font-size: 0.8125rem;
+    color: var(--color-graphite);
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-fog);
+    margin-bottom: 0.75rem;
+  }
+
+  .stat-mini {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-mini strong {
+    font-size: 1rem;
+    color: var(--color-ink);
+  }
+
+  .stat-mini span {
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+  }
+
+  /* Credentials */
+  .credentials-section, .leadership-section, .timeline-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .section-title-box {
+    margin-bottom: 2.25rem;
+  }
+
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .credentials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cred-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+  }
+
+  .cred-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .cred-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .cred-desc {
+    font-size: 0.875rem;
+    color: var(--color-charcoal);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Leadership */
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .leadership-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .leader-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leader-avatar-box {
+    margin-bottom: 1rem;
+  }
+
+  .avatar-initials {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-sharp);
+    background-color: var(--color-ink);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: var(--weight-bold);
+  }
+
+  .leader-name {
+    margin-bottom: 0.25rem;
+  }
+
+  .leader-role {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .leader-exp {
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .leader-bio {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .leader-contact {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    border-top: 1px solid var(--color-fog);
+    padding-top: 0.75rem;
+  }
+
+  .contact-lbl {
+    color: var(--color-graphite);
+  }
+
+  .contact-val {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  /* Timeline */
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .timeline-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .timeline-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .timeline-item {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.5rem;
+  }
+
+  .timeline-year {
+    font-size: 1.25rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .timeline-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.8125rem;
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Closing Dark Band */
+  .about-cta-band {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .about-cta-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .about-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .about-cta-actions {
+      width: 100%;
+    }
+  }
+</style>

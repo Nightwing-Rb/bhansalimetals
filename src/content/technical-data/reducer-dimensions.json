@@ -1,0 +1,135 @@
+{
+  "title": "ASME B16.9 Concentric & Eccentric Reducers Dimensions",
+  "standard": "ASME B16.9 / ASTM A403 / ASTM B366",
+  "category": "fittings-dimensions",
+  "metaTitle": "ASME B16.9 Reducer Dimensions (Concentric & Eccentric) | Bhansali Metals",
+  "metaDescription": "Standard length and outside diameters for concentric and eccentric pipe reducers per ASME B16.9 from 1 inch to 24 inch.",
+  "description": "Dimensional data for concentric and eccentric buttweld reducers manufactured to ASME B16.9 tolerances.",
+  "downloadablePdf": "/downloads/asme-b16-9-reducer-dimensions-bhansali.pdf",
+  "tableHeaders": [
+    "Large End NPS",
+    "Small End NPS",
+    "Large OD (mm)",
+    "Small OD (mm)",
+    "Length H (mm)",
+    "Approx Weight (kg)"
+  ],
+  "rows": [
+    {
+      "Large End NPS": "1\"",
+      "Small End NPS": "1/2\"",
+      "Large OD (mm)": 33.4,
+      "Small OD (mm)": 21.3,
+      "Length H (mm)": 51,
+      "Approx Weight (kg)": 0.2
+    },
+    {
+      "Large End NPS": "1-1/2\"",
+      "Small End NPS": "1\"",
+      "Large OD (mm)": 48.3,
+      "Small OD (mm)": 33.4,
+      "Length H (mm)": 64,
+      "Approx Weight (kg)": 0.38
+    },
+    {
+      "Large End NPS": "2\"",
+      "Small End NPS": "1\"",
+      "Large OD (mm)": 60.3,
+      "Small OD (mm)": 33.4,
+      "Length H (mm)": 76,
+      "Approx Weight (kg)": 0.6
+    },
+    {
+      "Large End NPS": "2\"",
+      "Small End NPS": "1-1/2\"",
+      "Large OD (mm)": 60.3,
+      "Small OD (mm)": 48.3,
+      "Length H (mm)": 76,
+      "Approx Weight (kg)": 0.65
+    },
+    {
+      "Large End NPS": "3\"",
+      "Small End NPS": "2\"",
+      "Large OD (mm)": 88.9,
+      "Small OD (mm)": 60.3,
+      "Length H (mm)": 89,
+      "Approx Weight (kg)": 1.15
+    },
+    {
+      "Large End NPS": "4\"",
+      "Small End NPS": "2\"",
+      "Large OD (mm)": 114.3,
+      "Small OD (mm)": 60.3,
+      "Length H (mm)": 102,
+      "Approx Weight (kg)": 1.95
+    },
+    {
+      "Large End NPS": "4\"",
+      "Small End NPS": "3\"",
+      "Large OD (mm)": 114.3,
+      "Small OD (mm)": 88.9,
+      "Length H (mm)": 102,
+      "Approx Weight (kg)": 2.1
+    },
+    {
+      "Large End NPS": "6\"",
+      "Small End NPS": "4\"",
+      "Large OD (mm)": 168.3,
+      "Small OD (mm)": 114.3,
+      "Length H (mm)": 140,
+      "Approx Weight (kg)": 4.8
+    },
+    {
+      "Large End NPS": "8\"",
+      "Small End NPS": "6\"",
+      "Large OD (mm)": 219.1,
+      "Small OD (mm)": 168.3,
+      "Length H (mm)": 152,
+      "Approx Weight (kg)": 9.2
+    },
+    {
+      "Large End NPS": "10\"",
+      "Small End NPS": "8\"",
+      "Large OD (mm)": 273,
+      "Small OD (mm)": 219.1,
+      "Length H (mm)": 178,
+      "Approx Weight (kg)": 16.5
+    },
+    {
+      "Large End NPS": "12\"",
+      "Small End NPS": "10\"",
+      "Large OD (mm)": 323.8,
+      "Small OD (mm)": 273,
+      "Length H (mm)": 203,
+      "Approx Weight (kg)": 25
+    },
+    {
+      "Large End NPS": "16\"",
+      "Small End NPS": "12\"",
+      "Large OD (mm)": 406.4,
+      "Small OD (mm)": 323.8,
+      "Length H (mm)": 356,
+      "Approx Weight (kg)": 45
+    },
+    {
+      "Large End NPS": "20\"",
+      "Small End NPS": "16\"",
+      "Large OD (mm)": 508,
+      "Small OD (mm)": 406.4,
+      "Length H (mm)": 508,
+      "Approx Weight (kg)": 95
+    },
+    {
+      "Large End NPS": "24\"",
+      "Small End NPS": "20\"",
+      "Large OD (mm)": 610,
+      "Small OD (mm)": 508,
+      "Length H (mm)": 508,
+      "Approx Weight (kg)": 140
+    }
+  ],
+  "dualUnitAvailable": true,
+  "notes": [
+    "Concentric and eccentric profiles available in all schedule thicknesses."
+  ]
+}

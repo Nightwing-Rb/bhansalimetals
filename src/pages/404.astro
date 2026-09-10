@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/common/Button.astro';
+import Badge from '../components/common/Badge.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: '404 - Page Not Found', url: '/404' },
+];
+
+const portalCards = [
+  {
+    title: 'Product Catalog Hub',
+    desc: 'Explore all 7 product categories: ASME B16.5 Flanges, Pipes & Tubes, Buttweld Fittings, Forged Fittings, Fasteners, Round Bars, and Plates.',
+    href: '/products',
+    badge: '7 Categories',
+  },
+  {
+    title: 'Superalloys Matrix',
+    desc: 'Browse complete chemical and mechanical specifications for 23+ alloys: Inconel 625/600, Monel 400, Hastelloy C-276, and Super Duplex 2507.',
+    href: '/alloys',
+    badge: '23+ Grades',
+  },
+  {
+    title: 'Engineering Technical Data',
+    desc: 'Access ASME B16.5 flange dimension tables, ANSI pipe schedule charts, 14 theoretical weight formulas, and material equivalence matrix.',
+    href: '/technical-data',
+    badge: 'Interactive Data',
+  },
+  {
+    title: 'Direct RFQ Portal',
+    desc: 'Submit your Bill of Quantities (BOQ) or material schedule for fast mill-direct pricing with EN 10204 3.1 Mill Test Certificates.',
+    href: '/rfq',
+    badge: 'Instant Quote',
+  },
+];
+---
+
+<BaseLayout
+  title="404 - Page Not Found | Bhansali Metals"
+  description="The requested metallurgical specification or catalog page could not be found. Navigate our product catalog, superalloy grades, or technical data tables."
+  canonicalUrl="https://www.bhansalimetals.com/404"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb-strip" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">404 Not Found</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- 404 Hero Section -->
+  <section class="band-canvas error-hero" style="display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 6rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="error-hero-content card" data-animate style="margin: 0 auto; max-width: 760px; padding: 4rem; background: var(--glass-bg); backdrop-filter: blur(20px); border: var(--glass-border); border-radius: 20px;">
+        <div class="badge-row" style="justify-content: center; display: flex;">
+          <Badge variant="soft-blue">
+            <span>Status 404 &bull; Resource Relocated</span>
+          </Badge>
+        </div>
+
+        <h1 class="display-xl error-title">
+          404 - Page Not Found
+        </h1>
+
+        <p class="lead error-subtitle">
+          The metallurgical resource, product page, or technical document you requested could not be located. It may have been relocated or updated as part of our modern catalog architecture.
+        </p>
+
+        <div class="error-actions" style="justify-content: center; display: flex;">
+          <a href="/" class="btn btn-primary" style="border-radius: 10px;">
+            Return to Homepage
+          </a>
+          <a href="/products" class="btn btn-outline" style="border-radius: 10px;">
+            Browse All Products
+          </a>
+          <a href="/contact" class="btn btn-outline" style="border-radius: 10px;">
+            Contact Opera House Office
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Navigation Hub -->
+  <section class="band-cloud portal-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center;" data-animate>
+        <span class="eyebrow">Explore Engineering Portals</span>
+        <h2 class="display-md">Quick Navigation to Verified Metal Resources</h2>
+        <p class="section-lead">
+          Find the exact high-nickel alloy specifications, dimensional standards, or product forms you need below:
+        </p>
+      </div>
+
+      <div class="portal-grid">
+        {portalCards.map((portal) => (
+          <a href={portal.href} class="portal-card card card-soft-lift" data-animate>
+            <div class="portal-card-header">
+              <span class="portal-badge" style="border-radius: 12px;">{portal.badge}</span>
+              <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="portal-title">{portal.title}</h3>
+            <p class="portal-desc">{portal.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Help Desk Slab -->
+  <section class="band-dark-gradient error-footer-slab">
+    <div class="container">
+      <div class="slab-layout" data-animate>
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Need Immediate Assistance?</span>
+          <h2 class="display-sm" style="color: #fff;">Can't Find Your Technical Specification?</h2>
+          <p style="color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.5; max-width: 600px;">
+            Our metallurgical engineers at Opera House, Mumbai are available to answer your material grade questions directly.
+          </p>
+        </div>
+        <div class="slab-actions">
+          <a
+            href="https://wa.me/919892244451?text=Hello%20Bhansali%20Metals%2C%20I%20am%20looking%20for%20a%20product%20specification."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline-on-dark" style="border-radius: 10px;"
+          >
+            Direct WhatsApp (+91 98922 44451)
+          </a>
+          <Button variant="primary-bright" data-open-rfq style="border-radius: 10px;">
+            Submit an RFQ
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumbs */
+  .breadcrumb-strip {
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+  }
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .breadcrumb-item a {
+    color: var(--color-charcoal);
+    text-decoration: none;
+  }
+  .breadcrumb-item a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .breadcrumb-separator {
+    color: var(--color-graphite);
+  }
+  .breadcrumb-item.current {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  /* Error Hero */
+  .error-hero {
+    padding: 5rem 0 4rem;
+  }
+  .error-hero-content {
+    max-width: 760px;
+  }
+  .badge-row {
+    margin-bottom: 1.25rem;
+  }
+  .error-title {
+    color: var(--color-ink);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .error-subtitle {
+    color: var(--color-charcoal);
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+  .error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Portal Section */
+  .portal-section {
+    padding: 4.5rem 0;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .section-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-top: 0.75rem;
+  }
+  .portal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  @media (min-width: 640px) {
+    .portal-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .portal-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .portal-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-soft-lift);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .portal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(26, 26, 26, 0.1);
+    border-color: var(--color-primary);
+  }
+  .portal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .portal-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-primary-soft);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sharp);
+  }
+  .arrow-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-graphite);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .portal-card:hover .arrow-icon {
+    transform: translateX(3px);
+    color: var(--color-primary);
+  }
+  .portal-title {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+  .portal-desc {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+
+  /* Closing Slab */
+  .error-footer-slab {
+    background-color: var(--color-ink);
+    padding: 4rem 0;
+  }
+  .slab-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .slab-layout {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .eyebrow-bright {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-bright);
+    margin-bottom: 0.5rem;
+  }
+  .text-on-ink {
+    color: var(--color-on-ink);
+    margin: 0 0 0.5rem;
+  }
+  .text-on-ink-secondary {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 600px;
+  }
+  .slab-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .btn-bright {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-bright);
+    color: var(--color-on-primary-bright);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-sharp);
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+  .btn-bright:hover {
+    background-color: var(--color-primary-bright-hover);
+  }
+  .btn-sharp {
+    border-radius: var(--radius-sharp);
+  }
+</style>

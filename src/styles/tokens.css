@@ -1,0 +1,137 @@
+/* ==========================================================================
+   DESIGN TOKENS — "SIGNAL BLUE" SYSTEM
+   --------------------------------------------------------------------------
+   Ground:   white canvas, neutral-gray bands, flat ink-navy dark surfaces.
+   Accent:   ONE chromatic colour (#0F62FE) plus one semantic green.
+   Text on dark uses an explicit opacity ramp, never white-at-alpha — an
+   alpha ramp over a gradient surface produces contrast that drifts as the
+   surface brightens (this is what broke the previous footer).
+
+   Every colour pair below is verified against WCAG AA:
+     4.5:1 for text, 3:1 for non-text UI (SC 1.4.11).
+   See .figma/verify.mjs for the full measured table.
+   ========================================================================== */
+
+:root {
+  /* --- Brand & Accent -------------------------------------------------- */
+  /* #0F62FE is mid-luminance: 5.00:1 on white, only 3.62:1 on the navy slab.
+     It is therefore a FILL colour, not a text colour on dark surfaces. */
+  --color-primary: #0f62fe;
+  --color-primary-rgb: 15, 98, 254;
+
+  /* The on-dark tint. Deliberately not a lightened primary — the mid-tone
+     #4589FF measures 3.35:1 on white and 5.42:1 on navy, failing as text in
+     both directions. #78A9FF is 7.70:1 on navy but only 2.35:1 on white, so
+     it is for dark surfaces ONLY and always carries ink-coloured text. */
+  --color-primary-bright: #78a9ff;
+  --color-on-primary-bright: #0a1628; /* 7.70:1 on --color-primary-bright */
+  --color-primary-bright-hover: #8fb8ff; /* 8.9:1 with the same ink label */
+
+  --color-primary-hover: #0353e9; /* 6.14:1 with a white label */
+  --color-primary-deep: #0043ce;  /* pressed state + badge text on soft */
+  --color-primary-soft: #d0e2ff;  /* pale chip / table-highlight surface */
+
+  /* Two-part focus ring. The solid border carries the required 3:1; this
+     halo is decorative. A 0.15-alpha ring alone measures 1.24:1 and fails. */
+  --color-primary-glow: rgba(15, 98, 254, 0.25);
+
+  /* --- Surfaces & Canvas ----------------------------------------------- */
+  --color-canvas: #ffffff;
+  --color-paper: #ffffff;
+  --color-cloud: #f4f5f7;
+  --color-fog: #e4e6ea;
+  --color-steel: #c2c2c2;
+  --color-hairline: #e4e6ea;
+
+  /* --- Dark Surfaces (flat, not gradient) ------------------------------ */
+  --color-slab: #0a1628;
+  --color-slab-raised: #12233d;
+  --color-slab-deep: #08111f;
+
+  /* --- Typography & Ink ------------------------------------------------ */
+  --color-ink: #161616;
+  --color-ink-deep: #000000;
+  --color-ink-soft: #1f2937;
+  --color-on-primary: #ffffff;
+  --color-charcoal: #3f4652; /* body copy     — 9.51:1 on canvas */
+  --color-graphite: #5c6270; /* captions      — 6.11:1 on canvas */
+
+  /* --- On-Dark Text Ramp (use these, never rgba(255,255,255,a)) --------- */
+  --on-ink: #f4f5f7;        /* headings            — 16.62:1 on slab */
+  --color-on-ink: #ffffff;  /* alias for light text on dark backgrounds */
+  --color-on-ink-muted: #c7ceda;
+  --on-ink-2: #c7ceda;      /* labels              — 11.46:1 on slab */
+  --on-ink-muted: #9aa3b2;  /* body + links        —  7.13:1 on slab */
+  --on-ink-faint: #7c8698;  /* legal text only     —  4.94:1 on slab */
+
+  /* --- Semantic -------------------------------------------------------- */
+  /* Was #059669, which measured 3.77:1 on white — below AA. */
+  --color-success: #047857;
+  --color-success-rgb: 4, 120, 87;
+  --color-success-soft: #d1fae5;
+  --color-success-deep: #065f46;
+  --color-error: #b91c1c;
+  --color-error-soft: #fee2e2;
+
+  /* --- Typography ------------------------------------------------------ */
+  --font-sans: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --weight-regular: 400;
+  --weight-display: 600;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* --- Border Radii ---------------------------------------------------- */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-sharp: 10px;  /* buttons, inputs */
+  --radius-lg: 12px;     /* badges, rows, meta panels */
+  --radius-soft: 20px;   /* cards, containers */
+  --radius-pill: 9999px;
+
+  /* --- Elevation ------------------------------------------------------- */
+  --shadow-flat: none;
+  --shadow-hairline: 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-soft-lift: 0 4px 30px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-floating-modal: 0 16px 70px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* --- Glassmorphism --------------------------------------------------- */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-strong: rgba(255, 255, 255, 0.85);
+  --glass-bg-dark: rgba(10, 22, 40, 0.78);
+  --glass-bg-dark-strong: rgba(8, 17, 31, 0.88);
+  --glass-blur: 20px;
+  --glass-blur-heavy: 40px;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  --glass-border-subtle: 1px solid rgba(0, 0, 0, 0.06);
+  --glass-border-dark: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* --- Surface Gradients ----------------------------------------------- */
+  /* Restricted to one hue family. A wide gradient makes text contrast drift
+     across the surface; 1.15:1 of separation is enough to read as depth. */
+  --surface-dark-gradient: linear-gradient(180deg, #0a1628 0%, #12233d 100%);
+  --surface-hero-gradient: linear-gradient(180deg, #08111f 0%, #0f1e33 55%, #12233d 100%);
+  --surface-mesh-subtle: radial-gradient(ellipse at 30% 0%, rgba(15, 98, 254, 0.10) 0%, transparent 60%);
+  --surface-mesh-accent: radial-gradient(ellipse at 70% 100%, rgba(15, 98, 254, 0.08) 0%, transparent 50%);
+
+  /* --- Layout & Spacing ------------------------------------------------ */
+  --container-max-width: 1280px;
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-3xl: 48px;
+  --spacing-section: 120px;
+  --spacing-section-mobile: 72px;
+
+  /* --- Animation ------------------------------------------------------- */
+  --ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}

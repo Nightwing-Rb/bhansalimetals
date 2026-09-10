@@ -1,0 +1,355 @@
+---
+import StockPill from '../conversion/StockPill.astro';
+import WhatsAppButton from '../conversion/WhatsAppButton.astro';
+
+interface Props {
+  grade: string;
+  uns: string;
+  wnr?: string | null;
+  astmStandards?: string[] | string;
+  asmeStandards?: string[] | string;
+  naceCompliance?: boolean;
+  family?: string;
+  pren?: number;
+  density?: string;
+  forms?: string[];
+  product?: string;
+  class?: string;
+}
+
+const {
+  grade,
+  uns,
+  wnr,
+  astmStandards = [],
+  asmeStandards = [],
+  naceCompliance = true,
+  family,
+  pren,
+  density,
+  forms = [],
+  product,
+  class: className = '',
+} = Astro.props;
+
+const astmList = Array.isArray(astmStandards)
+  ? astmStandards
+  : typeof astmStandards === 'string'
+    ? [astmStandards]
+    : [];
+
+const asmeList = Array.isArray(asmeStandards)
+  ? asmeStandards
+  : typeof asmeStandards === 'string'
+    ? [asmeStandards]
+    : [];
+---
+
+<div class={`card card-soft-lift specs-summary-card ${className}`.trim()}>
+  <!-- Top Bar: Live Stock Readiness & Dispatch Guarantee -->
+  <div class="specs-header-strip">
+    <StockPill grade={grade} size="md" />
+    <div class="header-badges">
+      <span class="badge badge-soft-blue">
+        <span>EN 10204 3.1 MTC Included</span>
+      </span>
+      {
+        family && (
+          <span class="badge badge-ink">
+            <span>{family}</span>
+          </span>
+        )
+      }
+    </div>
+  </div>
+
+  <!-- Metallurgical Identification Grid -->
+  <div class="specs-body">
+    <div class="metallurgy-cross-ref">
+      <span class="specs-subheading">Metallurgical Designation &amp; International Cross-Reference</span>
+      <div class="spec-pills-row">
+        <!-- UNS Number -->
+        <div class="spec-pill-item">
+          <span class="spec-pill-key">UNS</span>
+          <span class="spec-pill-val font-mono">{uns}</span>
+        </div>
+
+        <!-- Werkstoff Number -->
+        {
+          wnr && (
+            <div class="spec-pill-item">
+              <span class="spec-pill-key">W.Nr. / DIN</span>
+              <span class="spec-pill-val font-mono">{wnr}</span>
+            </div>
+          )
+        }
+
+        <!-- PREN Score -->
+        {
+          pren && (
+            <div class="spec-pill-item">
+              <span class="spec-pill-key">PREN</span>
+              <span class="spec-pill-val font-mono">≥ {pren}</span>
+            </div>
+          )
+        }
+
+        <!-- NACE MR0175 Compliance -->
+        {
+          naceCompliance && (
+            <div class="spec-pill-item spec-pill-nace">
+              <span class="spec-pill-key">NACE</span>
+              <span class="spec-pill-val">MR0175 / ISO 15156 Sour Compliant</span>
+            </div>
+          )
+        }
+
+        <!-- Density -->
+        {
+          density && (
+            <div class="spec-pill-item">
+              <span class="spec-pill-key">Density</span>
+              <span class="spec-pill-val font-mono">{density}</span>
+            </div>
+          )
+        }
+      </div>
+    </div>
+
+    <!-- Standards Matrix (ASTM & ASME) -->
+    {
+      (astmList.length > 0 || asmeList.length > 0) && (
+        <div class="standards-strip">
+          <span class="specs-subheading">Applicable Manufacturing Standards</span>
+          <div class="standards-tags">
+            {astmList.map((std) => (
+              <span class="badge badge-mono">{std}</span>
+            ))}
+            {asmeList.map((std) => (
+              <span class="badge badge-mono" style="border-color: var(--color-primary-soft); color: var(--color-primary-deep); background-color: #f0f6ff;">
+                {std}
+              </span>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Available Mill Forms Preview -->
+    {
+      forms.length > 0 && (
+        <div class="forms-strip">
+          <span class="specs-subheading">Ready Stock Mill Forms</span>
+          <div class="forms-pills">
+            {forms.map((form) => (
+              <span class="form-pill">{form}</span>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Conversion Action Desk -->
+    <div class="specs-actions">
+      <div class="actions-buttons">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-open-rfq
+          data-alloy={grade}
+          data-product={product || 'Flanges, Pipes, Fittings'}
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Request Quick RFQ</span>
+        </button>
+
+        <WhatsAppButton
+          variant="inline"
+          grade={grade}
+          product={product}
+          label="Inquire via WhatsApp"
+        />
+      </div>
+
+      <div class="dispatch-guarantee">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="guarantee-icon" aria-hidden="true">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+        </svg>
+        <span>100% Spectro PMI Verified • Ready for Immediate Ex-Stock Dispatch from Kalamboli Stockyard</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .specs-summary-card {
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-soft, 16px);
+    overflow: hidden;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .specs-header-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-cloud);
+    border-bottom: 1px solid var(--color-fog);
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .header-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .specs-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .specs-subheading {
+    font-size: 0.6875rem;
+    font-weight: var(--weight-semibold, 600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-graphite);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .spec-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .spec-pill-item {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-cloud);
+    border: 1px solid var(--color-fog);
+    border-radius: var(--radius-sharp, 4px);
+    font-size: 0.8125rem;
+    overflow: hidden;
+  }
+
+  .spec-pill-key {
+    background-color: var(--color-fog);
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold, 600);
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+  }
+
+  .spec-pill-val {
+    padding: 4px 10px;
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  .spec-pill-nace {
+    border-color: #a7f3d0;
+    background-color: #f0fdf4;
+  }
+
+  .spec-pill-nace .spec-pill-key {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+
+  .spec-pill-nace .spec-pill-val {
+    color: #166534;
+  }
+
+  .standards-strip {
+    border-top: 1px solid var(--color-hairline);
+    padding-top: 1rem;
+  }
+
+  .standards-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .forms-strip {
+    border-top: 1px solid var(--color-hairline);
+    padding-top: 1rem;
+  }
+
+  .forms-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .form-pill {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    background-color: var(--color-canvas);
+    border: 1px solid var(--color-steel);
+    border-radius: var(--radius-pill, 9999px);
+    padding: 3px 10px;
+  }
+
+  .specs-actions {
+    border-top: 1px solid var(--color-fog);
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .actions-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .actions-buttons .btn {
+    flex: 1 1 200px;
+  }
+
+  .dispatch-guarantee {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-graphite);
+  }
+
+  .guarantee-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .specs-header-strip {
+      padding: 1rem;
+    }
+    .specs-body {
+      padding: 1rem;
+    }
+    .actions-buttons .btn {
+      flex: 1 1 100%;
+    }
+  }
+</style>
